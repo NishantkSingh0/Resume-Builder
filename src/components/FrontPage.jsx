@@ -12,18 +12,19 @@ const features= [
 ]
 
 const FrontPage = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const handleContinue = () => {
-    navigate('/GetInfo')
-  }
+    navigate('/GetInfo');
+  };
+
   useEffect(() => {
     const typed = new Typed(".typing-text", {
-      strings:features,
+      strings: features,
       loop: true,
       typeSpeed: 35,
       backSpeed: 25,
       backDelay: 500,
-      cursorChar:" "
+      cursorChar: " "
     });
 
     return () => {
@@ -32,17 +33,23 @@ const FrontPage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-gray-100 text-center">
+    <div className="flex flex-col justify-center items-center h-screen bg-gray-100 text-center px-4">
       <div className="flex flex-col justify-center items-center w-full">
-        <h1 className="text-4xl font-bold mb-3">Resume Builder Web Application</h1>
-        <span className="text-2xl text-gray-800 h-8 mb-3 typing-text"></span>
+        <h1 className="text-4xl md:text-3xl sm:text-3xl xs:text-2xl font-bold mb-3">
+          Resume Builder Web Application
+        </h1>
+        <span className="text-2xl md:text-xl sm:text-xl xs:text-sm text-gray-800 h-8 mb-3 typing-text"></span>
         <button className="px-4 py-2 bg-gray-400 text-white rounded-full hover:bg-blue-700 transition mt-5" onClick={handleContinue}>
-            Continue
+          Continue
         </button>
       </div>
-      <div className="absolute bottom-2">
+      <div className="absolute bottom-2 text-center">
         <p className="text-lg text-gray-500">BRAVERS</p>
-        <p className="text-sm text-gray-500 mb-5"><a href="https://nishantksingh0.github.io/Portfolio/" target="_blank">nishantksingh0.github.io/Portfolio</a></p>
+        <p className="text-sm text-gray-500 mb-5">
+          <a href="https://nishantksingh0.github.io/Portfolio/" target="_blank">
+            nishantksingh0.github.io/Portfolio
+          </a>
+        </p>
       </div>
     </div>
   );
