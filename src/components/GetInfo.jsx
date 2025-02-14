@@ -182,89 +182,89 @@ const GetInfo = () => {
       case 0:
         return (
           <div className="space-y-4">
-            <h2 className="text-2xl mb-4 font-bold border-b-4 border-gray-500 text-gray-700">Contact Information</h2>
+            <h2 className="text-xl sm:text-2xl mb-4 font-bold border-b-4 border-gray-500 text-gray-700">Contact Information</h2>
               <div className="space-y-2">
-                <label className="block text-sm font-medium">Full Name</label>
+                <label className="block text-xs sm:text-sm font-medium">Full Name</label>
                 <input
                   type="text"
-                  className="w-full p-2 border rounded"
+                  className="w-full pl-1 sm:p-2 border rounded"
                   value={formData.contactInfo.fullName}
                   onChange={(e) => handleInputChange('contactInfo', 'fullName', e.target.value)}
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">Phone Number</label>
+                <label className="block text-xs sm:text-sm font-medium">Phone Number</label>
                 <input
                   type="text"
                   placeholder='99X15XX566'
-                  className="w-full p-2 border rounded"
+                  className="w-full pl-1 sm:p-2 border rounded"
                   value={formData.contactInfo.phoneNumber}
                   onChange={(e) => handleInputChange('contactInfo', 'phoneNumber', e.target.value)}
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">Email Address</label>
+                <label className="block text-xs sm:text-sm font-medium">Email Address</label>
                 <input
                   type="email"
                   placeholder='nishantsingh.talk@gmail.com'
-                  className="w-full p-2 border rounded"
+                  className="w-full pl-1 sm:p-2 border rounded"
                   value={formData.contactInfo.emailAddress}
                   onChange={(e) => handleInputChange('contactInfo', 'emailAddress', e.target.value)}
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">LinkedIn URL</label>
+                <label className="block text-xs sm:text-sm font-medium">LinkedIn URL</label>
                 <input
                   type="text"u
                   placeholder='www.linkedin.com/nishantksingh1'
-                  className="w-full p-2 border rounded"
+                  className="w-full pl-1 sm:p-2 border rounded"
                   value={formData.contactInfo.linkedinUrl}
                   onChange={(e) => handleInputChange('contactInfo', 'linkedinUrl', e.target.value)}
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">Portfolio URL</label>
+                <label className="block text-xs sm:text-sm font-medium">Portfolio URL</label>
                 <input
                   type="text"
                   placeholder='nishantksingh0.github.io/Portfolio'
-                  className="w-full p-2 border rounded"
+                  className="w-full pl-1 sm:p-2 border rounded"
                   value={formData.contactInfo.portfolioUrl}
                   onChange={(e) => handleInputChange('contactInfo', 'portfolioUrl', e.target.value)}
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">Job Title</label>
+                <label className="block text-xs sm:text-sm font-medium">Job Title</label>
                 <input
                   type="text"
                   placeholder='Data Scientist'
-                  className="w-full p-2 border rounded"
+                  className="w-full pl-1 sm:p-2 border rounded"
                   value={formData.contactInfo.jobTitle}
                   onChange={(e) => handleInputChange('contactInfo', 'jobTitle', e.target.value)}
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">Languages you are familiar with</label>
+                <label className="block text-xs sm:text-sm font-medium">Languages you are familiar with</label>
                 <input
                   type="text"
                   placeholder='English, Hindi, French'
-                  className="w-full p-2 border rounded"
+                  className="w-full pl-1 sm:p-2 border rounded"
                   value={formData.contactInfo.Languages}
                   onChange={(e) => handleInputChange('contactInfo', 'Languages', e.target.value)}
                 />
               </div>
               
               <div className="space-y-2">
-                <label className="block text-sm font-medium">YourLocation</label>
+                <label className="block text-xs sm:text-sm font-medium">YourLocation</label>
                 <input
                   type="text"
                   placeholder='Haridwar (UTTRAKHAND)'
-                  className="w-full p-2 border rounded"
+                  className="w-full pl-1 sm:p-2 border rounded"
                   value={formData.contactInfo.Location}
                   onChange={(e) => handleInputChange('contactInfo', 'Location', e.target.value)}
                 />
@@ -275,12 +275,12 @@ const GetInfo = () => {
       case 1:
         return (
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold border-b-4 border-gray-500 mb-4">Skills</h2>
+            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-gray-500 mb-4">Skills</h2>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">Technical Skills</label>
+                <label className="block text-xs sm:text-sm font-medium">Technical Skills</label>
                 <input
-                  className="w-full p-2 border rounded"
+                  className="w-full pl-1 sm:p-2 border rounded"
                   placeholder='TensorFlow, PyTorch, Scikit-learn, Keras, Hugging Face, C/C++, Java, JavaScript, React'
                   value={formData.skills.hardSkills}
                   onChange={(e) => handleInputChange('skills', 'hardSkills', e.target.value)}
@@ -288,9 +288,9 @@ const GetInfo = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">Soft Skills</label>
+                <label className="block text-xs sm:text-sm font-medium">Soft Skills</label>
                 <input
-                  className="w-full p-2 border rounded"
+                  className="w-full pl-1 sm:p-2 border rounded"
                   placeholder='TeamWork, strong Problem-Solving skill, Leadership, Critical thinking, Communication'
                   value={formData.skills.softSkills}
                   onChange={(e) => handleInputChange('skills', 'softSkills', e.target.value)}
@@ -298,9 +298,9 @@ const GetInfo = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">Tools/Technologies</label>
+                <label className="block text-xs sm:text-sm font-medium">Tools/Technologies</label>
                 <input
-                  className="w-full p-2 border rounded"
+                  className="w-full pl-1 sm:p-2 border rounded"
                   value={formData.skills.toolsTechnologies}
                   onChange={(e) => handleInputChange('skills', 'toolsTechnologies', e.target.value)}
                 />
@@ -312,40 +312,40 @@ const GetInfo = () => {
       case 2:
         return (
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold border-b-4 border-gray-500 ">Work Experience</h2>
+            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-gray-500 ">Work Experience</h2>
             <p className='test-xl font-semibold mb-6 text-gray-600'>Hint: Add atleast 2 work Experiences from previous companies as internship or full time job</p>
             {formData.workExperience.map((exp, index) => (
               <div key={index} className="p-4 border rounded space-y-4">
                 <h3 className="font-medium">Experience {index + 1}</h3>
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Job Title</label>
+                    <label className="block text-xs sm:text-sm font-medium">Job Title</label>
                     <input
                       type="text"
                       placeholder='Data Scientist'
-                      className="w-full p-2 border rounded" 
+                      className="w-full pl-1 sm:p-2 border rounded" 
                       value={exp.jobTitle}
                       onChange={(e) => handleInputChange('workExperience', 'jobTitle', e.target.value, index)}
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Company Name and Duration</label>
+                    <label className="block text-xs sm:text-sm font-medium">Company Name and Duration</label>
                     <input
                       type="text"
                       placeholder='Onlei Teach, 1 Month'
-                      className="w-full p-2 border rounded"
+                      className="w-full pl-1 sm:p-2 border rounded"
                       value={exp.companyNameDuration}
                       onChange={(e) => handleInputChange('workExperience', 'companyNameDuration', e.target.value, index)}
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Key Achievements</label>
+                    <label className="block text-xs sm:text-sm font-medium">Key Achievements</label>
                     <input
                       type="text"
                       placeholder='Learn to visualize patterns from data using matplotlib and Built several DL models'
-                      className="w-full p-2 border rounded"
+                      className="w-full pl-1 sm:p-2 border rounded"
                       value={exp.keyAchievements}
                       onChange={(e) => handleInputChange('workExperience', 'keyAchievements', e.target.value, index)}
                     />
@@ -364,29 +364,29 @@ const GetInfo = () => {
       case 3:
         return (
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold border-b-4 border-gray-500">Projects</h2>
+            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-gray-500">Projects</h2>
             <p className='test-xl font-semibold mb-6 text-gray-600'>Hint: Add atleast 3 projects which you did in your academics</p>
             {formData.projects.map((project, index) => (
               <div key={index} className="p-4 border rounded space-y-4">
                 <h3 className="font-medium">Project {index + 1}</h3>
                   
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Project Title</label>
+                    <label className="block text-xs sm:text-sm font-medium">Project Title</label>
                     <input
                       type="text"
                       placeholder='Transformer based translation model from scratch'
-                      className="w-full p-2 border rounded"
+                      className="w-full pl-1 sm:p-2 border rounded"
                       value={project.projectTitle}
                       onChange={(e) => handleInputChange('projects', 'projectTitle', e.target.value, index)}
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Tools/Tech Used</label>
+                    <label className="block text-xs sm:text-sm font-medium">Tools/Tech Used</label>
                     <input
                       type="text"
                       placeholder='Tensorflow, NumPy, Pandas, Matplotlib, Multi30k Dataset, ModelSubclassing'
-                      className="w-full p-2 border rounded"
+                      className="w-full pl-1 sm:p-2 border rounded"
                       value={project.toolsTechUsed}
                       onChange={(e) => handleInputChange('projects', 'toolsTechUsed', e.target.value, index)}
                     />
@@ -405,50 +405,50 @@ const GetInfo = () => {
         case 4:
           return (
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold border-b-4 border-gray-500 mb-4">Education</h2>
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-gray-500 mb-4">Education</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600'>Hint: Add your pre/post graduations on different sections</p>
               {formData.education.map((edu, index) => (
                 <div key={index} className="p-4 border rounded space-y-4">
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Institution Name</label>
+                    <label className="block text-xs sm:text-sm font-medium">Institution Name</label>
                     <input
                       type="text"
                       placeholder='Haridwar University'
-                      className="w-full p-2 border rounded"
+                      className="w-full pl-1 sm:p-2 border rounded"
                       value={edu.institutionName}
                       onChange={(e) => handleInputChange('education', 'institutionName', e.target.value, index)}
                     />
                   </div>
         
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Degree Name</label>
+                    <label className="block text-xs sm:text-sm font-medium">Degree Name</label>
                     <input
                       type="text"
                       placeholder='Batchelor in computer application'
-                      className="w-full p-2 border rounded"
+                      className="w-full pl-1 sm:p-2 border rounded"
                       value={edu.degreeName}
                       onChange={(e) => handleInputChange('education', 'degreeName', e.target.value, index)}
                     />
                   </div>
         
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Graduation duration</label>
+                    <label className="block text-xs sm:text-sm font-medium">Graduation duration</label>
                     <input
                       type="text"
                       placeholder='2023 - 2026'
-                      className="w-full p-2 border rounded"
+                      className="w-full pl-1 sm:p-2 border rounded"
                       value={edu.graduationYear}
                       onChange={(e) => handleInputChange('education', 'graduationYear', e.target.value, index)}
                     />
                   </div>
         
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Current SGPA</label>
+                    <label className="block text-xs sm:text-sm font-medium">Current SGPA</label>
                     <input
                       type="text"
                       placeholder='?? / 10'
-                      className="w-full p-2 border rounded"
+                      className="w-full pl-1 sm:p-2 border rounded"
                       value={edu.currentSGPA}
                       onChange={(e) => handleInputChange('education', 'currentSGPA', e.target.value, index)}
                     />
@@ -468,7 +468,7 @@ const GetInfo = () => {
       case 5:
         return (
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold border-b-4 border-gray-500 mb-4">Certificates</h2>
+            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-gray-500 mb-4">Certificates</h2>
             <p className='test-xl font-semibold mb-6 text-gray-600'>Hint: Add atleast 5 high rated certificates</p>
             {formData.certificates.map((cert, index) => (
               <div key={index} className="p-4 border rounded space-y-4">
@@ -476,33 +476,33 @@ const GetInfo = () => {
                 <div className="space-y-4">
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Certificate Name</label>
+                    <label className="block text-xs sm:text-sm font-medium">Certificate Name</label>
                     <input
                       type="text"
                       placeholder='Azure AI Engineer Associate'
-                      className="w-full p-2 border rounded"
+                      className="w-full pl-1 sm:p-2 border rounded"
                       value={cert.certificateName}
                       onChange={(e) => handleInputChange('certificates', 'certificateName', e.target.value, index)}
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Course Duration</label>
+                    <label className="block text-xs sm:text-sm font-medium">Course Duration</label>
                     <input
                       type="text"
                       placeholder='2 Month'
-                      className="w-full p-2 border rounded"
+                      className="w-full pl-1 sm:p-2 border rounded"
                       value={cert.courseDuration}
                       onChange={(e) => handleInputChange('certificates', 'courseDuration', e.target.value, index)}
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Provider Name</label>
+                    <label className="block text-xs sm:text-sm font-medium">Provider Name</label>
                     <input
                       type="text"
                       placeholder='Microsoft'
-                      className="w-full p-2 border rounded"
+                      className="w-full pl-1 sm:p-2 border rounded"
                       value={cert.providerName}
                       onChange={(e) => handleInputChange('certificates', 'providerName', e.target.value, index)}
                     />
@@ -522,7 +522,7 @@ const GetInfo = () => {
       case 6:
         return (
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold border-b-4 border-gray-500 mb-4">Choose Template</h2>
+            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-gray-500 mb-4">Choose Template</h2>
             <div className="grid grid-cols-3 gap-4">
                 {[1, 2, 3, 4, 5, 6, 7].map((template) => (
                   <div
@@ -566,8 +566,8 @@ const GetInfo = () => {
 
         {/* Sidebar Content (Always Visible on Desktop) */}
         <div className={`${isOpen || "hidden md:block"}`}>
-          <br/><br/>
-          <h1 className="text-2xl font-bold mb-6">Resume Builder</h1>
+          {/* {isOpen ?  <><br/><br/></>:null } */}
+          <h1 className={`text-2xl font-bold mb-6 ${isOpen?"pt-10":"pt-0"}`}>Resume Builder</h1>
           <div className="space-y-4">
             {steps.map((step, index) => (
               <div
