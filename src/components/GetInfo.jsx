@@ -42,10 +42,10 @@ const GetInfo = () => {
     selectedTemplate: 0
   });
 
-  // const [completedSteps, setCompletedSteps] = useState(new Set());
+  const [completedSteps, setCompletedSteps] = useState(new Set());
 
   const [isOpen, setIsOpen] = useState(false);
-  const [completedSteps, setCompletedSteps] = useState(new Set([0, 1])); // Example
+  // const [completedSteps, setCompletedSteps] = useState(new Set([0, 1])); // Example
   // const steps = [
   //   { title: "Step 1" },
   //   { title: "Step 2" },
@@ -554,18 +554,19 @@ const GetInfo = () => {
       {/* Sidebar */}
       <div
         className={`fixed top-0 left-0 h-full bg-white border-r p-6 transition-all duration-300 ease-in-out
-        ${isOpen ? "w-64" : "w-16"} md:w-64`}
+        ${isOpen ? "w-64" : "w-14"} md:w-64`}
       >
         {/* Sidebar Toggle Button (Only on Mobile) */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="absolute top-4 left-4 md:hidden p-2 rounded bg-gray-200 hover:bg-gray-300"
+          className="absolute top-4 left-3 md:hidden p-2 rounded bg-gray-200 hover:bg-gray-300"
         >
-          {isOpen ? <X size={20} /> : <Menu size={20} />}
+          {isOpen ? <X size={20} /> : <Menu size={15} />}
         </button>
 
         {/* Sidebar Content (Always Visible on Desktop) */}
         <div className={`${isOpen || "hidden md:block"}`}>
+          <br/><br/>
           <h1 className="text-2xl font-bold mb-6">Resume Builder</h1>
           <div className="space-y-4">
             {steps.map((step, index) => (

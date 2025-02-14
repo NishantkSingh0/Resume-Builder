@@ -35,10 +35,10 @@ const FrontPage = () => {
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-gray-100 text-center px-4">
       <div className="flex flex-col justify-center items-center w-full">
-        <h1 className="text-4xl md:text-3xl sm:text-3xl xs:text-2xl font-bold mb-3">
+        <h1 className="text-2xl md:text-3xl sm:text-2xl font-bold mb-3">
           Resume Builder Web Application
         </h1>
-        <span className="text-2xl md:text-xl sm:text-xl xs:text-sm text-gray-800 h-8 mb-3 typing-text"></span>
+        <span className="text-xl md:text-2xl sm:text-xl text-gray-800 h-8 mb-3 typing-text"></span>
         <button className="px-4 py-2 bg-gray-400 text-white rounded-full hover:bg-blue-700 transition mt-5" onClick={handleContinue}>
           Continue
         </button>
