@@ -1,0 +1,158 @@
+body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   background-color: #f5f5f5;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 1131px; /* (W/H) Ratio should be 0.7069 */
+}
+
+.resume {
+   width: 800px; /* (W/H) Ratio should be 0.7069 */
+   background: #ffffff;
+   border: 1px solid #ddd;
+   border-radius: 15px;
+   padding: 30px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+   display: flex; 
+   align-items: center;
+}
+
+.header .left {
+   width: 35%;
+   padding: 10px 10px 10px 16px;
+   background-color: #53677a;
+   border-top-left-radius: 15px;
+   border-top-right-radius: 15px;
+   border-right: 4px solid rgb(109, 106, 106);
+}
+
+.left img {
+   width: 200px;
+   height: 200px;
+   border-radius: 50%;
+   object-fit: cover;
+}
+
+.header .right {
+   width: 65%;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   margin-right: 40px;
+}
+
+.header .right .head {
+   padding-left: 40px;
+}
+
+.right h1 {
+   font-size: 40px;
+   margin-bottom: 5px;
+}
+
+.right h2 {
+   font-size: 16px;
+   color: #666;
+}
+
+.section-title {
+   font-size: 18px;
+   color: #53677a;
+   margin-bottom: 10px;
+   border-bottom: 1px solid #96a75a;
+   padding-bottom: 5px;
+}
+
+.Lsection-title {
+   font-size: 18px;
+   color: #f5f5f5;
+   margin-bottom: 10px;
+   border-bottom: 1px solid #d4d4d2;
+   padding-bottom: 5px;
+}
+
+.content {
+   display: flex;
+   justify-content: center;
+}
+
+.content .left {
+   width: 35%;
+   padding-right: 10px;
+   background-color: #53677a;
+   border-right: 4px solid rgb(109, 106, 106);
+}
+
+.content .right {
+   width: 65%;
+   margin-left: 10px;
+}
+
+.Lsection,.Contact {
+   margin-bottom: 20px;
+   padding-left: 20px;
+   color: #e1ebf3;
+}
+
+.Contact div {
+   margin-bottom: 5px;
+}
+
+.content .Contact div a {
+   text-decoration: none;
+   color: #e1ebf3;
+}
+
+.subcont,.SkillSubCon {
+    display: flex;
+    justify-content: space-between;
+}  
+
+.section,.SUsection {
+   margin-bottom: 20px;
+   color: #53677a;
+}
+
+.item {
+   margin-bottom: 10px;
+}
+
+.item-title {
+   font-weight: bold;
+}
+
+.content .right .item-title,
+.content .left .section-title,
+.Lsection-title {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+ul {
+   padding-left: 20px;
+   margin: 5px 0;
+}
+
+ul li {
+   margin-bottom: 5px;
+}
+
+.rotate-90 {
+   transform: rotate(90deg);
+}
+
+.content .right .section .Cont {
+   border-left: 2px solid #53677a;
+   margin-left: 5px;
+}
+
+.content .right .section .Cont .item {
+   margin-left: 10px;
+}

@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e7e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1131px; /* (W/H) Ratio should be 0.7069 */
+}
+
+.resume {
+    width: 800px; /* (W/H) Ratio should be 0.7069 */
+    background: #e0dfdf;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    border-top: 2px solid #353333;
+    padding: 80px 0px 80px 0px; 
+    margin: 0px 40px 0px 40px; 
+    background-image: url('./Img/Sig.png');
+    background-repeat: no-repeat;
+    background-size: 250px;
+    background-position: center;
+    margin-top: 10px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 40px;
+    color: #4e4c4c;
+}
+
+.header h2 {
+    margin: 5px 0 0;
+    font-size: 18px;
+    color: #555;
+}
+
+.SUsection {
+    padding-top: 10px;
+}
+
+.section,
+.SUsection {
+    margin-bottom: 15px;
+    border-bottom: 2px solid #000000;
+}
+
+.content .left .SubSec-title {
+    margin-top: 20px; /* Education section */
+}
+
+.rotate-90 {
+    transform: rotate(90deg); /* Rotates the icon 90 degrees */
+}
+
+.Contact div {
+    margin-bottom: 4px; /* To compress the Details margin */
+}
+
+.Contact {
+    width: 33%;
+}
+
+.Contact,.Usection {
+    padding-top: 20px;
+}
+
+.upperContent .Contact div a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.subcont,.SkillSubCon {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-title {
+    font-size: 18px;
+    color: #5e6163;
+    padding: 0 10px 5px 10px; /* Combined padding */
+    margin-bottom: 10px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #353333;
+    margin: 0 40px; /* Combined margin */
+}
+
+.upperContent {
+    display: flex;
+    justify-content: center;
+    margin: 0 40px; /* Combined margin */
+    border-top: 2px solid #353333;
+    border-bottom: 2px solid #353333;
+}
+
+.upperContent .Usection {
+    border-left: 4px solid #5e6163;
+    width: 67%;
+}
+
+.content .left {
+    width: 33%;
+    height: 100%;
+    border-radius: 2px;
+}
+
+.section-title,
+.content .right .item-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content .right {
+    width: 67%;
+    height: 100%;
+    border-left: 4px solid rgb(109, 106, 106);
+}
+
+.Litem {
+    margin-bottom: 10px;
+    padding-right: 20px;
+}
+
+.Ritem {
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.item-title {
+    font-weight: bold;
+}
+
+ul {
+    padding-left: 20px;
+    margin: 5px 0;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
