@@ -1,0 +1,66 @@
+body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   background-color: #f5f5f5;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 1200px;         /* (W/H) Ratio should be 0.7069 */
+}
+.resume {
+   width: 800px;           /* (W/H) Ratio should be 0.7069 */
+   /* height: 1131px; */
+   background: #ffffff;
+   border: 1px solid #ddd;
+   border-radius: 15px;
+   padding: 20px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title{
+   font-size: 24px;
+   font-weight: bold;
+   color: #474646;
+   margin-bottom: 10px;
+   border-bottom: 1px solid #535351;
+   padding-bottom: 5px;
+}
+
+.contacts h1{
+   margin: 0%;
+}
+
+.subtitle,.item-title{
+   font-size: 18px;
+   font-weight: bold;
+   color: #474646;
+   margin-bottom: 5px;
+   margin-top: 15px;
+}
+
+.Conts{
+   margin-top: 25px;
+}
+
+.subcont{
+   display: flex;
+   /* justify-content: space-between; */
+}
+.subcont .left{
+   padding-right: 40px;
+}
+.subcont .mid{
+   padding-right: 40px;
+}
+
+.contacts a{
+   text-decoration: none;
+   color: black;
+}
+
+.Conts .internship{
+   display: flex;
+   margin-bottom: 2px;
+   justify-content: space-between;
+}
