@@ -593,7 +593,7 @@ const GetInfo = () => {
       </div>
 
       {/* Main Content (Shifts Right when Sidebar is Open) */}
-      <div className={`flex-1 p-8 transition-all duration-300 ${isOpen ? "ml-64" : "ml-16"} md:ml-64`}>
+      <div className={`flex-1 pt-8 sm:p-8 transition-all duration-300 ${isOpen ? "ml-64" : "ml-16"} md:ml-64`}>
         <div className="max-w-2xl mx-auto">
           {renderFormSection()}
 
