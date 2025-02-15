@@ -496,7 +496,7 @@ const GetInfo = () => {
                   <div
                     key={template}
                     onClick={() => setFormData((prev) => ({ ...prev, selectedTemplate: template - 1 }))}
-                    className={`p-4 border rounded cursor-pointer ${
+                    className={`p-4 border rounded cursor-pointer transition-transform duration-400 hover:scale-95 ${
                       formData.selectedTemplate === template - 1 ? 'border-blue-500 bg-blue-50' : ''
                     }`}
                   >
@@ -505,7 +505,7 @@ const GetInfo = () => {
                       alt={`Template ${template}`}
                       className="w-full h-auto"
                     />
-                    <p className="text-center mt-2">Template {template}</p>
+                    {isOpen?(<p className="text-center mt-2">{template}</p>):(<p className="text-center mt-2">Template {template}</p>)}
                   </div>
                 ))}
             </div>
@@ -537,13 +537,13 @@ const GetInfo = () => {
               <div
                 key={index}
                 onClick={() => setCurrentStep(index)}
-                className={`flex items-center gap-3 p-2 rounded cursor-pointer
+                className={`flex items-center gap-3 p-2 rounded cursor-pointer transition-transform duration-400 hover:scale-105
                   ${currentStep === index ? "bg-blue-50 text-blue-600" : ""}
                   ${completedSteps.has(index) ? "text-green-600" : "text-gray-600"}
                 `}
               >
-                <div
-                  className={`w-6 h-6 rounded-full flex items-center justify-center border
+              <div
+                  className={`w-6 h-6 rounded-full flex items-center justify-center border 
                   ${completedSteps.has(index) ? "bg-green-100 border-green-600" : "border-gray-400"}
                 `}
                 >
@@ -563,7 +563,7 @@ const GetInfo = () => {
           <div className="mt-8 flex justify-end">
             <button
               onClick={handleNext}
-              className="flex items-center gap-2 px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700"
+              className="flex items-center gap-2 px-6 py-2 mt-5 bg-blue-600 text-white rounded-full hover:bg-blue-700"
             >
               {currentStep === steps.length - 1 ? "Submit" : "Next"}
               <ChevronRight size={16} />
