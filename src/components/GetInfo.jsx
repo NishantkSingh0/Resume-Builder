@@ -91,79 +91,79 @@ const GetInfo = () => {
   };
 
   const handleNext = () => {
-
-    // const Fields = {
-    //   0: [
-    //     formData.contactInfo.fullName,
-    //     formData.contactInfo.phoneNumber,
-    //     formData.contactInfo.emailAddress,
-    //     formData.contactInfo.linkedinUrl,
-    //     formData.contactInfo.portfolioUrl,
-    //     formData.contactInfo.jobTitle,
-    //   ],
-    //   1: [
-    //     formData.skills.hardSkills,
-    //     formData.skills.softSkills,
-    //     formData.skills.toolsTechnologies,
-    //   ],
-    //   2: [
-    //     formData.workExperience.jobTitle,
-    //     formData.workExperience.companyNameDuration,
-    //     formData.workExperience.keyAchievements,
-    //   ],
-    //   3: [
-    //     formData.projects.projectTitle,
-    //     formData.projects.toolsTechUsed,
-    //   ],
-    //   4: [
-    //     formData.education.institutionName,
-    //     formData.education.degreeName,
-    //     formData.education.graduationYear,
-    //     formData.education.currentSGPA,
-    //   ],
-    //   5: [
-    //     formData.certificates.certificateName,
-    //     formData.certificates.courseDuration,
-    //     formData.certificates.providerName,
-    //   ],
-    //   6: formData.selectedTemplate,
-    // };
+    const Fields = {
+      0: [
+        formData.contactInfo.fullName,
+        formData.contactInfo.phoneNumber,
+        formData.contactInfo.emailAddress,
+        formData.contactInfo.linkedinUrl,
+        formData.contactInfo.portfolioUrl,
+        formData.contactInfo.jobTitle,
+      ],
+      1: [
+        formData.skills.hardSkills,
+        formData.skills.softSkills,
+        formData.skills.toolsTechnologies,
+      ],
+      2: [
+        formData.workExperience.jobTitle,
+        formData.workExperience.companyNameDuration,
+        formData.workExperience.keyAchievements,
+      ],
+      3: [
+        formData.projects.projectTitle,
+        formData.projects.toolsTechUsed,
+      ],
+      4: [
+        formData.education.institutionName,
+        formData.education.degreeName,
+        formData.education.graduationYear,
+        formData.education.currentSGPA,
+      ],
+      5: [
+        formData.certificates.certificateName,
+        formData.certificates.courseDuration,
+        formData.certificates.providerName,
+      ],
+      6: [formData.selectedTemplate], // Convert to array for consistency
+    };
   
-    // if (!(step in Fields)) {
-    //   alert("Invalid step provided.");
-    //   return;
-    // }
+    if (!(currentStep in Fields)) {
+      alert("Invalid step provided.");
+      return;
+    }
   
-    // const requiredFields = Array.isArray(Fields[currentStep]) ? Fields[currentStep] : [Fields[currentStep]];
+    const requiredFields = Fields[currentStep];
   
-    // // Validation function
-    // const areFieldsValid = (fields) => fields.every((field) => field?.trim() !== '');
+    // Validation function
+    const areFieldsValid = (fields) =>
+      fields.every((field) => typeof field === "string" && field.trim() !== "");
   
-    // // Validate current step fields
-    // if (!areFieldsValid(requiredFields)) {
-    //   alert("Please fill out all required fields before proceeding.");
-    //   return;
-    // }
-
-    setCompletedSteps(prev => new Set(prev.add(currentStep)));
+    // Validate current step fields
+    if (!areFieldsValid(requiredFields)) {
+      alert("Please fill out all required fields before proceeding next.");
+      return;
+    }
+  
+    // Proceed to the next step if all required fields are filled
+    setCompletedSteps((prev) => new Set(prev.add(currentStep)));
     if (currentStep < steps.length - 1) {
-      setCurrentStep(prev => prev + 1);
+      setCurrentStep((prev) => prev + 1);
     } else {
       // Handle form submission
-      console.log('Form submitted:', formData);
-    
-
+      console.log("Form submitted:", formData);
+  
       const jsonData = JSON.stringify(formData, null, 2); // Pretty-print the JSON
-      const blob = new Blob([jsonData], { type: 'application/json' });
+      const blob = new Blob([jsonData], { type: "application/json" });
       const url = URL.createObjectURL(blob);
-      
+  
       // Create a temporary download link
-      const a = document.createElement('a');
+      const a = document.createElement("a");
       a.href = url;
-      a.download = 'resume_data.json'; // File name for the download
+      a.download = "resume_data.json"; // File name for the download
       document.body.appendChild(a);
       a.click();
-      
+  
       // Clean up the link
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
@@ -536,18 +536,18 @@ const GetInfo = () => {
   return (
     <div className="flex min-h-screen bg-gray-50">
       <div
-        className={`fixed top-0 left-0 h-full bg-white border-r p-6 transition-all duration-300 ease-in-out
-        ${isOpen ? "w-64" : "w-14"} md:w-64`}
+        className={`fixed top-0 left-0 h-full bg-white border-r p-0 transition-all duration-300 ease-in-out
+        ${isOpen ? "w-64" : "w-0"} md:w-64`}
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="absolute top-4 left-3 md:hidden p-2 rounded bg-gray-200 hover:bg-gray-300"
+          className="absolute top-4 left-3 md:hidden p-2 rounded-full bg-gray-200 hover:bg-gray-300"
         >
           {isOpen ? <X size={20} /> : <Menu size={15} />}
         </button>
 
         <div className={`${isOpen || "hidden md:block"}`}>
-          <h1 className={`text-2xl font-bold mb-6 ${isOpen?"pt-10":"pt-0"}`}>Resume Builder</h1>
+          <h1 className={`text-2xl font-bold mb-6 ${isOpen?"pt-14":"pt-0"} text-center`}>Resume Builder</h1>
           <div className="space-y-4">
             {steps.map((step, index) => (
               <div
@@ -572,7 +572,7 @@ const GetInfo = () => {
         </div>
       </div>
 
-      <div className={`flex-1 pt-8 pr-3 sm:p-8 transition-all duration-300 ${isOpen ? "ml-64" : "ml-16"} md:ml-64`}>
+      <div className={`flex-1 pt-14 pr-3 pl-3 sm:p-8 transition-all duration-300 ${isOpen ? "ml-64" : "ml-2"} md:ml-64`}>
         <div className="max-w-2xl mx-auto">
           {renderFormSection()}
 
@@ -590,6 +590,5 @@ const GetInfo = () => {
     </div>
   );
 }
-console.log(`/Temp/temp 1.png`)
 
 export default GetInfo;
