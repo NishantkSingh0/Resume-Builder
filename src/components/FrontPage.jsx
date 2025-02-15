@@ -35,17 +35,17 @@ const FrontPage = () => {
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-gray-100 text-center px-4">
       <div className="flex flex-col justify-center items-center w-full">
-        <h1 className="text-2xl md:text-3xl sm:text-2xl font-bold mb-3">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-3">
           Resume Builder Web Application
         </h1>
-        <span className="text-xl md:text-2xl sm:text-xl text-gray-800 h-8 mb-3 typing-text"></span>
+        <span className="text-xl sm:text-2xl text-gray-800 h-6 mb-3 typing-text"></span>
         <button className="px-4 py-2 bg-gray-400 text-white rounded-full hover:bg-blue-700 transition mt-5" onClick={handleContinue}>
           Continue
         </button>
       </div>
       <div className="absolute bottom-2 text-center">
-        <p className="text-lg text-gray-500">BRAVERS</p>
-        <p className="text-sm text-gray-500 mb-5">
+        <p className="text-sm sm:text-lg text-gray-500">BRAVERS</p>
+        <p className="text-xs sm:text-sm text-gray-500 mb-5">
           <a href="https://nishantksingh0.github.io/Portfolio/" target="_blank">
             nishantksingh0.github.io/Portfolio
           </a>

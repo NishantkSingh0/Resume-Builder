@@ -17,7 +17,6 @@ const GetInfo = () => {
     skills: {
       hardSkills: '',
       softSkills: '',
-      toolsTechnologies: ''
     },
     workExperience: [{
       jobTitle: '',
@@ -45,12 +44,6 @@ const GetInfo = () => {
   const [completedSteps, setCompletedSteps] = useState(new Set());
 
   const [isOpen, setIsOpen] = useState(false);
-  // const [completedSteps, setCompletedSteps] = useState(new Set([0, 1])); // Example
-  // const steps = [
-  //   { title: "Step 1" },
-  //   { title: "Step 2" },
-  //   { title: "Step 3" },
-  // ];
 
   const steps = [
     { title: 'Contact Info', key: 'contactInfo' },
@@ -184,7 +177,7 @@ const GetInfo = () => {
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl mb-4 font-bold border-b-4 border-gray-500 text-gray-700">Contact Information</h2>
               <div className="space-y-2">
-                <label className="block text-xs sm:text-sm font-medium">Full Name</label>
+                <label className="block text-sm font-medium">Full Name</label>
                 <input
                   type="text"
                   className="w-full pl-1 sm:p-2 border rounded"
@@ -194,10 +187,10 @@ const GetInfo = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-xs sm:text-sm font-medium">Phone Number</label>
+                <label className="block text-sm font-medium">Phone Number</label>
                 <input
                   type="text"
-                  placeholder='99X15XX566'
+                  placeholder='746X8XX716'
                   className="w-full pl-1 sm:p-2 border rounded"
                   value={formData.contactInfo.phoneNumber}
                   onChange={(e) => handleInputChange('contactInfo', 'phoneNumber', e.target.value)}
@@ -205,10 +198,10 @@ const GetInfo = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-xs sm:text-sm font-medium">Email Address</label>
+                <label className="block text-sm font-medium">Email Address</label>
                 <input
                   type="email"
-                  placeholder='nishantsingh.talk@gmail.com'
+                  placeholder='xyz231@gmail.com'
                   className="w-full pl-1 sm:p-2 border rounded"
                   value={formData.contactInfo.emailAddress}
                   onChange={(e) => handleInputChange('contactInfo', 'emailAddress', e.target.value)}
@@ -216,10 +209,10 @@ const GetInfo = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-xs sm:text-sm font-medium">LinkedIn URL</label>
+                <label className="block text-sm font-medium">LinkedIn URL</label>
                 <input
                   type="text"u
-                  placeholder='www.linkedin.com/nishantksingh1'
+                  placeholder='www.linkedin.com/in/xyz231/'
                   className="w-full pl-1 sm:p-2 border rounded"
                   value={formData.contactInfo.linkedinUrl}
                   onChange={(e) => handleInputChange('contactInfo', 'linkedinUrl', e.target.value)}
@@ -227,10 +220,10 @@ const GetInfo = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-xs sm:text-sm font-medium">Portfolio URL</label>
+                <label className="block text-sm font-medium">Portfolio URL / Github URL</label>
                 <input
                   type="text"
-                  placeholder='nishantksingh0.github.io/Portfolio'
+                  placeholder='if have else add GitHub URL'
                   className="w-full pl-1 sm:p-2 border rounded"
                   value={formData.contactInfo.portfolioUrl}
                   onChange={(e) => handleInputChange('contactInfo', 'portfolioUrl', e.target.value)}
@@ -238,35 +231,13 @@ const GetInfo = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-xs sm:text-sm font-medium">Job Title</label>
+                <label className="block text-sm font-medium">Job Title</label>
                 <input
                   type="text"
                   placeholder='Data Scientist'
                   className="w-full pl-1 sm:p-2 border rounded"
                   value={formData.contactInfo.jobTitle}
                   onChange={(e) => handleInputChange('contactInfo', 'jobTitle', e.target.value)}
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="block text-xs sm:text-sm font-medium">Languages you are familiar with</label>
-                <input
-                  type="text"
-                  placeholder='English, Hindi, French'
-                  className="w-full pl-1 sm:p-2 border rounded"
-                  value={formData.contactInfo.Languages}
-                  onChange={(e) => handleInputChange('contactInfo', 'Languages', e.target.value)}
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <label className="block text-xs sm:text-sm font-medium">YourLocation</label>
-                <input
-                  type="text"
-                  placeholder='Haridwar (UTTRAKHAND)'
-                  className="w-full pl-1 sm:p-2 border rounded"
-                  value={formData.contactInfo.Location}
-                  onChange={(e) => handleInputChange('contactInfo', 'Location', e.target.value)}
                 />
               </div>
           </div>
@@ -278,7 +249,7 @@ const GetInfo = () => {
             <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-gray-500 mb-4">Skills</h2>
 
               <div className="space-y-2">
-                <label className="block text-xs sm:text-sm font-medium">Technical Skills</label>
+                <label className="block text-sm font-medium">Technical Skills</label>
                 <input
                   className="w-full pl-1 sm:p-2 border rounded"
                   placeholder='TensorFlow, PyTorch, Scikit-learn, Keras, Hugging Face, C/C++, Java, JavaScript, React'
@@ -288,7 +259,7 @@ const GetInfo = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-xs sm:text-sm font-medium">Soft Skills</label>
+                <label className="block text-sm font-medium">Soft Skills</label>
                 <input
                   className="w-full pl-1 sm:p-2 border rounded"
                   placeholder='TeamWork, strong Problem-Solving skill, Leadership, Critical thinking, Communication'
@@ -298,11 +269,24 @@ const GetInfo = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-xs sm:text-sm font-medium">Tools/Technologies</label>
+                <label className="block text-sm font-medium">Languages you are familiar with</label>
                 <input
+                  type="text"
+                  placeholder='English, Hindi, French'
                   className="w-full pl-1 sm:p-2 border rounded"
-                  value={formData.skills.toolsTechnologies}
-                  onChange={(e) => handleInputChange('skills', 'toolsTechnologies', e.target.value)}
+                  value={formData.contactInfo.Languages}
+                  onChange={(e) => handleInputChange('contactInfo', 'Languages', e.target.value)}
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <label className="block text-sm font-medium">YourLocation</label>
+                <input
+                  type="text"
+                  placeholder='Haridwar (UTTRAKHAND)'
+                  className="w-full pl-1 sm:p-2 border rounded"
+                  value={formData.contactInfo.Location}
+                  onChange={(e) => handleInputChange('contactInfo', 'Location', e.target.value)}
                 />
               </div>
 
@@ -313,13 +297,13 @@ const GetInfo = () => {
         return (
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-gray-500 ">Work Experience</h2>
-            <p className='test-xl font-semibold mb-6 text-gray-600'>Hint: Add atleast 2 work Experiences from previous companies as internship or full time job</p>
+            <p className='test-xl font-semibold mb-6 text-gray-600'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
             {formData.workExperience.map((exp, index) => (
               <div key={index} className="p-4 border rounded space-y-4">
                 <h3 className="font-medium">Experience {index + 1}</h3>
 
                   <div className="space-y-2">
-                    <label className="block text-xs sm:text-sm font-medium">Job Title</label>
+                    <label className="block text-sm font-medium">Job Title</label>
                     <input
                       type="text"
                       placeholder='Data Scientist'
@@ -330,7 +314,7 @@ const GetInfo = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-xs sm:text-sm font-medium">Company Name and Duration</label>
+                    <label className="block text-sm font-medium">Company Name and Duration</label>
                     <input
                       type="text"
                       placeholder='Onlei Teach, 1 Month'
@@ -341,7 +325,7 @@ const GetInfo = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-xs sm:text-sm font-medium">Key Achievements</label>
+                    <label className="block text-sm font-medium">Key Achievements</label>
                     <input
                       type="text"
                       placeholder='Learn to visualize patterns from data using matplotlib and Built several DL models'
@@ -371,7 +355,7 @@ const GetInfo = () => {
                 <h3 className="font-medium">Project {index + 1}</h3>
                   
                   <div className="space-y-2">
-                    <label className="block text-xs sm:text-sm font-medium">Project Title</label>
+                    <label className="block text-sm font-medium">Project Title</label>
                     <input
                       type="text"
                       placeholder='Transformer based translation model from scratch'
@@ -382,7 +366,7 @@ const GetInfo = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-xs sm:text-sm font-medium">Tools/Tech Used</label>
+                    <label className="block text-sm font-medium">Tools/Tech Used</label>
                     <input
                       type="text"
                       placeholder='Tensorflow, NumPy, Pandas, Matplotlib, Multi30k Dataset, ModelSubclassing'
@@ -411,7 +395,7 @@ const GetInfo = () => {
                 <div key={index} className="p-4 border rounded space-y-4">
 
                   <div className="space-y-2">
-                    <label className="block text-xs sm:text-sm font-medium">Institution Name</label>
+                    <label className="block text-sm font-medium">Institution Name</label>
                     <input
                       type="text"
                       placeholder='Haridwar University'
@@ -422,7 +406,7 @@ const GetInfo = () => {
                   </div>
         
                   <div className="space-y-2">
-                    <label className="block text-xs sm:text-sm font-medium">Degree Name</label>
+                    <label className="block text-sm font-medium">Degree Name</label>
                     <input
                       type="text"
                       placeholder='Batchelor in computer application'
@@ -433,7 +417,7 @@ const GetInfo = () => {
                   </div>
         
                   <div className="space-y-2">
-                    <label className="block text-xs sm:text-sm font-medium">Graduation duration</label>
+                    <label className="block text-sm font-medium">Graduation duration</label>
                     <input
                       type="text"
                       placeholder='2023 - 2026'
@@ -444,7 +428,7 @@ const GetInfo = () => {
                   </div>
         
                   <div className="space-y-2">
-                    <label className="block text-xs sm:text-sm font-medium">Current SGPA</label>
+                    <label className="block text-sm font-medium">Current SGPA</label>
                     <input
                       type="text"
                       placeholder='?? / 10'
@@ -476,7 +460,7 @@ const GetInfo = () => {
                 <div className="space-y-4">
 
                   <div className="space-y-2">
-                    <label className="block text-xs sm:text-sm font-medium">Certificate Name</label>
+                    <label className="block text-sm font-medium">Certificate Name</label>
                     <input
                       type="text"
                       placeholder='Azure AI Engineer Associate'
@@ -487,7 +471,7 @@ const GetInfo = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-xs sm:text-sm font-medium">Course Duration</label>
+                    <label className="block text-sm font-medium">Course Duration</label>
                     <input
                       type="text"
                       placeholder='2 Month'
@@ -498,7 +482,7 @@ const GetInfo = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-xs sm:text-sm font-medium">Provider Name</label>
+                    <label className="block text-sm font-medium">Provider Name</label>
                     <input
                       type="text"
                       placeholder='Microsoft'
@@ -523,8 +507,8 @@ const GetInfo = () => {
         return (
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-gray-500 mb-4">Choose Template</h2>
-            <div className="grid grid-cols-3 gap-4">
-                {[1, 2, 3, 4, 5, 6, 7].map((template) => (
+            <div className="grid grid-cols-2 gap-5">
+                {[1,2,3,4,5,6,7].map((template) => (
                   <div
                     key={template}
                     onClick={() => setFormData((prev) => ({ ...prev, selectedTemplate: template - 1 }))}
@@ -533,7 +517,7 @@ const GetInfo = () => {
                     }`}
                   >
                     <img
-                      src={`./Temp/${template}.png`} // Dynamically sets the image source based on the template number
+                      src={`/resume-builder-web-application/Temp/temp${template}.png`} // Reference from public folder
                       alt={`Template ${template}`}
                       className="w-full h-auto"
                     />
@@ -551,12 +535,10 @@ const GetInfo = () => {
 
   return (
     <div className="flex min-h-screen bg-gray-50">
-      {/* Sidebar */}
       <div
         className={`fixed top-0 left-0 h-full bg-white border-r p-6 transition-all duration-300 ease-in-out
         ${isOpen ? "w-64" : "w-14"} md:w-64`}
       >
-        {/* Sidebar Toggle Button (Only on Mobile) */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="absolute top-4 left-3 md:hidden p-2 rounded bg-gray-200 hover:bg-gray-300"
@@ -564,9 +546,7 @@ const GetInfo = () => {
           {isOpen ? <X size={20} /> : <Menu size={15} />}
         </button>
 
-        {/* Sidebar Content (Always Visible on Desktop) */}
         <div className={`${isOpen || "hidden md:block"}`}>
-          {/* {isOpen ?  <><br/><br/></>:null } */}
           <h1 className={`text-2xl font-bold mb-6 ${isOpen?"pt-10":"pt-0"}`}>Resume Builder</h1>
           <div className="space-y-4">
             {steps.map((step, index) => (
@@ -592,8 +572,7 @@ const GetInfo = () => {
         </div>
       </div>
 
-      {/* Main Content (Shifts Right when Sidebar is Open) */}
-      <div className={`flex-1 pt-8 sm:p-8 transition-all duration-300 ${isOpen ? "ml-64" : "ml-16"} md:ml-64`}>
+      <div className={`flex-1 pt-8 pr-3 sm:p-8 transition-all duration-300 ${isOpen ? "ml-64" : "ml-16"} md:ml-64`}>
         <div className="max-w-2xl mx-auto">
           {renderFormSection()}
 
@@ -611,5 +590,6 @@ const GetInfo = () => {
     </div>
   );
 }
+console.log(`/Temp/temp 1.png`)
 
 export default GetInfo;
