@@ -520,7 +520,7 @@ const GetInfo = () => {
   return (
     <div className="flex min-h-screen bg-gray-50">
       <div
-        className={`fixed top-0 left-0 h-full bg-white border-r p-0 transition-all duration-300 ease-in-out
+        className={`fixed top-0 left-0 h-full bg-white border-r p-0 md:p-4 transition-all duration-300 ease-in-out
         ${isOpen ? "w-64" : "w-0"} md:w-64`}
       >
         <button
@@ -531,8 +531,8 @@ const GetInfo = () => {
         </button>
 
         <div className={`${isOpen || "hidden md:block"}`}>
-          <h1 className={`text-2xl font-bold mb-6 ${isOpen?"pt-14":"pt-5"} text-center`}>Resume Builder</h1>
-          <div className="space-y-4">
+          <h1 className={"text-2xl font-bold mb-6 pt-14 md:pt-6 text-center"}>Resume Builder</h1>
+          <div className="space-y-4 p-2">
             {steps.map((step, index) => (
               <div
                 key={index}
@@ -556,7 +556,7 @@ const GetInfo = () => {
         </div>
       </div>
 
-      <div className={`flex-1 pt-14 pr-3 pl-3 sm:p-8 transition-all duration-300 ${isOpen ? "ml-64" : "ml-2"} md:ml-64`}>
+      <div className={`flex-1 pt-14 pr-3 pl-1 md:p-8 transition-all duration-300 ${isOpen ? "ml-64" : "ml-2"} md:ml-64`}>
         <div className="max-w-2xl mx-auto">
           {renderFormSection()}
 
