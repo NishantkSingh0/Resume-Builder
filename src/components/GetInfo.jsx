@@ -118,37 +118,31 @@ const GetInfo = () => {
       return;
     }
   
-    const requiredFields = Fields[currentStep].flat(); // Flatten for dynamic sections
+    const requiredFields = Fields[currentStep].flat(); 
   
-    // Validation function for static & dynamic sections
     const areFieldsValid = (fields) => fields.every((field) => typeof field === "string" && field.trim() !== "");
   
-    // Allow dynamic sections to be empty, but if they exist, validate them
     if (requiredFields.length > 0 && !areFieldsValid(requiredFields)) {
       alert("Please fill out all required fields before proceeding.");
       return;
     }
   
-    // Proceed to the next step if all required fields are filled
     setCompletedSteps((prev) => new Set(prev.add(currentStep)));
     if (currentStep < steps.length - 1) {
       setCurrentStep((prev) => prev + 1);
     } else {
-      // Handle form submission
       console.log("Form submitted:", formData);
   
-      const jsonData = JSON.stringify(formData, null, 2); // Pretty-print the JSON
+      const jsonData = JSON.stringify(formData, null, 2); 
       const blob = new Blob([jsonData], { type: "application/json" });
       const url = URL.createObjectURL(blob);
   
-      // Create a temporary download link
       const a = document.createElement("a");
       a.href = url;
-      a.download = "resume_data.json"; // File name for the download
+      a.download = "resume_data.json"; 
       document.body.appendChild(a);
       a.click();
   
-      // Clean up the link
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
     }
