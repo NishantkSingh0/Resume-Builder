@@ -103,29 +103,14 @@ const GetInfo = () => {
       1: [
         formData.skills.hardSkills,
         formData.skills.softSkills,
-        formData.skills.toolsTechnologies,
+        formData.contactInfo.Languages,
+        formData.contactInfo.Location,
       ],
-      2: [
-        formData.workExperience.jobTitle,
-        formData.workExperience.companyNameDuration,
-        formData.workExperience.keyAchievements,
-      ],
-      3: [
-        formData.projects.projectTitle,
-        formData.projects.toolsTechUsed,
-      ],
-      4: [
-        formData.education.institutionName,
-        formData.education.degreeName,
-        formData.education.graduationYear,
-        formData.education.currentSGPA,
-      ],
-      5: [
-        formData.certificates.certificateName,
-        formData.certificates.courseDuration,
-        formData.certificates.providerName,
-      ],
-      6: [formData.selectedTemplate], // Convert to array for consistency
+      2: formData.workExperience.length > 0 ? formData.workExperience.map(exp => [exp.jobTitle, exp.companyNameDuration, exp.keyAchievements]) : [[]],
+      3: formData.projects.length > 0 ? formData.projects.map(proj => [proj.projectTitle, proj.toolsTechUsed]) : [[]],
+      4: formData.education.length > 0 ? formData.education.map(edu => [edu.institutionName, edu.degreeName, edu.graduationYear, edu.currentSGPA]) : [[]],
+      5: formData.certificates.length > 0 ? formData.certificates.map(cert => [cert.certificateName, cert.courseDuration, cert.providerName]) : [[]],
+      6: [formData.selectedTemplate],
     };
   
     if (!(currentStep in Fields)) {
@@ -133,15 +118,14 @@ const GetInfo = () => {
       return;
     }
   
-    const requiredFields = Fields[currentStep];
+    const requiredFields = Fields[currentStep].flat(); // Flatten for dynamic sections
   
-    // Validation function
-    const areFieldsValid = (fields) =>
-      fields.every((field) => typeof field === "string" && field.trim() !== "");
+    // Validation function for static & dynamic sections
+    const areFieldsValid = (fields) => fields.every((field) => typeof field === "string" && field.trim() !== "");
   
-    // Validate current step fields
-    if (!areFieldsValid(requiredFields)) {
-      alert("Please fill out all required fields before proceeding next.");
+    // Allow dynamic sections to be empty, but if they exist, validate them
+    if (requiredFields.length > 0 && !areFieldsValid(requiredFields)) {
+      alert("Please fill out all required fields before proceeding.");
       return;
     }
   
@@ -168,7 +152,7 @@ const GetInfo = () => {
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
     }
-  };
+  };  
 
   const renderFormSection = () => {
     switch (currentStep) {
@@ -547,7 +531,7 @@ const GetInfo = () => {
         </button>
 
         <div className={`${isOpen || "hidden md:block"}`}>
-          <h1 className={`text-2xl font-bold mb-6 ${isOpen?"pt-14":"pt-0"} text-center`}>Resume Builder</h1>
+          <h1 className={`text-2xl font-bold mb-6 ${isOpen?"pt-14":"pt-5"} text-center`}>Resume Builder</h1>
           <div className="space-y-4">
             {steps.map((step, index) => (
               <div
