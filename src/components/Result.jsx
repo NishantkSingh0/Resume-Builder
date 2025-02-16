@@ -1,18 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const Card = () => {
+  const [countdown, setCountdown] = useState(10);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    if (countdown > 0) {
+      const timer = setTimeout(() => setCountdown(countdown - 1), 1500);
+      return () => clearTimeout(timer);
+    } else {
+      setError(true);
+    }
+  }, [countdown]);
+
   return (
     <StyledWrapper>
-      <div className="card">
-        <div className="blob" />
-        <div className="bg" >
-         Designing Template ...
+      {error ? (
+        <p className="error-text">
+          Server is not connected to Frontend. <br />
+          Please read instructions mentioned on Git Repository <br />
+          <a href="https://github.com/NishantkSingh0/resume-builder-web-application" target='_blank'><strong>NishantkSingh0/resume-builder-web-application</strong></a>
+        </p>
+      ) : (
+        <div className="card">
+          <div className="blob" />
+          <div className="bg">
+            <p>Designing ...</p>
+          </div>
         </div>
-      </div>
+      )}
     </StyledWrapper>
   );
-}
+};
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -20,11 +40,12 @@ const StyledWrapper = styled.div`
   justify-content: center;
   height: 100vh;
   width: 100vw;
+  text-align: center;
 
   .card {
     position: relative;
-    width: 200px;
-    height: 290px;
+    width: 220px;
+    height: 320px;
     border-radius: 14px;
     overflow: hidden;
     display: flex;
@@ -38,9 +59,9 @@ const StyledWrapper = styled.div`
     position: absolute;
     top: 5px;
     left: 5px;
-    width: 190px;
-    height: 280px;
-    background: rgba(255, 255, 255, .95);
+    width: 210px;
+    height: 310px;
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(24px);
     border-radius: 10px;
     outline: 2px solid white;
@@ -48,9 +69,10 @@ const StyledWrapper = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 14px; /* Decrease font size */
-    color: #3449ff;; /* Change text color */
-    font-weight: bold; /* Optional: Make text bold */
+    font-size: 14px;
+    color: #3449ff;
+    font-weight: bold;
+    padding: 10px;
   }
 
   .blob {
@@ -66,23 +88,26 @@ const StyledWrapper = styled.div`
     animation: blob-bounce 5s infinite ease;
   }
 
+  .error-text {
+    font-size: 16px;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+  }
+
   @keyframes blob-bounce {
     0% {
       transform: translate(-100%, -100%) translate3d(0, 0, 0);
     }
-
     25% {
       transform: translate(-100%, -100%) translate3d(100%, 0, 0);
     }
-
     50% {
       transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
     }
-
     75% {
       transform: translate(-100%, -100%) translate3d(0, 100%, 0);
     }
-
     100% {
       transform: translate(-100%, -100%) translate3d(0, 0, 0);
     }
