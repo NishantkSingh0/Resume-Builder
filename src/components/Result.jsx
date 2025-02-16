@@ -61,7 +61,7 @@ const StyledWrapper = styled.div`
     left: 5px;
     width: 210px;
     height: 310px;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 1);
     backdrop-filter: blur(24px);
     border-radius: 10px;
     outline: 2px solid white;
@@ -82,7 +82,7 @@ const StyledWrapper = styled.div`
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background-color: #ff0000;
+    background-color: #3449ff;
     opacity: 1;
     filter: blur(8px);
     animation: blob-bounce 5s infinite ease;

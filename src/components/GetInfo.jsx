@@ -119,37 +119,49 @@ const GetInfo = () => {
       alert("Invalid step provided.");
       return;
     }
-  
-    const requiredFields = Fields[currentStep].flat(); 
-  
+    
+    const DataFeildNames=["Contact Info","Skills","Work Experience","Projects","Education","Certificates","Templates"]
     const areFieldsValid = (fields) => fields.every((field) => typeof field === "string" && field.trim() !== "");
   
-    if (requiredFields.length > 0 && !areFieldsValid(requiredFields)) {
-      alert("Please fill out all required fields before proceeding.");
-      return;
+    for (let step = 0; step <= currentStep; step++) {
+      const requiredFields = Fields[step].flat();
+      if (requiredFields.length > 0 && !areFieldsValid(requiredFields)) {
+        alert(`Please fill out all required fields in/From Step "${DataFeildNames[step]}" before proceeding further.`);
+        return;
+      }
     }
   
     setCompletedSteps((prev) => new Set(prev.add(currentStep)));
+  
     if (currentStep < steps.length - 1) {
       setCurrentStep((prev) => prev + 1);
     } else {
+      for (let step = 0; step <= 6; step++) {
+        const requiredFields = Fields[step].flat();
+        if (requiredFields.length > 0 && !areFieldsValid(requiredFields)) {
+          alert(`Please complete all required fields before submitting.`);
+          return;
+        }
+      }
+  
       navigate('/Result');
       console.log("Form submitted:", formData);
   
-      const jsonData = JSON.stringify(formData, null, 2); 
+      const jsonData = JSON.stringify(formData, null, 2);
       const blob = new Blob([jsonData], { type: "application/json" });
       const url = URL.createObjectURL(blob);
   
       const a = document.createElement("a");
       a.href = url;
-      a.download = "resume_data.json"; 
+      a.download = "resume_data.json";
       document.body.appendChild(a);
       a.click();
   
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
     }
-  };  
+  };
+  
 
   const renderFormSection = () => {
     switch (currentStep) {
