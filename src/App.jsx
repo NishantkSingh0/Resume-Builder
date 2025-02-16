@@ -2,16 +2,17 @@ import React from 'react';
 import { Routes, Route, Router } from 'react-router-dom';
 import FrontPage from './components/FrontPage.jsx';
 import GetInfo from './components/GetInfo.jsx';
+import Result from './components/Result.jsx';
 
 const App = () => {
   return (
     // <>
-    //   <QuizCam/>
+    //   <Result/>
     // </>
       <Routes>
         <Route path="/" element={<FrontPage />} />
         <Route path="/GetInfo" element={<GetInfo />} />
-        {/* <Route path="/GetInfo/QuizCam" element={<QuizCam />} />  */}
+        <Route path="/Result" element={<Result />} /> 
       </Routes>
   );
 }

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Check, Plus, ChevronRight, Menu, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const GetInfo = () => {
   const [currentStep, setCurrentStep] = useState(0);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     contactInfo: {
       fullName: '',
@@ -131,6 +133,7 @@ const GetInfo = () => {
     if (currentStep < steps.length - 1) {
       setCurrentStep((prev) => prev + 1);
     } else {
+      navigate('/Result');
       console.log("Form submitted:", formData);
   
       const jsonData = JSON.stringify(formData, null, 2); 
@@ -489,18 +492,23 @@ const GetInfo = () => {
                 {[1,2,3,4,5,6,7].map((template) => (
                   <div
                     key={template}
-                    onClick={() => setFormData((prev) => ({ ...prev, selectedTemplate: template - 1 }))}
+                    onClick={() => setFormData((prev) => ({ ...prev, selectedTemplate: String(template - 1) }))}
                     className={`p-4 border rounded cursor-pointer transition-transform duration-400 hover:scale-95 ${
-                      formData.selectedTemplate === template - 1 ? 'border-blue-500 bg-blue-50' : ''
+                      formData.selectedTemplate === String(template - 1) ? 'border-blue-500 bg-blue-50' : ''
                     }`}
                   >
                     <img
-                      src={`/resume-builder-web-application/Temp/temp${template}.png`} // Reference from public folder
+                      src={`/resume-builder-web-application/Temp/temp${template}.png`}
                       alt={`Template ${template}`}
                       className="w-full h-auto"
                     />
-                    {isOpen?(<p className="text-center mt-2">{template}</p>):(<p className="text-center mt-2">Template {template}</p>)}
+                    {isOpen ? (
+                      <p className="text-center mt-2">{template}</p>
+                    ) : (
+                      <p className="text-center mt-2">Template {template}</p>
+                    )}
                   </div>
+
                 ))}
             </div>
           </div>
