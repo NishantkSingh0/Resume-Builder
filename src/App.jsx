@@ -3,11 +3,12 @@ import { Routes, Route, Router } from 'react-router-dom';
 import FrontPage from './components/FrontPage.jsx';
 import GetInfo from './components/GetInfo.jsx';
 import Result from './components/Result.jsx';
+import ImageSlideshow from './components/ImageSlideshow.jsx';
 
 const App = () => {
   return (
     // <>
-    //   <Result/>
+    //   <ImageSlideshow/>
     // </>
       <Routes>
         <Route path="/" element={<FrontPage />} />

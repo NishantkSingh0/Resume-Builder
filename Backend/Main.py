@@ -1,9 +1,10 @@
-from transformers import AutoModelForCausalLM, AutoTokenizer
+import TemplatesProcessing as tp
+from GenerateText import Describe
+import json
 
-model_name = "deepseek-ai/deepseek-llm"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
+with open(r'A:\AI\Code\Projects\Resume_Builder\Resume-Builder\Backend\resume_data.json') as f:
+    UserData = json.load(f)
 
-inputs = tokenizer("Hello, how are you?", return_tensors="pt")
-outputs = model.generate(**inputs)
-print(tokenizer.decode(outputs[0]))
+Prompt=f"I am a passionated {UserData['contactInfo']['jobTitle']} Expertised in {UserData['skills']['hardSkills']}. make a short and professional resume desciption for me like this"
+out=Describe(Prompt)
+print ("no output received" if out=="" else out)
