@@ -126,7 +126,7 @@ const GetInfo = () => {
     for (let step = 0; step <= currentStep; step++) {
       const requiredFields = Fields[step].flat();
       if (requiredFields.length > 0 && !areFieldsValid(requiredFields)) {
-        alert(`Please fill out all required fields in/From Step "${DataFeildNames[step]}" before proceeding further.`);
+        alert(`Please fill out all required fields From "Contact Information" before proceeding further.`);
         return;
       }
     }
