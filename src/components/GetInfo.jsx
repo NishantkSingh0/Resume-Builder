@@ -383,7 +383,7 @@ const GetInfo = () => {
           return (
             <div className="space-y-4">
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-gray-500 mb-4">Education</h2>
-              <p className='test-xl font-semibold mb-6 text-gray-600'>Hint: Add your pre/post graduations on different sections</p>
+              <p className='test-xl font-semibold mb-6 text-gray-600'>Hint: Add your pre/post graduations on different sections (Consider listing your most recent Qualifications first)</p>
               {formData.education.map((edu, index) => (
                 <div key={index} className="p-4 border rounded space-y-4">
 
