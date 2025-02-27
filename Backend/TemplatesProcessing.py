@@ -12,7 +12,7 @@ def removespace(text):
 
 def T1(jsonData,desc):
    Education='\n'.join((f"""
-      <div class="SubSec-title"><b>{edu['graduationYear']}<br>{edu['institutionName']}</b></div>
+      <div class="SubSec-title TextLight"><b>{edu['graduationYear']}<br>{edu['institutionName']}</b></div>
       {edu['degreeName']} <br>
       GPA: {edu['currentSGPA']}"""
    for edu in jsonData['education']))
@@ -24,12 +24,12 @@ def T1(jsonData,desc):
    Projects='\n'.join((
    f"""
    <div class="Ritem">
-         <li> <div class="item-title">{proj['projectTitle']} </div>
+         <li> <div class="item-title TextLight">{proj['projectTitle']} </div>
          <div> {proj['toolsTechUsed']} </li>
    </div>\n""" for proj in jsonData['projects']))
 
    WorkExp='\n'.join((f"""
-   <li> <div class="item-title">{we['companyNameDuration'].split(',')[0]}<div>2020 - PRES</div> </div>
+   <li> <div class="item-title TextLight">{we['companyNameDuration'].split(',')[0]}<div>2020 - PRES</div> </div>
    {we['jobTitle']}<br>
    {we['keyAchievements']}</li>""" for we in jsonData['workExperience']))
 
@@ -37,7 +37,7 @@ def T1(jsonData,desc):
           font-family: Arial, sans-serif;
           margin: 0;
           padding: 0;
-          background-color: #e7e0e0;
+          background-color: #d6cece;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -106,9 +106,22 @@ def T1(jsonData,desc):
           padding-top: 20px;
       }
 
-      .upperContent .Contact div a {
+      .NoneDecorationBlack a {
           text-decoration: none;
           color: #000000;
+      }
+
+      .colorBlue{
+          color: #277ca3;
+      }
+
+      .TextLight{     /* Used for subheadings of the content & contact fasfonts to make it more classic */
+          color: #333333;
+      }
+
+      .NoneDecoration a {         /* Used in More Certificates to remove text decoration but add blue color to make it Easy to understand */
+          text-decoration: none;
+          color: #277ca3;
       }
 
       .subcont,.SkillSubCon {
@@ -208,11 +221,11 @@ def T1(jsonData,desc):
          <div class="upperContent">
             <div class="Contact"> 
                <div class="section-title"><b>Contact</b> <i class="fas fa-address-card"></i></div>
-               <div class="Litem"><i class="fa fa-phone rotate-90"></i> {jsonData['contactInfo']['phoneNumber']} </div>
-               <div class="Litem"><i class="fas fa-envelope"></i><a href="mailto:"+{jsonData['contactInfo']['emailAddress']}> {jsonData['contactInfo']['emailAddress'].split('@')[0]} </a></div>
-               <div class="Litem"><i class="fab fa-linkedin"></i><a href={jsonData['contactInfo']['linkedinUrl'] if 'https://' in jsonData['contactInfo']['linkedinUrl'] else 'https://'+jsonData['contactInfo']['linkedinUrl']} target="_blank"> {jsonData['contactInfo']['linkedinUrl'].split('/')[2]}</a></div>
-               <div class="Litem"><i class="fas fa-globe"></i><a href={jsonData['contactInfo']['portfolioUrl'] if 'https://' in jsonData['contactInfo']['portfolioUrl'] else 'https://'+jsonData['contactInfo']['portfolioUrl'] } target="_blank"> Portfolio </a></div>
-               <div class="Litem"><i class="fa fa-map-marker"></i> {jsonData['contactInfo']['Location']}</div> <br>
+               <div class="Litem"><i class="fa fa-phone rotate-90 TextLight"></i> {jsonData['contactInfo']['phoneNumber']} </div>
+               <div class="Litem NoneDecorationBlack"><i class="fas fa-envelope TextLight"></i><a href="mailto:"+{jsonData['contactInfo']['emailAddress']}> {jsonData['contactInfo']['emailAddress'].split('@')[0]} </a></div>
+               <div class="Litem NoneDecorationBlack"><i class="fab fa-linkedin TextLight"></i><a href={jsonData['contactInfo']['linkedinUrl'] if 'https://' in jsonData['contactInfo']['linkedinUrl'] else 'https://'+jsonData['contactInfo']['linkedinUrl']} target="_blank"> {jsonData['contactInfo']['linkedinUrl'].split('/')[2]}</a></div>
+               <div class="Litem NoneDecorationBlack"><i class="fas fa-globe TextLight"></i><a href={jsonData['contactInfo']['portfolioUrl'] if 'https://' in jsonData['contactInfo']['portfolioUrl'] else 'https://'+jsonData['contactInfo']['portfolioUrl'] } target="_blank"> Portfolio </a></div>
+               <div class="Litem "><i class="fa fa-map-marker TextLight"></i> {jsonData['contactInfo']['Location']}</div> <br>
             </div>
             <div class="Usection">
                <div class="section-title"><b>Profile Summary</b></div>
@@ -267,7 +280,7 @@ def T1(jsonData,desc):
 
                <div class="section">
                   <div class="section-title"><b>Certificates</b></div>
-                  <div class="Ritem subcont">
+                  <div class="Ritem subcont NoneDecoration">
                      <div>{'<br>'.join((cer['certificateName'] for cer in jsonData['certificates']))}<br><a href="#" target="_blank">More Certificates</a></div>
                      <div>{'<br>'.join(('~' for _ in range(len(jsonData['certificates']))))}<br></div>
                      <div>{'<br>'.join((cer['providerName'] for cer in jsonData['certificates']))}<br></div>
@@ -304,7 +317,7 @@ def T1(jsonData,desc):
 def T3(jsonData,desc):
 
    Education='\n <br><br> \n'.join((f"""
-      <div class="SubSec-title"><b>{edu['graduationYear']}<br>{edu['institutionName']}</b></div>
+      <div class="SubSec-title TextLight"><b>{edu['graduationYear']}<br>{edu['institutionName']}</b></div>
       {edu['degreeName']} <br>
       GPA: {edu['currentSGPA']}"""
    for edu in jsonData['education']))
@@ -316,42 +329,59 @@ def T3(jsonData,desc):
    Projects='\n'.join((
    f"""
    <div class="Ritem">
-         <li> <div class="item-title">{proj['projectTitle']} </div>
+         <li> <div class="item-title TextLight">{proj['projectTitle']} </div>
          <div> {proj['toolsTechUsed']} </li>
    </div>\n""" for proj in jsonData['projects']))
 
    WorkExp='\n'.join((f"""
-   <li> <div class="item-title">{we['companyNameDuration'].split(',')[0]}<div>2020 - PRES</div> </div>
+   <li> <div class="item-title TextLight">{we['companyNameDuration'].split(',')[0]}<div>2020 - PRES</div> </div>
    {we['jobTitle']}<br>
    {we['keyAchievements']}</li>""" for we in jsonData['workExperience']))
 
    css="""
    body {
       font-family: Arial, sans-serif;
-      margin: 0;
+      margin: 20px 0 20px 0;
       padding: 0;
-      background-color: #f5f5f5;
+      background-color: #d6cece;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
       height: 1131px; /* (W/H) Ratio should be 0.7069 */
    }
 
    .resume {
-      width: 800px; /* (W/H) Ratio should be 0.7069 */
+      width: 800px;
       background: #ffffff;
-      border: 1px solid #ddd;
-      border-radius: 10px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
       padding: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 0; /* Ensure no space between header and resume */
+   }
+
+   .NoDecorationBlue a{
+      text-decoration: None;
+      color: #0c6291;
+   }
+
+   .TextLight{
+      color: #272727;
+      font-weight: 500;
+   }
+
+   .IconLight{
+      color: #4e4e4e;
    }
 
    .header {
       text-align: center;
-      background: #9ed4f1;
-      padding: 80px 0;
-      border-radius: 7px;
-      margin-bottom: 30px;
+      width: 840px;
+      background: #b6dbf0;
+      padding: 90px 0 90px 0; 
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      margin-bottom: 0; /* Remove bottom margin */
    }
 
    .header h1 {
@@ -452,21 +482,20 @@ def T3(jsonData,desc):
 
    </head>
    <body>
+      <div class="header">
+         <h1>{jsonData['contactInfo']['fullName']}</h1>
+         <h2>Data Scientist & DL Enthusiast</h2>
+      </div>
       <div class="resume">
-            <div class="header">
-               <h1>{jsonData['contactInfo']['fullName']}</h1>
-               <h2>Data Scientist & DL Enthusiast</h2>
-            </div>
-
             <div class="content">
                <div class="left">
                   <div class="Contact"> 
                      <div class="section-title"><b>Contact</b> <i class="fas fa-address-card"></i></div>
-                     <div class="Litem"><i class="fa fa-phone rotate-90"></i> {jsonData['contactInfo']['phoneNumber']} </div>
-                     <div class="Litem"><i class="fas fa-envelope"></i><a href="mailto:"+{jsonData['contactInfo']['emailAddress']}> {jsonData['contactInfo']['emailAddress'].split('@')[0]} </a></div>
-                     <div class="Litem"><i class="fab fa-linkedin"></i><a href={jsonData['contactInfo']['linkedinUrl'] if 'https://' in jsonData['contactInfo']['linkedinUrl'] else 'https://'+jsonData['contactInfo']['linkedinUrl']} target="_blank"> {jsonData['contactInfo']['linkedinUrl'].split('/')[2]}</a></div>
-                     <div class="Litem"><i class="fas fa-globe"></i><a href={jsonData['contactInfo']['portfolioUrl'] if 'https://' in jsonData['contactInfo']['portfolioUrl'] else 'https://'+jsonData['contactInfo']['portfolioUrl'] } target="_blank"> Portfolio </a></div>
-                     <div class="Litem"><i class="fa fa-map-marker"></i> {jsonData['contactInfo']['Location']}</div> <br>
+                     <div class="Litem"><i class="fa fa-phone rotate-90 IconLight"></i> {jsonData['contactInfo']['phoneNumber']} </div>
+                     <div class="Litem"><i class="fas fa-envelope IconLight"></i><a href="mailto:"+{jsonData['contactInfo']['emailAddress']}> {jsonData['contactInfo']['emailAddress'].split('@')[0]} </a></div>
+                     <div class="Litem"><i class="fab fa-linkedin IconLight"></i><a href={jsonData['contactInfo']['linkedinUrl'] if 'https://' in jsonData['contactInfo']['linkedinUrl'] else 'https://'+jsonData['contactInfo']['linkedinUrl']} target="_blank"> {jsonData['contactInfo']['linkedinUrl'].split('/')[2]}</a></div>
+                     <div class="Litem"><i class="fas fa-globe IconLight"></i><a href={jsonData['contactInfo']['portfolioUrl'] if 'https://' in jsonData['contactInfo']['portfolioUrl'] else 'https://'+jsonData['contactInfo']['portfolioUrl'] } target="_blank"> Portfolio </a></div>
+                     <div class="Litem"><i class="fa fa-map-marker IconLight"></i> {jsonData['contactInfo']['Location']}</div> <br>
                   </div>
 
                   <div class="section">
@@ -517,7 +546,7 @@ def T3(jsonData,desc):
 
                   <div class="section">
                      <div class="section-title"><b>Certificates</b></div>
-                     <div class="Ritem subcont">
+                     <div class="Ritem subcont NoDecorationBlue">
                         <div>{'<br>'.join((cer['certificateName'] for cer in jsonData['certificates']))}<br><a href="#" target="_blank">More Certificates</a></div>
                         <div>{'<br>'.join(('~' for _ in range(len(jsonData['certificates']))))}<br></div>
                         <div>{'<br>'.join((cer['providerName'] for cer in jsonData['certificates']))}<br></div>
@@ -582,7 +611,7 @@ def T4(jsonData,desc):
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
+      background-color: #d6cece;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -594,8 +623,19 @@ def T4(jsonData,desc):
       background: #ffffff;
       border: 1px solid #ddd;
       border-radius: 15px;
-      padding: 30px;
+      padding: 0 30px 0 0;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   }
+
+   .Underline{
+      width: 65px;
+      border:2px solid black;
+      border-radius: 20px;
+   }
+
+   .NoneDecoration a{
+      text-decoration: none;
+      color:#0363b1;
    }
 
    .header {
@@ -605,14 +645,15 @@ def T4(jsonData,desc):
 
    .header .left {
       width: 35%;
-      padding: 10px 10px 10px 16px;
-      background-color: #53677a;
+      display: flex;
+      justify-content: center;
+      padding: 10px 13px 10px 13px;
+      background-color: #0363b1;
       border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-      border-right: 4px solid rgb(109, 106, 106);
+      border-right: 4px solid #0363b1;
    }
 
-   .left img {
+   .left img{
       width: 200px;
       height: 200px;
       border-radius: 50%;
@@ -638,12 +679,12 @@ def T4(jsonData,desc):
 
    .right h2 {
       font-size: 16px;
-      color: #666;
+      color: #4d4b4b;
    }
 
    .section-title {
       font-size: 18px;
-      color: #53677a;
+      color: #3e3e3f;
       margin-bottom: 10px;
       border-bottom: 1px solid #96a75a;
       padding-bottom: 5px;
@@ -665,8 +706,9 @@ def T4(jsonData,desc):
    .content .left {
       width: 35%;
       padding-right: 10px;
-      background-color: #53677a;
-      border-right: 4px solid rgb(109, 106, 106);
+      background-color: #0363b1;
+      border-bottom-left-radius: 15px;
+      border-right: 4px solid #0363b1;
    }
 
    .content .right {
@@ -696,7 +738,7 @@ def T4(jsonData,desc):
 
    .section,.SUsection {
       margin-bottom: 20px;
-      color: #53677a;
+      color: #141414;
    }
 
    .item {
@@ -763,6 +805,7 @@ def T4(jsonData,desc):
                   <div class="head">
                      <h1>{jsonData['contactInfo']['fullName']}</h1>
                      <h2>Data Scientist & DL Enthusiast</h2>
+                     <div class="Underline"></div>
                   </div>
                </div>
             </div>
@@ -825,7 +868,7 @@ def T4(jsonData,desc):
 
                   <div class="section">
                      <div class="section-title"><b>Certificates</b></div>
-                     <div class="Ritem subcont">
+                     <div class="Ritem subcont NoneDecoration">
                         <div>{'<br>'.join((cer['certificateName'] for cer in jsonData['certificates']))}<br><a href="#" target="_blank">More Certificates</a></div>
                         <div>{'<br>'.join(('~' for _ in range(len(jsonData['certificates']))))}<br></div>
                         <div>{'<br>'.join((cer['providerName'] for cer in jsonData['certificates']))}<br></div>
@@ -885,7 +928,7 @@ def T7(jsonData,desc):
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
+      background-color: #d6cece;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -912,6 +955,11 @@ def T7(jsonData,desc):
 
    .contacts h1{
       margin: 0%;
+   }
+
+   .NoneDecoration{
+      text-decoration: none;
+      color: rgb(1, 82, 187);
    }
 
    .subtitle,.item-title{
@@ -994,7 +1042,7 @@ def T7(jsonData,desc):
           <div class="Conts">
              <div class="title">Certifications:</div>
              <div class="subcont">
-                <div class="left">{'<br>'.join((cer['certificateName'] for cer in jsonData['certificates']))}<br><a href="#" target="_blank">More Certificates</a></div>
+                <div class="left">{'<br>'.join((cer['certificateName'] for cer in jsonData['certificates']))}<br><a class="NoneDecoration" href="#" target="_blank">More Certificates</a></div>
                 <div class="mid">{'<br>'.join(('~' for _ in range(len(jsonData['certificates']))))}<br></div>
                 <div class="right">{'<br>'.join((cer['providerName'] for cer in jsonData['certificates']))}<br></div>
              </div>

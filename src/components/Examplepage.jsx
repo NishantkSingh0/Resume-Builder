@@ -15,10 +15,9 @@ const Examplepage = ({
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [direction, setDirection] = useState(null); // Track animation direction
+  const [direction, setDirection] = useState(null); 
   const slideContainerRef = useRef(null);
 
-  // Handle responsive layout
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -29,7 +28,6 @@ const Examplepage = ({
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Auto slide images
   useEffect(() => {
     if (images.length <= 1) return;
     
@@ -41,45 +39,39 @@ const Examplepage = ({
     return () => clearInterval(timer);
   }, [images.length, interval]);
 
-  // Calculate indices for visible slides
   const getVisibleIndices = () => {
     if (isMobile) {
       return [currentIndex];
     } else {
-      // For desktop, show 3 images with current in the middle
       const prevIndex = (currentIndex - 1 + images.length) % images.length;
       const nextIndex = (currentIndex + 1) % images.length;
       return [prevIndex, currentIndex, nextIndex];
     }
   };
 
-  // Handle navigation
   const goToSlide = (index) => {
     setDirection(index > currentIndex ? 'right' : 'left');
     setCurrentIndex(index);
   };
 
-  // No images case
   if (!images.length) {
     return <div className="w-full h-64 bg-gray-100 flex items-center justify-center rounded-lg">No images to display</div>;
   }
 
   const visibleIndices = getVisibleIndices();
 
-  // Helper function to determine slide position classes
   const getSlideClasses = (i) => {
     if (isMobile) {
       return "transition-all duration-500 ease-in-out px-4";
     }
     
-    // For desktop
-    if (i === 1) { // Center (current) slide
+    if (i === 1) { 
       return "transition-all duration-500 ease-in-out px-4 scale-110 z-10";
-    } else if (i === 0) { // Left slide
+    } else if (i === 0) { 
       return `transition-all duration-500 ease-in-out px-4 scale-90 opacity-70 ${
         direction === 'left' ? 'translate-x-8' : ''
       }`;
-    } else { // Right slide
+    } else { 
       return `transition-all duration-500 ease-in-out px-4 scale-90 opacity-70 ${
         direction === 'right' ? 'translate-x-8' : ''
       }`;
@@ -88,7 +80,6 @@ const Examplepage = ({
 
   return (
     <div className="w-full bg-white rounded-lg shadow-md overflow-hidden">
-      {/* Slideshow with original height */}
       <div className="w-full overflow-hidden py-8" ref={slideContainerRef}>
         <div className="flex justify-center items-center">
           {visibleIndices.map((index, i) => (
@@ -106,7 +97,6 @@ const Examplepage = ({
         </div>
       </div>
 
-      {/* Dots indicators only */}
       {showIndicators && (
         <div className="flex justify-center items-center mb-4 mt-4">
           <div className="flex space-x-3">

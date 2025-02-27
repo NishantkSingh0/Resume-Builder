@@ -2,12 +2,13 @@ body {
    font-family: Arial, sans-serif;
    margin: 0;
    padding: 0;
-   background-color: #f5f5f5;
+   background-color: #d6cece;
    display: flex;
    justify-content: center;
    align-items: center;
    height: 1200px;         /* (W/H) Ratio should be 0.7069 */
 }
+
 .resume {
    width: 800px;           /* (W/H) Ratio should be 0.7069 */
    /* height: 1131px; */
@@ -16,6 +17,11 @@ body {
    border-radius: 15px;
    padding: 20px;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.NoneDecoration{
+   text-decoration: none;
+   color: rgb(1, 82, 187);
 }
 
 .title{

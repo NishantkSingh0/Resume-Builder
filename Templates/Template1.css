@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e7e0e0;
+    background-color: #d6cece;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,9 +72,22 @@ body {
     padding-top: 20px;
 }
 
-.upperContent .Contact div a {
+.NoneDecorationBlack a {    /* Used in Contact Links to remove text decoration Fully */
     text-decoration: none;
     color: #000000;
+}
+
+.colorBlue{
+    color: #277ca3;
+}
+
+.TextLight{     /* Used for subheadings of the content & contact fasfonts to make it more classic */
+    color: #333333;
+}
+
+.NoneDecoration a {         /* Used in More Certificates to remove text decoration but add blue color to make it Easy to understand */
+    text-decoration: none;
+    color: #277ca3;
 }
 
 .subcont,.SkillSubCon {

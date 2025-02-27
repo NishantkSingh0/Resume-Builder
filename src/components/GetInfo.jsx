@@ -22,7 +22,8 @@ const GetInfo = () => {
     },
     workExperience: [{
       jobTitle: '',
-      companyNameDuration: '',
+      companyName: '',
+      WorkDuration: '',
       keyAchievements: ''
     }],
     projects: [{
@@ -74,7 +75,8 @@ const GetInfo = () => {
       ...prev,
       [section]: [...prev[section], section === 'workExperience' ? {
         jobTitle: '',
-        companyNameDuration: '',
+        companyName: '',
+        WorkDuration: '',
         keyAchievements: ''
       } : section === 'projects' ? {
         projectTitle: '',
@@ -108,7 +110,7 @@ const GetInfo = () => {
         formData.contactInfo.Languages,
         formData.contactInfo.Location,
       ],
-      2: formData.workExperience.length > 0 ? formData.workExperience.map(exp => [exp.jobTitle, exp.companyNameDuration, exp.keyAchievements]) : [[]],
+      2: formData.workExperience.length > 0 ? formData.workExperience.map(exp => [exp.jobTitle, exp.companyName, exp.WorkDuration, exp.keyAchievements]) : [[]],
       3: formData.projects.length > 0 ? formData.projects.map(proj => [proj.projectTitle, proj.toolsTechUsed]) : [[]],
       4: formData.education.length > 0 ? formData.education.map(edu => [edu.institutionName, edu.degreeName, edu.graduationYear, edu.currentSGPA]) : [[]],
       5: formData.certificates.length > 0 ? formData.certificates.map(cert => [cert.certificateName, cert.courseDuration, cert.providerName]) : [[]],
@@ -126,7 +128,7 @@ const GetInfo = () => {
     for (let step = 0; step <= currentStep; step++) {
       const requiredFields = Fields[step].flat();
       if (requiredFields.length > 0 && !areFieldsValid(requiredFields)) {
-        alert(`Please fill out all required fields From "Contact Information" before proceeding further.`);
+        alert(`Please fill out all required fields From "Contact Info" before proceeding further.`);
         return;
       }
     }
@@ -307,13 +309,24 @@ const GetInfo = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Company Name and Duration</label>
+                    <label className="block text-sm font-medium">Company Name</label>
                     <input
                       type="text"
-                      placeholder='Onlei Teach, 1 Month'
+                      placeholder='Onlei Teach'
                       className="w-full pl-1 sm:p-2 border rounded"
-                      value={exp.companyNameDuration}
-                      onChange={(e) => handleInputChange('workExperience', 'companyNameDuration', e.target.value, index)}
+                      value={exp.companyName}
+                      onChange={(e) => handleInputChange('workExperience', 'companyName', e.target.value, index)}
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium">Work Duration</label>
+                    <input
+                      type="text"
+                      placeholder='Dec-2023 to Mar-2025'
+                      className="w-full pl-1 sm:p-2 border rounded"
+                      value={exp.WorkDuration}
+                      onChange={(e) => handleInputChange('workExperience', 'WorkDuration', e.target.value, index)}
                     />
                   </div>
 
@@ -500,6 +513,7 @@ const GetInfo = () => {
         return (
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-gray-500 mb-4">Choose Template</h2>
+            <p className='test-xl font-semibold mb-6 text-gray-600'>We will frequently add more template designs to provide more resume options.</p>
             <div className="grid grid-cols-2 gap-5">
                 {[1,2,3,4,5,6,7].map((template) => (
                   <div

@@ -2,7 +2,7 @@ body {
    font-family: Arial, sans-serif;
    margin: 0;
    padding: 0;
-   background-color: #f5f5f5;
+   background-color: #d6cece;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -14,8 +14,19 @@ body {
    background: #ffffff;
    border: 1px solid #ddd;
    border-radius: 15px;
-   padding: 30px;
+   padding: 0 30px 0 0;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.Underline{
+   width: 65px;
+   border:2px solid black;
+   border-radius: 20px;
+}
+
+.NoneDecoration a{
+   text-decoration: none;
+   color:#0363b1;
 }
 
 .header {
@@ -25,14 +36,15 @@ body {
 
 .header .left {
    width: 35%;
-   padding: 10px 10px 10px 16px;
-   background-color: #53677a;
+   display: flex;
+   justify-content: center;
+   padding: 10px 13px 10px 13px;
+   background-color: #0363b1;
    border-top-left-radius: 15px;
-   border-top-right-radius: 15px;
-   border-right: 4px solid rgb(109, 106, 106);
+   border-right: 4px solid #0363b1;
 }
 
-.left img {
+.left img{
    width: 200px;
    height: 200px;
    border-radius: 50%;
@@ -58,12 +70,12 @@ body {
 
 .right h2 {
    font-size: 16px;
-   color: #666;
+   color: #4d4b4b;
 }
 
 .section-title {
    font-size: 18px;
-   color: #53677a;
+   color: #3e3e3f;
    margin-bottom: 10px;
    border-bottom: 1px solid #96a75a;
    padding-bottom: 5px;
@@ -85,8 +97,9 @@ body {
 .content .left {
    width: 35%;
    padding-right: 10px;
-   background-color: #53677a;
-   border-right: 4px solid rgb(109, 106, 106);
+   background-color: #0363b1;
+   border-bottom-left-radius: 15px;
+   border-right: 4px solid #0363b1;
 }
 
 .content .right {
@@ -116,7 +129,7 @@ body {
 
 .section,.SUsection {
    margin-bottom: 20px;
-   color: #53677a;
+   color: #141414;
 }
 
 .item {
