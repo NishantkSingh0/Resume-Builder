@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Typed from "typed.js"; 
+import Examplepages from './Examplepage.jsx'
 import { useNavigate } from 'react-router-dom';
 
 const features=[
@@ -17,18 +18,24 @@ const FrontPage = () => {
   const handleContinue = () => {
     navigate('/GetInfo');
   };
-  const handleExamples = () => {
-    navigate('/Examples');
-  };
+  // const handleExamples = () => {
+  //   navigate('/Examples');
+  // };
   const handleAboutUs = () => {
-    navigate('/AboutUs');
-  };
-  const handleBravers = () => {
     navigate('/AboutUs');
   };
 
   useEffect(() => {
-    const typed = new Typed(".typing-text", {
+    const typedMobile = new Typed("#mobile-typing-text", {
+      strings: features,
+      loop: true,
+      typeSpeed: 35,
+      backSpeed: 25,
+      backDelay: 500,
+      cursorChar: " ",
+    });
+
+    const typed = new Typed("#desktop-typing-text", {
       strings: features,
       loop: true,
       typeSpeed: 35,
@@ -38,6 +45,7 @@ const FrontPage = () => {
     });
 
     return () => {
+      typedMobile.destroy();
       typed.destroy();
     };
   }, []);
@@ -50,49 +58,53 @@ const FrontPage = () => {
           <button className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105" onClick={handleAboutUs}>
             About Us
           </button>
-          <button className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105" onClick={handleExamples}>
+          {/* <button className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105" onClick={handleExamples}>
             Examples
-          </button>
+          </button> */}
           <button className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105" onClick={handleContinue}>
             Continue ➤
           </button>
         </div>
       </div>
 
+      
       <div className="flex flex-col justify-center items-center flex-grow">
+
+        {/* Desktop View */}
+        <div className="hidden md:block">
+          <Examplepages/>
+        </div>
+
+        {/* Mobile View */}
         <h1 className="text-2xl md:hidden sm:text-3xl font-bold mb-3">
           Resume Builder Web Application
         </h1>
-        <span className=" text-xl sm:text-2xl text-gray-800 h-6 mb-3 typing-text"></span>
+        <span id="desktop-typing-text" className="md:hidden text-xl sm:text-2xl text-gray-800 h-6 mb-3 "></span>
         <div className="flex space-x-6 mt-5">
           <button className="md:hidden px-4 py-[5px] bg-blue-500 text-white rounded-full hover:bg-blue-700" onClick={handleContinue}>
             Continue
           </button>
         </div>
+
       </div>
 
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-center">
-        {/* <a
-          href="#"
+      <div className="md:hidden absolute bottom-2 left-1/2 -translate-x-1/2 text-center">
+        <a
+          href=""
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => {
-            e.preventDefault();  // Prevent jumping to the top of the page
-            handleBravers();
+            e.preventDefault();  
+            handleAboutUs();
             }}
-            >
+        >
             BRAVERS
-            </a> */}
-        {/* <p className="text-sm sm:text-lg text-gray-500 font-semibold">
-          <span className="hidden md:inline-block text-xl md:text-2xl text-gray-800 h-6 mb-3 typing-text"></span>
-        </p> */}
-
-
-
-        <p className="text-xs sm:text-sm text-gray-500 mb-3">
-          {/* <span className="hidden sm:inline-block text-xl sm:text-2xl text-gray-800 h-6 mb-3 typing-text"></span> */}
-        </p>
+        </a> 
       </div>
+
+      <p className="text-sm sm:text-lg text-gray-500 font-semibold mb-4">
+        <span id="mobile-typing-text" className="hidden md:inline-block text-xl md:text-2xl text-gray-800 h-6 mb-3 "></span>
+      </p>
     </div>
 
   );
