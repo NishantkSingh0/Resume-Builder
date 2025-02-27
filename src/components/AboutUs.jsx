@@ -59,19 +59,19 @@ function AboutUs() {
             className="w-full bg-gray-200 rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl transition-shadow duration-300"
             style={{ minWidth: "33%" }} 
           >
-            <div className="bg-gray-500 text-xl font-bold p-3 rounded-2xl mb-3">
+            <div className="bg-blue-600 text-xl font-bold p-3 rounded-2xl mb-3">
               {dev.name}
             </div>
 
-            <p className="text-gray-700 mb-6 font-semibold">{dev.role}</p>
+            <p className="text-green-700 mb-6 font-semibold">{dev.role}</p>
 
             <div className="flex flex-col space-y-4">
               <div className="flex justify-center items-center space-x-10 ml-32">
-                <div className="flex items-center space-x-2 text-gray-700 w-1/2 justify-start">
+                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-1/2 justify-start">
                   <FaGithub className="text-lg" />
                   <a href={dev.gitLink} target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.github}</a>
                 </div>
-                <div className="flex items-center space-x-2 text-gray-700 w-1/2 justify-start">
+                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-1/2 justify-start">
                   <FaLinkedin className="text-lg" />
                   <a href={dev.linLink} target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.linkedin}</a>
                 </div>
@@ -79,11 +79,11 @@ function AboutUs() {
 
               {/* Row 2: Portfolio & Email */}
               <div className="flex justify-center items-center space-x-10 mt-2 ml-32">
-                <div className="flex items-center space-x-2 text-gray-700 w-1/2 justify-start">
+                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-1/2 justify-start">
                   <FaGlobe className="text-lg" />
                   <a href={dev.portfolio} target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.portfolio}</a>
                 </div>
-                <div className="flex items-center space-x-2 text-gray-700 w-1/2 justify-start">
+                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-1/2 justify-start">
                   <FaEnvelope className="text-lg" />
                   <a href={`mailto:${dev.email}`} target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.email}</a>
                 </div>
