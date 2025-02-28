@@ -58,9 +58,6 @@ const FrontPage = () => {
           <button className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105" onClick={handleAboutUs}>
             About Us
           </button>
-          {/* <button className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105" onClick={handleExamples}>
-            Examples
-          </button> */}
           <button className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105" onClick={handleContinue}>
             Continue ➤
           </button>
@@ -68,24 +65,23 @@ const FrontPage = () => {
       </div>
 
       
-      <div className="flex flex-col justify-center items-center flex-grow">
+      {/* Desktop View */}
+      <div className="hidden md:grid place-items-center mt-8 mb-2">
+        <Examplepages />
+      </div>
 
-        {/* Desktop View */}
-        <div className="hidden md:block">
-          <Examplepages/>
-        </div>
 
-        {/* Mobile View */}
+      {/* Mobile View */}
+      <div className="md:hidden flex justify-center items-center flex-grow">
         <h1 className="text-2xl md:hidden sm:text-3xl font-bold mb-3">
           Resume Builder Web Application
         </h1>
         <span id="desktop-typing-text" className="md:hidden text-xl sm:text-2xl text-gray-800 h-6 mb-3 "></span>
-        <div className="flex space-x-6 mt-5">
-          <button className="md:hidden px-4 py-[5px] bg-blue-500 text-white rounded-full hover:bg-blue-700" onClick={handleContinue}>
+        <div className="md:hidden flex space-x-6 mt-5">
+          <button className=" px-4 py-[5px] bg-blue-500 text-white rounded-full hover:bg-blue-700" onClick={handleContinue}>
             Continue
           </button>
         </div>
-
       </div>
 
       <div className="md:hidden absolute bottom-2 left-1/2 -translate-x-1/2 text-center">

@@ -65,30 +65,30 @@ function AboutUs() {
 
             <p className="text-green-700 mb-6 font-semibold">{dev.role}</p>
 
-            <div className="flex flex-col space-y-4">
-              <div className="flex justify-center items-center space-x-10 ml-32">
-                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-1/2 justify-start">
+            <div className="flex flex-col items-center space-y-4 px-4 md:px-32">
+              <div className="flex flex-col md:flex-row justify-between w-full max-w-2xl space-y-4 md:space-y-0 md:space-x-10">
+                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start">
                   <FaGithub className="text-lg" />
                   <a href={dev.gitLink} target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.github}</a>
                 </div>
-                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-1/2 justify-start">
+                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start">
                   <FaLinkedin className="text-lg" />
                   <a href={dev.linLink} target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.linkedin}</a>
                 </div>
               </div>
 
-              {/* Row 2: Portfolio & Email */}
-              <div className="flex justify-center items-center space-x-10 mt-2 ml-32">
-                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-1/2 justify-start">
+              <div className="flex flex-col md:flex-row justify-between w-full max-w-2xl space-y-4 md:space-y-0 md:space-x-10">
+                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start">
                   <FaGlobe className="text-lg" />
                   <a href={dev.portfolio} target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.portfolio}</a>
                 </div>
-                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-1/2 justify-start">
+                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start">
                   <FaEnvelope className="text-lg" />
                   <a href={`mailto:${dev.email}`} target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.email}</a>
                 </div>
               </div>
             </div>
+
           </div>
         ))}
       </div>
