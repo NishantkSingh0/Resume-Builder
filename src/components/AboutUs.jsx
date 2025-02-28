@@ -8,7 +8,7 @@ const developers = [
     gitLink: "https://github.com/NishantkSingh0",
     linkedin: "Nishantksingh1",
     linLink: "https://www.linkedin.com/in/nishantksingh1",
-    portfolio: "nishantksingh0.github.io/Portfolio",
+    portfolio: "Nishantksingh0/Portfolio",
     prtLink: "https://nishantksingh0.github.io/Portfolio/",
     email: "nishantsingh.talk@gmail.com",
     emailLink: "mailto:nishantsingh.talk@gmail.com"
@@ -84,7 +84,7 @@ function AboutUs() {
               <div className="flex flex-col md:flex-row justify-between w-full max-w-2xl space-y-4 md:space-y-0 md:space-x-10">
                 <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start">
                   <FaGlobe className="text-lg" />
-                  <a href={dev.portfolio} onClick={(e) => { if (!dev.prtLink) e.preventDefault(); }}  target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.portfolio}</a>
+                  <a href={dev.prtLink} onClick={(e) => { if (!dev.prtLink) e.preventDefault(); }}  target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.portfolio}</a>
                 </div>
                 <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start">
                   <FaEnvelope className="text-lg" />

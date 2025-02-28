@@ -66,7 +66,7 @@ const FrontPage = () => {
 
       
       {/* Desktop View */}
-      <div className="hidden md:grid place-items-center mt-8 mb-2">
+      <div className="hidden md:grid place-items-center mt-8 mb-3">
         <Examplepages />
       </div>
 
