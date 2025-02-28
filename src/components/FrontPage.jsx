@@ -8,9 +8,10 @@ const features=[
   "No need to worry about what to add what to not",
   "Get high rated resumes",
   "Different variants of resume templates available",
+  "We carefully selected strong resume data inputs from users after high research.",
   "Download your resume in pdf or web formate",
-  "Use AI to create a perfect description for your resume",
-  "Completely free to use",
+  "Use AI to create a perfect summary for your resume",
+  "Completely free to use"
 ]
 
 const FrontPage = () => {
