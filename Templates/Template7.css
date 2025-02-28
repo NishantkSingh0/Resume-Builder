@@ -22,6 +22,12 @@ body {
 .NoneDecoration{
    text-decoration: none;
    color: rgb(1, 82, 187);
+   padding-left: 20px;
+}
+
+.TextGray{
+   color:#363636;
+   font-weight: bold;
 }
 
 .title{
@@ -49,24 +55,23 @@ body {
    margin-top: 25px;
 }
 
-.subcont{
-   display: flex;
-   /* justify-content: space-between; */
-}
-.subcont .left{
-   padding-right: 40px;
-}
-.subcont .mid{
-   padding-right: 40px;
-}
-
 .contacts a{
    text-decoration: none;
    color: black;
 }
 
-.Conts .internship{
+.signature{
+   font-family: 'Dancing Script', cursive;
+   font-size: 18px;
+   font-weight:500;
+   display: flex;
+   justify-content: end;
+   margin-right: 50px;
+}
+
+.SpaceBetween{
    display: flex;
    margin-bottom: 2px;
    justify-content: space-between;
+   padding: 0 20px 0 20px;
 }

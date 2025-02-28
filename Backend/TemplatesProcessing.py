@@ -915,7 +915,7 @@ def T7(jsonData,desc):
          <div> {proj['toolsTechUsed']} </li>
    </div>\n""" for proj in jsonData['projects']))
 
-   WorkExp='\n'.join(f"""                <div class="internship">
+   WorkExp='\n'.join(f"""                <div class="internship TextGray SpaceBetween">
                    <div class="left"><b>{exp['companyNameDuration'].split(',')[0]}</b></div>
                    <div class="Right"><b>{exp['companyNameDuration'].split(',')[1]}</b></div>
                 </div>
@@ -960,6 +960,12 @@ def T7(jsonData,desc):
    .NoneDecoration{
       text-decoration: none;
       color: rgb(1, 82, 187);
+      padding-left: 20px;
+   }
+
+   .TextGray{
+      color:#363636;
+      font-weight: bold;
    }
 
    .subtitle,.item-title{
@@ -978,20 +984,34 @@ def T7(jsonData,desc):
       display: flex;
       /* justify-content: space-between; */
    }
+
    .subcont .left{
       padding-right: 40px;
    }
+
    .subcont .mid{
       padding-right: 40px;
    }
+
    .contacts a{
       text-decoration: none;
       color: black;
    }
-   .Conts .internship{
+
+   .signature{
+      font-family: 'Dancing Script', cursive;
+      font-size: 18px;
+      font-weight:500;
+      display: flex;
+      justify-content: end;
+      margin-right: 50px;
+   }
+
+   .SpaceBetween{
       display: flex;
       margin-bottom: 2px;
       justify-content: space-between;
+      padding: 0 20px 0 20px;
    }
     """
    UpdatedTemplate=f"""
@@ -1023,7 +1043,7 @@ def T7(jsonData,desc):
           </div>
           <div class="Conts">
              <div class="title">Technical skills:</div>
-             <div class="subcont">
+             <div class="subcont SpaceBetween">
                 <div class="left">Hard Skills <br>Soft Skills </div>
                 <div class="mid">~ <br>~ <br></div>
                 <div class="right">{jsonData['skills']['hardSkills']}<br>{jsonData['skills']['softSkills']} <br></div>
@@ -1041,16 +1061,18 @@ def T7(jsonData,desc):
           </div>
           <div class="Conts">
              <div class="title">Certifications:</div>
-             <div class="subcont">
-                <div class="left">{'<br>'.join((cer['certificateName'] for cer in jsonData['certificates']))}<br><a class="NoneDecoration" href="#" target="_blank">More Certificates</a></div>
+             <div class="subcont SpaceBetween">
+                <div class="left">{'<br>'.join((cer['certificateName'] for cer in jsonData['certificates']))}</div>
                 <div class="mid">{'<br>'.join(('~' for _ in range(len(jsonData['certificates']))))}<br></div>
                 <div class="right">{'<br>'.join((cer['providerName'] for cer in jsonData['certificates']))}<br></div>
              </div>
+             <a class="NoneDecoration" href="#" target="_blank">More Certificates</a>
           </div>
           <div class="Conts">
              <div class="title">Declaration:</div>
              I hereby declare that the above information is true to the best of my knowledge.
           </div>
+          <p class="signature">{jsonData['contactInfo']['fullName']}</p>
        </div>   
     </body>
     </html>

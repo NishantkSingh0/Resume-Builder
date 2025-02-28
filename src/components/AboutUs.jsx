@@ -16,14 +16,14 @@ const developers = [
   {
     name: "Amisha Pal",
     role: "Handled Designing All Templates",
-    github: "Amisha",
-    gitLink: "",
-    linkedin: "Amisha",
-    linLink: "",
+    github: "Amisha-Pal",
+    gitLink: "https://github.com/Amisha-Pal",
+    linkedin: "amisha-pal-7034",
+    linLink: "https://www.linkedin.com/in/amisha-pal-703493328/",
     portfolio: "Amisha.dev",
     prtLink: "",
-    email: "Amisha@gmail.com",
-    emailLink: ""
+    email: "amishapal9927@gmail.com",
+    emailLink: "mailto:amishapal9927@gmail.com"
   },
   {
     name: "Ankush Kumar",

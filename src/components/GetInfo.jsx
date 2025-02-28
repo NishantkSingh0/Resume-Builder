@@ -155,7 +155,7 @@ const GetInfo = () => {
   
       const a = document.createElement("a");
       a.href = url;
-      a.download = "resume_data.json";
+      a.download = "BRAVERS_resume_builder_data.json";
       document.body.appendChild(a);
       a.click();
   
