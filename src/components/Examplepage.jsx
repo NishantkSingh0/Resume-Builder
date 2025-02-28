@@ -79,7 +79,7 @@ const Examplepage = ({
   };
 
   return (
-    <div className="w-3/4 bg-gray-100 overflow-hidden">
+    <div className="w-3/4 bg-gray-200 overflow-hidden">
       <div className="w-full overflow-hidden py-8" ref={slideContainerRef}>
         <div className="flex justify-center items-center">
           {visibleIndices.map((index, i) => (
@@ -90,7 +90,7 @@ const Examplepage = ({
               <img
                 src={images[index]}
                 alt={`Slide ${index + 1}`}
-                className="w-full h-auto object-contain rounded shadow"
+                className="w-full h-auto object-contain rounded-lg shadow"
               />
             </div>
           ))}

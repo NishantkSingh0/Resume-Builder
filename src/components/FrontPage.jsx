@@ -51,7 +51,7 @@ const FrontPage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col h-screen bg-gray-100 text-center px-4">
+    <div className="flex flex-col h-screen bg-gray-200 text-center px-4">
       <div className="hidden md:flex justify-between items-center w-full px-6 py-3 bg-white shadow-md rounded-2xl mt-3">
         <h1 className="text-xl font-bold text-gray-800">Resume Builder Web Application</h1>
         <div className="flex space-x-4">
@@ -63,7 +63,6 @@ const FrontPage = () => {
           </button>
         </div>
       </div>
-
       
       {/* Desktop View */}
       <div className="hidden md:grid place-items-center mt-8 mb-3">
