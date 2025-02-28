@@ -1,4 +1,5 @@
 import { FaGithub, FaLinkedin, FaEnvelope, FaGlobe } from "react-icons/fa";
+import ExpandButton from './ExpandButton.jsx'
 
 const developers = [
   {
@@ -63,9 +64,13 @@ function AboutUs() {
             className="w-full bg-gray-200 rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl transition-shadow duration-300"
             style={{ minWidth: "33%" }} 
           >
-            <div className="bg-blue-600 text-xl font-bold p-3 rounded-2xl mb-3">
-              {dev.name}
+            <div className="flex items-center bg-blue-600 text-xl font-bold p-3 rounded-2xl mb-3">
+              <div className="flex items-center justify-center flex-1">
+                {dev.name}
+                {dev.name === "Nishant Singh" && <ExpandButton />}
+              </div>
             </div>
+
 
             <p className="text-green-700 mb-6 font-semibold">{dev.role}</p>
 
