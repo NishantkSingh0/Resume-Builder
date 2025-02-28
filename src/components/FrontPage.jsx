@@ -72,7 +72,7 @@ const FrontPage = () => {
 
 
       {/* Mobile View */}
-      <div className="md:hidden flex justify-center items-center flex-grow">
+      <div className="md:hidden flex justify-center flex-col items-center flex-grow">
         <h1 className="text-2xl md:hidden sm:text-3xl font-bold mb-3">
           Resume Builder Web Application
         </h1>
