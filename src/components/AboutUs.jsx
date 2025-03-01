@@ -11,7 +11,7 @@ const developers = [
     linLink: "https://www.linkedin.com/in/nishantksingh1",
     portfolio: "Nishantksingh0/Portfolio",
     prtLink: "https://nishantksingh0.github.io/Portfolio/",
-    email: "nishantsingh.talk@gmail.com",
+    email: "nishantsingh.talk",
     emailLink: "mailto:nishantsingh.talk@gmail.com"
   },
   {
@@ -23,7 +23,7 @@ const developers = [
     linLink: "https://www.linkedin.com/in/amisha-pal-703493328/",
     portfolio: "Amisha.dev",
     prtLink: "",
-    email: "amishapal9927@gmail.com",
+    email: "amishapal9927",
     emailLink: "mailto:amishapal9927@gmail.com"
   },
   {
@@ -35,7 +35,7 @@ const developers = [
     linLink: "https://www.linkedin.com/in/ankush-kumar-505318231",
     portfolio: "Ankush.dev",
     prtLink: "",
-    email: "akbahot2004@gmail.com",
+    email: "akbahot2004@",
     emailLink: "mailto:akbahot2004@gmail.com"
   },
   {

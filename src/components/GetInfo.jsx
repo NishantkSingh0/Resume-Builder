@@ -218,7 +218,7 @@ const GetInfo = () => {
                 <label className="block text-sm font-medium">Portfolio URL / Github URL</label>
                 <input
                   type="text"
-                  placeholder='if have else add GitHub URL'
+                  placeholder='Portfolio URL if have else add GitHub URL'
                   className="w-full pl-1 sm:p-2 border rounded"
                   value={formData.contactInfo.portfolioUrl}
                   onChange={(e) => handleInputChange('contactInfo', 'portfolioUrl', e.target.value)}
