@@ -11,7 +11,8 @@ const features=[
   "We carefully selected strong resume data inputs from users after high research.",
   "Download your resume in pdf or web formate",
   "Use AI to create a perfect summary for your resume",
-  "Completely free to use"
+  "Completely free to use",
+  "We didn't store your entered data and generated resumes for user privacy"
 ]
 
 const FrontPage = () => {

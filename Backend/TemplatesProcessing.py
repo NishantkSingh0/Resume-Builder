@@ -17,6 +17,27 @@ def T1(jsonData,desc):
       GPA: {edu['currentSGPA']}"""
    for edu in jsonData['education']))
 
+   skills=jsonData['skills']['hardSkills'].split(',')
+   eachColumn=len(skills)//3
+   column1=eachColumn
+   column2=eachColumn
+   column3=eachColumn
+   if eachColumn%3==1:
+      column1+=1
+   elif eachColumn%3==2:
+      column1+=1
+      column2+=1
+   HardSkills="""                     <ul>
+                        {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1)))}
+                     </ul>
+                     <ul>
+                        {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1,column2+column1)))}
+                     </ul>
+                     <ul>
+                        {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column2+column1,column3+column2+column1)))}
+                     </ul>"""
+   
+
    softSkills='\n'.join((f"<li>{removespace(skill)}</li>" for skill in jsonData['skills']['softSkills'].split(',')))
    
    languages='\n'.join((f"<li>{removespace(skill)}: Fluet</li>" for skill in jsonData['contactInfo']['Languages'].split(',')))
@@ -30,7 +51,7 @@ def T1(jsonData,desc):
 
    WorkExp='\n'.join((f"""
    <li> <div class="item-title TextLight">{we['companyNameDuration'].split(',')[0]}<div>2020 - PRES</div> </div>
-   {we['jobTitle']}<br>
+   {we['jobTitle']} <br> 
    {we['keyAchievements']}</li>""" for we in jsonData['workExperience']))
 
    css="""body {
@@ -281,30 +302,16 @@ def T1(jsonData,desc):
                <div class="section">
                   <div class="section-title"><b>Certificates</b></div>
                   <div class="Ritem subcont NoneDecoration">
-                     <div>{'<br>'.join((cer['certificateName'] for cer in jsonData['certificates']))}<br><a href="#" target="_blank">More Certificates</a></div>
-                     <div>{'<br>'.join(('~' for _ in range(len(jsonData['certificates']))))}<br></div>
-                     <div>{'<br>'.join((cer['providerName'] for cer in jsonData['certificates']))}<br></div>
+                     <div>{' <br> '.join((cer['certificateName'] for cer in jsonData['certificates']))}<br><a href="#" target="_blank">More Certificates</a></div>
+                     <div>{' <br> '.join(('~' for _ in range(len(jsonData['certificates']))))}<br></div>
+                     <div>{' <br> '.join((cer['providerName'] for cer in jsonData['certificates']))}<br></div>
                   </div>
                </div>
 
                <div class="skills">
                   <div class="section-title"><b>Technical Skills</b></div>
                   <div class="Ritem subcont">
-                     <ul>
-                        <li>1 skills</li>
-                        <li>2 skills</li>
-                        <li>3 skills</li>
-                     </ul>
-                     <ul>
-                        <li>4 skills</li>
-                        <li>5 skills</li>
-                        <li>6 skills</li>
-                     </ul>
-                     <ul>
-                        <li>7 skills</li>
-                        <li>8 skills</li>
-                        <li>9 skills</li>
-                     </ul>
+                     {HardSkills}
                   </div>
                </div>
             </div>
@@ -315,6 +322,28 @@ def T1(jsonData,desc):
    return updatedTemplate
 
 def T3(jsonData,desc):
+
+   
+   skills=jsonData['skills']['hardSkills'].split(',')
+   eachColumn=len(skills)//3
+   column1=eachColumn
+   column2=eachColumn
+   column3=eachColumn
+   if eachColumn%3==1:
+      column1+=1
+   elif eachColumn%3==2:
+      column1+=1
+      column2+=1
+   HardSkills="""                     <ul>
+                        {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1)))}
+                     </ul>
+                     <ul>
+                        {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1,column2+column1)))}
+                     </ul>
+                     <ul>
+                        {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column2+column1,column3+column2+column1)))}
+                     </ul>"""
+   
 
    Education='\n <br><br> \n'.join((f"""
       <div class="SubSec-title TextLight"><b>{edu['graduationYear']}<br>{edu['institutionName']}</b></div>
@@ -556,21 +585,7 @@ def T3(jsonData,desc):
                   <div class="skills">
                      <div class="section-title"><b>Technical Skills</b></div>
                      <div class="Ritem subcont">
-                        <ul>
-                           <li>1 skills</li>
-                           <li>2 skills</li>
-                           <li>3 skills</li>
-                        </ul>
-                        <ul>
-                           <li>4 skills</li>
-                           <li>5 skills</li>
-                           <li>6 skills</li>
-                        </ul>
-                        <ul>
-                           <li>7 skills</li>
-                           <li>8 skills</li>
-                           <li>9 skills</li>
-                        </ul>
+                        {HardSkills}
                      </div>
                   </div>
                </div>
@@ -582,6 +597,27 @@ def T3(jsonData,desc):
    return updatedTemplate
 
 def T4(jsonData,desc):
+
+   skills=jsonData['skills']['hardSkills'].split(',')
+   eachColumn=len(skills)//3
+   column1=eachColumn
+   column2=eachColumn
+   column3=eachColumn
+   if eachColumn%3==1:
+      column1+=1
+   elif eachColumn%3==2:
+      column1+=1
+      column2+=1
+   HardSkills="""                     <ul>
+                        {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1)))}
+                     </ul>
+                     <ul>
+                        {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1,column2+column1)))}
+                     </ul>
+                     <ul>
+                        {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column2+column1,column3+column2+column1)))}
+                     </ul>"""
+   
 
    Education='\n <br><br> \n'.join((f"""
       <div class="SubSec-title"><b>{edu['graduationYear']}<br>{edu['institutionName']}</b></div>
@@ -878,21 +914,7 @@ def T4(jsonData,desc):
                   <div class="skills">
                      <div class="section-title"><b>Technical Skills</b></div>
                      <div class="Ritem subcont">
-                        <ul>
-                           <li>1 skills</li>
-                           <li>2 skills</li>
-                           <li>3 skills</li>
-                        </ul>
-                        <ul>
-                           <li>4 skills</li>
-                           <li>5 skills</li>
-                           <li>6 skills</li>
-                        </ul>
-                        <ul>
-                           <li>7 skills</li>
-                           <li>8 skills</li>
-                           <li>9 skills</li>
-                        </ul>
+                        {HardSkills}
                      </div>
                   </div>
                </div>
