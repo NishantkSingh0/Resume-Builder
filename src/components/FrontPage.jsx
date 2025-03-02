@@ -8,13 +8,13 @@ import { MdDarkMode } from "react-icons/md";
 const features=[
   "Build your resume easily",
   "No need to worry about what to add what to not",
-  "Get high rated resumes",
+  "Get high rated ATS freindly resumes",
   "Different variants of resume templates available",
-  "We carefully selected strong resume data inputs from users after high research.",
+  "We carefully selected strong resume data inputs from users after a high research.",
   "Download your resume in pdf or web formate",
   "Use AI to create a perfect summary for your resume",
   "Completely free to use",
-  "We didn't store your entered data and generated resumes for user privacy"
+  "We didn't store your entered data and generated resumes (for user privacy)"
 ]
 
 const FrontPage = () => {
@@ -65,7 +65,7 @@ const FrontPage = () => {
       <div className="hidden md:flex justify-between items-center w-full px-6 py-3 bg-white shadow-md rounded-2xl mt-3 dark:bg-slate-800">
         <button 
           className="text-2xl mr-48"
-          title="This Day/Night mode will choose randomly on refresh so that user experience both modes (You can also select it so that before refresh it will be at your choice)"
+          title="The Dark/Light mode will be chosen randomly on each refresh, allowing users to experience both modes. You can also set it to your preferred mode."
           onClick={handleTheme}>
           {isDark?<MdDarkMode className="text-white" />:<MdDarkMode className="text-black" /> }
         </button>

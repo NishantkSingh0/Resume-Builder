@@ -66,13 +66,13 @@ const Examplepage = ({
     }
     
     if (i === 1) { 
-      return "transition-all duration-500 ease-in-out px-4 scale-110 z-10";
+      return "transition-all duration-700 ease-in-out px-4 scale-110 z-10";
     } else if (i === 0) { 
-      return `transition-all duration-500 ease-in-out px-4 scale-90 opacity-70 ${
+      return `transition-all duration-700 ease-in-out px-4 scale-90 opacity-80 dark:opacity-70 ${
         direction === 'left' ? 'translate-x-8' : ''
       }`;
     } else { 
-      return `transition-all duration-500 ease-in-out px-4 scale-90 opacity-70 ${
+      return `transition-all duration-700 ease-in-out px-4 scale-90 opacity-80 dark:opacity-70 ${
         direction === 'right' ? 'translate-x-8' : ''
       }`;
     }

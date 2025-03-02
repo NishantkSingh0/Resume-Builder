@@ -197,12 +197,29 @@ const GetInfo = () => {
               <div className="space-y-2">
                 <label className="block text-sm font-medium dark:text-slate-300">Phone Number</label>
                 <input
-                  type="number" 
-                  placeholder='746X8XX716'
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                  type="number"
+                  placeholder="Enter 10-digit phone number"
+                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600 
+                  [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   value={formData.contactInfo.phoneNumber}
-                  onChange={(e) => handleInputChange('contactInfo', 'phoneNumber', e.target.value)}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    if (/^\d{0,10}$/.test(value)) {  // Allow only up to 10 digits
+                      handleInputChange("contactInfo", "phoneNumber", value);
+                    }
+                  }}
+                  onBlur={(e) => {
+                    const value = e.target.value;
+                    if (!/^\d{10}$/.test(value)) {
+                      toast.error("Phone number must be exactly 10 digits!", {
+                        duration: 3000,
+                        position: "top-right",
+                      });
+                      e.target.focus(); // Force user to stay on input until it's valid
+                    }
+                  }}
                 />
+
                 <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
 
@@ -210,10 +227,17 @@ const GetInfo = () => {
                 <label className="block text-sm font-medium dark:text-slate-300">Email Address</label>
                 <input
                   type="email"
-                  placeholder='xyz231@gmail.com'
+                  placeholder="xyz231@gmail.com"
                   className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   value={formData.contactInfo.emailAddress}
-                  onChange={(e) => handleInputChange('contactInfo', 'emailAddress', e.target.value)}
+                  onChange={(e) => handleInputChange("contactInfo", "emailAddress", e.target.value)}
+                  onBlur={(e) => {
+                    const value = e.target.value;
+                    if (!/^\S+@\S+\.\S+$/.test(value)) {
+                      toast.error("Invalid email format!", { duration: 3000, position: "top-right" });
+                      e.target.focus(); 
+                    }
+                  }}
                 />
                 <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
@@ -222,10 +246,17 @@ const GetInfo = () => {
                 <label className="block text-sm font-medium dark:text-slate-300">LinkedIn URL</label>
                 <input
                   type="text"
-                  placeholder='www.linkedin.com/in/xyz231/'
+                  placeholder="www.linkedin.com/in/xyz231/"
                   className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   value={formData.contactInfo.linkedinUrl}
-                  onChange={(e) => handleInputChange('contactInfo', 'linkedinUrl', e.target.value)}
+                  onChange={(e) => handleInputChange("contactInfo", "linkedinUrl", e.target.value)}
+                  onBlur={(e) => {
+                    const value = e.target.value;
+                    if (!/^(www\.)?linkedin\.com\/in\/[a-zA-Z0-9_-]+\/?$/.test(value)) {
+                      toast.error("Invalid LinkedIn URL! Use full URL format.", { duration: 3000, position: "top-right" });
+                      e.target.focus(); 
+                    }
+                  }}
                 />
                 <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
@@ -346,10 +377,17 @@ const GetInfo = () => {
                     <label className="block text-sm font-medium dark:text-slate-300">Work Duration</label>
                     <input
                       type="text"
-                      placeholder='Dec-2023 to Mar-2025'
+                      placeholder="Dec-2023 to Mar-2025"
                       className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={exp.WorkDuration}
-                      onChange={(e) => handleInputChange('workExperience', 'WorkDuration', e.target.value, index)}
+                      onChange={(e) => handleInputChange("workExperience", "WorkDuration", e.target.value, index)}
+                      onBlur={(e) => {
+                        const value = e.target.value;
+                        if (!/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)-\d{4} to (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)-\d{4}$/.test(value)) {
+                          toast.error("Invalid format!\n Use as Dec-2023 to Mar-2025", { duration: 3000, position: "top-right" });
+                          e.target.focus();
+                        }
+                      }}
                     />
                     <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                   </div>
@@ -455,10 +493,17 @@ const GetInfo = () => {
                     <label className="block text-sm font-medium dark:text-slate-300">Graduation duration</label>
                     <input
                       type="text"
-                      placeholder='2023 - 2026'
+                      placeholder="2023 - 2026"
                       className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={edu.graduationYear}
-                      onChange={(e) => handleInputChange('education', 'graduationYear', e.target.value, index)}
+                      onChange={(e) => handleInputChange("education", "graduationYear", e.target.value, index)}
+                      onBlur={(e) => {
+                        const value = e.target.value;
+                        if (!/^\d{4} - \d{4}$/.test(value)) {
+                          toast.error("Invalid format! \nUse as 2023 - 2026", { duration: 3000, position: "top-right" });
+                          e.target.focus(); 
+                        }
+                      }}
                     />
                     <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                   </div>
@@ -471,6 +516,13 @@ const GetInfo = () => {
                       className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={edu.currentSGPA}
                       onChange={(e) => handleInputChange('education', 'currentSGPA', e.target.value, index)}
+                      onBlur={(e) => {
+                        const value = e.target.value;
+                        if (!/^([0-9](\.\d{1})?|10(\.0)?)$/.test(value)) {
+                          toast.error("Invalid format! \nUse as 7 or 8.3 and less then 10", { duration: 3000, position: "top-right" });
+                          e.target.focus(); 
+                        }
+                      }}
                     />
                     <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                   </div>
@@ -547,7 +599,7 @@ const GetInfo = () => {
         return (
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 mb-4 text-blue-800 dark:border-blue-400 dark:text-blue-400">Choose Template</h2>
-            <p className='test-xl font-semibold mb-6 text-gray-200'>We will frequently add more template designs to provide more resume options.</p>
+            <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>We will frequently add more template designs to provide more resume options.</p>
             <div className="grid grid-cols-2 gap-5">
                 {[1,2,3,4,5,6,7].map((template) => (
                   <div
@@ -587,7 +639,7 @@ const GetInfo = () => {
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="absolute top-4 left-3 md:hidden p-2 rounded-full bg-gray-200 hover:bg-gray-800 dark:bg-gray-600 dark:text-cyan-300"
+          className="absolute top-4 left-3 md:hidden p-2 rounded-full bg-gray-200 dark:bg-gray-600 dark:text-cyan-300"
         >
           {isOpen ? <X size={20} /> : <Menu size={15} />}
         </button>
