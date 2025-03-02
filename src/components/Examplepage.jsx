@@ -17,7 +17,7 @@ const Examplepage = ({
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [direction, setDirection] = useState(null); 
   const slideContainerRef = useRef(null);
-
+  
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -79,7 +79,7 @@ const Examplepage = ({
   };
 
   return (
-    <div className="w-3/4 bg-gray-200 overflow-hidden">
+    <div className="w-3/4 bg-gray-200 overflow-hidden dark:bg-slate-950">
       <div className="w-full overflow-hidden py-8" ref={slideContainerRef}>
         <div className="flex justify-center items-center">
           {visibleIndices.map((index, i) => (
@@ -90,7 +90,7 @@ const Examplepage = ({
               <img
                 src={images[index]}
                 alt={`Slide ${index + 1}`}
-                className="w-full h-auto object-contain rounded-lg shadow"
+                className="w-full h-auto object-contain rounded-lg shadow dark:filter dark:brightness-90"
               />
             </div>
           ))}
@@ -104,7 +104,7 @@ const Examplepage = ({
               <button
                 key={`indicator-${index}`}
                 className={`w-3 h-3 rounded-full transition-colors focus:outline-none ${
-                  index === currentIndex ? 'bg-blue-500' : 'bg-gray-300 hover:bg-gray-400'
+                  index === currentIndex ? 'bg-blue-500' : 'bg-gray-400 hover:bg-gray-500 dark:bg-gray-300 dark:hover:bg-gray-400'
                 }`}
                 onClick={() => goToSlide(index)}
                 aria-label={`Go to slide ${index + 1}`}

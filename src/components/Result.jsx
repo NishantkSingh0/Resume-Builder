@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 
-const Card = () => {
+const Result = () => {
   const [countdown, setCountdown] = useState(10);
   const [error, setError] = useState(false);
 
@@ -15,103 +14,33 @@ const Card = () => {
   }, [countdown]);
 
   return (
-    <StyledWrapper>
+    <div className="flex items-center justify-center h-screen w-screen text-center transition-colors duration-300 bg-gray-100 dark:bg-slate-800">
       {error ? (
-        <p className="error-text">
+        <p className="text-[16px] text-red-500 dark:text-amber-300 font-bold text-center">
           Server is not connected to Frontend. <br />
           Please read instructions mentioned on Git Repository <br />
-          <a href="https://github.com/NishantkSingh0/resume-builder-web-application" target='_blank'><strong>NishantkSingh0/resume-builder-web-application</strong></a>
+          <a 
+            href="https://github.com/NishantkSingh0/resume-builder-web-application" 
+            target='_blank'
+            className="text-blue-600 dark:text-blue-400 underline"
+          >
+            <strong>NishantkSingh0/resume-builder-web-application</strong>
+          </a>
         </p>
       ) : (
-        <div className="card">
-          <div className="blob" />
-          <div className="bg">
+        <div className="relative w-[220px] h-[320px] rounded-[14px] overflow-hidden flex flex-col items-center justify-center shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] dark:shadow-[20px_20px_60px_#1a1a1a,-20px_-20px_60px_#2a2a2a] transition-all duration-300">
+          
+          {/* Blob with custom animation */}
+          <div className="absolute top-1/2 left-1/2 w-[200px] h-[200px] rounded-full bg-[#3449ff] dark:bg-gray-200 opacity-100 filter blur-[8px] animate-blob-bounce transition-colors duration-300"></div>
+
+          {/* Foreground card */}
+          <div className="absolute top-[5px] left-[5px] w-[210px] h-[310px] bg-white dark:bg-slate-950 backdrop-blur-[24px] rounded-[10px] outline outline-2 outline-white dark:outline-gray-600 flex items-center justify-center text-center text-[14px] text-[#3449ff] dark:text-blue-300 font-bold p-[10px] transition-colors duration-300">
             <p>Designing ...</p>
           </div>
         </div>
       )}
-    </StyledWrapper>
+    </div>
   );
 };
 
-const StyledWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
-  text-align: center;
-
-  .card {
-    position: relative;
-    width: 220px;
-    height: 320px;
-    border-radius: 14px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
-  }
-
-  .bg {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    width: 210px;
-    height: 310px;
-    background: rgba(255, 255, 255, 1);
-    backdrop-filter: blur(24px);
-    border-radius: 10px;
-    outline: 2px solid white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 14px;
-    color: #3449ff;
-    font-weight: bold;
-    padding: 10px;
-  }
-
-  .blob {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: #3449ff;
-    opacity: 1;
-    filter: blur(8px);
-    animation: blob-bounce 5s infinite ease;
-  }
-
-  .error-text {
-    font-size: 16px;
-    color: red;
-    font-weight: bold;
-    text-align: center;
-  }
-
-  @keyframes blob-bounce {
-    0% {
-      transform: translate(-100%, -100%) translate3d(0, 0, 0);
-    }
-    25% {
-      transform: translate(-100%, -100%) translate3d(100%, 0, 0);
-    }
-    50% {
-      transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
-    }
-    75% {
-      transform: translate(-100%, -100%) translate3d(0, 100%, 0);
-    }
-    100% {
-      transform: translate(-100%, -100%) translate3d(0, 0, 0);
-    }
-  }
-`;
-
-export default Card;
+export default Result;

@@ -18,7 +18,7 @@ export default function HoverMessageButton() {
         onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
-          Secured 3rd rank in university Hackathon (TechWizard) on <a href="https://github.com/NishantkSingh0/Proctoring-System" target="_blank" className="text-blue-400 ml-1 no-underline hover:underline"><b>Proctoring System</b></a> project.
+          Secured 3rd rank in University 24hr Hackathon (TechWizard) on <a href="https://github.com/NishantkSingh0/Proctoring-System" target="_blank" className="text-blue-400 ml-1 no-underline hover:underline"><b>Proctoring System</b></a> project.
         </div>
       )}
     </div>

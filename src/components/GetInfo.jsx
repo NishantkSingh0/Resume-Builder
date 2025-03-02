@@ -182,12 +182,12 @@ const GetInfo = () => {
       case 0:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl mb-4 font-bold border-b-4 border-blue-950 text-blue-800">Contact Information</h2>
+            <h2 className="text-xl sm:text-2xl mb-4 font-bold border-b-4 border-blue-950 text-blue-800 dark:border-blue-400 dark:text-blue-400">Contact Information</h2>
               <div className="space-y-2">
-                <label className="block text-sm font-medium">Full Name</label>
+                <label className="block text-sm font-medium dark:text-slate-300">Full Name</label>
                 <input
                   type="text"
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   value={formData.contactInfo.fullName}
                   onChange={(e) => handleInputChange('contactInfo', 'fullName', e.target.value)}
                 />  
@@ -195,11 +195,11 @@ const GetInfo = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">Phone Number</label>
+                <label className="block text-sm font-medium dark:text-slate-300">Phone Number</label>
                 <input
                   type="number" 
                   placeholder='746X8XX716'
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   value={formData.contactInfo.phoneNumber}
                   onChange={(e) => handleInputChange('contactInfo', 'phoneNumber', e.target.value)}
                 />
@@ -207,11 +207,11 @@ const GetInfo = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">Email Address</label>
+                <label className="block text-sm font-medium dark:text-slate-300">Email Address</label>
                 <input
                   type="email"
                   placeholder='xyz231@gmail.com'
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   value={formData.contactInfo.emailAddress}
                   onChange={(e) => handleInputChange('contactInfo', 'emailAddress', e.target.value)}
                 />
@@ -219,11 +219,11 @@ const GetInfo = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">LinkedIn URL</label>
+                <label className="block text-sm font-medium dark:text-slate-300">LinkedIn URL</label>
                 <input
                   type="text"
                   placeholder='www.linkedin.com/in/xyz231/'
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   value={formData.contactInfo.linkedinUrl}
                   onChange={(e) => handleInputChange('contactInfo', 'linkedinUrl', e.target.value)}
                 />
@@ -231,11 +231,11 @@ const GetInfo = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">Portfolio URL / Github URL</label>
+                <label className="block text-sm font-medium dark:text-slate-300">Portfolio URL / Github URL</label>
                 <input
                   type="text"
                   placeholder='Portfolio URL if have else add GitHub URL'
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   value={formData.contactInfo.portfolioUrl}
                   onChange={(e) => handleInputChange('contactInfo', 'portfolioUrl', e.target.value)}
                 />
@@ -243,11 +243,11 @@ const GetInfo = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">Job Title</label>
+                <label className="block text-sm font-medium dark:text-slate-300">Job Title</label>
                 <input
                   type="text"
                   placeholder='Data Scientist'
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   value={formData.contactInfo.jobTitle}
                   onChange={(e) => handleInputChange('contactInfo', 'jobTitle', e.target.value)}
                 />
@@ -259,12 +259,12 @@ const GetInfo = () => {
       case 1:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 mb-4 text-blue-800">Skills</h2>
+            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 mb-4 text-blue-800 dark:border-blue-400 dark:text-blue-400">Skills</h2>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">Technical Skills</label>
+                <label className="block text-sm font-medium dark:text-slate-300">Technical Skills</label>
                 <input
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   placeholder='TensorFlow, PyTorch, Scikit-learn, Keras, Hugging Face, C/C++, Java, JavaScript, React'
                   value={formData.skills.hardSkills}
                   onChange={(e) => handleInputChange('skills', 'hardSkills', e.target.value)}
@@ -273,9 +273,9 @@ const GetInfo = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">Soft Skills</label>
+                <label className="block text-sm font-medium dark:text-slate-300">Soft Skills</label>
                 <input
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   placeholder='TeamWork, strong Problem-Solving skill, Leadership, Critical thinking, Communication'
                   value={formData.skills.softSkills}
                   onChange={(e) => handleInputChange('skills', 'softSkills', e.target.value)}
@@ -284,11 +284,11 @@ const GetInfo = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">Languages you are familiar with</label>
+                <label className="block text-sm font-medium dark:text-slate-300">Languages you are familiar with</label>
                 <input
                   type="text"
                   placeholder='English, Hindi, French'
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   value={formData.contactInfo.Languages}
                   onChange={(e) => handleInputChange('contactInfo', 'Languages', e.target.value)}
                 />
@@ -296,11 +296,11 @@ const GetInfo = () => {
               </div>
               
               <div className="space-y-2">
-                <label className="block text-sm font-medium">YourLocation</label>
+                <label className="block text-sm font-medium dark:text-slate-300">YourLocation</label>
                 <input
                   type="text"
                   placeholder='Haridwar (UTTRAKHAND)'
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   value={formData.contactInfo.Location}
                   onChange={(e) => handleInputChange('contactInfo', 'Location', e.target.value)}
                 />
@@ -312,18 +312,18 @@ const GetInfo = () => {
       case 2:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 text-blue-800">Work Experience</h2>
-            <p className='test-xl font-semibold mb-6 text-gray-600'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
+            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 text-blue-800 dark:border-blue-400 dark:text-blue-400">Work Experience</h2>
+            <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
             {formData.workExperience.map((exp, index) => (
-              <div key={index} className="p-4 border rounded space-y-4">
-                <h3 className="font-medium">Experience {index + 1}</h3>
+              <div key={index} className="p-4 border rounded space-y-4 dark:border-slate-900">
+                <h3 className="font-medium dark:text-slate-200">Experience {index + 1}</h3>
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Job Title</label>
+                    <label className="block text-sm font-medium dark:text-slate-300">Job Title</label>
                     <input
                       type="text"
                       placeholder='Data Scientist'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600" 
                       value={exp.jobTitle}
                       onChange={(e) => handleInputChange('workExperience', 'jobTitle', e.target.value, index)}
                     />
@@ -331,11 +331,11 @@ const GetInfo = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Company Name</label>
+                    <label className="block text-sm font-medium dark:text-slate-300">Company Name</label>
                     <input
                       type="text"
                       placeholder='Onlei Teach'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={exp.companyName}
                       onChange={(e) => handleInputChange('workExperience', 'companyName', e.target.value, index)}
                     />
@@ -343,11 +343,11 @@ const GetInfo = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Work Duration</label>
+                    <label className="block text-sm font-medium dark:text-slate-300">Work Duration</label>
                     <input
                       type="text"
                       placeholder='Dec-2023 to Mar-2025'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={exp.WorkDuration}
                       onChange={(e) => handleInputChange('workExperience', 'WorkDuration', e.target.value, index)}
                     />
@@ -355,11 +355,11 @@ const GetInfo = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Key Achievements</label>
+                    <label className="block text-sm font-medium dark:text-slate-300">Key Achievements</label>
                     <input
                       type="text"
                       placeholder='Learn to visualize patterns from data using matplotlib and Built several DL models'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={exp.keyAchievements}
                       onChange={(e) => handleInputChange('workExperience', 'keyAchievements', e.target.value, index)}
                     />
@@ -369,7 +369,7 @@ const GetInfo = () => {
             ))}
             <button
               onClick={() => addNewItem('workExperience')}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100"
+              className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
             >
               <Plus size={16} /> Add Experience
             </button>
@@ -379,18 +379,18 @@ const GetInfo = () => {
       case 3:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 text-blue-800">Projects</h2>
-            <p className='test-xl font-semibold mb-6 text-gray-600'>Hint: Add atleast 3 projects which you did in your academics</p>
+            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 text-blue-800 dark:border-blue-400 dark:text-blue-400">Projects</h2>
+            <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 3 projects which you did in your academics</p>
             {formData.projects.map((project, index) => (
-              <div key={index} className="p-4 border rounded space-y-4">
-                <h3 className="font-medium">Project {index + 1}</h3>
+              <div key={index} className="p-4 border rounded space-y-4 dark:border-slate-900">
+                <h3 className="font-medium dark:text-slate-200">Project {index + 1}</h3>
                   
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Project Title</label>
+                    <label className="block text-sm font-medium dark:text-slate-300">Project Title</label>
                     <input
                       type="text"
                       placeholder='Transformer based translation model from scratch'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={project.projectTitle}
                       onChange={(e) => handleInputChange('projects', 'projectTitle', e.target.value, index)}
                     />
@@ -398,11 +398,11 @@ const GetInfo = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Tools/Tech Used</label>
+                    <label className="block text-sm font-medium dark:text-slate-300">Tools/Tech Used</label>
                     <input
                       type="text"
                       placeholder='Tensorflow, NumPy, Pandas, Matplotlib, Multi30k Dataset, ModelSubclassing'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={project.toolsTechUsed}
                       onChange={(e) => handleInputChange('projects', 'toolsTechUsed', e.target.value, index)}
                     />
@@ -412,7 +412,7 @@ const GetInfo = () => {
             ))}
             <button
               onClick={() => addNewItem('projects')}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100"
+              className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
             >
               <Plus size={16} /> Add Project
             </button>
@@ -422,17 +422,17 @@ const GetInfo = () => {
         case 4:
           return (
             <div className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 mb-4 text-blue-800">Education</h2>
-              <p className='test-xl font-semibold mb-6 text-gray-600'>Hint: Add your pre/post graduations on different sections (Consider listing your most recent Qualifications first)</p>
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 mb-4 text-blue-800 dark:border-blue-400 dark:text-blue-400">Education</h2>
+              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add your pre/post graduations on different sections (Consider listing your most recent Qualifications first)</p>
               {formData.education.map((edu, index) => (
-                <div key={index} className="p-4 border rounded space-y-4">
+                <div key={index} className="p-4 border rounded space-y-4 dark:border-slate-900">
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Institution Name</label>
+                    <label className="block text-sm font-medium dark:text-slate-300">Institution Name</label>
                     <input
                       type="text"
                       placeholder='Haridwar University'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={edu.institutionName}
                       onChange={(e) => handleInputChange('education', 'institutionName', e.target.value, index)}
                     />
@@ -440,11 +440,11 @@ const GetInfo = () => {
                   </div>
         
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Degree Name</label>
+                    <label className="block text-sm font-medium dark:text-slate-300">Degree Name</label>
                     <input
                       type="text"
                       placeholder='Batchelor in computer application'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={edu.degreeName}
                       onChange={(e) => handleInputChange('education', 'degreeName', e.target.value, index)}
                     />
@@ -452,11 +452,11 @@ const GetInfo = () => {
                   </div>
         
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Graduation duration</label>
+                    <label className="block text-sm font-medium dark:text-slate-300">Graduation duration</label>
                     <input
                       type="text"
                       placeholder='2023 - 2026'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={edu.graduationYear}
                       onChange={(e) => handleInputChange('education', 'graduationYear', e.target.value, index)}
                     />
@@ -464,11 +464,11 @@ const GetInfo = () => {
                   </div>
         
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Current SGPA</label>
+                    <label className="block text-sm font-medium dark:text-slate-300">Current SGPA</label>
                     <input
                       type="text"
                       placeholder='?? / 10'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={edu.currentSGPA}
                       onChange={(e) => handleInputChange('education', 'currentSGPA', e.target.value, index)}
                     />
@@ -479,7 +479,7 @@ const GetInfo = () => {
         
               <button
                 onClick={() => addNewItem('education')}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100"
+                className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
               >
                 <Plus size={16} /> Add Education
               </button>
@@ -489,19 +489,19 @@ const GetInfo = () => {
       case 5:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 mb-4 text-blue-800">Certificates</h2>
-            <p className='test-xl font-semibold mb-6 text-gray-600'>Hint: Add atleast 5 high rated certificates</p>
+            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 mb-4 text-blue-800 dark:border-blue-400 dark:text-blue-400">Certificates</h2>
+            <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 5 high rated certificates</p>
             {formData.certificates.map((cert, index) => (
-              <div key={index} className="p-4 border rounded space-y-4">
-                <h3 className="font-medium">Certificate {index + 1}</h3>
+              <div key={index} className="p-4 border rounded space-y-4 dark:border-slate-900">
+                <h3 className="font-medium dark:text-slate-200">Certificate {index + 1}</h3>
                 <div className="space-y-4">
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Certificate Name</label>
+                    <label className="block text-sm font-medium dark:text-slate-300">Certificate Name</label>
                     <input
                       type="text"
                       placeholder='Azure AI Engineer Associate'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={cert.certificateName}
                       onChange={(e) => handleInputChange('certificates', 'certificateName', e.target.value, index)}
                     />
@@ -509,11 +509,11 @@ const GetInfo = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Course Duration</label>
+                    <label className="block text-sm font-medium dark:text-slate-300">Course Duration</label>
                     <input
                       type="text"
                       placeholder='2 Month'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={cert.courseDuration}
                       onChange={(e) => handleInputChange('certificates', 'courseDuration', e.target.value, index)}
                     />
@@ -521,11 +521,11 @@ const GetInfo = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium">Provider Name</label>
+                    <label className="block text-sm font-medium dark:text-slate-300">Provider Name</label>
                     <input
                       type="text"
                       placeholder='Microsoft'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={cert.providerName}
                       onChange={(e) => handleInputChange('certificates', 'providerName', e.target.value, index)}
                     />
@@ -536,7 +536,7 @@ const GetInfo = () => {
             ))}
             <button
               onClick={() => addNewItem('certificates')}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100"
+              className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
             >
               <Plus size={16} /> Add Certificate
             </button>
@@ -546,26 +546,26 @@ const GetInfo = () => {
       case 6:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 mb-4 text-blue-800">Choose Template</h2>
-            <p className='test-xl font-semibold mb-6 text-gray-600'>We will frequently add more template designs to provide more resume options.</p>
+            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 mb-4 text-blue-800 dark:border-blue-400 dark:text-blue-400">Choose Template</h2>
+            <p className='test-xl font-semibold mb-6 text-gray-200'>We will frequently add more template designs to provide more resume options.</p>
             <div className="grid grid-cols-2 gap-5">
                 {[1,2,3,4,5,6,7].map((template) => (
                   <div
                     key={template}
                     onClick={() => setFormData((prev) => ({ ...prev, selectedTemplate: String(template - 1) }))}
-                    className={`p-4 border rounded cursor-pointer transition-transform duration-400 shadow-md hover:scale-95 ${
-                      formData.selectedTemplate === String(template - 1) ? 'border-blue-500 bg-blue-50' : ''
+                    className={`p-4 border-2 rounded-lg cursor-pointer transition-transform duration-400 shadow-md dark:border-slate-500 hover:scale-95 ${
+                      formData.selectedTemplate === String(template - 1) ? 'border-blue-500 bg-blue-50 dark:bg-slate-700 dark:border-blue-400' : ''
                     }`}
                   >
                     <img
                       src={`/resume-builder-web-application/Temp/temp${template}.png`}
                       alt={`Template ${template}`}
-                      className="w-full h-auto"
+                      className="w-full h-auto rounded-lg dark:filter dark:brightness-90"
                     />
                     {isOpen ? (
                       <p className="text-center mt-2">{template}</p>
                     ) : (
-                      <p className="text-center mt-2">{AboutTemps[template-1]}</p>
+                      <p className="text-center mt-2 dark:text-gray-200">{AboutTemps[template-1]}</p>
                     )}
                   </div>
 
@@ -580,34 +580,34 @@ const GetInfo = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="flex min-h-screen bg-gray-100 dark:bg-slate-900">
       <div
         className={`fixed top-0 left-0 h-full bg-white border-r shadow-md hover:shadow-xl p-0 md:p-4 transition-all duration-300 ease-in-out
-        ${isOpen ? "w-64" : "w-0"} md:w-64`}
+        ${isOpen ? "w-64" : "w-0"} md:w-64 dark:border-r-slate-800 dark:bg-slate-800`}
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="absolute top-4 left-3 md:hidden p-2 rounded-full bg-gray-200 hover:bg-gray-300"
+          className="absolute top-4 left-3 md:hidden p-2 rounded-full bg-gray-200 hover:bg-gray-800 dark:bg-gray-600 dark:text-cyan-300"
         >
           {isOpen ? <X size={20} /> : <Menu size={15} />}
         </button>
 
         <div className={`${isOpen || "hidden md:block"}`}>
-          <h1 className={"text-2xl font-bold pt-14 md:pt-6 text-center text-blue-800"}>Resume Builder</h1>
-          <div className="w-[65%] h-1 bg-blue-950  mb-6 mx-auto mt-1 rounded"></div>
+          <h1 className={"text-2xl font-bold pt-14 md:pt-6 text-center text-blue-80 dark:text-amber-300"}>Resume Builder</h1>
+          <div className="w-[65%] h-1 bg-blue-950  mb-6 mx-auto mt-1 rounded dark:bg-amber-300"></div>
           <div className="space-y-4 p-2">
             {steps.map((step, index) => (
               <div
                 key={index}
                 onClick={() => setCurrentStep(index)}
                 className={`flex items-center gap-3 p-2 rounded cursor-pointer transition-transform duration-400 hover:scale-105
-                  ${currentStep === index ? "bg-blue-50 text-blue-600" : ""}
-                  ${completedSteps.has(index) ? "text-green-600" : "text-gray-600"}
+                  ${currentStep === index ? "bg-blue-50 text-blue-600 dark:bg-slate-700" : ""}
+                  ${completedSteps.has(index) ? "text-green-600 dark:text-amber-200" : "text-gray-600 dark:text-zinc-200"}
                 `}
               >
               <div
                   className={`w-6 h-6 rounded-full flex items-center justify-center border 
-                  ${completedSteps.has(index) ? "bg-green-100 border-green-600" : "border-gray-400"}
+                  ${completedSteps.has(index) ? "bg-slate-800 border-green-600 dark:border-amber-300" : "border-gray-400 dark:border-gray-400"}
                 `}
                 >
                   {completedSteps.has(index) ? <Check size={14} /> : <span className="text-sm">{index + 1}</span>}
@@ -626,7 +626,7 @@ const GetInfo = () => {
           <div className="mt-8 flex justify-end">
             <button
               onClick={handleNext}
-              className="flex items-center gap-2 px-6 py-2 mt-5 bg-blue-600 text-white rounded-full hover:bg-blue-700"
+              className="flex items-center gap-2 px-6 py-2 mt-5 bg-blue-600 text-white rounded-full hover:bg-blue-700 "
             >
               {currentStep === steps.length - 1 ? "Submit" : "Next"}
               <ChevronRight size={16} />

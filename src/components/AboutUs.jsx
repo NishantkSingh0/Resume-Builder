@@ -9,8 +9,8 @@ const developers = [
     gitLink: "https://github.com/NishantkSingh0",
     linkedin: "Nishantksingh1",
     linLink: "https://www.linkedin.com/in/nishantksingh1",
-    portfolio: "Nishantksingh0/Portfolio",
-    prtLink: "https://nishantksingh0.github.io/Portfolio/",
+    portfolio: "Nishantksingh0",
+    prtLink: "https://nishantksingh0.github.io",
     email: "nishantsingh.talk",
     emailLink: "mailto:nishantsingh.talk@gmail.com"
   },
@@ -54,14 +54,16 @@ const developers = [
 
 function AboutUs() {
   return (
-    <div className="min-h-screen text-gray-100 py-12 px-6 flex flex-col items-center">
-      <h1 className="text-4xl font-bold text-center mb-10 text-gray-500"><i className="fas fa-user-alt"/> About Us</h1>
-
+    <div className="min-h-screen text-gray-100 py-12 px-6 flex flex-col items-center dark:bg-slate-900">
+      <div>
+        <h1 className="text-2xl font-extrabold text-center mb-2 text-gray-500 md:text-3xl dark:text-amber-300"><i className="fas fa-user-alt"/> About Us</h1>
+        <div className="w-[80%] h-1 bg-gray-500 mx-auto mb-10 mt-1 rounded dark:bg-amber-300"></div>
+      </div>
       <div className="w-full max-w-4xl flex flex-col space-y-6">
         {developers.map((dev, index) => (
           <div
             key={index}
-            className="w-full bg-gray-200 rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl transition-shadow duration-300"
+            className="w-full bg-gray-200 rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl transition-shadow duration-300 dark:bg-slate-800"
             style={{ minWidth: "33%" }} 
           >
             <div className="flex items-center bg-blue-600 text-xl font-bold p-3 rounded-2xl mb-3">
@@ -72,26 +74,26 @@ function AboutUs() {
             </div>
 
 
-            <p className="text-green-700 mb-6 font-semibold">{dev.role}</p>
+            <p className="text-green-700 mb-6 font-semibold dark:text-blue-300">{dev.role}</p>
 
             <div className="flex flex-col items-center space-y-4 px-4 md:px-32">
               <div className="flex flex-col md:flex-row justify-between w-full max-w-2xl space-y-4 md:space-y-0 md:space-x-10">
-                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start">
+                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start dark:text-slate-300">
                   <FaGithub className="text-lg" />
                   <a href={dev.gitLink} onClick={(e) => { if (!dev.gitLink) e.preventDefault(); }}  target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.github}</a>
                 </div>
-                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start">
+                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start dark:text-slate-300">
                   <FaLinkedin className="text-lg" />
                   <a href={dev.linLink} onClick={(e) => { if (!dev.linLink) e.preventDefault(); }}  target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.linkedin}</a>
                 </div>
               </div>
 
               <div className="flex flex-col md:flex-row justify-between w-full max-w-2xl space-y-4 md:space-y-0 md:space-x-10">
-                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start">
+                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start dark:text-slate-300">
                   <FaGlobe className="text-lg" />
                   <a href={dev.prtLink} onClick={(e) => { if (!dev.prtLink) e.preventDefault(); }}  target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.portfolio}</a>
                 </div>
-                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start">
+                <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start dark:text-slate-300">
                   <FaEnvelope className="text-lg" />
                   <a href={dev.emailLink} onClick={(e) => { if (!dev.emailLink) e.preventDefault(); }}  target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.email}</a>
                 </div>
