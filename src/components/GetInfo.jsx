@@ -252,7 +252,7 @@ const GetInfo = () => {
                   onChange={(e) => handleInputChange("contactInfo", "linkedinUrl", e.target.value)}
                   onBlur={(e) => {
                     const value = e.target.value;
-                    if (!/^(www\.)?linkedin\.com\/in\/[a-zA-Z0-9_-]+\/?$/.test(value)) {
+                    if (!/^(https?:\/\/)?(www\.)?linkedin\.com\/in\/[a-zA-Z0-9_-]+\/?$/.test(value)) {
                       toast.error("Invalid LinkedIn URL! Use full URL format.", { duration: 3000, position: "top-right" });
                       e.target.focus(); 
                     }
