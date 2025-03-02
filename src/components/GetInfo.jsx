@@ -250,13 +250,6 @@ const GetInfo = () => {
                   className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   value={formData.contactInfo.linkedinUrl}
                   onChange={(e) => handleInputChange("contactInfo", "linkedinUrl", e.target.value)}
-                  onBlur={(e) => {
-                    const value = e.target.value;
-                    if (!/^(https?:\/\/)?(www\.)?linkedin\.com\/in\/[a-zA-Z0-9_-]+\/?$/.test(value)) {
-                      toast.error("Invalid LinkedIn URL! Use full URL format.", { duration: 3000, position: "top-right" });
-                      e.target.focus(); 
-                    }
-                  }}
                 />
                 <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
