@@ -46,7 +46,11 @@ const GetInfo = () => {
   });
   
   const [completedSteps, setCompletedSteps] = useState(new Set());
-  
+  const [isInvalidMob,setIsInvalidMob]=useState(false);
+  const [isInvalidMail,setIsInvalidMail]=useState(false);
+  const [isInvalidWDuration,setIsInvalidWDuration]=useState(false);
+  const [isInvalidGDuration,setIsInvalidGDuration]=useState(false);
+  const [isInvalidSGPA,setIsInvalidSGPA]=useState(false);
   const [isOpen, setIsOpen] = useState(false);
   
   const AboutTemps=["Simpler & Structured","Linear & Classic","Colourfull & Attractive","Colourful & Highly Designed","Simpler & Linear","Designed & Attractive","Highly Simpler"]
@@ -204,7 +208,7 @@ const GetInfo = () => {
                   value={formData.contactInfo.phoneNumber}
                   onChange={(e) => {
                     const value = e.target.value;
-                    if (/^\d{0,10}$/.test(value)) {  // Allow only up to 10 digits
+                    if (/^\d{0,10}$/.test(value)) {  
                       handleInputChange("contactInfo", "phoneNumber", value);
                     }
                   }}
@@ -215,12 +219,14 @@ const GetInfo = () => {
                         duration: 3000,
                         position: "top-right",
                       });
-                      e.target.focus(); // Force user to stay on input until it's valid
+                      setIsInvalidMob(true)
+                      e.target.focus(); 
+                    }else{
+                      setIsInvalidMob(false)
                     }
                   }}
                 />
-
-                <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                <div class={`ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%] ${isInvalidMob? "bg-red-500":"bg-blue-500"}`}></div>
               </div>
 
               <div className="space-y-2">
@@ -233,13 +239,17 @@ const GetInfo = () => {
                   onChange={(e) => handleInputChange("contactInfo", "emailAddress", e.target.value)}
                   onBlur={(e) => {
                     const value = e.target.value;
-                    if (!/^\S+@\S+\.\S+$/.test(value)) {
+                    if (!/^\S+@\S+\.\S+\s*$/.test(value)) {
                       toast.error("Invalid email format!", { duration: 3000, position: "top-right" });
+                      setIsInvalidMail(true);
                       e.target.focus(); 
+                    }else{
+                      setIsInvalidMail(false);
                     }
                   }}
                 />
-                <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                <div className={`ml-4 w-0 h-1 rounded-full transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%] ${isInvalidMail ? "bg-red-500" : "bg-blue-500"}`}>
+                </div>
               </div>
 
               <div className="space-y-2">
@@ -376,13 +386,16 @@ const GetInfo = () => {
                       onChange={(e) => handleInputChange("workExperience", "WorkDuration", e.target.value, index)}
                       onBlur={(e) => {
                         const value = e.target.value;
-                        if (!/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)-\d{4} to (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)-\d{4}$/.test(value)) {
+                        if (!/^\s*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)-(\d{2,4})\s*to\s*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)-(\d{2,4})\s*$/.test(value)) {
                           toast.error("Invalid format!\n Use as Dec-2023 to Mar-2025", { duration: 3000, position: "top-right" });
                           e.target.focus();
+                          setIsInvalidWDuration(true);
+                        }else{
+                          setIsInvalidWDuration(false);
                         }
                       }}
                     />
-                    <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    <div class={`ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%] ${isInvalidWDuration?"bg-red-500":"bg-blue-500"}`}></div>
                   </div>
 
                   <div className="space-y-2">
@@ -492,13 +505,16 @@ const GetInfo = () => {
                       onChange={(e) => handleInputChange("education", "graduationYear", e.target.value, index)}
                       onBlur={(e) => {
                         const value = e.target.value;
-                        if (!/^\d{4} - \d{4}$/.test(value)) {
+                        if (!/^\s*(\d{2,4})\s*-\s*(\d{2,4})\s*$/.test(value)) {
                           toast.error("Invalid format! \nUse as 2023 - 2026", { duration: 3000, position: "top-right" });
                           e.target.focus(); 
+                          setIsInvalidGDuration(true);
+                        }else{
+                          setIsInvalidGDuration(false)
                         }
                       }}
                     />
-                    <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    <div class={`ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%] ${isInvalidGDuration?"bg-red-500":"bg-blue-500"}`}></div>
                   </div>
         
                   <div className="space-y-2">
@@ -511,13 +527,16 @@ const GetInfo = () => {
                       onChange={(e) => handleInputChange('education', 'currentSGPA', e.target.value, index)}
                       onBlur={(e) => {
                         const value = e.target.value;
-                        if (!/^([0-9](\.\d{1})?|10(\.0)?)$/.test(value)) {
+                        if (!/^\s*([0-9](\.\d{1})?|10(\.0)?)\s*$/.test(value)) {
                           toast.error("Invalid format! \nUse as 7 or 8.3 and less then 10", { duration: 3000, position: "top-right" });
                           e.target.focus(); 
+                          setIsInvalidSGPA(true);
+                        }else{
+                          setIsInvalidSGPA(false);
                         }
                       }}
                     />
-                    <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    <div class={`ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%] ${isInvalidSGPA?"bg-red-500":"bg-blue-500"}`}></div>
                   </div>
                 </div>
               ))}
