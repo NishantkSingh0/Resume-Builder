@@ -79,10 +79,13 @@ const FrontPage = () => {
           </button>
         </div>
       </div>
-      <div className="hidden md:grid place-items-center mt-8 mb-3">
-        <Examplepages />
+      <div className="hidden md:flex flex-col items-center justify-center flex-1 mt-8 mb-3">
+        <Examplepages />    
+        <span id="desktop-typing-text" className="hidden md:inline-block text-xl md:text-2xl text-gray-800 h-6 mt-4 dark:text-white"></span>
       </div>
 
+
+      {/* Mobile View */}
       <div className="flex md:hidden justify-between items-center w-full h-12 px-6 py-3 bg-white shadow-md mt-6 rounded-3xl dark:bg-slate-800">
         <button 
           className="text-2xl mr-52 "
@@ -97,14 +100,14 @@ const FrontPage = () => {
         </div>
       </div>
 
-
-      {/* Mobile View */}
       <div className="md:hidden flex justify-center flex-col items-center flex-grow">
         <h1 className="text-2xl md:hidden sm:text-3xl font-bold mb-3 dark:text-white">
           Resume Builder Web Application
         </h1>
-        <span id="desktop-typing-text" className="md:hidden text-xl sm:text-2xl text-gray-800 h-6 mb-4 dark:text-white"></span>
-      </div>
+        <p className="text-sm sm:text-lg text-gray-500 font-semibold mb-4">   {/* Here the mobile span are with desktop id  */}
+          <span id="mobile-typing-text" className="md:hidden text-xl sm:text-2xl text-gray-800 h-6 mb-4 dark:text-white"></span>
+        </p>
+        </div>
 
       <div className="md:hidden absolute bottom-2 font-bold text-gray-800 left-1/2 -translate-x-1/2 text-center dark:text-white/80">
         <a
@@ -120,9 +123,9 @@ const FrontPage = () => {
         </a> 
       </div>
 
-      <p className="text-sm sm:text-lg text-gray-500 font-semibold mb-4">
+      {/* <p className="text-sm sm:text-lg text-gray-500 font-semibold mb-4">       Here the desktop span are with mobile id
         <span id="mobile-typing-text" className="hidden md:inline-block text-xl md:text-2xl text-gray-800 h-6 mb-3 dark:text-white"></span>
-      </p>
+      </p> */}
     </div>
 
   );
