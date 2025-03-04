@@ -22,7 +22,7 @@ const Result = () => {
           <a 
             href="https://github.com/NishantkSingh0/resume-builder-web-application" 
             target='_blank'
-            className="text-blue-600 dark:text-blue-400 underline"
+            className="text-blue-600 dark:text-blue-400 no-underline hover:underline"
           >
             <strong>NishantkSingh0/resume-builder-web-application</strong>
           </a>

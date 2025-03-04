@@ -14,11 +14,11 @@ export default function HoverMessageButton() {
 
       {hovered && (
         <div
-        className="absolute left-16 top-1/2 -translate-y-1/2 bg-gray-600/95 text-white text-sm px-6 py-4 rounded-md w-80 text-left"
+        className="absolute left-[52px] top-1/2 -translate-y-1/2 bg-gray-600/95 text-white text-sm px-6 py-4 rounded-md w-80 text-left"
         onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
-          Secured 3rd rank in University 24hr Hackathon (TechWizard) on <a href="https://github.com/NishantkSingh0/Proctoring-System" target="_blank" className="text-blue-400 ml-1 no-underline hover:underline"><b>Proctoring System</b></a> project.
+          Secured 3rd rank in University 24hr Hackathon (TechWizard) on <a href="https://github.com/NishantkSingh0/Proctoring-System" target="_blank" className="text-blue-400 no-underline hover:underline"><b>Proctoring System</b></a> project.
         </div>
       )}
     </div>

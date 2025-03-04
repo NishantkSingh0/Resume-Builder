@@ -186,7 +186,7 @@ const GetInfo = () => {
       case 0:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl mb-4 font-bold border-b-4 border-blue-950 text-blue-800 dark:border-blue-400 dark:text-blue-400">Contact Information</h2>
+            <h2 className="text-xl sm:text-2xl mb-4 font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-400 dark:text-blue-400">Contact Information</h2>
               <div className="space-y-2">
                 <label className="block text-sm font-medium dark:text-slate-300">Full Name</label>
                 <input
@@ -293,7 +293,7 @@ const GetInfo = () => {
       case 1:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 mb-4 text-blue-800 dark:border-blue-400 dark:text-blue-400">Skills</h2>
+            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-400 dark:text-blue-400">Skills</h2>
 
               <div className="space-y-2">
                 <label className="block text-sm font-medium dark:text-slate-300">Technical Skills</label>
@@ -346,7 +346,7 @@ const GetInfo = () => {
       case 2:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 text-blue-800 dark:border-blue-400 dark:text-blue-400">Work Experience</h2>
+            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-400 dark:text-blue-400">Work Experience</h2>
             <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
             {formData.workExperience.map((exp, index) => (
               <div key={index} className="p-4 border rounded space-y-4 dark:border-slate-900">
@@ -423,7 +423,7 @@ const GetInfo = () => {
       case 3:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 text-blue-800 dark:border-blue-400 dark:text-blue-400">Projects</h2>
+            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-400 dark:text-blue-400">Projects</h2>
             <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 3 projects which you did in your academics</p>
             {formData.projects.map((project, index) => (
               <div key={index} className="p-4 border rounded space-y-4 dark:border-slate-900">
@@ -466,7 +466,7 @@ const GetInfo = () => {
         case 4:
           return (
             <div className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 mb-4 text-blue-800 dark:border-blue-400 dark:text-blue-400">Education</h2>
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-400 dark:text-blue-400">Education</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add your pre/post graduations on different sections (Consider listing your most recent Qualifications first)</p>
               {formData.education.map((edu, index) => (
                 <div key={index} className="p-4 border rounded space-y-4 dark:border-slate-900">
@@ -553,7 +553,7 @@ const GetInfo = () => {
       case 5:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 mb-4 text-blue-800 dark:border-blue-400 dark:text-blue-400">Certificates</h2>
+            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-400 dark:text-blue-400">Certificates</h2>
             <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 5 high rated certificates</p>
             {formData.certificates.map((cert, index) => (
               <div key={index} className="p-4 border rounded space-y-4 dark:border-slate-900">
@@ -610,7 +610,7 @@ const GetInfo = () => {
       case 6:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-950 mb-4 text-blue-800 dark:border-blue-400 dark:text-blue-400">Choose Template</h2>
+            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-400 dark:text-blue-400">Choose Template</h2>
             <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>We will frequently add more template designs to provide more resume options.</p>
             <div className="grid grid-cols-2 gap-5">
                 {[1,2,3,4,5,6,7].map((template) => (
@@ -657,8 +657,8 @@ const GetInfo = () => {
         </button>
 
         <div className={`${isOpen || "hidden md:block"}`}>
-          <h1 className={"text-2xl font-bold pt-14 md:pt-6 text-center text-blue-80 dark:text-amber-300"}>Resume Builder</h1>
-          <div className="w-[65%] h-1 bg-blue-950  mb-6 mx-auto mt-1 rounded dark:bg-amber-300"></div>
+          <h1 className={"text-2xl font-bold pt-14 md:pt-6 text-center text-blue-80 text-blue-800 dark:text-amber-300"}>Resume Builder</h1>
+          <div className="w-[65%] h-1 bg-blue-900  mb-6 mx-auto mt-1 rounded dark:bg-amber-300"></div>
           <div className="space-y-4 p-2">
             {steps.map((step, index) => (
               <div

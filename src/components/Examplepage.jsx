@@ -98,7 +98,7 @@ const Examplepage = ({
       </div>
 
       {showIndicators && (
-        <div className="flex justify-center items-center mb-4 mt-4">
+        <div className="flex justify-center items-center mb-3 mt-2">
           <div className="flex space-x-3">
             {images.map((_, index) => (
               <button

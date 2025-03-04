@@ -8,7 +8,7 @@ import { MdDarkMode } from "react-icons/md";
 const features=[
   "Build your resume easily",
   "No need to worry about what to add what to not",
-  "Get high rated ATS freindly resumes",
+  "Get high rated, ATS freindly resumes",
   "Different variants of resume templates available",
   "We carefully selected strong resume data inputs from users after a high research.",
   "Download your resume in pdf or web formate",
@@ -19,12 +19,11 @@ const features=[
 
 const FrontPage = () => {
   const navigate = useNavigate();
+
   const handleContinue = () => {
     navigate('/GetInfo');
   };
-  // const handleExamples = () => {
-  //   navigate('/Examples');
-  // };
+
   const handleAboutUs = () => {
     navigate('/AboutUs');
   };
@@ -69,7 +68,7 @@ const FrontPage = () => {
           onClick={handleTheme}>
           {isDark?<MdDarkMode className="text-white" />:<MdDarkMode className="text-black" /> }
         </button>
-        <h1 className="text-xl font-bold text-gray-800 dark:text-white">Resume Builder Web Application</h1>
+        <h1 className="text-xl font-bold text-gray-800 dark:text-white deco no-underline"> <a href="https://github.com/NishantkSingh0/resume-builder-web-application" target="_blank">Resume Builder Web Application</a></h1>
         <div className="flex space-x-4">
           <button className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105" onClick={handleAboutUs}>
             About Us
@@ -79,9 +78,9 @@ const FrontPage = () => {
           </button>
         </div>
       </div>
-      <div className="hidden md:flex flex-col items-center justify-center flex-1 mt-8 mb-3">
+      <div className="hidden md:flex flex-col items-center justify-center flex-1 mt-3 mb-3">
         <Examplepages />    
-        <span id="desktop-typing-text" className="hidden md:inline-block text-xl md:text-2xl text-gray-800 h-6 mt-4 dark:text-white"></span>
+        <span id="desktop-typing-text" className="hidden md:inline-block text-xl md:text-2xl text-gray-800 h-6 dark:text-white"></span>
       </div>
 
 
