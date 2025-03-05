@@ -32,7 +32,7 @@ This project was developed as part of our semester project, focusing on user con
 
 * A clean header with a Night/Day mode toggle and navigation buttons.  
 
-* The center displays Resume Builder Web Application with a sliding showcase of AI-generated resume templates.  
+* The center displays **Resume Builder Web Application** with a sliding showcase of AI-generated resume templates.  
 
 * At the bottom, a Type.js animation highlights the app's key features.  
 
@@ -90,28 +90,30 @@ This project was developed as part of our semester project, focusing on user con
 
 ## 1. Clone the Repository:  
 
+```bash
 git clone https://github.com/nishantksingh0/resume-builder-web-application.git
 cd resume-builder-web-application
+```
 
 
 ## 2. Install Dependencies:  
-
+```
 pip install flask weasyprint  
 npm install
-
+```
 
 ## 3. Run Backend:
 
-python app.py
+`python app.py`
 
 
 ## 4. Run Frontend:
 
-npm start
+`npm start`
 
 
 
-The app will now be available at http://localhost:5000 🚀
+The app will now be available at `http://localhost:5000` 🚀
 
 
 
@@ -130,16 +132,15 @@ The app will now be available at http://localhost:5000 🚀
 
 
 
-# 📞 Contact & Contribution
+# 📞 Contact Info
 
 We welcome contributions! Feel free to submit pull requests or open issues.  
 
-🔹 LinkedIn: nishantksingh1.     
+🔹 LinkedIn: <a href="https://www.linkedin.com/in/nishantksingh1/" target="_blank">NishantkSingh1</a>    
 
-🔹 Email: nishantsingh.talk@gmail.com. 
+🔹 Email: <a href="mailto:nishantsingh.talk@gmail.com" target="_blank">nishantsingh.talk@gmail.com</a> 
 
 
 # 📢 Have Questions?
 
 We would love to hear your feedback! Feel free to reach out or open a discussion. 😊 
-
