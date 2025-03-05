@@ -104,7 +104,7 @@ npm install
 
 ## 3. Run Backend:
 
-`python app.py`
+`python ./Backend/Main.py`
 
 
 ## 4. Run Frontend:
@@ -113,7 +113,7 @@ npm install
 
 
 
-The app will now be available at `http://localhost:5000` 🚀
+The app will now be available at `http://localhost:5173/resume-builder-web-application` 🚀
 
 
 
