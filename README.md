@@ -104,12 +104,16 @@ npm install
 
 ## 3. Run Backend:
 
-`python ./Backend/Main.py`
+```
+python ./Backend/Main.py
+```
 
 
 ## 4. Run Frontend:
 
-`npm start`
+```
+npm start
+```
 
 
 
