@@ -6,7 +6,7 @@ A smart and user-friendly web application that helps job seekers create high-qua
 
 # 📌 Introduction.  
 
-In today's competitive job market, crafting a well-structured resume is crucial but often challenging. Many job seekers struggle with formatting, ATS compatibility, and content optimization. Our *Resume Builder Web Application* automates this process, enabling users to generate professional resumes with minimal effort.
+In today's competitive job market, crafting a well-structured resume is crucial but often challenging. Many job seekers struggle with formatting, ATS compatibility, and content optimization. Our **Resume Builder Web Application** automates this process, enabling users to generate professional resumes with minimal effort.
 
 This project was developed as part of our semester project, focusing on user convenience, AI-driven text enhancement, and multi-format resume generation.
 
@@ -39,7 +39,7 @@ This project was developed as part of our semester project, focusing on user con
 
 * The feature showcase is placed centrally for easy readability.  
 
-* At the bottom, a *"BRAVERS"* text links to the About Us section.  
+* At the bottom, a **"BRAVERS"** text links to the About Us section.  
 
 
 
@@ -125,11 +125,12 @@ The app will now be available at http://localhost:5000 🚀
 
 We welcome contributions! Feel free to submit pull requests or open issues.  
 
-🔹 LinkedIn: nishantksingh1. 
+🔹 LinkedIn: nishantksingh1.     
+
 🔹 Email: nishantsingh.talk@gmail.com. 
 
 
 # 📢 Have Questions?
 
-We would love to hear your feedback! Feel free to reach out or open a discussion. 😊. 
+We would love to hear your feedback! Feel free to reach out or open a discussion. 😊 
 
