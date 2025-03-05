@@ -15,9 +15,13 @@ This project was developed as part of our semester project, focusing on user con
 # ⚙️ How It Works
 
 1️⃣ User Data Collection: The frontend captures essential user details through an interactive form.  
+
 2️⃣ Secure Data Transmission: The collected information is securely sent to the backend using HTTPS.  
+
 3️⃣ Resume Generation: The backend dynamically creates a HTML/CSS-formatted resume based on the provided details.  
+
 4️⃣ PDF Conversion: The HTML resume is converted into a high-quality PDF using WeasyPrint.  
+
 5️⃣ File Packaging & Download: Both the HTML template and PDF file are zipped together and sent to the frontend for easy download.  
 
 
@@ -69,10 +73,15 @@ This project was developed as part of our semester project, focusing on user con
 # 🚀 Key Features & Achievements
 
 ✔ AI-Generated Resume Content – Automatically suggests professional descriptions.  
+
 ✔ Dual Format Output – Users can download resumes in both HTML/CSS and PDF formats.  
+
 ✔ Responsive Design – Works seamlessly on both desktop and mobile devices.  
+
 ✔ Dark/Light Mode Support – Enhances user experience with theme switching.  
+
 ✔ Fast & Secure – Uses HTTPS for safe data transmission and quick processing.  
+
 ✔ Team Collaboration & Innovation – Developed with teamwork and problem-solving in mind.  
 
 
@@ -81,8 +90,8 @@ This project was developed as part of our semester project, focusing on user con
 
 ## 1. Clone the Repository:  
 
-git clone https://github.com/your-username/resume-builder.git
-cd resume-builder
+git clone https://github.com/nishantksingh0/resume-builder-web-application.git
+cd resume-builder-web-application
 
 
 ## 2. Install Dependencies:  
