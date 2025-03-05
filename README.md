@@ -98,7 +98,7 @@ cd resume-builder-web-application
 
 ## 2. Install Dependencies:  
 ```
-pip install flask weasyprint  
+pip install -r ./backend/requirement.txt 
 npm install
 ```
 
