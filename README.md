@@ -98,7 +98,7 @@ cd resume-builder-web-application
 
 ## 2. Install Dependencies:  
 ```
-pip install -r ./backend/requirement.txt 
+pip install -r ./Backend/requirements.txt 
 npm install
 ```
 
