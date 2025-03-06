@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f8f8;
+  color: #333;
+  padding: 20px;
+}
+.resume-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  padding: 2rem;
+}
+.header {
+  margin-bottom: 2rem;
+}
+.header h1 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+.header h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: #666;
+  margin-bottom: 0.75rem;
+}
+.header p {
+  font-size: 0.9rem;
+  color: #666;
+}
+/* Section Titles */
+h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #666;
+  border-bottom: 1px solid #ccc;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 1px;
+}
+/* Summary */
+.summary p {
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+/* Technical Skills */
+.skills ul {
+  list-style: none;
+  padding-left: 0;
+  column-count: 2; /* Splits into columns */
+  column-gap: 2rem;
+}
+.skills li {
+  margin-bottom: 0.5rem;
+}
+/* Experience */
+.experience-item {
+  margin-bottom: 1rem;
+}
+.experience-item h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+.experience-item span {
+  font-size: 0.9rem;
+  color: #999;
+}
+.experience-item ul {
+  list-style: disc;
+  margin-left: 1.2rem;
+  margin-top: 0.5rem;
+}
+.experience-item li {
+  margin-bottom: 0.5rem;
+}
+/* Education */
+.education-item {
+  margin-bottom: 0.75rem;
+}
+.education-item h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+.education-item span {
+  font-size: 0.9rem;
+  color: #999;
+}

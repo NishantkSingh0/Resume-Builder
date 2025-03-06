@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  color: #333;
+  padding: 20px;
+}
+.resume-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Main content + Sidebar */
+  grid-gap: 2rem;
+}
+/* Main Content */
+.main-content h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: #2c3e50; /* Dark navy color */
+}
+.experience-item {
+  margin-bottom: 1rem;
+}
+.experience-item h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+.experience-item span {
+  font-size: 0.9rem;
+  color: #999;
+}
+.experience-item ul {
+  list-style: disc;
+  margin-left: 1.2rem;
+  margin-top: 0.5rem;
+}
+.experience-item li {
+  margin-bottom: 0.5rem;
+}
+
+/* Sidebar */
+.sidebar {
+  border-left: 1px solid #ccc;
+  padding-left: 1rem;
+}
+.sidebar .contact h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  color: #2c3e50;
+}
+.sidebar .contact h2 {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.sidebar .contact p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  color: #2c3e50;
+  border-bottom: 1px solid #ccc;
+}
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+.sidebar ul li {
+  margin-bottom: 0.5rem;
+}
+.sidebar .additional-info p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}

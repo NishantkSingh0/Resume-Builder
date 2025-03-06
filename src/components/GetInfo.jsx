@@ -349,7 +349,7 @@ const GetInfo = () => {
             <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-400 dark:text-blue-400">Work Experience</h2>
             <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
             {formData.workExperience.map((exp, index) => (
-              <div key={index} className="p-4 border rounded space-y-4 dark:border-slate-900">
+              <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
                 <h3 className="font-medium dark:text-slate-200">Experience {index + 1}</h3>
 
                   <div className="space-y-2">
@@ -426,7 +426,7 @@ const GetInfo = () => {
             <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-400 dark:text-blue-400">Projects</h2>
             <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 3 projects which you did in your academics</p>
             {formData.projects.map((project, index) => (
-              <div key={index} className="p-4 border rounded space-y-4 dark:border-slate-900">
+              <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
                 <h3 className="font-medium dark:text-slate-200">Project {index + 1}</h3>
                   
                   <div className="space-y-2">
@@ -469,7 +469,7 @@ const GetInfo = () => {
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-400 dark:text-blue-400">Education</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add your pre/post graduations on different sections (Consider listing your most recent Qualifications first)</p>
               {formData.education.map((edu, index) => (
-                <div key={index} className="p-4 border rounded space-y-4 dark:border-slate-900">
+                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
 
                   <div className="space-y-2">
                     <label className="block text-sm font-medium dark:text-slate-300">Institution Name</label>
@@ -556,7 +556,7 @@ const GetInfo = () => {
             <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-400 dark:text-blue-400">Certificates</h2>
             <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 5 high rated certificates</p>
             {formData.certificates.map((cert, index) => (
-              <div key={index} className="p-4 border rounded space-y-4 dark:border-slate-900">
+              <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
                 <h3 className="font-medium dark:text-slate-200">Certificate {index + 1}</h3>
                 <div className="space-y-4">
 
@@ -671,7 +671,7 @@ const GetInfo = () => {
               >
               <div
                   className={`w-6 h-6 rounded-full flex items-center justify-center border 
-                  ${completedSteps.has(index) ? "bg-slate-800 border-green-600 dark:border-amber-300" : "border-gray-400 dark:border-gray-400"}
+                  ${completedSteps.has(index) ? "bg-white border-green-600 dark:border-amber-300 dark:bg-gray-800" : "border-gray-400 dark:border-gray-400"}
                 `}
                 >
                   {completedSteps.has(index) ? <Check size={14} /> : <span className="text-sm">{index + 1}</span>}
