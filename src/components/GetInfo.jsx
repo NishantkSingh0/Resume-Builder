@@ -203,26 +203,18 @@ const GetInfo = () => {
                 <input
                   type="number"
                   placeholder="Enter 10-digit phone number"
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600 
-                  [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                  className={`w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 ${isInvalidMob?"focus:ring-red-500":"focus:ring-blue-500"}  dark:bg-gray-800 dark:text-white dark:border-gray-600 
+                  [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none`}
                   value={formData.contactInfo.phoneNumber}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    if (/^\d{0,10}$/.test(value)) {  
-                      handleInputChange("contactInfo", "phoneNumber", value);
-                    }
-                  }}
+                  onChange={(e) => handleInputChange("contactInfo", "phoneNumber", e.target.value)}
                   onBlur={(e) => {
                     const value = e.target.value;
                     if (!/^\d{10}$/.test(value)) {
-                      toast.error("Phone number must be exactly 10 digits!", {
-                        duration: 3000,
-                        position: "top-right",
-                      });
-                      setIsInvalidMob(true)
+                      toast.error("Phone number must be of 10 digits", { duration: 3000, position: "top-right" });
+                      setIsInvalidMob(true);
                       e.target.focus(); 
                     }else{
-                      setIsInvalidMob(false)
+                      setIsInvalidMob(false);
                     }
                   }}
                 />
@@ -234,7 +226,7 @@ const GetInfo = () => {
                 <input
                   type="email"
                   placeholder="xyz231@gmail.com"
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                  className={`w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 ${isInvalidMail?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
                   value={formData.contactInfo.emailAddress}
                   onChange={(e) => handleInputChange("contactInfo", "emailAddress", e.target.value)}
                   onBlur={(e) => {
@@ -381,7 +373,7 @@ const GetInfo = () => {
                     <input
                       type="text"
                       placeholder="Dec-2023 to Mar-2025"
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                      className={`w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 ${isInvalidWDuration?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
                       value={exp.WorkDuration}
                       onChange={(e) => handleInputChange("workExperience", "WorkDuration", e.target.value, index)}
                       onBlur={(e) => {
@@ -500,7 +492,7 @@ const GetInfo = () => {
                     <input
                       type="text"
                       placeholder="2023 - 2026"
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                      className={`w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 ${isInvalidGDuration?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
                       value={edu.graduationYear}
                       onChange={(e) => handleInputChange("education", "graduationYear", e.target.value, index)}
                       onBlur={(e) => {
@@ -522,7 +514,7 @@ const GetInfo = () => {
                     <input
                       type="text"
                       placeholder='?? / 10'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                      className={`w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 ${isInvalidSGPA?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
                       value={edu.currentSGPA}
                       onChange={(e) => handleInputChange('education', 'currentSGPA', e.target.value, index)}
                       onBlur={(e) => {

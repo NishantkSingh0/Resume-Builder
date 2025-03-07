@@ -79,7 +79,7 @@ const Examplepage = ({
   };
 
   return (
-    <div className="w-3/4 bg-gray-200 overflow-hidden dark:bg-slate-950">
+    <div className="w-3/4 bg-gray-300 overflow-hidden dark:bg-slate-950">
       <div className="w-full overflow-hidden py-8" ref={slideContainerRef}>
         <div className="flex justify-center items-center">
           {visibleIndices.map((index, i) => (

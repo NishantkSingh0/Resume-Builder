@@ -60,7 +60,7 @@ const FrontPage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col h-screen bg-gray-200 text-center px-4 dark:bg-slate-950">
+    <div className="flex flex-col h-screen bg-gray-300 text-center px-4 dark:bg-slate-950">
       <div className="hidden md:flex justify-between items-center w-full px-6 py-3 bg-white shadow-md rounded-2xl mt-3 dark:bg-slate-800">
         <button 
           className="text-2xl mr-48"
