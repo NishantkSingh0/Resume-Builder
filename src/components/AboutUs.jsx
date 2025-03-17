@@ -26,30 +26,30 @@ const developers = [
     email: "amishapal992",
     emailLink: "mailto:amishapal9927@gmail.com"
   },
-  {
-    name: "Ankush Kumar",
-    role: "Handled Written Works of project",
-    github: "Ankush2011",
-    gitLink: "https://github.com/Ankush201109",
-    linkedin: "Ankush-kumar-5",
-    linLink: "https://www.linkedin.com/in/ankush-kumar-505318231",
-    portfolio: "Ankush.dev",
-    prtLink: "",
-    email: "akbahot2004",
-    emailLink: "mailto:akbahot2004@gmail.com"
-  },
-  {
-    name: "Nisha Mandal",
-    role: "Enhanced UI by adding Nightmode's and Other essential components",
-    github: "NishaKumari92",
-    gitLink: "https://github.com/NishaKumari9279",
-    linkedin: "nisha-kumari-59",
-    linLink: "https://www.linkedin.com/in/nisha-kumari-598611344?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    portfolio: "Nisha.dev",
-    prtLink: "",
-    email: "nishakumari92",
-    emailLink: "mailto:nishakumari927979@gmail.com"
-  },
+  // {
+  //   name: "Ankush Kumar",
+  //   role: "Handled Written Works of project",
+  //   github: "Ankush2011",
+  //   gitLink: "https://github.com/Ankush201109",
+  //   linkedin: "Ankush-kumar-5",
+  //   linLink: "https://www.linkedin.com/in/ankush-kumar-505318231",
+  //   portfolio: "Ankush.dev",
+  //   prtLink: "",
+  //   email: "akbahot2004",
+  //   emailLink: "mailto:akbahot2004@gmail.com"
+  // },
+  // {
+  //   name: "Nisha Mandal",
+  //   role: "Enhanced UI by adding Nightmode's and Other essential components",
+  //   github: "NishaKumari92",
+  //   gitLink: "https://github.com/NishaKumari9279",
+  //   linkedin: "nisha-kumari-59",
+  //   linLink: "https://www.linkedin.com/in/nisha-kumari-598611344?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+  //   portfolio: "Nisha.dev",
+  //   prtLink: "",
+  //   email: "nishakumari92",
+  //   emailLink: "mailto:nishakumari927979@gmail.com"
+  // },
 ];
 
 function AboutUs() {
