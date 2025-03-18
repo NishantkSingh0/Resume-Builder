@@ -58,7 +58,7 @@ function AboutUs() {
     <div className="min-h-screen text-gray-100 py-12 px-6 flex flex-col items-center dark:bg-slate-900">
       <div>
         <h1 className="text-2xl font-extrabold text-center mb-2 text-gray-500 md:text-3xl dark:text-amber-300"><i className="fas fa-user-alt"/> About Us</h1>
-        <div className="w-[80%] h-1 bg-gray-500 mx-auto mb-10 mt-1 rounded dark:bg-amber-300"></div>
+        <div className="w-[80%] h-1 bg-gray-600 mx-auto mb-10 mt-1 rounded dark:bg-amber-400"></div>
       </div>
       <div className="w-full max-w-4xl flex flex-col space-y-6">
         {developers.map((dev, index) => (
