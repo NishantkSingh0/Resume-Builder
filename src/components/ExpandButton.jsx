@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function HoverMessageButton() {
+export default function ExpandButton({ content, message, linkText, linkUrl }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -9,16 +9,22 @@ export default function HoverMessageButton() {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
-        <img src="/resume-builder-web-application/BinaryBunch.jpeg" alt="Logo" className="w-7 h-7 ml-3 md:ml-4 rounded-full" />
+        {typeof content === "string" ? (
+          <img src={content} alt="Logo" className="w-7 h-7 ml-3 md:ml-4 rounded-full" />
+        ) : (
+          <span className="cursor-pointer text-blue-500 font-bold">{content}</span>
+        )}
       </div>
 
       {hovered && (
         <div
-        className="absolute left-[52px] top-1/2 -translate-y-1/2 bg-gray-600/95 text-white text-sm px-6 py-4 rounded-md w-80 text-left"
-        onMouseEnter={() => setHovered(true)}
+          className="absolute left-[52px] top-1/2 -translate-y-1/2 bg-gray-600/95 text-white text-sm px-6 py-4 rounded-md w-80 text-left"
+          onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
-          Secured 3rd rank in University 24hr Hackathon (TechWizard) on <a href="https://github.com/NishantkSingh0/Proctoring-System" target="_blank" className="text-blue-400 no-underline hover:underline"><b>Proctoring System</b></a> project.
+          {message} {linkText && linkUrl && (
+            <a href={linkUrl} target="_blank" className="text-blue-400 no-underline hover:underline"><b>{linkText}</b></a>
+          )}
         </div>
       )}
     </div>

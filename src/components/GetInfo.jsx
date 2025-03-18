@@ -5,6 +5,8 @@ import toast from "react-hot-toast";
 
 const GetInfo = () => {
   const [currentStep, setCurrentStep] = useState(0);
+  const [NextError, setNextError] = useState(false);
+  const [SubmitError, setSubmitError] = useState(false);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     contactInfo: {
@@ -134,14 +136,18 @@ const GetInfo = () => {
     
     const DataFeildNames=["Contact Info","Skills","Work Experience","Projects","Education","Certificates","Templates"]
     const areFieldsValid = (fields) => fields.every((field) => typeof field === "string" && field.trim() !== "");
-  
+    setNextError(false);
     for (let step = 0; step <= currentStep; step++) {
       const requiredFields = Fields[step].flat();
       if (requiredFields.length > 0 && !areFieldsValid(requiredFields)) {
+        setNextError(true)
         toast.error("Please fill out all required fields From 'Contact Info' before proceeding further.", {
           duration: 3000,
           position: "top-right",
         });
+        setTimeout(() => {
+          setNextError(false);
+        }, 5000);
         return;
       }
     }
@@ -609,8 +615,8 @@ const GetInfo = () => {
                   <div
                     key={template}
                     onClick={() => setFormData((prev) => ({ ...prev, selectedTemplate: String(template - 1) }))}
-                    className={`p-4 border-2 rounded-lg cursor-pointer transition-transform duration-400 shadow-md dark:border-slate-500 hover:scale-95 ${
-                      formData.selectedTemplate === String(template - 1) ? 'border-blue-500 bg-blue-50 dark:bg-slate-700 dark:border-blue-400' : ''
+                    className={`p-4 border-2 rounded-lg cursor-pointer transition-transform duration-400 shadow-md hover:scale-95 dark:shadow-gray-600  ${
+                      formData.selectedTemplate === String(template - 1) ? 'border-blue-600 bg-blue-50 dark:bg-slate-800' : 'dark:border-gray-700'
                     }`}
                   >
                     <img
@@ -682,7 +688,7 @@ const GetInfo = () => {
           <div className="mt-8 flex justify-end">
             <button
               onClick={handleNext}
-              className="flex items-center gap-2 px-6 py-2 mt-5 bg-blue-600 text-white rounded-full hover:bg-blue-700 "
+              className={`flex items-center gap-2 px-6 py-2 mt-5 text-white rounded-full ${NextError?"bg-red-500 hover:bg-red-600 transition-transform scale-105":"bg-blue-600 hover:bg-blue-700"}`}
             >
               {currentStep === steps.length - 1 ? "Submit" : "Next"}
               <ChevronRight size={16} />
