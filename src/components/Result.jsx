@@ -17,8 +17,8 @@ const Result = () => {
     <div className="flex items-center justify-center h-screen w-screen text-center transition-colors duration-300 bg-gray-100 dark:bg-slate-800">
       {error ? (
         <p className="text-[16px] text-red-500 dark:text-amber-300 font-bold text-center">
-          Server is not connected to Frontend. <br />
-          Please read instructions mentioned on Git Repository <br />
+          The server is not connected to the frontend. <br />
+          Please refer to the instructions provided in the Git repository: <br />
           <a 
             href="https://github.com/NishantkSingh0/resume-builder-web-application" 
             target='_blank'

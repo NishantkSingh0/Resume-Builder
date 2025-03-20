@@ -46,13 +46,13 @@ const GetInfo = () => {
     selectedTemplate: 0
   });
   
-  const [completedSteps, setCompletedSteps] = useState(new Set());
+  const [completedSteps, setCompletedSteps]=useState(new Set());
   const [isInvalidMob,setIsInvalidMob]=useState(false);
   const [isInvalidMail,setIsInvalidMail]=useState(false);
   const [isInvalidWDuration,setIsInvalidWDuration]=useState(false);
   const [isInvalidGDuration,setIsInvalidGDuration]=useState(false);
   const [isInvalidSGPA,setIsInvalidSGPA]=useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen]=useState(false);
   
   const AboutTemps=["Simpler & Structured","Linear & Classic","Colourfull & Attractive","Colourful & Highly Designed","Simpler & Linear","Designed & Attractive","Highly Simpler"]
   

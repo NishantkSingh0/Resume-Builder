@@ -101,7 +101,7 @@ const FrontPage = () => {
 
       <div className="md:hidden flex justify-center flex-col items-center flex-grow">
         <h1 className="text-2xl md:hidden sm:text-3xl font-bold mb-3 dark:text-white">
-          Resume Builder Web Application
+          Resume Builder
         </h1>
         <p className="text-sm sm:text-lg text-gray-500 font-semibold mb-4">   {/* Here the mobile span are with desktop id  */}
           <span id="mobile-typing-text" className="md:hidden text-xl sm:text-2xl text-gray-800 h-6 mb-4 dark:text-white"></span>
