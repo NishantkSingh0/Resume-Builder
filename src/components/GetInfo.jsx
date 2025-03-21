@@ -12,8 +12,8 @@ const GetInfo = () => {
       fullName: '',
       phoneNumber: '',
       emailAddress: '',
-      linkedinUrl: '',
-      portfolioUrl: '',
+      linkedin: '',
+      portfolio: '',
       jobTitle: '',
       Languages: '',
       Location: ''
@@ -112,8 +112,8 @@ const GetInfo = () => {
         formData.contactInfo.fullName,
         formData.contactInfo.phoneNumber,
         formData.contactInfo.emailAddress,
-        formData.contactInfo.linkedinUrl,
-        formData.contactInfo.portfolioUrl,
+        formData.contactInfo.linkedin,
+        formData.contactInfo.portfolio,
         formData.contactInfo.jobTitle,
       ],
       1: [
@@ -200,7 +200,8 @@ const GetInfo = () => {
                 <label className="block text-sm font-medium dark:text-slate-300">Full Name</label>
                 <input
                   type="text"
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                  placeholder='xyz'
+                  className="w-full sm:p-2 sm:px-6 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   value={formData.contactInfo.fullName}
                   onChange={(e) => handleInputChange('contactInfo', 'fullName', e.target.value)}
                 />  
@@ -212,7 +213,7 @@ const GetInfo = () => {
                 <input
                   type="number"
                   placeholder="Enter 10-digit phone number"
-                  className={`w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 ${isInvalidMob?"focus:ring-red-500":"focus:ring-blue-500"}  dark:bg-gray-800 dark:text-white dark:border-gray-600 
+                  className={`w-full sm:p-2 sm:px-6 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 ${isInvalidMob?"focus:ring-red-500":"focus:ring-blue-500"}  dark:bg-gray-800 dark:text-white dark:border-gray-600 
                   [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none`}
                   value={formData.contactInfo.phoneNumber}
                   onChange={(e) => handleInputChange("contactInfo", "phoneNumber", e.target.value)}
@@ -235,7 +236,7 @@ const GetInfo = () => {
                 <input
                   type="email"
                   placeholder="xyz231@gmail.com"
-                  className={`w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 ${isInvalidMail?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
+                  className={`w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 ${isInvalidMail?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
                   value={formData.contactInfo.emailAddress}
                   onChange={(e) => handleInputChange("contactInfo", "emailAddress", e.target.value)}
                   onBlur={(e) => {
@@ -254,25 +255,25 @@ const GetInfo = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium dark:text-slate-300">LinkedIn URL</label>
+                <label className="block text-sm font-medium dark:text-slate-300">LinkedIn UserName</label>
                 <input
                   type="text"
-                  placeholder="www.linkedin.com/in/xyz231/"
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                  value={formData.contactInfo.linkedinUrl}
-                  onChange={(e) => handleInputChange("contactInfo", "linkedinUrl", e.target.value)}
+                  placeholder="xyz231"
+                  className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                  value={formData.contactInfo.linkedin}
+                  onChange={(e) => handleInputChange("contactInfo", "linkedin", e.target.value)}
                 />
                 <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium dark:text-slate-300">Portfolio URL / Github URL</label>
+                <label className="block text-sm font-medium dark:text-slate-300">Portfolio URL / Github UserName</label>
                 <input
                   type="text"
-                  placeholder='Portfolio URL if have else add GitHub URL'
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                  value={formData.contactInfo.portfolioUrl}
-                  onChange={(e) => handleInputChange('contactInfo', 'portfolioUrl', e.target.value)}
+                  placeholder='Personal portfolio URL if have else add GitHub UserName'
+                  className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                  value={formData.contactInfo.portfolio}
+                  onChange={(e) => handleInputChange('contactInfo', 'portfolio', e.target.value)}
                 />
                 <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
@@ -282,7 +283,7 @@ const GetInfo = () => {
                 <input
                   type="text"
                   placeholder='Data Scientist'
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                  className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   value={formData.contactInfo.jobTitle}
                   onChange={(e) => handleInputChange('contactInfo', 'jobTitle', e.target.value)}
                 />
@@ -299,7 +300,7 @@ const GetInfo = () => {
               <div className="space-y-2">
                 <label className="block text-sm font-medium dark:text-slate-300">Technical Skills</label>
                 <input
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                  className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   placeholder='TensorFlow, PyTorch, Scikit-learn, Keras, Hugging Face, C/C++, Java, JavaScript, React'
                   value={formData.skills.hardSkills}
                   onChange={(e) => handleInputChange('skills', 'hardSkills', e.target.value)}
@@ -310,7 +311,7 @@ const GetInfo = () => {
               <div className="space-y-2">
                 <label className="block text-sm font-medium dark:text-slate-300">Soft Skills</label>
                 <input
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                  className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   placeholder='TeamWork, strong Problem-Solving skill, Leadership, Critical thinking, Communication'
                   value={formData.skills.softSkills}
                   onChange={(e) => handleInputChange('skills', 'softSkills', e.target.value)}
@@ -323,7 +324,7 @@ const GetInfo = () => {
                 <input
                   type="text"
                   placeholder='English, Hindi, French'
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                  className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   value={formData.contactInfo.Languages}
                   onChange={(e) => handleInputChange('contactInfo', 'Languages', e.target.value)}
                 />
@@ -335,7 +336,7 @@ const GetInfo = () => {
                 <input
                   type="text"
                   placeholder='Haridwar (UTTRAKHAND)'
-                  className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                  className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   value={formData.contactInfo.Location}
                   onChange={(e) => handleInputChange('contactInfo', 'Location', e.target.value)}
                 />
@@ -358,7 +359,7 @@ const GetInfo = () => {
                     <input
                       type="text"
                       placeholder='Data Scientist'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600" 
+                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600" 
                       value={exp.jobTitle}
                       onChange={(e) => handleInputChange('workExperience', 'jobTitle', e.target.value, index)}
                     />
@@ -370,7 +371,7 @@ const GetInfo = () => {
                     <input
                       type="text"
                       placeholder='Onlei Teach'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={exp.companyName}
                       onChange={(e) => handleInputChange('workExperience', 'companyName', e.target.value, index)}
                     />
@@ -382,7 +383,7 @@ const GetInfo = () => {
                     <input
                       type="text"
                       placeholder="Dec-2023 to Mar-2025"
-                      className={`w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 ${isInvalidWDuration?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
+                      className={`w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 ${isInvalidWDuration?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
                       value={exp.WorkDuration}
                       onChange={(e) => handleInputChange("workExperience", "WorkDuration", e.target.value, index)}
                       onBlur={(e) => {
@@ -404,7 +405,7 @@ const GetInfo = () => {
                     <input
                       type="text"
                       placeholder='Learn to visualize patterns from data using matplotlib and Built several DL models'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={exp.keyAchievements}
                       onChange={(e) => handleInputChange('workExperience', 'keyAchievements', e.target.value, index)}
                     />
@@ -435,7 +436,7 @@ const GetInfo = () => {
                     <input
                       type="text"
                       placeholder='Transformer based translation model from scratch'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={project.projectTitle}
                       onChange={(e) => handleInputChange('projects', 'projectTitle', e.target.value, index)}
                     />
@@ -447,7 +448,7 @@ const GetInfo = () => {
                     <input
                       type="text"
                       placeholder='Tensorflow, NumPy, Pandas, Matplotlib, Multi30k Dataset, ModelSubclassing'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={project.toolsTechUsed}
                       onChange={(e) => handleInputChange('projects', 'toolsTechUsed', e.target.value, index)}
                     />
@@ -477,7 +478,7 @@ const GetInfo = () => {
                     <input
                       type="text"
                       placeholder='Haridwar University'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={edu.institutionName}
                       onChange={(e) => handleInputChange('education', 'institutionName', e.target.value, index)}
                     />
@@ -489,7 +490,7 @@ const GetInfo = () => {
                     <input
                       type="text"
                       placeholder='Batchelor in computer application'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={edu.degreeName}
                       onChange={(e) => handleInputChange('education', 'degreeName', e.target.value, index)}
                     />
@@ -501,7 +502,7 @@ const GetInfo = () => {
                     <input
                       type="text"
                       placeholder="2023 - 2026"
-                      className={`w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 ${isInvalidGDuration?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
+                      className={`w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 ${isInvalidGDuration?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
                       value={edu.graduationYear}
                       onChange={(e) => handleInputChange("education", "graduationYear", e.target.value, index)}
                       onBlur={(e) => {
@@ -523,7 +524,7 @@ const GetInfo = () => {
                     <input
                       type="text"
                       placeholder='?? / 10'
-                      className={`w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 ${isInvalidSGPA?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
+                      className={`w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 ${isInvalidSGPA?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
                       value={edu.currentSGPA}
                       onChange={(e) => handleInputChange('education', 'currentSGPA', e.target.value, index)}
                       onBlur={(e) => {
@@ -566,7 +567,7 @@ const GetInfo = () => {
                     <input
                       type="text"
                       placeholder='Azure AI Engineer Associate'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={cert.certificateName}
                       onChange={(e) => handleInputChange('certificates', 'certificateName', e.target.value, index)}
                     />
@@ -578,7 +579,7 @@ const GetInfo = () => {
                     <input
                       type="text"
                       placeholder='2 Month'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={cert.courseDuration}
                       onChange={(e) => handleInputChange('certificates', 'courseDuration', e.target.value, index)}
                     />
@@ -590,7 +591,7 @@ const GetInfo = () => {
                     <input
                       type="text"
                       placeholder='Microsoft'
-                      className="w-full pl-1 sm:p-2 border rounded peer px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                       value={cert.providerName}
                       onChange={(e) => handleInputChange('certificates', 'providerName', e.target.value, index)}
                     />
