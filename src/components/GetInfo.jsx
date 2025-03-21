@@ -57,13 +57,13 @@ const GetInfo = () => {
   const AboutTemps=["Simpler & Structured","Linear & Classic","Colourfull & Attractive","Colourful & Highly Designed","Simpler & Linear","Designed & Attractive","Highly Simpler"]
   
   const steps = [
-    { title: 'Contact Info', key: 'contactInfo' },
-    { title: 'Skills', key: 'skills' },
-    { title: 'Work Experience', key: 'workExperience' },
-    { title: 'Projects', key: 'projects' },
-    { title: 'Education', key: 'education' },
-    { title: 'Certificates', key: 'certificates' },
-    { title: 'Template', key: 'template' }
+    { title: 'Begin with your contact details', key: 'Contact Info' },
+    { title: 'Showcase your skills', key: 'Skills' },
+    { title: 'Share your work experience', key: 'Work Experience' },
+    { title: 'Highlight your top projects', key: 'Projects' },
+    { title: 'Demonstrate your knowledge', key: 'Education' },
+    { title: 'Add your achieved certifications', key: 'Certificates' },
+    { title: 'Choose a template that suits you best', key: 'Template' }
   ];
 
   const handleAbout = () => {
@@ -658,26 +658,27 @@ const GetInfo = () => {
         </button>
 
         <div className={`${isOpen || "hidden md:block"}`}>
-          <h1 className={"text-2xl font-bold pt-14 md:pt-6 text-center text-blue-80 text-blue-800 dark:text-amber-300 cursor-pointer"} onClick={handleAbout}>BRAVERS</h1>
+          <h1 className={"text-2xl font-bold pt-14 md:pt-6 text-center text-blue-80 text-blue-800 dark:text-amber-300 cursor-pointer"} title='About us' onClick={handleAbout}>BRAVERS</h1>
           <div className="w-[30%] h-1 bg-blue-900  mb-6 mx-auto mt-1 rounded dark:bg-amber-400"></div>
           <div className="space-y-4 p-2">
             {steps.map((step, index) => (
               <div
                 key={index}
                 onClick={() => setCurrentStep(index)}
-                className={`flex items-center gap-3 p-2 rounded cursor-pointer transition-transform duration-400 hover:scale-105
+                title={step.title}
+                className={`flex items-center gap-3 p-2 rounded-lg cursor-pointer transition-transform duration-400 hover:scale-105
                   ${currentStep === index ? "bg-blue-50 text-blue-600 dark:bg-slate-700" : ""}
                   ${completedSteps.has(index) ? "text-green-600 dark:text-amber-200" : "text-gray-600 dark:text-zinc-200"}
                 `}
               >
-              <div
-                  className={`w-6 h-6 rounded-full flex items-center justify-center border 
-                  ${completedSteps.has(index) ? "bg-white border-green-600 dark:border-amber-300 dark:bg-gray-800" : "border-gray-400 dark:border-gray-400"}
-                `}
+                <div
+                    className={`w-6 h-6 rounded-full flex items-center justify-center border 
+                    ${completedSteps.has(index) ? "bg-white border-green-600 dark:border-amber-300 dark:bg-gray-800" : "border-gray-400 dark:border-gray-400"}
+                  `}
                 >
-                  {completedSteps.has(index) ? <Check size={14} /> : <span className="text-sm">{index + 1}</span>}
+                    {completedSteps.has(index) ? <Check size={14} /> : <span className="text-sm">{index + 1}</span>}
                 </div>
-                <span className="text-sm font-medium">{step.title}</span>
+                <span className="text-sm font-medium">{step.key}</span>
               </div>
             ))}
           </div>
@@ -690,6 +691,7 @@ const GetInfo = () => {
 
           <div className="mt-8 flex justify-end">
           <button
+            title={`${NextError ? "Don't cheat! its essential to fill all details for a good resume" : "Fill all details and continue to next page"}`}
             onClick={handleNext}
             className={`flex items-center gap-2 px-6 py-2 mt-5 text-white rounded-full ${
               NextError ? "bg-red-500 hover:bg-red-600 transition-transform scale-105" : "bg-blue-600 hover:bg-blue-700"
