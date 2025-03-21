@@ -27,18 +27,18 @@ const developers = [
     email: "amishapal992",
     emailLink: "mailto:amishapal9927@gmail.com"
   },
-  // {
-  //   name: "Ankush Kumar",
-  //   role: "Handled Written Works of project",
-  //   github: "Ankush2011",
-  //   gitLink: "https://github.com/Ankush201109",
-  //   linkedin: "Ankush-kumar-5",
-  //   linLink: "https://www.linkedin.com/in/ankush-kumar-505318231",
-  //   portfolio: "Ankush.dev",
-  //   prtLink: "",
-  //   email: "akbahot2004",
-  //   emailLink: "mailto:akbahot2004@gmail.com"
-  // },
+  {
+    name: "Ankush Kumar",
+    role: "Handled Written Works of project",
+    github: "Ankush2011",
+    gitLink: "https://github.com/Ankush201109",
+    linkedin: "Ankush-kumar-5",
+    linLink: "https://www.linkedin.com/in/ankush-kumar-505318231",
+    portfolio: "Ankush.dev",
+    prtLink: "",
+    email: "akbahot2004",
+    emailLink: "mailto:akbahot2004@gmail.com"
+  },
   // {
   //   name: "Nisha Mandal",
   //   role: "Enhanced UI by adding Nightmode's and Other essential components",
@@ -81,16 +81,15 @@ function AboutUs() {
 
 
             <p className="text-green-700 mb-6 font-semibold dark:text-blue-300">{dev.role} 
-              {/* <ExpandButton
-                content=" ... "
-                message=" 
-                      <ul>
-                        <li>Developed and integrated frontend and backend systems</li>
-                        <li>Proposed innovative project ideas with structured workflows,</li>
-                        <li>Researched high-rated resumes for optimization</li>
-                        <li>Analyzed ATS algorithms for effective resume selection.</li>
-                      <ul>"
-              /> */}
+            {dev.name === "Nishant Singh" && <ExpandButton
+                content=" . . . "
+                message={[
+                  "Developed and integrated frontend and backend systems.",
+                  "Proposed innovative project ideas with structured workflows.",
+                  "Researched high-rated resumes for optimization.",
+                  "Analyzed ATS algorithms for effective resume selection."
+                ]}
+              />}
             </p>
 
             <div className="flex flex-col items-center space-y-4 px-4 md:px-32">
