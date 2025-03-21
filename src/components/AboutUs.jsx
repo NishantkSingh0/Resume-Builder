@@ -96,22 +96,22 @@ function AboutUs() {
               <div className="flex flex-col md:flex-row justify-between w-full max-w-2xl space-y-4 md:space-y-0 md:space-x-10">
                 <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start dark:text-slate-300">
                   <FaGithub className="text-lg" />
-                  <a href={dev.gitLink} onClick={(e) => { if (!dev.gitLink) e.preventDefault(); }}  target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.github}</a>
+                  <a href={dev.gitLink} onClick={(e) => { if (!dev.gitLink) e.preventDefault(); }} title={dev.gitLink} target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.github}</a>
                 </div>
                 <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start dark:text-slate-300">
                   <FaLinkedin className="text-lg" />
-                  <a href={dev.linLink} onClick={(e) => { if (!dev.linLink) e.preventDefault(); }}  target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.linkedin}</a>
+                  <a href={dev.linLink} onClick={(e) => { if (!dev.linLink) e.preventDefault(); }} title={dev.linLink} target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.linkedin}</a>
                 </div>
               </div>
 
               <div className="flex flex-col md:flex-row justify-between w-full max-w-2xl space-y-4 md:space-y-0 md:space-x-10">
                 <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start dark:text-slate-300">
                   <FaGlobe className="text-lg" />
-                  <a href={dev.prtLink} onClick={(e) => { if (!dev.prtLink) e.preventDefault(); }}  target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.portfolio}</a>
+                  <a href={dev.prtLink} onClick={(e) => { if (!dev.prtLink) e.preventDefault(); }} title={dev.prtLink} target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.portfolio}</a>
                 </div>
                 <div className="flex items-center space-x-2 text-gray-700 font-semibold w-full md:w-1/2 justify-center md:justify-start dark:text-slate-300">
                   <FaEnvelope className="text-lg" />
-                  <a href={dev.emailLink} onClick={(e) => { if (!dev.emailLink) e.preventDefault(); }}  target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.email}</a>
+                  <a href={dev.emailLink} onClick={(e) => { if (!dev.emailLink) e.preventDefault(); }} title={dev.emailLink} target="_blank" rel="noopener noreferrer" className="hover:underline">{dev.email}</a>
                 </div>
               </div>
             </div>
