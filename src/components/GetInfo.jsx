@@ -28,13 +28,13 @@ const GetInfo = () => {
       {
         jobTitle: "Data scientist",
         companyName: "Onlei tech",
-        WorkDuration: "2 Month",
+        WorkDuration: "Dec-2024 to Mar-2025",
         keyAchievements: "Learn to visualize patterns from data using matplotlib and Built several DL models"
       },
       {
         jobTitle: "Python engineer",
         companyName: "Microsoft",
-        WorkDuration: "2 month",
+        WorkDuration: "May-2024 to Jul-2024",
         keyAchievements: "Learn to use python in NLP tasks to take advantages of LLM"
       }
     ],
@@ -146,7 +146,7 @@ const GetInfo = () => {
   const [isOpen, setIsOpen]=useState(false);
   const [showInput, setShowInput] = useState(false);
   const [pin, setPin] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(false);
   
   const AboutTemps=["Simpler & Structured","Linear & Classic","Colourfull & Attractive","Colourful & Highly Designed","Simpler & Linear","Designed & Attractive","Highly Simpler & Classic"]
   
@@ -174,12 +174,13 @@ const GetInfo = () => {
   };
 
   const handleVerify = (e) => {
-    if (e.key === "Enter") {  
+    if (e.key === "Enter" || e.key=="Tab") {  
       if (pin === "147895") {
         toast.success("Authorized", {
           duration: 3000,
           position: "top-right",
         });
+        setError(false)
         setShowInput(false)
         HandleExampleProcessing(); 
       } else {
@@ -187,6 +188,7 @@ const GetInfo = () => {
           duration: 3000,
           position: "top-right",
         });
+        setError(true);
       }
     }
   };
@@ -526,7 +528,7 @@ const GetInfo = () => {
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Work Experience</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
               {formData.workExperience.map((exp, index) => (
-                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
+                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                   <h3 className="font-medium text-lg dark:text-slate-200">Experience {index + 1}</h3>
 
                     <div className="space-y-2">
@@ -602,7 +604,7 @@ const GetInfo = () => {
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Work Experience</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
               {ExampleJsonData.workExperience.map((exp, index) => (
-                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
+                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                   <h3 className="font-medium text-lg dark:text-slate-200">Experience {index + 1}</h3>
 
                     <div className="space-y-2">
@@ -662,7 +664,7 @@ const GetInfo = () => {
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Projects</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 3 projects which you did in your academics</p>
               {formData.projects.map((project, index) => (
-                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
+                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                   <h3 className="font-medium text-lg dark:text-slate-200">Project {index + 1}</h3>
 
                     <div className="space-y-2">
@@ -704,7 +706,7 @@ const GetInfo = () => {
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Projects</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 3 projects which you did in your academics</p>
               {ExampleJsonData.projects.map((project, index) => (
-                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
+                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                   <h3 className="font-medium text-lg dark:text-slate-200">Project {index + 1}</h3>
 
                     <div className="space-y-2">
@@ -744,7 +746,7 @@ const GetInfo = () => {
                 <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Education</h2>
                 <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add your pre/post graduations on different sections (Consider listing your most recent Qualifications first)</p>
                 {formData.education.map((edu, index) => (
-                  <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
+                  <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                     <h3 className="font-medium text-lg dark:text-slate-200">Education {index + 1}</h3>
 
                     <div className="space-y-2">
@@ -831,7 +833,7 @@ const GetInfo = () => {
                 <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Education</h2>
                 <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add your pre/post graduations on different sections (Consider listing your most recent Qualifications first)</p>
                 {ExampleJsonData.education.map((edu, index) => (
-                  <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
+                  <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                     <h3 className="font-medium text-lg dark:text-slate-200">Education {index + 1}</h3>
 
                     <div className="space-y-2">
@@ -893,7 +895,7 @@ const GetInfo = () => {
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Certificates</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 5 high rated certificates</p>
               {formData.certificates.map((cert, index) => (
-                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
+                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                   <h3 className="font-medium text-lg dark:text-slate-200">Certificate {index + 1}</h3>
                   <div className="space-y-4">
 
@@ -949,7 +951,7 @@ const GetInfo = () => {
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Certificates</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 5 high rated certificates</p>
               {ExampleJsonData.certificates.map((cert, index) => (
-                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
+                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                   <h3 className="font-medium text-lg dark:text-slate-200">Certificate {index + 1}</h3>
                   <div className="space-y-4">
 
@@ -1100,7 +1102,7 @@ const GetInfo = () => {
           </div>
           <div>
             <h2
-              className="space-y-3 mt-10 p-2 flex items-center justify-center gap-3 rounded-lg cursor-pointer transition-transform duration-400 bg-blue-50 hover:bg-blue-100 text-blue-600 dark:text-zinc-300 dark:bg-slate-700/50 dark:hover:bg-slate-700/95"
+              className="space-y-3 mx-4 md:mx-0 mt-10 p-2 flex items-center justify-center gap-3 rounded-lg cursor-pointer transition-transform duration-400 bg-blue-50 hover:bg-blue-100 text-blue-600 dark:text-zinc-300 dark:bg-slate-700/50 dark:hover:bg-slate-700/95"
               title="It is only for Test & Present with authorized access"
               onClick={() => {
                 if (showInput){
@@ -1112,16 +1114,15 @@ const GetInfo = () => {
             </h2>
 
             {showInput && (
-              <div className="mt-1 bg-gray-100  dark:bg-gray-800 rounded-lg">
+              <div className="mx-4 md:mx-0 dark:bg-gray-800 rounded-lg">
                 <input
                   type="password"
-                  className="w-full mt-2 p-2 border border-blue-500 rounded bg-white text-black dark:bg-gray-700 dark:text-white dark:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className={`w-full mt-2 p-2 border rounded bg-white text-black dark:bg-gray-700 dark:text-white ${error? "border-red-500 dark:border-red-400 focus:ring-red-500":"border-blue-500 dark:border-blue-400 focus:ring-blue-500"} focus:outline-none focus:ring-2`}
                   value={pin}
                   onChange={(e) => setPin(e.target.value)} 
                   onKeyDown={handleVerify} 
                   placeholder="Enter PIN"
                 />
-                {error && <p className="text-red-500 mt-2">{error}</p>}
               </div>
             )}
           </div>            
