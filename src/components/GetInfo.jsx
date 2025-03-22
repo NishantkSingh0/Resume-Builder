@@ -2,11 +2,101 @@ import React, { useState } from 'react';
 import { Check, Plus, ChevronRight, Menu, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import toast from "react-hot-toast";
+import ExpandButton from './ExpandButton.jsx'
 
 const GetInfo = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [NextError, setNextError] = useState(false);
   const navigate = useNavigate();
+
+  const [ExampleJsonData, setExampleJsonData] = useState({
+    contactInfo: {
+      fullName: "Nishant kumar",
+      phoneNumber: "9217290469",
+      emailAddress: "nishantsingh.talk@gmail.com",
+      linkedin: "nishantksingh1",
+      portfolio: "nishantksingh0.github.io",
+      jobTitle: "Data Scientist",
+      Languages: "English, Hindi, French",
+      Location: "Haridwar (Uttrakhand)"
+    },
+    skills: {
+      hardSkills: "TensorFlow, PyTorch, Scikit-learn, Keras, Hugging Face, C/C++, Java, JavaScript, React",
+      softSkills: "TeamWork, strong Problem-Solving skill, Leadership, Critical thinking, Communication"
+    },
+    workExperience: [
+      {
+        jobTitle: "Data scientist",
+        companyName: "Onlei tech",
+        WorkDuration: "2 Month",
+        keyAchievements: "Learn to visualize patterns from data using matplotlib and Built several DL models"
+      },
+      {
+        jobTitle: "Python engineer",
+        companyName: "Microsoft",
+        WorkDuration: "2 month",
+        keyAchievements: "Learn to use python in NLP tasks to take advantages of LLM"
+      }
+    ],
+    projects: [
+      {
+        projectTitle: "Transformer based translation model",
+        toolsTechUsed: "Tensorflow, Trasformer architecture, NumPy, WMT Translation dataset"
+      },
+      {
+        projectTitle: "Exam Proctoring system",
+        toolsTechUsed: "React, Flask, OpenCV, NumPy, Mediapipe, Pillow, WebSocket, ThreadPool"
+      },
+      {
+        projectTitle: "Persion bounding box detection",
+        toolsTechUsed: "OpenCV, Json, Tensorflow, Pandas, Matplotlib, NumPy"
+      }
+    ],
+    education: [
+      {
+        institutionName: "Haridwar University",
+        degreeName: "Batchelor in Computer application",
+        graduationYear: "2023 - 2026",
+        currentSGPA: "8"
+      },
+      {
+        institutionName: "Vidya Mandir Sec-5 (Haridwar)",
+        degreeName: "Primary/Secondary",
+        graduationYear: "2021 - 2023",
+        currentSGPA: "8"
+      }
+    ],
+    certificates: [
+      {
+        certificateName: "Azure AI Engineer association",
+        courseDuration: "2 month ",
+        providerName: "Microsoft"
+      },
+      {
+        certificateName: "C/C++",
+        courseDuration: "2 Month",
+        providerName: "Cad Planet"
+      },
+      {
+        certificateName: "DataScientist Internship",
+        courseDuration: "2 Month",
+        providerName: "Onlei Tech"
+      },
+      {
+        certificateName: "Intro To responsive AI",
+        courseDuration: "1 Month",
+        providerName: "SimpliLearn"
+      },
+      {
+        certificateName: "Bits & byts of computer",
+        courseDuration: "1 Month",
+        providerName: "Coursera"
+      },
+    ],
+    selectedTemplateEx: "" 
+  });
+  
+
   const [formData, setFormData] = useState({
     contactInfo: {
       fullName: '',
@@ -49,12 +139,16 @@ const GetInfo = () => {
   const [completedSteps, setCompletedSteps]=useState(new Set());
   const [isInvalidMob,setIsInvalidMob]=useState(false);
   const [isInvalidMail,setIsInvalidMail]=useState(false);
+  const [isExampleProcessing,setIsExampleProcessing]=useState(false);
   const [isInvalidWDuration,setIsInvalidWDuration]=useState(false);
   const [isInvalidGDuration,setIsInvalidGDuration]=useState(false);
   const [isInvalidSGPA,setIsInvalidSGPA]=useState(false);
   const [isOpen, setIsOpen]=useState(false);
+  const [showInput, setShowInput] = useState(false);
+  const [pin, setPin] = useState("");
+  const [error, setError] = useState("");
   
-  const AboutTemps=["Simpler & Structured","Linear & Classic","Colourfull & Attractive","Colourful & Highly Designed","Simpler & Linear","Designed & Attractive","Highly Simpler"]
+  const AboutTemps=["Simpler & Structured","Linear & Classic","Colourfull & Attractive","Colourful & Highly Designed","Simpler & Linear","Designed & Attractive","Highly Simpler & Classic"]
   
   const steps = [
     { title: 'Begin with your contact details', key: 'Contact Info' },
@@ -69,7 +163,34 @@ const GetInfo = () => {
   const handleAbout = () => {
     navigate('/AboutUs');
   };
+  
+  const HandleExampleProcessing = () => {
+    setIsExampleProcessing(true);
+    const newSet = new Set();
+    for (let i = 0; i < 7 - 1; i++) {
+      newSet.add(i);
+    }
+    setCompletedSteps(newSet);
+  };
 
+  const handleVerify = (e) => {
+    if (e.key === "Enter") {  
+      if (pin === "147895") {
+        toast.success("Authorized", {
+          duration: 3000,
+          position: "top-right",
+        });
+        setShowInput(false)
+        HandleExampleProcessing(); 
+      } else {
+        toast.error("Pin is incorrect. Authorization declined !", {
+          duration: 3000,
+          position: "top-right",
+        });
+      }
+    }
+  };
+  
   const handleInputChange = (section, field, value, index = null) => {
     setFormData(prev => {
       const newData = { ...prev };
@@ -137,12 +258,11 @@ const GetInfo = () => {
       return;
     }
     
-    const DataFeildNames=["Contact Info","Skills","Work Experience","Projects","Education","Certificates","Templates"]
     const areFieldsValid = (fields) => fields.every((field) => typeof field === "string" && field.trim() !== "");
     setNextError(false);
     for (let step = 0; step <= currentStep; step++) {
       const requiredFields = Fields[step].flat();
-      if (requiredFields.length > 0 && !areFieldsValid(requiredFields)) {
+      if (requiredFields.length > 0 && !areFieldsValid(requiredFields) && !isExampleProcessing) {
         setNextError(true)
         toast.error("Please fill out all required fields From 'Contact Info' before proceeding further.", {
           duration: 3000,
@@ -159,10 +279,10 @@ const GetInfo = () => {
   
     if (currentStep < steps.length - 1) {
       setCurrentStep((prev) => prev + 1);
-    } else {
+    } else {          // its only validate if input current step is previously doned {if future step found to be next without filling  details it though error}
       for (let step = 0; step <= 6; step++) {
         const requiredFields = Fields[step].flat();
-        if (requiredFields.length > 0 && !areFieldsValid(requiredFields)) {
+        if (requiredFields.length > 0 && !areFieldsValid(requiredFields) && !isExampleProcessing) {
           toast.error("Please complete all required fields before submitting.", {
             duration: 3000, 
             position: "top-right",
@@ -172,20 +292,34 @@ const GetInfo = () => {
       }
   
       navigate('/Result');
-      console.log("Form submitted:", formData);
-  
-      const jsonData = JSON.stringify(formData, null, 2);
-      const blob = new Blob([jsonData], { type: "application/json" });
-      const url = URL.createObjectURL(blob);
-  
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "BRAVERS_resume_builder_data.json";
-      document.body.appendChild(a);
-      a.click();
-  
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      // console.log("Form submitted:", formData);
+      if (!isExampleProcessing){
+        const jsonData = JSON.stringify(formData, null, 2);
+        const blob = new Blob([jsonData], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "BRAVERS_resume_data.json";
+        document.body.appendChild(a);
+        a.click();
+        
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }else{
+        const jsonData = JSON.stringify(ExampleJsonData, null, 2);
+        const blob = new Blob([jsonData], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "BRAVERS_resume_data.json";
+        document.body.appendChild(a);
+        a.click();
+        
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
     }
   };
   
@@ -202,8 +336,12 @@ const GetInfo = () => {
                   type="text"
                   placeholder='xyz'
                   className="w-full sm:p-2 sm:px-6 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                  value={formData.contactInfo.fullName}
-                  onChange={(e) => handleInputChange('contactInfo', 'fullName', e.target.value)}
+                  value={isExampleProcessing ? ExampleJsonData.contactInfo.fullName : formData.contactInfo.fullName}
+                  onChange={(e) => {
+                    if (!isExampleProcessing) { // Prevent changes when true
+                      handleInputChange("contactInfo", "fullName", e.target.value);
+                    }
+                  }}
                 />  
                 <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
@@ -215,11 +353,15 @@ const GetInfo = () => {
                   placeholder="Enter 10-digit phone number"
                   className={`w-full sm:p-2 sm:px-6 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 ${isInvalidMob?"focus:ring-red-500":"focus:ring-blue-500"}  dark:bg-gray-800 dark:text-white dark:border-gray-600 
                   [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none`}
-                  value={formData.contactInfo.phoneNumber}
-                  onChange={(e) => handleInputChange("contactInfo", "phoneNumber", e.target.value)}
+                  value={isExampleProcessing ? ExampleJsonData.contactInfo.phoneNumber : formData.contactInfo.phoneNumber}
+                  onChange={(e) => {
+                    if (!isExampleProcessing) { 
+                      handleInputChange("contactInfo", "phoneNumber", e.target.value)
+                    }
+                  }}
                   onBlur={(e) => {
                     const value = e.target.value;
-                    if (!/^\d{10}$/.test(value)) {
+                    if (!/^\d{10}$/.test(value) && !isExampleProcessing) {
                       toast.error("Phone number must be of 10 digits", { duration: 3000, position: "top-right" });
                       setIsInvalidMob(true);
                       e.target.focus(); 
@@ -237,11 +379,15 @@ const GetInfo = () => {
                   type="email"
                   placeholder="xyz231@gmail.com"
                   className={`w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 ${isInvalidMail?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
-                  value={formData.contactInfo.emailAddress}
-                  onChange={(e) => handleInputChange("contactInfo", "emailAddress", e.target.value)}
+                  value={isExampleProcessing ? ExampleJsonData.contactInfo.emailAddress : formData.contactInfo.emailAddress}
+                  onChange={(e) => {
+                    if (!isExampleProcessing) { 
+                      handleInputChange("contactInfo", "emailAddress", e.target.value)
+                    }
+                  }}
                   onBlur={(e) => {
                     const value = e.target.value;
-                    if (!/^\S+@\S+\.\S+\s*$/.test(value)) {
+                    if (!/^\S+@\S+\.\S+\s*$/.test(value) && !isExampleProcessing) {
                       toast.error("Invalid email format!", { duration: 3000, position: "top-right" });
                       setIsInvalidMail(true);
                       e.target.focus(); 
@@ -260,8 +406,12 @@ const GetInfo = () => {
                   type="text"
                   placeholder="xyz231"
                   className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                  value={formData.contactInfo.linkedin}
-                  onChange={(e) => handleInputChange("contactInfo", "linkedin", e.target.value)}
+                  value={isExampleProcessing ? ExampleJsonData.contactInfo.linkedin : formData.contactInfo.linkedin}
+                  onChange={(e) => {
+                    if (!isExampleProcessing) { 
+                      handleInputChange("contactInfo", "linkedin", e.target.value)
+                    }
+                  }}
                 />
                 <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
@@ -272,8 +422,12 @@ const GetInfo = () => {
                   type="text"
                   placeholder='Personal portfolio URL if have else add GitHub UserName'
                   className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                  value={formData.contactInfo.portfolio}
-                  onChange={(e) => handleInputChange('contactInfo', 'portfolio', e.target.value)}
+                  value={isExampleProcessing ? ExampleJsonData.contactInfo.portfolio : formData.contactInfo.portfolio}
+                  onChange={(e) => {
+                    if (!isExampleProcessing) { 
+                      handleInputChange('contactInfo', 'portfolio', e.target.value)
+                    }
+                  }}
                 />
                 <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
@@ -284,8 +438,12 @@ const GetInfo = () => {
                   type="text"
                   placeholder='Data Scientist'
                   className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                  value={formData.contactInfo.jobTitle}
-                  onChange={(e) => handleInputChange('contactInfo', 'jobTitle', e.target.value)}
+                  value={isExampleProcessing ? ExampleJsonData.contactInfo.jobTitle : formData.contactInfo.jobTitle}
+                  onChange={(e) => {
+                    if (!isExampleProcessing) { 
+                      handleInputChange('contactInfo', 'jobTitle', e.target.value)
+                    }
+                  }}
                 />
                 <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
@@ -302,8 +460,12 @@ const GetInfo = () => {
                 <input
                   className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   placeholder='TensorFlow, PyTorch, Scikit-learn, Keras, Hugging Face, C/C++, Java, JavaScript, React'
-                  value={formData.skills.hardSkills}
-                  onChange={(e) => handleInputChange('skills', 'hardSkills', e.target.value)}
+                  value={isExampleProcessing ? ExampleJsonData.skills.hardSkills : formData.skills.hardSkills}
+                  onChange={(e) => {
+                    if (!isExampleProcessing) { 
+                      handleInputChange('skills', 'hardSkills', e.target.value)
+                    }
+                  }}
                 />
                 <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
@@ -313,8 +475,12 @@ const GetInfo = () => {
                 <input
                   className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                   placeholder='TeamWork, strong Problem-Solving skill, Leadership, Critical thinking, Communication'
-                  value={formData.skills.softSkills}
-                  onChange={(e) => handleInputChange('skills', 'softSkills', e.target.value)}
+                  value={isExampleProcessing ? ExampleJsonData.skills.softSkills : formData.skills.softSkills}
+                  onChange={(e) => {
+                    if (!isExampleProcessing) { 
+                      handleInputChange('skills', 'softSkills', e.target.value)
+                    }
+                  }}
                 />
                 <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
@@ -325,8 +491,12 @@ const GetInfo = () => {
                   type="text"
                   placeholder='English, Hindi, French'
                   className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                  value={formData.contactInfo.Languages}
-                  onChange={(e) => handleInputChange('contactInfo', 'Languages', e.target.value)}
+                  value={isExampleProcessing ? ExampleJsonData.contactInfo.Languages : formData.contactInfo.Languages}
+                  onChange={(e) => {
+                    if (!isExampleProcessing) { 
+                      handleInputChange('contactInfo', 'Languages', e.target.value)
+                    }
+                  }}
                 />
                 <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
@@ -337,8 +507,12 @@ const GetInfo = () => {
                   type="text"
                   placeholder='Haridwar (UTTRAKHAND)'
                   className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                  value={formData.contactInfo.Location}
-                  onChange={(e) => handleInputChange('contactInfo', 'Location', e.target.value)}
+                  value={isExampleProcessing ? ExampleJsonData.contactInfo.Location : formData.contactInfo.Location}
+                  onChange={(e) => {
+                    if (!isExampleProcessing) { 
+                      handleInputChange('contactInfo', 'Location', e.target.value)
+                    }
+                  }}
                 />
                 <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
@@ -346,299 +520,540 @@ const GetInfo = () => {
         );
 
       case 2:
-        return (
-          <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Work Experience</h2>
-            <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
-            {formData.workExperience.map((exp, index) => (
-              <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
-                <h3 className="font-medium dark:text-slate-200">Experience {index + 1}</h3>
-
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium dark:text-slate-300">Job Title</label>
-                    <input
-                      type="text"
-                      placeholder='Data Scientist'
-                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600" 
-                      value={exp.jobTitle}
-                      onChange={(e) => handleInputChange('workExperience', 'jobTitle', e.target.value, index)}
-                    />
-                    <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium dark:text-slate-300">Company Name</label>
-                    <input
-                      type="text"
-                      placeholder='Onlei Teach'
-                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                      value={exp.companyName}
-                      onChange={(e) => handleInputChange('workExperience', 'companyName', e.target.value, index)}
-                    />
-                    <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium dark:text-slate-300">Work Duration</label>
-                    <input
-                      type="text"
-                      placeholder="Dec-2023 to Mar-2025"
-                      className={`w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 ${isInvalidWDuration?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
-                      value={exp.WorkDuration}
-                      onChange={(e) => handleInputChange("workExperience", "WorkDuration", e.target.value, index)}
-                      onBlur={(e) => {
-                        const value = e.target.value;
-                        if (!/^\s*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)-(\d{2,4})\s*to\s*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)-(\d{2,4})\s*$/.test(value)) {
-                          toast.error("Invalid format!\n Use as Dec-2023 to Mar-2025", { duration: 3000, position: "top-right" });
-                          e.target.focus();
-                          setIsInvalidWDuration(true);
-                        }else{
-                          setIsInvalidWDuration(false);
-                        }
-                      }}
-                    />
-                    <div class={`ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%] ${isInvalidWDuration?"bg-red-500":"bg-blue-500"}`}></div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium dark:text-slate-300">Key Achievements</label>
-                    <input
-                      type="text"
-                      placeholder='Learn to visualize patterns from data using matplotlib and Built several DL models'
-                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                      value={exp.keyAchievements}
-                      onChange={(e) => handleInputChange('workExperience', 'keyAchievements', e.target.value, index)}
-                    />
-                    <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
-                  </div>
-              </div>
-            ))}
-            <button
-              onClick={() => addNewItem('workExperience')}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-            >
-              <Plus size={16} /> Add Experience
-            </button>
-          </div>
-        );
-
-      case 3:
-        return (
-          <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Projects</h2>
-            <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 3 projects which you did in your academics</p>
-            {formData.projects.map((project, index) => (
-              <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
-                <h3 className="font-medium dark:text-slate-200">Project {index + 1}</h3>
-                  
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium dark:text-slate-300">Project Title</label>
-                    <input
-                      type="text"
-                      placeholder='Transformer based translation model from scratch'
-                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                      value={project.projectTitle}
-                      onChange={(e) => handleInputChange('projects', 'projectTitle', e.target.value, index)}
-                    />
-                    <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium dark:text-slate-300">Tools/Tech Used</label>
-                    <input
-                      type="text"
-                      placeholder='Tensorflow, NumPy, Pandas, Matplotlib, Multi30k Dataset, ModelSubclassing'
-                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                      value={project.toolsTechUsed}
-                      onChange={(e) => handleInputChange('projects', 'toolsTechUsed', e.target.value, index)}
-                    />
-                    <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
-                  </div>
-              </div>
-            ))}
-            <button
-              onClick={() => addNewItem('projects')}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-            >
-              <Plus size={16} /> Add Project
-            </button>
-          </div>
-        );
-
-        case 4:
+        if (!isExampleProcessing){
           return (
             <div className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Education</h2>
-              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add your pre/post graduations on different sections (Consider listing your most recent Qualifications first)</p>
-              {formData.education.map((edu, index) => (
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Work Experience</h2>
+              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
+              {formData.workExperience.map((exp, index) => (
                 <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
+                  <h3 className="font-medium text-lg dark:text-slate-200">Experience {index + 1}</h3>
 
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium dark:text-slate-300">Institution Name</label>
-                    <input
-                      type="text"
-                      placeholder='Haridwar University'
-                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                      value={edu.institutionName}
-                      onChange={(e) => handleInputChange('education', 'institutionName', e.target.value, index)}
-                    />
-                    <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Job Title</label>
+                      <input
+                        type="text"
+                        placeholder='Data Scientist'
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600" 
+                        value={exp.jobTitle}
+                        onChange={(e) => handleInputChange('workExperience', 'jobTitle', e.target.value, index)}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Company Name</label>
+                      <input
+                        type="text"
+                        placeholder='Onlei Teach'
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={exp.companyName}
+                        onChange={(e) => handleInputChange('workExperience', 'companyName', e.target.value, index)}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Work Duration</label>
+                      <input
+                        type="text"
+                        placeholder="Dec-2023 to Mar-2025"
+                        className={`w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 ${isInvalidWDuration?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
+                        value={exp.WorkDuration}
+                        onChange={(e) => handleInputChange("workExperience", "WorkDuration", e.target.value, index)}
+                        onBlur={(e) => {
+                          const value = e.target.value;
+                          if (!/^\s*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)-(\d{2,4})\s*to\s*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)-(\d{2,4})\s*$/.test(value)) {
+                            toast.error("Invalid format!\n Use as Dec-2023 to Mar-2025", { duration: 3000, position: "top-right" });
+                            e.target.focus();
+                            setIsInvalidWDuration(true);
+                          }else{
+                            setIsInvalidWDuration(false);
+                          }
+                        }}
+                      />
+                      <div class={`ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%] ${isInvalidWDuration?"bg-red-500":"bg-blue-500"}`}></div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Key Achievements</label>
+                      <input
+                        type="text"
+                        placeholder='Learn to visualize patterns from data using matplotlib and Built several DL models'
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={exp.keyAchievements}
+                        onChange={(e) => handleInputChange('workExperience', 'keyAchievements', e.target.value, index)}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
+                </div>
+              ))}
+              <button
+                onClick={() => addNewItem('workExperience')}
+                className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+              >
+                <Plus size={16} /> Add Experience
+              </button>
+            </div>
+          );
+        }else{
+          return (
+            <div className="space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Work Experience</h2>
+              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
+              {ExampleJsonData.workExperience.map((exp, index) => (
+                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
+                  <h3 className="font-medium text-lg dark:text-slate-200">Experience {index + 1}</h3>
+
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Job Title</label>
+                      <input
+                        type="text"
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600" 
+                        value={exp.jobTitle}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Company Name</label>
+                      <input
+                        type="text"
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={exp.companyName}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Work Duration</label>
+                      <input
+                        type="text"
+                        className={`w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600`}
+                        value={exp.WorkDuration}
+                      />
+                      <div class={`ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]`}></div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Key Achievements</label>
+                      <input
+                        type="text"
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={exp.keyAchievements}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
+                </div>
+              ))}
+              <button
+                className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+              >
+                ❌ Add Experience
+              </button>
+            </div>
+          );
+        }
+
+      case 3:
+        if (!isExampleProcessing){
+          return (
+            <div className="space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Projects</h2>
+              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 3 projects which you did in your academics</p>
+              {formData.projects.map((project, index) => (
+                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
+                  <h3 className="font-medium text-lg dark:text-slate-200">Project {index + 1}</h3>
+
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Project Title</label>
+                      <input
+                        type="text"
+                        placeholder='Transformer based translation model from scratch'
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={project.projectTitle}
+                        onChange={(e) => handleInputChange('projects', 'projectTitle', e.target.value, index)}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Tools/Tech Used</label>
+                      <input
+                        type="text"
+                        placeholder='Tensorflow, NumPy, Pandas, Matplotlib, Multi30k Dataset, ModelSubclassing'
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={project.toolsTechUsed}
+                        onChange={(e) => handleInputChange('projects', 'toolsTechUsed', e.target.value, index)}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
+                </div>
+              ))}
+              <button
+                onClick={() => addNewItem('projects')}
+                className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+              >
+                <Plus size={16} /> Add Project
+              </button>
+            </div>
+          );
+        }else{
+          return (
+            <div className="space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Projects</h2>
+              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 3 projects which you did in your academics</p>
+              {ExampleJsonData.projects.map((project, index) => (
+                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
+                  <h3 className="font-medium text-lg dark:text-slate-200">Project {index + 1}</h3>
+
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Project Title</label>
+                      <input
+                        type="text"
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={project.projectTitle}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Tools/Tech Used</label>
+                      <input
+                        type="text"
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={project.toolsTechUsed}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
+                </div>
+              ))}
+              <button
+                className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+              >
+                ❌ Add Project
+              </button>
+            </div>
+          );
+        }
+
+        case 4:
+          if (!isExampleProcessing){
+            return (
+              <div className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Education</h2>
+                <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add your pre/post graduations on different sections (Consider listing your most recent Qualifications first)</p>
+                {formData.education.map((edu, index) => (
+                  <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
+                    <h3 className="font-medium text-lg dark:text-slate-200">Education {index + 1}</h3>
+
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Institution Name</label>
+                      <input
+                        type="text"
+                        placeholder='Haridwar University'
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={edu.institutionName}
+                        onChange={(e) => handleInputChange('education', 'institutionName', e.target.value, index)}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
+                
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Degree Name</label>
+                      <input
+                        type="text"
+                        placeholder='Batchelor in computer application'
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={edu.degreeName}
+                        onChange={(e) => handleInputChange('education', 'degreeName', e.target.value, index)}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
+                
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Graduation duration</label>
+                      <input
+                        type="text"
+                        placeholder="2023 - 2026"
+                        className={`w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 ${isInvalidGDuration?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
+                        value={edu.graduationYear}
+                        onChange={(e) => handleInputChange("education", "graduationYear", e.target.value, index)}
+                        onBlur={(e) => {
+                          const value = e.target.value;
+                          if (!/^\s*(\d{2,4})\s*-\s*(\d{2,4})\s*$/.test(value)) {
+                            toast.error("Invalid format! \nUse as 2023 - 2026", { duration: 3000, position: "top-right" });
+                            e.target.focus(); 
+                            setIsInvalidGDuration(true);
+                          }else{
+                            setIsInvalidGDuration(false)
+                          }
+                        }}
+                      />
+                      <div class={`ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%] ${isInvalidGDuration?"bg-red-500":"bg-blue-500"}`}></div>
+                    </div>
+                      
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Current SGPA</label>
+                      <input
+                        type="text"
+                        placeholder='?? / 10'
+                        className={`w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 ${isInvalidSGPA?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
+                        value={edu.currentSGPA}
+                        onChange={(e) => handleInputChange('education', 'currentSGPA', e.target.value, index)}
+                        onBlur={(e) => {
+                          const value = e.target.value;
+                          if (!/^\s*([0-9](\.\d{1})?|10(\.0)?)\s*$/.test(value)) {
+                            toast.error("Invalid format! \nUse as 7 or 8.3 and less then 10", { duration: 3000, position: "top-right" });
+                            e.target.focus(); 
+                            setIsInvalidSGPA(true);
+                          }else{
+                            setIsInvalidSGPA(false);
+                          }
+                        }}
+                      />
+                      <div class={`ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%] ${isInvalidSGPA?"bg-red-500":"bg-blue-500"}`}></div>
+                    </div>
                   </div>
-        
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium dark:text-slate-300">Degree Name</label>
-                    <input
-                      type="text"
-                      placeholder='Batchelor in computer application'
-                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                      value={edu.degreeName}
-                      onChange={(e) => handleInputChange('education', 'degreeName', e.target.value, index)}
-                    />
-                    <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                ))}
+
+                <button
+                  onClick={() => addNewItem('education')}
+                  className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                >
+                  <Plus size={16} /> Add Education
+                </button>
+              </div>
+            );
+          }else{
+            return (
+              <div className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Education</h2>
+                <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add your pre/post graduations on different sections (Consider listing your most recent Qualifications first)</p>
+                {ExampleJsonData.education.map((edu, index) => (
+                  <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
+                    <h3 className="font-medium text-lg dark:text-slate-200">Education {index + 1}</h3>
+
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Institution Name</label>
+                      <input
+                        type="text"
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={edu.institutionName}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
+                
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Degree Name</label>
+                      <input
+                        type="text"
+                        placeholder='Bachelor in computer application'
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={edu.degreeName}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
+                
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Graduation duration</label>
+                      <input
+                        type="text"
+                        className={`w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 ${isInvalidGDuration?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
+                        value={edu.graduationYear}
+                      />
+                      <div class={`ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%] ${isInvalidGDuration?"bg-red-500":"bg-blue-500"}`}></div>
+                    </div>
+                      
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Current SGPA</label>
+                      <input
+                        type="text"
+                        className={`w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 ${isInvalidSGPA?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
+                        value={edu.currentSGPA}
+                      />
+                      <div class={`ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%] ${isInvalidSGPA?"bg-red-500":"bg-blue-500"}`}></div>
+                    </div>
                   </div>
-        
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium dark:text-slate-300">Graduation duration</label>
-                    <input
-                      type="text"
-                      placeholder="2023 - 2026"
-                      className={`w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 ${isInvalidGDuration?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
-                      value={edu.graduationYear}
-                      onChange={(e) => handleInputChange("education", "graduationYear", e.target.value, index)}
-                      onBlur={(e) => {
-                        const value = e.target.value;
-                        if (!/^\s*(\d{2,4})\s*-\s*(\d{2,4})\s*$/.test(value)) {
-                          toast.error("Invalid format! \nUse as 2023 - 2026", { duration: 3000, position: "top-right" });
-                          e.target.focus(); 
-                          setIsInvalidGDuration(true);
-                        }else{
-                          setIsInvalidGDuration(false)
-                        }
-                      }}
-                    />
-                    <div class={`ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%] ${isInvalidGDuration?"bg-red-500":"bg-blue-500"}`}></div>
-                  </div>
-        
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium dark:text-slate-300">Current SGPA</label>
-                    <input
-                      type="text"
-                      placeholder='?? / 10'
-                      className={`w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 ${isInvalidSGPA?"focus:ring-red-500":"focus:ring-blue-500"} dark:bg-gray-800 dark:text-white dark:border-gray-600`}
-                      value={edu.currentSGPA}
-                      onChange={(e) => handleInputChange('education', 'currentSGPA', e.target.value, index)}
-                      onBlur={(e) => {
-                        const value = e.target.value;
-                        if (!/^\s*([0-9](\.\d{1})?|10(\.0)?)\s*$/.test(value)) {
-                          toast.error("Invalid format! \nUse as 7 or 8.3 and less then 10", { duration: 3000, position: "top-right" });
-                          e.target.focus(); 
-                          setIsInvalidSGPA(true);
-                        }else{
-                          setIsInvalidSGPA(false);
-                        }
-                      }}
-                    />
-                    <div class={`ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%] ${isInvalidSGPA?"bg-red-500":"bg-blue-500"}`}></div>
+                ))}
+
+                <button
+                  className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                >
+                  ❌ Add Education
+                </button>
+              </div>
+            );
+          }
+
+      case 5:
+        if (!isExampleProcessing){
+          return (
+            <div className="space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Certificates</h2>
+              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 5 high rated certificates</p>
+              {formData.certificates.map((cert, index) => (
+                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
+                  <h3 className="font-medium text-lg dark:text-slate-200">Certificate {index + 1}</h3>
+                  <div className="space-y-4">
+
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Certificate Name</label>
+                      <input
+                        type="text"
+                        placeholder='Azure AI Engineer Associate'
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={cert.certificateName}
+                        onChange={(e) => handleInputChange('certificates', 'certificateName', e.target.value, index)}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Course Duration</label>
+                      <input
+                        type="text"
+                        placeholder='2 Month'
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={cert.courseDuration}
+                        onChange={(e) => handleInputChange('certificates', 'courseDuration', e.target.value, index)}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Provider Name</label>
+                      <input
+                        type="text"
+                        placeholder='Microsoft'
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={cert.providerName}
+                        onChange={(e) => handleInputChange('certificates', 'providerName', e.target.value, index)}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
                   </div>
                 </div>
               ))}
-        
               <button
-                onClick={() => addNewItem('education')}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                onClick={() => addNewItem('certificates')}
+                className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
               >
-                <Plus size={16} /> Add Education
+                <Plus size={16} /> Add Certificate
               </button>
             </div>
-          );        
+          );
+        }else{
+          return (
+            <div className="space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Certificates</h2>
+              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 5 high rated certificates</p>
+              {ExampleJsonData.certificates.map((cert, index) => (
+                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
+                  <h3 className="font-medium text-lg dark:text-slate-200">Certificate {index + 1}</h3>
+                  <div className="space-y-4">
 
-      case 5:
-        return (
-          <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Certificates</h2>
-            <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 5 high rated certificates</p>
-            {formData.certificates.map((cert, index) => (
-              <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-900">
-                <h3 className="font-medium dark:text-slate-200">Certificate {index + 1}</h3>
-                <div className="space-y-4">
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Certificate Name</label>
+                      <input
+                        type="text"
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={cert.certificateName}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
 
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium dark:text-slate-300">Certificate Name</label>
-                    <input
-                      type="text"
-                      placeholder='Azure AI Engineer Associate'
-                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                      value={cert.certificateName}
-                      onChange={(e) => handleInputChange('certificates', 'certificateName', e.target.value, index)}
-                    />
-                    <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
-                  </div>
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Course Duration</label>
+                      <input
+                        type="text"
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={cert.courseDuration}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
 
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium dark:text-slate-300">Course Duration</label>
-                    <input
-                      type="text"
-                      placeholder='2 Month'
-                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                      value={cert.courseDuration}
-                      onChange={(e) => handleInputChange('certificates', 'courseDuration', e.target.value, index)}
-                    />
-                    <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium dark:text-slate-300">Provider Name</label>
-                    <input
-                      type="text"
-                      placeholder='Microsoft'
-                      className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                      value={cert.providerName}
-                      onChange={(e) => handleInputChange('certificates', 'providerName', e.target.value, index)}
-                    />
-                    <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium dark:text-slate-300">Provider Name</label>
+                      <input
+                        type="text"
+                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                        value={cert.providerName}
+                      />
+                      <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-            <button
-              onClick={() => addNewItem('certificates')}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-            >
-              <Plus size={16} /> Add Certificate
-            </button>
-          </div>
-        );
+              ))}
+              <button
+                className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+              >
+                ❌ Add Certificate
+              </button>
+            </div>
+          );
+        }
 
       case 6:
-        return (
-          <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Choose Template</h2>
-            <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>We will frequently add more template designs to provide more resume options.</p>
-            <div className="grid grid-cols-2 gap-5">
-                {[1,2,3,4,5,6,7].map((template) => (
-                  <div
-                    key={template}
-                    onClick={() => setFormData((prev) => ({ ...prev, selectedTemplate: String(template - 1) }))}
-                    className={`p-4 border-2 rounded-lg cursor-pointer transition-transform duration-400 shadow-md hover:scale-95 dark:shadow-gray-600  ${
-                      formData.selectedTemplate === String(template - 1) ? 'border-blue-600 bg-blue-50 dark:bg-slate-800' : 'dark:border-gray-700'
-                    }`}
-                  >
-                    <img
-                      src={`/resume-builder-web-application/Temp/temp${template}.png`}
-                      alt={`Template ${template}`}
-                      className="w-full h-auto rounded-lg dark:filter dark:brightness-90"
-                    />
-                    {isOpen ? (
-                      <p className="text-center mt-2">{template}</p>
-                    ) : (
-                      <p className="text-center mt-2 dark:text-gray-200">{AboutTemps[template-1]}</p>
-                    )}
-                  </div>
-
-                ))}
+        if(!isExampleProcessing){
+          return (
+            <div className="space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Choose Template</h2>
+              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>We will frequently add more template designs to provide more resume options.</p>
+              <div className="grid grid-cols-2 gap-5">
+                  {[1,2,3,4,5,6,7].map((template) => (
+                    <div
+                      key={template}
+                      onClick={() => setFormData((prev) => ({ ...prev, selectedTemplate: String(template - 1) }))}
+                      className={`p-4 border-2 rounded-lg cursor-pointer transition-transform duration-400 shadow-md hover:scale-95 dark:shadow-gray-600  ${
+                        formData.selectedTemplate === String(template - 1) ? 'border-blue-600 bg-blue-50 dark:bg-slate-800' : 'dark:border-gray-700'
+                      }`}
+                    >
+                      <img
+                        src={`/resume-builder-web-application/Temp/temp${template}.png`}
+                        alt={`Template ${template}`}
+                        className="w-full h-auto rounded-lg dark:filter dark:brightness-90"
+                      />
+                      {isOpen ? (
+                        <p className="text-center mt-2">{template}</p>
+                      ) : (
+                        <p className="text-center mt-2 dark:text-gray-200">{AboutTemps[template-1]}</p>
+                      )}
+                    </div>
+                  ))}
+              </div>
             </div>
-          </div>
-        );
+          );
+        }else{
+          return (
+            <div className="space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Choose Template</h2>
+              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>We will frequently add more template designs to provide more resume options.</p>
+              <div className="grid grid-cols-2 gap-5">
+                  {[1,2,3,4,5,6,7].map((template) => (
+                    <div
+                      key={template}
+                      onClick={() => setExampleJsonData((prev) => ({ ...prev, selectedTemplateEx: String(template - 1) }))}
+                      className={`p-4 border-2 rounded-lg cursor-pointer transition-transform duration-400 shadow-md hover:scale-95 dark:shadow-gray-600  ${
+                        ExampleJsonData.selectedTemplateEx === String(template - 1) ? 'border-blue-600 bg-blue-50 dark:bg-slate-800' : 'dark:border-gray-700'
+                      }`}
+                    >
+                      <img
+                        src={`/resume-builder-web-application/Temp/temp${template}.png`}
+                        alt={`Template ${template}`}
+                        className="w-full h-auto rounded-lg dark:filter dark:brightness-90"
+                      />
+                      {isOpen ? (
+                        <p className="text-center mt-2">{template}</p>
+                      ) : (
+                        <p className="text-center mt-2 dark:text-gray-200">{AboutTemps[template-1]}</p>
+                      )}
+                    </div>
+                  ))}
+              </div>
+            </div>
+          );
+        }
 
       default:
         return null;
@@ -683,6 +1098,33 @@ const GetInfo = () => {
               </div>
             ))}
           </div>
+          <div>
+            <h2
+              className="space-y-3 mt-10 p-2 flex items-center justify-center gap-3 rounded-lg cursor-pointer transition-transform duration-400 bg-blue-50 hover:bg-blue-100 text-blue-600 dark:text-zinc-300 dark:bg-slate-700/50 dark:hover:bg-slate-700/95"
+              title="It is only for Test & Present with authorized access"
+              onClick={() => {
+                if (showInput){
+                  setShowInput(false)
+                }else{setShowInput(true)}
+              }}
+            >
+              Example Processing
+            </h2>
+
+            {showInput && (
+              <div className="mt-1 bg-gray-100  dark:bg-gray-800 rounded-lg">
+                <input
+                  type="password"
+                  className="w-full mt-2 p-2 border border-blue-500 rounded bg-white text-black dark:bg-gray-700 dark:text-white dark:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  value={pin}
+                  onChange={(e) => setPin(e.target.value)} 
+                  onKeyDown={handleVerify} 
+                  placeholder="Enter PIN"
+                />
+                {error && <p className="text-red-500 mt-2">{error}</p>}
+              </div>
+            )}
+          </div>            
         </div>
       </div>
 
