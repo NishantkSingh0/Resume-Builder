@@ -1,3 +1,5 @@
+import validators
+
 def removespace(text):
    """Remove the spaces from a single sentences. Example: " Hello" -> "Hello" """
    sp=text.split(' ')
@@ -15,7 +17,7 @@ def T1(jsonData,desc):
       <div class="SubSec-title TextLight"><b>{edu['graduationYear']}<br>{edu['institutionName']}</b></div>
       {edu['degreeName']} <br>
       GPA: {edu['currentSGPA']}"""
-   for edu in jsonData['education']))
+   for edu in jsonData['education']))+'<br><br>'
 
    skills=jsonData['skills']['hardSkills'].split(',')
    eachColumn=len(skills)//3
@@ -27,7 +29,7 @@ def T1(jsonData,desc):
    elif eachColumn%3==2:
       column1+=1
       column2+=1
-   HardSkills="""                     <ul>
+   HardSkills=f"""                     <ul>
                         {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1)))}
                      </ul>
                      <ul>
@@ -49,8 +51,8 @@ def T1(jsonData,desc):
          <div> {proj['toolsTechUsed']} </li>
    </div>\n""" for proj in jsonData['projects']))
 
-   WorkExp='\n'.join((f"""
-   <li> <div class="item-title TextLight">{we['companyNameDuration'].split(',')[0]}<div>2020 - PRES</div> </div>
+   WorkExp='\n <br>'.join((f"""
+   <li> <div class="item-title TextLight">{we['companyName']}<div>{we['WorkDuration']}</div> </div>
    {we['jobTitle']} <br> 
    {we['keyAchievements']}</li>""" for we in jsonData['workExperience']))
 
@@ -236,7 +238,7 @@ def T1(jsonData,desc):
    <div class="resume">
          <div class="header">
             <h1>{jsonData['contactInfo']['fullName']}</h1>
-            <h2>Data Scientist & DL Enthusiast</h2>
+            <h2>{jsonData['contactInfo']['jobTitle']}</h2>
          </div>
 
          <div class="upperContent">
@@ -244,8 +246,8 @@ def T1(jsonData,desc):
                <div class="section-title"><b>Contact</b> <i class="fas fa-address-card"></i></div>
                <div class="Litem"><i class="fa fa-phone rotate-90 TextLight"></i> {jsonData['contactInfo']['phoneNumber']} </div>
                <div class="Litem NoneDecorationBlack"><i class="fas fa-envelope TextLight"></i><a href="mailto:"+{jsonData['contactInfo']['emailAddress']}> {jsonData['contactInfo']['emailAddress'].split('@')[0]} </a></div>
-               <div class="Litem NoneDecorationBlack"><i class="fab fa-linkedin TextLight"></i><a href={jsonData['contactInfo']['linkedinUrl'] if 'https://' in jsonData['contactInfo']['linkedinUrl'] else 'https://'+jsonData['contactInfo']['linkedinUrl']} target="_blank"> {jsonData['contactInfo']['linkedinUrl'].split('/')[2]}</a></div>
-               <div class="Litem NoneDecorationBlack"><i class="fas fa-globe TextLight"></i><a href={jsonData['contactInfo']['portfolioUrl'] if 'https://' in jsonData['contactInfo']['portfolioUrl'] else 'https://'+jsonData['contactInfo']['portfolioUrl'] } target="_blank"> Portfolio </a></div>
+               <div class="Litem NoneDecorationBlack"><i class="fab fa-linkedin TextLight"></i><a href={'https://www.linkedin.com/in/'+jsonData['contactInfo']['linkedin']} target="_blank"> {jsonData['contactInfo']['linkedin']}</a></div>
+               <div class="Litem NoneDecorationBlack"><i class="fas fa-globe TextLight"></i><a href={jsonData['contactInfo']['portfolio'] if validators.url(jsonData['contactInfo']['portfolio']) else 'https://github.com/'+jsonData['contactInfo']['portfolio']} target="_blank"> {jsonData['contactInfo']['portfolio']} </a></div>
                <div class="Litem "><i class="fa fa-map-marker TextLight"></i> {jsonData['contactInfo']['Location']}</div> <br>
             </div>
             <div class="Usection">
@@ -271,6 +273,7 @@ def T1(jsonData,desc):
                   <div class="section-title"><b>Soft Skills </b><i class="fa fa-book"></i></div>
                   <ul>
                      {softSkills}
+                     <br>
                   </ul>
                </div>
 
@@ -334,7 +337,7 @@ def T3(jsonData,desc):
    elif eachColumn%3==2:
       column1+=1
       column2+=1
-   HardSkills="""                     <ul>
+   HardSkills=f"""                     <ul>
                         {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1)))}
                      </ul>
                      <ul>
@@ -363,7 +366,7 @@ def T3(jsonData,desc):
    </div>\n""" for proj in jsonData['projects']))
 
    WorkExp='\n'.join((f"""
-   <li> <div class="item-title TextLight">{we['companyNameDuration'].split(',')[0]}<div>2020 - PRES</div> </div>
+   <li> <div class="item-title TextLight">{we['companyName']}<div>{we['WorkDuration']}</div> </div>
    {we['jobTitle']}<br>
    {we['keyAchievements']}</li>""" for we in jsonData['workExperience']))
 
@@ -522,8 +525,8 @@ def T3(jsonData,desc):
                      <div class="section-title"><b>Contact</b> <i class="fas fa-address-card"></i></div>
                      <div class="Litem"><i class="fa fa-phone rotate-90 IconLight"></i> {jsonData['contactInfo']['phoneNumber']} </div>
                      <div class="Litem"><i class="fas fa-envelope IconLight"></i><a href="mailto:"+{jsonData['contactInfo']['emailAddress']}> {jsonData['contactInfo']['emailAddress'].split('@')[0]} </a></div>
-                     <div class="Litem"><i class="fab fa-linkedin IconLight"></i><a href={jsonData['contactInfo']['linkedinUrl'] if 'https://' in jsonData['contactInfo']['linkedinUrl'] else 'https://'+jsonData['contactInfo']['linkedinUrl']} target="_blank"> {jsonData['contactInfo']['linkedinUrl'].split('/')[2]}</a></div>
-                     <div class="Litem"><i class="fas fa-globe IconLight"></i><a href={jsonData['contactInfo']['portfolioUrl'] if 'https://' in jsonData['contactInfo']['portfolioUrl'] else 'https://'+jsonData['contactInfo']['portfolioUrl'] } target="_blank"> Portfolio </a></div>
+                     <div class="Litem"><i class="fab fa-linkedin IconLight"></i><a href={'https://www.linkedin.com/in/'+jsonData['contactInfo']['linkedin']} target="_blank"> {jsonData['contactInfo']['linkedin']}</a></div>
+                     <div class="Litem"><i class="fas fa-globe IconLight"></i><a href={jsonData['contactInfo']['portfolio'] if validators.url(jsonData['contactInfo']['portfolio']) else 'https://github.com/'+jsonData['contactInfo']['portfolio']} target="_blank"> {jsonData['contactInfo']['portfolio']} </a></div>
                      <div class="Litem"><i class="fa fa-map-marker IconLight"></i> {jsonData['contactInfo']['Location']}</div> <br>
                   </div>
 
@@ -531,6 +534,7 @@ def T3(jsonData,desc):
                      <div class="section-title"><b>Education </b><i class="fas fa-graduation-cap"></i></div>
                      <div class="Litem">
                         {Education}
+                        <br>
                      </div>
                   </div>
 
@@ -538,6 +542,7 @@ def T3(jsonData,desc):
                      <div class="section-title"><b>Soft Skills </b><i class="fa fa-book"></i></div>
                      <ul>
                         {softSkills}
+                        <br>
                      </ul>
                   </div>
 
@@ -608,7 +613,7 @@ def T4(jsonData,desc):
    elif eachColumn%3==2:
       column1+=1
       column2+=1
-   HardSkills="""                     <ul>
+   HardSkills=f"""                     <ul>
                         {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1)))}
                      </ul>
                      <ul>
@@ -636,8 +641,8 @@ def T4(jsonData,desc):
          <div> {proj['toolsTechUsed']} </li>
    </div>\n""" for proj in jsonData['projects']))
 
-   WorkExp='\n'.join((f"""
-   <li> <div class="item-title">{we['companyNameDuration'].split(',')[0]}<div>2020 - PRES</div> </div>
+   WorkExp='\n <br>'.join((f"""
+   <li> <div class="item-title">{we['companyName']}<div>{we['WorkDuration']}</div> </div>
    {we['jobTitle']}<br>
    {we['keyAchievements']}</li>""" for we in jsonData['workExperience']))
 
@@ -852,8 +857,8 @@ def T4(jsonData,desc):
                      <div class="Lsection-title"><b>Contact</b> <i class="fas fa-address-card"></i></div>
                      <div class="Litem"><i class="fa fa-phone rotate-90"></i> {jsonData['contactInfo']['phoneNumber']} </div>
                      <div class="Litem"><i class="fas fa-envelope"></i><a href="mailto:"+{jsonData['contactInfo']['emailAddress']}> {jsonData['contactInfo']['emailAddress'].split('@')[0]} </a></div>
-                     <div class="Litem"><i class="fab fa-linkedin"></i><a href={jsonData['contactInfo']['linkedinUrl'] if 'https://' in jsonData['contactInfo']['linkedinUrl'] else 'https://'+jsonData['contactInfo']['linkedinUrl']} target="_blank"> {jsonData['contactInfo']['linkedinUrl'].split('/')[2]}</a></div>
-                     <div class="Litem"><i class="fas fa-globe"></i><a href={jsonData['contactInfo']['portfolioUrl'] if 'https://' in jsonData['contactInfo']['portfolioUrl'] else 'https://'+jsonData['contactInfo']['portfolioUrl'] } target="_blank"> Portfolio </a></div>
+                     <div class="Litem"><i class="fab fa-linkedin"></i><a href={'https://www.linkedin.com/in/'+jsonData['contactInfo']['linkedin']} target="_blank"> {jsonData['contactInfo']['linkedin']}</a></div>
+                     <div class="Litem"><i class="fas fa-globe"></i><a href={jsonData['contactInfo']['portfolio'] if validators.url(jsonData['contactInfo']['portfolio']) else 'https://github.com/'+jsonData['contactInfo']['portfolio']} target="_blank"> {jsonData['contactInfo']['portfolio']} </a></div>
                      <div class="Litem"><i class="fa fa-map-marker"></i> {jsonData['contactInfo']['Location']}</div> <br>
                   </div>
 
@@ -861,6 +866,7 @@ def T4(jsonData,desc):
                      <div class="Lsection-title"><b>Education </b><i class="fas fa-graduation-cap"></i></div>
                      <div class="Litem">
                         {Education}
+                        <br>
                      </div>
                   </div>
 
@@ -928,7 +934,7 @@ def T4(jsonData,desc):
 def T7(jsonData,desc):
 
    Education='\n'.join(f"""                <div class="subtitle">{ed['degreeName']}</div>
-                {ed['institutionName']} | {ed['graduationYear']} | {ed['currentSGPA']}""" for ed in jsonData['education'])
+                {ed['institutionName']} | {ed['graduationYear']} | SGPA: {ed['currentSGPA']}""" for ed in jsonData['education'])
    
    Projects='\n'.join((
    f"""
@@ -938,8 +944,8 @@ def T7(jsonData,desc):
    </div>\n""" for proj in jsonData['projects']))
 
    WorkExp='\n'.join(f"""                <div class="internship TextGray SpaceBetween">
-                   <div class="left"><b>{exp['companyNameDuration'].split(',')[0]}</b></div>
-                   <div class="Right"><b>{exp['companyNameDuration'].split(',')[1]}</b></div>
+                   <div class="left"><b>{exp['companyName']}</b></div>
+                   <div class="Right"><b>{exp['WorkDuration']}</b></div>
                 </div>
                 <ul>
                       <li>{exp['keyAchievements']}</li>
@@ -954,7 +960,7 @@ def T7(jsonData,desc):
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 1200px;         /* (W/H) Ratio should be 0.7069 */
+      height: auto;         /* (W/H) Ratio should be 0.7069 */
    }
    .resume {
       width: 800px;           /* (W/H) Ratio should be 0.7069 */
@@ -1007,10 +1013,6 @@ def T7(jsonData,desc):
       /* justify-content: space-between; */
    }
 
-   .subcont .left{
-      padding-right: 40px;
-   }
-
    .subcont .mid{
       padding-right: 40px;
    }
@@ -1053,7 +1055,7 @@ def T7(jsonData,desc):
        <div class="resume">
           <div class="contacts">
              <h1>{jsonData['contactInfo']['fullName']}</h1>
-             <p>{jsonData['contactInfo']['Location']} <br>{jsonData['contactInfo']['phoneNumber']} | <a href="mailto:"+{jsonData['contactInfo']['emailAddress']} target="_blank">{jsonData['contactInfo']['emailAddress']}</a> | <a href="{jsonData['contactInfo']['portfolioUrl'] if 'https://' in jsonData['contactInfo']['portfolioUrl'] else 'https://'+jsonData['contactInfo']['portfolioUrl']}" target="_blank">{jsonData['contactInfo']['portfolioUrl']}<a></p>
+             <p>{jsonData['contactInfo']['Location']} <br>{jsonData['contactInfo']['phoneNumber']} | <a href="mailto:"+{jsonData['contactInfo']['emailAddress']} target="_blank">{jsonData['contactInfo']['emailAddress']}</a> | <a href="{jsonData['contactInfo']['portfolio'] if validators.url(jsonData['contactInfo']['portfolio']) else 'https://github.com/'+jsonData['contactInfo']['portfolio']} target="_blank"> {jsonData['contactInfo']['portfolio']} <a></p>
           </div>
           <div class="Conts">
              <div class="title">Objectives:</div>

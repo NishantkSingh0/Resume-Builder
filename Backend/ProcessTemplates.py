@@ -1,4 +1,11 @@
-{
+import GenerateTemplates as gtps
+import GenerateText as gtxt
+import os
+
+# with open('resume_data.json', 'r') as f:
+#    JsonData = json.load(f)
+
+JsonData={
   "contactInfo": {
     "fullName": "Nishant kumar",
     "phoneNumber": "9217290469",
@@ -84,3 +91,9 @@
   ],
   "selectedTemplateEx": "4" 
 }
+
+ExampleDesc="A passionated AI developer with extensive experience in various machine learning models, Primarily i focus on building models from scratch rather than relying heavily on fine-tuning pre-trained models. All my projects, showcasing my skills and contributions, are available on GitHub & Kaggle."
+
+tmps=gtps.T7(JsonData,ExampleDesc)
+with open('GeneratedTemps/T7.html','w') as f:
+   f.write(tmps)

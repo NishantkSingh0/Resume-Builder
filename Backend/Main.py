@@ -1,13 +1,13 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS  # Import CORS
 
-app = Flask(__name__)
+app=Flask(__name__)
 CORS(app, resources={r"/upload": {"origins": "http://localhost:5173"}})  # Allow only your frontend
-
+data={}
 @app.route('/upload', methods=['POST'])
 def receive_json():
     try:
-        data = request.get_json()  # Ensure JSON data is parsed correctly
+        data=request.get_json()  # Ensure JSON data is parsed correctly
         if not data:
             return jsonify({"error": "No JSON received"}), 400
         

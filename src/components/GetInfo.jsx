@@ -645,6 +645,7 @@ const GetInfo = () => {
               ))}
               <button
                 className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                title="You can't add Experiences because it is predefined data formate" 
               >
                 ❌ Add Experience
               </button>
@@ -727,6 +728,7 @@ const GetInfo = () => {
               ))}
               <button
                 className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                title="You can't add Experiences because it is predefined data formate" 
               >
                 ❌ Add Project
               </button>
@@ -876,6 +878,7 @@ const GetInfo = () => {
 
                 <button
                   className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                  title="You can't add Experiences because it is predefined data formate" 
                 >
                   ❌ Add Education
                 </button>
@@ -984,6 +987,7 @@ const GetInfo = () => {
               ))}
               <button
                 className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                title="You can't add Experiences because it is predefined data formate" 
               >
                 ❌ Add Certificate
               </button>
