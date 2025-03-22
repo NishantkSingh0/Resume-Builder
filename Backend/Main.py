@@ -1,19 +1,21 @@
-import TemplatesProcessing as tp
-# from GenerateText import Describe
-import json
+from flask import Flask, request, jsonify
+from flask_cors import CORS  # Import CORS
 
-# with open(r'A:\AI\Code\Projects\Resume_Builder\Resume-Builder\Backend\resume_data.json') as f:
-#     UserData = json.load(f)
+app = Flask(__name__)
+CORS(app, resources={r"/upload": {"origins": "http://localhost:5173"}})  # Allow only your frontend
 
-# Prompt=f"I am a passionated {UserData['contactInfo']['jobTitle']} Expertised in {UserData['skills']['hardSkills']}. make a short and professional resume desciption for me like this"
-# out=Describe(Prompt)
-# print ("no output received" if out=="" else out)
+@app.route('/upload', methods=['POST'])
+def receive_json():
+    try:
+        data = request.get_json()  # Ensure JSON data is parsed correctly
+        if not data:
+            return jsonify({"error": "No JSON received"}), 400
+        
+        print("Received Data:", data)  # Debugging log
+        return jsonify({"message": "Data received successfully", "data": data})
+    
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
-with open (r'resume_data.json','r') as jsonDt:
-   jsonData=json.load(jsonDt)
-
-desc="""A passionated AI developer with extensive experience in various machine learning models, Primarily i focus on building models from scratch rather than relying heavily on fine-tuning pre-trained models. All my projects, showcasing my skills and contributions, are available on GitHub & Kaggle."""
-resume=tp.T3(jsonData,desc)
-
-with open ('Generated_resume_T3.html','w') as f:
-   f.write(resume)
+if __name__ == '__main__':
+    app.run(debug=True)

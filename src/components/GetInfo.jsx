@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Check, Plus, ChevronRight, Menu, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import toast from "react-hot-toast";
-import ExpandButton from './ExpandButton.jsx'
 
 const GetInfo = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -183,8 +182,8 @@ const GetInfo = () => {
         setError(false)
         setShowInput(false)
         HandleExampleProcessing(); 
-      } else {
-        toast.error("Pin is incorrect. Authorization declined !", {
+      }else{
+        toast.error("Pin is incorrect. Authorization declined!", {
           duration: 3000,
           position: "top-right",
         });
@@ -294,33 +293,29 @@ const GetInfo = () => {
       }
   
       navigate('/Result');
-      // console.log("Form submitted:", formData);
       if (!isExampleProcessing){
-        const jsonData = JSON.stringify(formData, null, 2);
-        const blob = new Blob([jsonData], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-        
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "BRAVERS_resume_data.json";
-        document.body.appendChild(a);
-        a.click();
-        
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
+        fetch("http://127.0.0.1:5000/upload", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+      })
+      .then(response => response.json())
+      .then(data => console.log("Success:", data))
+      .catch(error => console.error("Error:", error));
       }else{
         const jsonData = JSON.stringify(ExampleJsonData, null, 2);
-        const blob = new Blob([jsonData], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-        
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "BRAVERS_resume_data.json";
-        document.body.appendChild(a);
-        a.click();
-        
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
+        fetch("http://127.0.0.1:5000/upload", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify(ExampleJsonData),
+      })
+      .then(response => response.json())
+      .then(data => console.log("Success:", data))
+      .catch(error => console.error("Error:", error));
       }
     }
   };
@@ -1103,7 +1098,7 @@ const GetInfo = () => {
           <div>
             <h2
               className="space-y-3 mx-4 md:mx-0 mt-10 p-2 flex items-center justify-center gap-3 rounded-lg cursor-pointer transition-transform duration-400 bg-blue-50 hover:bg-blue-100 text-blue-600 dark:text-zinc-300 dark:bg-slate-700/50 dark:hover:bg-slate-700/95"
-              title="It is only for Test & Present with authorized access"
+              title="It is only for Test & Present purpose. with authorized access"
               onClick={() => {
                 if (showInput){
                   setShowInput(false)
