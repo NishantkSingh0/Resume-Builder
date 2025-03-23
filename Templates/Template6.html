@@ -1,95 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Template 6</title>
-  <link rel="stylesheet" href="Template6.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachelle Beaudry - Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.5;
+        }
+        .resume-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #446cb3;
+            padding-bottom: 15px;
+        }
+        .name {
+            color: #446cb3;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .summary {
+            margin-bottom: 5px;
+            max-width: 70%;
+        }
+        .contact-info {
+            text-align: left;
+        }
+        .section-title {
+            color: #446cb3;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .content-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .left-column {
+            flex: 7;
+            padding-right: 20px;
+        }
+        .right-column {
+            flex: 3;
+            padding-left: 20px;
+            border-left: 1px solid #ddd;
+        }
+        .job-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .company-date {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .company {
+            font-style: italic;
+        }
+        .date {
+            color: #666;
+        }
+        ul {
+            margin-top: 5px;
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .education-entry {
+            margin-bottom: 15px;
+        }
+        .degree {
+            font-weight: bold;
+        }
+        .school {
+            font-style: italic;
+        }
+        .skill-category {
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        .skills-list {
+            margin-left: 10px;
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 <body>
+    <div class="resume-container">
+        <div class="header">
+            <div>
+                <div class="name">Rachelle Beaudry</div>
+                <p class="summary">Results-driven Accounting Executive with a proven record of optimizing financial performance. Expertise in strategic financial planning and team leadership. Seeking a challenging executive role to leverage analytical skills and drive organizational success.</p>
+            </div>
+            <div class="contact-info">
+                <p><strong>Contact</strong></p>
+                <p>123 Maple Street, Any City<br>
+                123-456-7890<br>
+                hello@reallygreatsite.com<br>
+                www.reallygreatsite.com</p>
+            </div>
+        </div>
 
-<div class="resume-container">
-  <!-- Main Content -->
-  <div class="main-content">
-    <!-- Summary -->
-    <h2>Summary</h2>
-    <p>
-      Results-driven Accounting Executive with a proven record of optimizing financial performance. 
-      Expertise in strategic financial initiatives and team leadership. 
-      Seeking a challenging executive role to leverage analytical skills and drive organizational success.
-    </p>
+        <div class="content-container">
+            <div class="left-column">
+                <div class="section-title">Work Experience</div>
+                
+                <div class="job-entry">
+                    <div class="job-title">Data scientist</div>
+                    <div class="company-date">
+                        <span class="company">Onlei tech</span>
+                        <span class="date">Dec-2024 to Mar-2025</span>
+                    </div>
+                    <ul style="list-style: circle;">
+                        <li>Learn to visualize patterns from data using matplotlib and Built several DL models</li>
+                    </ul>
+                </div>
 
-    <!-- Work Experience -->
-    <h2>Work Experience</h2>
-    <div class="experience">
-      <div class="experience-item">
-        <h3>Accounting Executive, Boreclle Corporation <span>| Jan 2023 - Present</span></h3>
-        <ul>
-          <li>Implemented cost-control measures resulting in a 15% reduction in operational spending.</li>
-          <li>Conducted in-depth financial analysis to guide strategic decision-making.</li>
-          <li>Oversaw internal audits, ensuring compliance with industry regulations.</li>
-        </ul>
-      </div>
-      <div class="experience-item">
-        <h3>Accountant, Safford & Co <span>| Mar 2020 - Dec 2022</span></h3>
-        <ul>
-          <li>Managed a $2M budget, optimizing resource allocation across multiple departments.</li>
-          <li>Automated invoicing processes, reducing manual errors by 30%.</li>
-          <li>Collaborated with cross-functional teams to streamline reporting procedures.</li>
-        </ul>
-      </div>
+                <div class="job-entry">
+                    <div class="job-title">Python engineer</div>
+                    <div class="company-date">
+                        <span class="company">Microsoft</span>
+                        <span class="date">May-2024 to Jul-2024</span>
+                    </div>
+                    <ul style="list-style: circle;">
+                        <li>Learn to use python in NLP tasks to take advantages of LLM</li>
+                    </ul>
+                </div>  
+
+                <div class="section-title">Educational Background</div>
+                
+                <div class="education-entry">
+                    <div class="degree">Master of Business Administration (MBA), Financial Management</div>
+                    <div class="school">University of Finance and Management</div>
+                    <div class="date">Sep 2018 - Oct 2019</div>
+                    <div>Specialization in Financial Management</div>
+                </div>
+
+                <div class="education-entry">
+                    <div class="degree">Bachelor of Science in Accounting</div>
+                    <div class="school">City College</div>
+                    <div class="date">Aug 2015 - Aug 2018</div>
+                    <div>Advanced coursework in Advanced Financial Reporting and Auditing</div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="section-title">Skills</div>
+                
+                <div class="skill-category">Technical Skills:</div>
+                <div class="skills-list">
+                    <div>Financial Analysis</div>
+                    <div>Budgeting and Forecasting</div>
+                    <div>Risk Management</div>
+                    <div>Data Analytics</div>
+                    <div>ERP Systems Implementation</div>
+                </div>
+
+                <div class="skill-category">Tools/Software:</div>
+                <div class="skills-list">
+                    <div>Accounting Software</div>
+                    <div>ERP Systems</div>
+                    <div>Finance Software</div>
+                    <div>Data Tools</div>
+                </div>
+
+                <div class="section-title">Languages</div>
+                <div class="skills-list">
+                    <div>English (Fluent)</div>
+                    <div>Malay (Fluent)</div>
+                    <div>Mandarin (Proficient)</div>
+                </div>
+
+                <div class="section-title">Certifications/Short Courses</div>
+                <div class="skills-list">
+                    <div>Chartered Public Accountant (CPA)</div>
+                    <div>Chartered Financial Analyst (CFA)</div>
+                </div>
+
+                <div class="section-title">Additional Information</div>
+                <div class="skills-list">
+                    <div>Served as Team Lead in the company's initiatives for process improvement.</div>
+                    <div>Volunteer Treasurer, Local Nonprofit Organization.</div>
+                    <div>Recipient "Excellence" in Financial Leadership Award, Borealis Corporation.</div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- Education -->
-    <h2>Educational Background</h2>
-    <div class="education">
-      <div class="experience-item">
-        <h3>Master of Business Administration (MBA), Financial Management</h3>
-        <span>XYZ University | Graduated: 2021</span>
-      </div>
-      <div class="experience-item">
-        <h3>Bachelor of Science in Accounting</h3>
-        <span>ABC University | Graduated: 2018</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <!-- Contact Info -->
-    <div class="contact">
-      <h1>Rachelle</h1>
-      <h2>Beaudry</h2>
-      <p>123 Anywhere St, Any City</p>
-      <p>123-456-7890</p>
-      <p>hello@reallygreatsite.com</p>
-      <p>www.reallygreatsite.com</p>
-    </div>
-
-    <!-- Skills -->
-    <h2>Skills</h2>
-    <ul>
-      <li>Financial Analysis</li>
-      <li>Strategic Planning</li>
-      <li>Compliance & Regulation</li>
-      <li>Audit Management</li>
-    </ul>
-
-    <!-- Technical Skills -->
-    <h2>Technical Skills</h2>
-    <ul>
-      <li>Financial Software (e.g., QuickBooks, SAP)</li>
-      <li>Data Visualization (e.g., Tableau)</li>
-      <li>Advanced Excel</li>
-    </ul>
-
-    <!-- Additional Info -->
-    <h2>Additional Information</h2>
-    <div class="additional-info">
-      <p><strong>Certifications:</strong> Certified Public Accountant (CPA), Financial Analyst Certification</p>
-      <p><strong>Awards:</strong> Recognized for “Financial Management Award” in XYZ Company</p>
-    </div>
-  </div>
-</div>
-
 </body>
 </html>

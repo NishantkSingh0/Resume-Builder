@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import { ThemeContext } from './components/ThemeContext.jsx';
 import GoogleVarification from './components/GoogleVarification.jsx';
 // import VarifyMob from './components/VarifyMob.jsx';
+import ViewTemplates from './components/ViewTemplates.jsx';
 
 const App = () => {
 
@@ -23,7 +24,7 @@ const App = () => {
 
   return (
     // <>
-    //   <VarifyMob/>
+    //   <ViewTemplates/>
     // </>
     <div>
       <Toaster />
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/VarifyMail" element={<GoogleVarification />} />
         <Route path="/GetInfo" element={<GetInfo />} />
         <Route path="/Result" element={<Result />} /> 
+        <Route path="/ViewTemplates" element={<ViewTemplates/>} /> 
       </Routes>  
     </div>
   );

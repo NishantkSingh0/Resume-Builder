@@ -29,7 +29,7 @@ def T1(jsonData,desc):
    elif eachColumn%3==2:
       column1+=1
       column2+=1
-   HardSkills=f"""                     <ul>
+   HardSkills=f"""<ul>
                         {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1)))}
                      </ul>
                      <ul>
@@ -69,7 +69,7 @@ def T1(jsonData,desc):
 
       .resume {
           width: 800px; 
-          background: #e0dfdf;
+          background: #f1f1f1;
           border-radius: 15px;
           border: 1px solid #ddd;
           padding: 20px;
@@ -324,8 +324,28 @@ def T1(jsonData,desc):
 </html>"""
    return updatedTemplate
 
-def T3(jsonData,desc):
+def T2(jsonData,desc):
 
+   Education='\n'.join((f"""<div class="education-item">
+         <ul>
+           <li><h4 class="SpaceBetween">{ed['degreeName']} <span>{ed['graduationYear']}</span></h4></li>
+           <p>{ed['institutionName']} || SGPA: {ed['currentSGPA']}</p>
+         </ul>  
+       </div>""" for ed in jsonData['education']))
+   
+   Experience='\n'.join((f"""<div class="experience-item">
+         <ul>
+           <li class="SpaceBetween">{exp['companyName']} {exp['jobTitle']} <span>{exp['WorkDuration']}</span></li>
+           {exp['keyAchievements']}
+         </ul>
+       </div>""" for exp in jsonData['workExperience']))
+   
+   Projects='\n'.join((f"""<div class="Projects-items ">
+           <ul>
+             <li><h4 class="fontlight">{proj['projectTitle']}</h4></li>
+             <p>{proj['toolsTechUsed']}</p>
+           </ul>  
+         </div>""" for proj in jsonData['projects']))
    
    skills=jsonData['skills']['hardSkills'].split(',')
    eachColumn=len(skills)//3
@@ -337,7 +357,246 @@ def T3(jsonData,desc):
    elif eachColumn%3==2:
       column1+=1
       column2+=1
-   HardSkills=f"""                     <ul>
+
+   HardSkills=f"""<ul>
+                     {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1)))}
+                  </ul>
+                  <ul>
+                     {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1,column2+column1)))}
+                  </ul>
+                  <ul>
+                     {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column2+column1,column3+column2+column1)))}
+                  </ul>"""
+
+   css="""* {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+   }
+
+   .Name{
+     font-family: Verdana;
+   }
+
+   body {
+     font-family: Arial, sans-serif;
+     background: #e4e4e4;
+     color: #333;
+     padding: 20px;
+   }
+
+   .resume-container {
+     max-width: 800px;
+     height: auto;
+     margin: 0 auto;
+     background: #fff;
+     border-radius: 8px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+     padding: 2rem;
+   }
+
+   .header {
+     margin-bottom: 2rem;
+   }
+
+   .header h1 {
+     font-size: 2rem;
+     letter-spacing: 1px;
+     margin-bottom: 0.25rem;
+     text-transform: uppercase;
+   }
+
+   .header h2 {
+     font-size: 1.2rem;
+     font-weight: normal;
+     color: #666;
+     margin-bottom: 0.75rem;
+   }
+
+   .header p {
+     font-size: 0.9rem;
+     color: #666;
+   }
+
+   .summary p {
+     line-height: 1.5;
+     margin: 0 20px 0 20px;
+     margin-bottom: 0.5rem;
+   }
+
+   .skills ul {
+     margin-left: 10px;
+     padding-left: 0;
+   }
+
+   .skills li {
+     margin: 0 20px 0 30px;
+     margin-bottom: 0.5rem;
+   }
+
+   .experience-item {
+     margin:0 20px 10px 0;
+   }
+
+   .experience-item h4 {
+     font-size: 1rem;
+     font-weight: bold;
+     margin-bottom: 0.25rem;
+   }
+
+   .experience-item span {
+     font-size: 0.9rem;
+     color: #999;
+   }
+
+   .experience-item ul {
+     list-style: disc;
+     margin-left: 1.2rem;
+     margin-top: 0.5rem;
+   }
+
+   .experience-item li {
+     margin-bottom: 0.5rem;
+   }
+
+   .education {
+     margin-left: 10px;
+   }
+
+   .education-item {
+     margin: 0 10px 10px 20px;
+   }
+
+   .education-item h4 {
+     font-size: 1rem;
+     font-weight: bold;
+     margin-bottom: 0.25rem;
+   }
+
+   .education-item span {
+     font-size: 0.9rem;
+     color: #999;
+   }
+
+   .Projects-items {
+     margin-bottom: 10px;
+     margin-left: 20px;
+   }
+
+   .Projects-items h4 {
+     font-size: 1rem;
+     font-weight: bold;
+     margin-bottom: 0.25rem;
+   }
+
+   .Projects-items p {
+     font-size: medium;
+     font-weight: lighter;
+   }
+
+   .Certificats {
+     margin: 10px 20px;
+   }
+
+   .SpaceBetween {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     font-weight: bolder;
+     color: #525151;
+   }
+
+   .fontlight{
+     color: #494848;
+   }
+
+   .fontBold {
+     font-weight: bolder;
+     color: #333;
+   }
+
+   .NoneDecoration {
+     text-decoration: none;
+     color: #2d3499;
+   }
+
+   .Heading {
+     padding: 13px 20px 10px 20px;
+     color: #424141;
+     border-radius: 20px;
+     margin-bottom: 5px;
+     background-color: #c5c3c3;
+   }
+   """
+   updatedTemplate=f"""<!DOCTYPE html>
+   <html lang="en">
+   <head>
+     <meta charset="UTF-8" />
+     <title>Designed by BRAVERS</title>
+     <style>
+      {css}
+     </style>
+   </head>
+   <body>
+
+   <div class="resume-container">
+     <div class="header">
+       <h1 class="Name">{jsonData['contactInfo']['fullName']}</h1>
+       <h2 class="fontBold" style="font-weight: 700;">{jsonData['contactInfo']['jobTitle']}</h2>
+       <p style="color: #333;"> <a href="#" class="NoneDecoration">{jsonData['contactInfo']['Location']}</a> | <a class="NoneDecoration" href="mailto:{jsonData['contactInfo']['emailAddress']}" target="_blank">{jsonData['contactInfo']['emailAddress']}</a> | <a class="NoneDecoration" href={'https://www.linkedin.com/in/'+jsonData['contactInfo']['linkedin']} target="_blank">{jsonData['contactInfo']['linkedin']}</a></p>
+     </div>
+
+     <h3 class="Heading">Summary</h3>
+     <div class="summary">
+       <p>{desc}</p>
+     </div>
+
+     <h3 class="Heading">Education</h3>
+     <div class="education">
+         {Education}
+     </div>
+
+     <h3 class="Heading">Work Experience</h3>
+     <div class="experience">
+         {Experience}
+     </div>
+   
+     <h3 class="Heading">Projects<h3>
+       <div class="education">
+         {Projects}
+       </div>
+
+     <h3 class="Heading">Certifications</h3>
+     <div class="SpaceBetween Certificats">
+         <div>{'<br>'.join((cer['certificateName'] for cer in jsonData['certificates']))}<br><a href="#" class="NoneDecoration" target="_blank">More Certificates</a></div>
+         <div>{'<br>'.join(('~' for _ in range(len(jsonData['certificates']))))}<br></div>
+         <div>{'<br>'.join((cer['providerName'] for cer in jsonData['certificates']))}<br></div>
+     </div>
+
+     <h3 class="Heading">Technical Skills</h3>
+     <div class="skills SpaceBetween">
+         {HardSkills}
+     </div>
+   </div>
+   </body>
+   </html>
+   """
+   return updatedTemplate
+
+
+def T3(jsonData,desc):
+   
+   skills=jsonData['skills']['hardSkills'].split(',')
+   eachColumn=len(skills)//3
+   column1=eachColumn
+   column2=eachColumn
+   column3=eachColumn
+   if eachColumn%3==1:
+      column1+=1
+   elif eachColumn%3==2:
+      column1+=1
+      column2+=1
+   HardSkills=f"""<ul>
                         {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1)))}
                      </ul>
                      <ul>
@@ -612,7 +871,7 @@ def T4(jsonData,desc):
    elif eachColumn%3==2:
       column1+=1
       column2+=1
-   HardSkills=f"""   <ul>
+   HardSkills=f"""<ul>
                            {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1)))}
                         </ul>
                         <ul>
@@ -623,7 +882,7 @@ def T4(jsonData,desc):
                         </ul>"""
    
 
-   Education='\n <br> \n                        <br> \n'.join((f"""                     
+   Education='\n <br> \n<br> \n'.join((f"""                     
       <div class="SubSec-title"><b>{edu['graduationYear']}<br>{edu['institutionName']}</b></div>
       {edu['degreeName']} <br>
       SGPA: {edu['currentSGPA']}"""
@@ -941,9 +1200,225 @@ def T4(jsonData,desc):
    """
    return UpdatedTemplate
 
+def T5(jsonData,desc):
+
+   Experience='\n'.join((f"""<div class="experience-item">
+         <ul class="circle-list">
+           <li><h4 class="spacebetween">{exp['companyName']} | {exp['jobTitle']} <span>{exp['WorkDuration']}</span></h4></li>
+           {exp['keyAchievements']}
+         </ul>
+       </div>""" for exp in jsonData['workExperience']))
+   
+   Education='\n'.join((f"""<div class="education-item">
+         <ul class="square-list">
+           <li><h4 class="spacebetween">{edu['degreeName']}<span>{edu['graduationYear']}</span></h4></li>
+           <p>{edu['institutionName']} | SGPA: {edu['currentSGPA']}</p>
+         </ul>
+       </div>""" for edu in jsonData['education']))
+   
+   Projects='\n'.join((f"""<div class="project-item">
+         <ul>
+           <li><h4 class="spacebetween">{proj['projectTitle']}</h4></li>
+           <p>{proj['toolsTechUsed']}</p>
+         </ul>
+       </div>""" for proj in jsonData['projects']))
+
+   css="""* {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+   }
+
+   body {
+     font-family: Arial, sans-serif;
+     background: #c9c9c9;
+     color: #333;
+     padding: 20px;
+   }
+
+   .resume-container {
+     max-width: 800px;
+     margin: 0 auto;
+     background: #fff;
+     border-radius: 15px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+     padding: 2rem;
+   }
+
+   .header {
+     text-align: center;
+     margin-bottom: 1.5rem;
+   }
+
+   .header h1 {
+     font-size: 2rem;
+     letter-spacing: 1px;
+     margin-bottom: 0.25rem;
+     color: #7d3c98; 
+     text-transform: uppercase;
+   }
+
+   .header h2 {
+     font-size: 1.2rem;
+     font-weight: normal;
+     color: #555;
+     margin-bottom: 0.75rem;
+   }
+
+   .header p {
+     font-size: 0.9rem;
+     color: #666;
+   }
+
+   h3 {
+     font-size: 1rem;
+     text-transform: uppercase;
+     color: #7d3c98;
+     margin-top: 1.5rem;
+     margin-bottom: 0.75rem;
+     letter-spacing: 1px;
+   }
+
+   .spacebetween {
+     display: flex;
+     justify-content: space-between;
+   }
+
+   .summary, .projects, .experience, .education-section, .Certifications, .skills {
+     border-top: 2px solid #333;
+     margin-bottom: 25px;
+   }
+
+   .summary p {
+     line-height: 1.5;
+     margin-bottom: 0.5rem;
+     margin-left: 10px;
+     margin-right: 10px;
+   }
+
+   .project-item {
+     margin: 0 25px 10px 25px;
+   }
+
+   .experience-item {
+     margin-bottom: 1rem;
+     margin-right: 20px;
+   }
+
+   .experience-item h4 {
+     font-size: 1rem;
+     margin-bottom: 0.25rem;
+     font-weight: bold;
+   }
+
+   .experience-item span {
+     font-size: 0.9rem;
+     color: #757474;
+   }
+
+   .experience-item ul {
+     list-style: circle;
+     margin-left: 1.2rem;
+     margin-top: 0.5rem;
+   }
+
+   .experience-item li {
+     margin-bottom: 0.5rem;
+   }
+
+   .education-item {
+     margin: 0 20px 10px 20px;
+   }
+
+   .education-item h4 {
+     font-size: 1rem;
+     margin-bottom: 0.25rem;
+     font-weight: bold;
+   }
+
+   .education-item span {
+     font-size: 0.9rem;
+     color: #757474;
+   }
+
+   .Certificate-item {
+     margin: 0 10px 0 10px;
+   }
+
+   .skills-item {
+     margin-bottom: 5px;
+     margin-left: 10px;
+   }
+
+   .DecorationNone {
+     text-decoration: none;
+     color: #1d4780;
+   }
+
+   .square-list {
+     list-style-type: square; 
+   }"""
+
+   UpdatedTemplate=f"""<!DOCTYPE html>
+   <html lang="en">
+   <head>
+     <meta charset="UTF-8" />
+     <title>Designed by BRAVERS</title>
+     <style>
+        {css}
+     </style>
+   </head>
+   <body>
+
+   <div class="resume-container">
+     <div class="header">
+       <h1>{jsonData['contactInfo']['fullName']}</h1><br>
+       <p><a class="DecorationNone" href={'https://'+jsonData['contactInfo']['portfolio'] if '.' in jsonData['contactInfo']['portfolio'] else 'https://github.com/'+jsonData['contactInfo']['portfolio']} target="_blank">{jsonData['contactInfo']['portfolio']}</a> | <a class="DecorationNone" href="#"> 9917760469</a> | <a href={'mailto:'+jsonData['contactInfo']['emailAddress']} class="DecorationNone" target="_blank">{jsonData['contactInfo']['emailAddress']}</a> <br> <div style="margin-top: 6px;">{jsonData['contactInfo']['Location']}</div> </p>
+     </div>
+
+     <div class="summary">
+       <h3>Summary</h3>
+       <p>{desc}</p>
+     </div>
+
+     <div class="experience">
+       <h3>Work Experience</h3>
+         {Experience}
+     </div>
+
+     <div class="education-section">
+       <h3>Education</h3>
+         {Education}
+     </div>
+
+     <div class="projects">
+       <h3>Projects</h3>
+         {Projects}
+     </div>
+
+     <div class="Certifications">
+       <h3>Certifications</h3>
+       <div class="spacebetween Certificate-item">
+         <div>{'<br>'.join((cer['certificateName'] for cer in jsonData['certificates']))}<br><a class="DecorationNone" href="#" target="_blank">More Certificates</a></div>
+         <div>{'<br>'.join(('~' for _ in range(len(jsonData['certificates']))))}<br></div>
+         <div>{'<br>'.join((cer['providerName'] for cer in jsonData['certificates']))}<br></div>
+       </div>
+     </div>
+
+     <div class="skills">
+       <h3>Skills</h3>
+       <p class="skills-item"><strong style="color: rgb(75, 77, 77);">Soft Skills: </strong>{jsonData['skills']['softSkills']}</p>
+       <p class="skills-item"><strong>Tech Skills: </strong style="color: rgb(75, 77, 77);">{jsonData['skills']['hardSkills']}</p>
+     </div>
+   </div>
+   </body>
+   </html>
+   """
+   return UpdatedTemplate
+
 def T7(jsonData,desc):
 
-   Education='\n'.join(f"""                <div class="subtitle">{ed['degreeName']}</div>
+   Education='\n'.join(f"""<div class="subtitle">{ed['degreeName']}</div>
                 {ed['institutionName']} | {ed['graduationYear']} | SGPA: {ed['currentSGPA']}""" for ed in jsonData['education'])
    
    Projects='\n'.join((
@@ -953,7 +1428,7 @@ def T7(jsonData,desc):
          <div> {proj['toolsTechUsed']} </li>
    </div>\n""" for proj in jsonData['projects']))
 
-   WorkExp='\n'.join(f"""                <div class="internship TextGray SpaceBetween">
+   WorkExp='\n'.join(f"""<div class="internship TextGray SpaceBetween">
                    <div class="left"><b>{exp['companyName']}</b></div>
                    <div class="Right"><b>{exp['WorkDuration']}</b></div>
                 </div>
