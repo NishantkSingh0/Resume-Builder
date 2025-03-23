@@ -1,66 +1,68 @@
 export default function ViewTemplates() {
-   const items = [
-     {
-       img: "/resume-builder-web-application/Temp/temp1.png",
-       title: "Simpler & Structured",
-       codeLink: "https://github.com/NishantkSingh0/resume-builder-web-application/blob/main/Backend/GeneratedTemps/T1.html",
-       templateLink: "https://NishantkSingh0.github.io/resume-builder-web-application/blob/main/Backend/GeneratedTemps/T1.html",
-     },
-     {
-       img: "/resume-builder-web-application/Temp/temp2.png",
-       title: "Linear & Classic",
-       codeLink: "https://github.com/NishantkSingh0/resume-builder-web-application/blob/main/Backend/GeneratedTemps/T2.html",
-       templateLink: "https://NishantkSingh0.github.io/resume-builder-web-application/blob/main/Backend/GeneratedTemps/T2.html",
-     },
-     {
-       img: "/resume-builder-web-application/Temp/temp3.png",
-       title: "Colourfull & Attractive",
-       codeLink: "https://github.com/NishantkSingh0/resume-builder-web-application/blob/main/Backend/GeneratedTemps/T3.html",
-       templateLink: "https://NishantkSingh0.github.io/resume-builder-web-application/blob/main/Backend/GeneratedTemps/T3.html",
-     },
-     {
-       img: "/resume-builder-web-application/Temp/temp4.png",
-       title: "Colourful & Highly Designed",
-       codeLink: "https://github.com/NishantkSingh0/resume-builder-web-application/blob/main/Backend/GeneratedTemps/T4.html",
-       templateLink: "https://NishantkSingh0.github.io/resume-builder-web-application/blob/main/Backend/GeneratedTemps/T4.html",
-     },
-     {
-      img: "/resume-builder-web-application/Temp/temp5.png",
-      title: "Simpler & Linear",
-      codeLink: "https://github.com/NishantkSingh0/resume-builder-web-application/blob/main/Backend/GeneratedTemps/T5.html",
-      templateLink: "https://NishantkSingh0.github.io/resume-builder-web-application/blob/main/Backend/GeneratedTemps/T5.html",
-     },
-     {
-      img: "/resume-builder-web-application/Temp/temp6.png",
-      title: "Designed & Attractive",
-      codeLink: "https://github.com/NishantkSingh0/resume-builder-web-application/blob/main/Backend/GeneratedTemps/T6.html",
-      templateLink: "https://NishantkSingh0.github.io/resume-builder-web-application/blob/main/Backend/GeneratedTemps/T6.html",
-     },
-     {
-       img: "/resume-builder-web-application/Temp/temp7.png",
-       title: "Highly Simpler & Classic",
-       codeLink: "https://github.com/NishantkSingh0/resume-builder-web-application/blob/main/Backend/GeneratedTemps/T7.html",
-       templateLink: "https://NishantkSingh0.github.io/resume-builder-web-application/blob/main/Backend/GeneratedTemps/T7.html",
-     },
-   ];
- 
-   return (
-     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      <h3 className="my-16 text-3xl">Template Designs</h3>
-       <div className="flex flex-col gap-4 w-3/5">
-         {items.map((item, index) => (
-           <div key={index} className="flex items-center mb-6 bg-white shadow-md rounded-lg overflow-hidden h-44 w-full">
-             <img src={item.img} alt={item.title} className="w-1/7 h-full object-cover" />
-             <div className="flex flex-col justify-center p-2 w-4/5">
-               <h3 className="text-xl font-semibold mb-20">{item.title}</h3>
-               <div className="flex space-x-56 ml-8">
-                 <a href={item.codeLink} className="text-blue-500 text-xs underline" target="_blank">View Code</a>
-                 <a href={item.templateLink} className="text-blue-500 text-xs underline" target="_blank">View Template</a>
-               </div>
-             </div>
-           </div>
-         ))}
-       </div>
-     </div>
-   );
- }
+  const items = [
+    {
+      img: "/resume-builder-web-application/Temp/temp1.png",
+      title: "Simpler & Structured",
+      codeLink: "https://github.com/NishantkSingh0/Templates/blob/main/T1.html",
+      templateLink: "https://nishantksingh0.github.io/Templates/T1",
+    },
+    {
+      img: "/resume-builder-web-application/Temp/temp2.png",
+      title: "Linear & Classic",
+      codeLink: "https://github.com/NishantkSingh0/Templates/blob/main/T2.html",
+      templateLink: "https://NishantkSingh0.github.io/Templates/T2",
+    },
+    {
+      img: "/resume-builder-web-application/Temp/temp3.png",
+      title: "Colourful & Attractive",
+      codeLink: "https://github.com/NishantkSingh0/Templates/blob/main/T3.html",
+      templateLink: "https://NishantkSingh0.github.io/Templates/T3",
+    },
+    {
+      img: "/resume-builder-web-application/Temp/temp4.png",
+      title: "Colourful & Highly Designed",
+      codeLink: "https://github.com/NishantkSingh0/Templates/blob/main/T4.html",
+      templateLink: "https://NishantkSingh0.github.io/Templates/T4",
+    },
+    {
+     img: "/resume-builder-web-application/Temp/temp5.png",
+     title: "Simpler & Linear",
+     codeLink: "https://github.com/NishantkSingh0/Templates/blob/main/T5.html",
+     templateLink: "https://NishantkSingh0.github.io/Templates/T5",
+    },
+    // {
+    //  img: "/resume-builder-web-application/Temp/temp6.png",
+    //  title: "Designed & Attractive",
+    //  codeLink: "#",
+    //  templateLink: "#",
+    // },
+    {
+      img: "/resume-builder-web-application/Temp/temp7.png",
+      title: "Highly Simpler & Classic",
+      codeLink: "https://github.com/NishantkSingh0/Templates/blob/main/T7.html",
+      templateLink: "https://NishantkSingh0.github.io/Templates/T7",
+    },
+  ];
+
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-900 p-4">
+     <h3 className="mt-10 mb-2 text-3xl text-gray-500 dark:text-slate-200 font-bold">Generated Templates</h3>
+     <div className="w-[15%] h-1 bg-blue-700 mb-12 mx-auto mt-1 rounded dark:bg-blue-500"></div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-[50%] max-w-5xl mx-auto place-items-center">
+        {items.map((item, index) => (
+          <div key={index} className="group relative mb-10 bg-white dark:bg-slate-700 shadow-xl hover:shadow-2xl hover:scale-110 transition-transform border-2 border-gray-300 dark:border-gray-700 dark:shadow-[0_-4px_10px_rgba(0,0,0,0.1)] dark:shadow-gray-800 dark:hover:shadow-gray-700 rounded-lg overflow-hidden xl:w-72 lg:w-64 md:w-48 w-52 max-w-md flex flex-col items-center">
+            <img src={item.img} alt={item.title} className="w-full h-auto object-cover dark:opacity-95" />
+            <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 dark:bg-slate-700 p-4 rounded-md opacity-0 group-hover:opacity-100 transition-transform flex flex-col items-center">
+              {/* <h3 className="text-lg font-semibold text-sky-800 mb-2">{item.title}</h3> */}
+              <div className="flex space-x-4">
+                <a href={item.codeLink} className="text-gray-50 text-xs bg-green-600 hover:bg-green-700 px-2 py-1 rounded-md" target="_blank">View Code</a>
+                <a href={item.templateLink} className="text-gray-50 text-xs bg-green-600 hover:bg-green-700 px-2 py-1 rounded-md" target="_blank">View Template</a>
+              </div>
+            </div>
+           <div className="font-semibold text-gray-600 dark:text-gray-200"> {item.title} </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

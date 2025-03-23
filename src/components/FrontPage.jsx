@@ -106,10 +106,19 @@ const FrontPage = () => {
           onClick={handleTheme}>
           {isDark?<MdDarkMode className="text-white" />:<MdDarkMode className="text-black" /> }
         </button>
+
         <div className="md:hidden flex space-x-4">
+          <button
+            className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105"
+            onClick={handleViewTemplates}
+            title="View Generated resume samples"
+          >
+            Generated
+          </button>
           <button className=" px-4 py-[3px] bg-blue-500 text-white rounded-full hover:bg-blue-700" onClick={handleContinue}>
             Continue
           </button>
+
         </div>
       </div>
 
