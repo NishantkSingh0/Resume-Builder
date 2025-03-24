@@ -45,24 +45,27 @@ export default function ViewTemplates() {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-900 p-4">
-     <h3 className="mt-10 mb-2 text-3xl text-gray-500 dark:text-slate-200 font-bold">Generated Templates</h3>
-     <div className="w-[15%] h-1 bg-blue-700 mb-12 mx-auto mt-1 rounded dark:bg-blue-500"></div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-[50%] max-w-5xl mx-auto place-items-center">
-        {items.map((item, index) => (
-          <div key={index} className="group relative mb-10 bg-white dark:bg-slate-700 hover:shadow-2xl hover:scale-110 transition-transform border-2 border-gray-300 dark:border-gray-700 dark:shadow-[0_-4px_10px_rgba(0,0,0,0.1)] dark:shadow-gray-800 dark:hover:shadow-gray-700 rounded-lg overflow-hidden xl:w-72 lg:w-64 md:w-48 w-52 max-w-md flex flex-col items-center">
-            <img src={item.img} alt={item.title} className="w-full h-auto object-cover dark:opacity-80 dark:brightness-80 dark:contrast-90" />
-            <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 dark:bg-slate-700 p-4 rounded-md opacity-0 group-hover:opacity-100 transition-transform flex flex-col items-center">
-              {/* <h3 className="text-lg font-semibold text-sky-800 mb-2">{item.title}</h3> */}
-              <div className="flex space-x-4">
-                <a href={item.codeLink} className="text-gray-50 text-xs bg-green-600 hover:bg-green-700 px-2 py-1 rounded-md" target="_blank">View Code</a>
-                <a href={item.templateLink} className="text-gray-50 text-xs bg-green-600 hover:bg-green-700 px-2 py-1 rounded-md" target="_blank">View Template</a>
-              </div>
-            </div>
-           <div className="font-semibold text-gray-600 dark:text-gray-200"> {item.title} </div>
+<div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-900 p-4">
+  <h3 className="mt-10 mb-2 text-3xl text-gray-500 dark:text-slate-200 font-bold">Generated Templates</h3>
+  <div className="w-[200px] h-1 bg-blue-700 mb-12 mx-auto mt-1 rounded dark:bg-blue-500"></div>
+  
+  {/* Change grid-cols-1 to grid-cols-2 for mobile */}
+  <div className="grid grid-cols-2 gap-14 sm:grid-cols-2 md:grid-cols-2 max-w-5xl mx-auto place-items-center">
+    {items.map((item, index) => (
+      <div key={index} className="group relative mb-6 bg-white dark:bg-slate-700 hover:shadow-2xl hover:scale-105 transition-transform border-2 dark:shadow-[0_-4px_10px_rgba(0,0,0,0.1)]  border-gray-300 dark:border-gray-700 dark:shadow-gray-800 dark:hover:shadow-gray-700 rounded-lg overflow-hidden w-40 sm:w-44 md:w-48 lg:w-64 xl:w-72 flex flex-col items-center">
+        {/* Adjust image size */}
+        <img src={item.img} alt={item.title} className="w-full h-auto object-cover dark:opacity-80 dark:brightness-80 dark:contrast-90" />
+        <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 dark:bg-slate-700 p-4 rounded-md opacity-0 group-hover:opacity-100 transition-transform flex flex-col items-center">
+          <div className="flex space-x-4">
+            <a href={item.codeLink} className="text-gray-50 text-xs bg-green-600 hover:bg-green-700 px-2 py-1 rounded-md" target="_blank">View Code</a>
+            <a href={item.templateLink} className="text-gray-50 text-xs bg-green-600 hover:bg-green-700 px-2 py-1 rounded-md" target="_blank">View Template</a>
           </div>
-        ))}
+        </div>
+        <div className="font-semibold text-gray-600 dark:text-gray-200"> {item.title} </div>
       </div>
-    </div>
+    ))}
+  </div>
+</div>
+
   );
 }
