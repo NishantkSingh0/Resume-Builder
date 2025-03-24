@@ -94,8 +94,8 @@ This project was developed as part of our semester project, focusing on user con
 ## 1. Clone the Repository:  
 
 ```bash
-git clone https://github.com/nishantksingh0/resume-builder-web-application.git
-cd resume-builder-web-application
+git clone https://github.com/nishantksingh0/Resume-Builder.git
+cd Resume-Builder
 ```
 
 
@@ -120,7 +120,7 @@ npm start
 
 
 
-The app will now be available at `http://localhost:5173/resume-builder-web-application` 🚀
+The app will now be available at `http://localhost:5173/Resume-Builder` 🚀
 
 
 
@@ -139,15 +139,12 @@ The app will now be available at `http://localhost:5173/resume-builder-web-appli
 
 
 
-# 📞 Contact Info
+# 📢 Have Questions?
 
-We welcome contributions! Feel free to submit pull requests or open issues.  
-
-🔹 LinkedIn: <a href="https://www.linkedin.com/in/nishantksingh1/" target="_blank">NishantkSingh1</a>    
+Feel free to ask any question about project and suggest improvements. reach us out at:
 
 🔹 Email: <a href="mailto:nishantsingh.talk@gmail.com" target="_blank">nishantsingh.talk@gmail.com</a> 
 
+🔹 LinkedIn: <a href="https://www.linkedin.com/in/nishantksingh1/" target="_blank">NishantkSingh1</a>    
 
-# 📢 Have Questions?
 
-We would love to hear your feedback! Feel free to reach out or open a discussion. 😊 
