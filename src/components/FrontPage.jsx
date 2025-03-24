@@ -84,7 +84,7 @@ const FrontPage = () => {
           </button>
         </div>
         
-        <h1 className="text-xl font-bold text-gray-800 dark:text-white deco no-underline"> <a href="https://github.com/NishantkSingh0/resume-builder-web-application" title="Address to github repository of this project" target="_blank">Resume Builder Web Application</a></h1>
+        <h1 className="text-xl font-bold text-gray-800 dark:text-white deco no-underline"> <a href="https://github.com/NishantkSingh0/Resume-Builder" title="Address to github repository of this project" target="_blank">Resume Builder Web Application</a></h1>
         <div className="flex space-x-4">
           <button className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105" onClick={handleAboutUs}>
             About Us

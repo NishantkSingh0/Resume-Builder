@@ -1016,7 +1016,7 @@ const GetInfo = () => {
                       }`}
                     >
                       <img
-                        src={`/resume-builder-web-application/Temp/temp${template}.png`}
+                        src={`/Resume-Builder/Temp/temp${template}.png`}
                         alt={`Template ${template}`}
                         className="w-full h-auto rounded-lg dark:filter dark:brightness-90"
                       />
@@ -1045,7 +1045,7 @@ const GetInfo = () => {
                       }`}
                     >
                       <img
-                        src={`/resume-builder-web-application/Temp/temp${template}.png`}
+                        src={`/Resume-Builder/Temp/temp${template}.png`}
                         alt={`Template ${template}`}
                         className="w-full h-auto rounded-lg dark:filter dark:brightness-90"
                       />

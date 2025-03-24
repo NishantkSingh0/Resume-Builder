@@ -9,7 +9,7 @@ export default function HoverMessageButton() {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
-        <img src="/resume-builder-web-application/BinaryBunch.jpeg" alt="Logo" className="w-7 h-7 ml-3 md:ml-4 rounded-full" />
+        <img src="/Resume-Builder/BinaryBunch.jpeg" alt="Logo" className="w-7 h-7 ml-3 md:ml-4 rounded-full" />
       </div>
 
       {hovered && (

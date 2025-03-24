@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const Examplepage = ({ 
   images = [
-      '/resume-builder-web-application/Temp/temp1.png',
-      '/resume-builder-web-application/Temp/temp2.png',
-      '/resume-builder-web-application/Temp/temp3.png',
-      '/resume-builder-web-application/Temp/temp4.png',
-      '/resume-builder-web-application/Temp/temp5.png',
-      '/resume-builder-web-application/Temp/temp6.png',
-      '/resume-builder-web-application/Temp/temp7.png'
+      '/Resume-Builder/Temp/temp1.png',
+      '/Resume-Builder/Temp/temp2.png',
+      '/Resume-Builder/Temp/temp3.png',
+      '/Resume-Builder/Temp/temp4.png',
+      '/Resume-Builder/Temp/temp5.png',
+      '/Resume-Builder/Temp/temp6.png',
+      '/Resume-Builder/Temp/temp7.png'
     ], 
   interval = 3000,
   showIndicators = true 

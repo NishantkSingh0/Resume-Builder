@@ -1,43 +1,43 @@
 export default function ViewTemplates() {
   const items = [
     {
-      img: "/resume-builder-web-application/Temp/temp1.png",
+      img: "/Resume-Builder/Temp/temp1.png",
       title: "Simpler & Structured",
       codeLink: "https://github.com/NishantkSingh0/Templates/blob/main/T1.html",
       templateLink: "https://nishantksingh0.github.io/Templates/T1",
     },
     {
-      img: "/resume-builder-web-application/Temp/temp2.png",
+      img: "/Resume-Builder/Temp/temp2.png",
       title: "Linear & Classic",
       codeLink: "https://github.com/NishantkSingh0/Templates/blob/main/T2.html",
       templateLink: "https://NishantkSingh0.github.io/Templates/T2",
     },
     {
-      img: "/resume-builder-web-application/Temp/temp3.png",
+      img: "/Resume-Builder/Temp/temp3.png",
       title: "Colourful & Attractive",
       codeLink: "https://github.com/NishantkSingh0/Templates/blob/main/T3.html",
       templateLink: "https://NishantkSingh0.github.io/Templates/T3",
     },
     {
-      img: "/resume-builder-web-application/Temp/temp4.png",
+      img: "/Resume-Builder/Temp/temp4.png",
       title: "Colourful & Highly Designed",
       codeLink: "https://github.com/NishantkSingh0/Templates/blob/main/T4.html",
       templateLink: "https://NishantkSingh0.github.io/Templates/T4",
     },
     {
-     img: "/resume-builder-web-application/Temp/temp5.png",
+     img: "/Resume-Builder/Temp/temp5.png",
      title: "Simpler & Linear",
      codeLink: "https://github.com/NishantkSingh0/Templates/blob/main/T5.html",
      templateLink: "https://NishantkSingh0.github.io/Templates/T5",
     },
     // {
-    //  img: "/resume-builder-web-application/Temp/temp6.png",
+    //  img: "/Resume-Builder/Temp/temp6.png",
     //  title: "Designed & Attractive",
     //  codeLink: "#",
     //  templateLink: "#",
     // },
     {
-      img: "/resume-builder-web-application/Temp/temp7.png",
+      img: "/Resume-Builder/Temp/temp7.png",
       title: "Highly Simpler & Classic",
       codeLink: "https://github.com/NishantkSingh0/Templates/blob/main/T7.html",
       templateLink: "https://NishantkSingh0.github.io/Templates/T7",

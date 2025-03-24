@@ -71,7 +71,7 @@ function AboutUs() {
               <div className="flex items-center justify-center flex-1">
                 {dev.name}
                 {dev.name === "Nishant Singh" && <ExpandButton
-                  content="/resume-builder-web-application/BinaryBunch.jpeg"
+                  content="/Resume-Builder/BinaryBunch.jpeg"
                   message="Secured 3rd rank in University 24hr Hackathon (TechWizard) on"
                   linkText="Proctoring System"
                   linkUrl="https://github.com/NishantkSingh0/Proctoring-System"

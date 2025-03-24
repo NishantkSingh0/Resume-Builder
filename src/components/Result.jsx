@@ -20,11 +20,11 @@ const Result = () => {
           The server is not connected to the frontend. <br />
           Please refer to the instructions provided in the Git repository: <br />
           <a 
-            href="https://github.com/NishantkSingh0/resume-builder-web-application" 
+            href="https://github.com/NishantkSingh0/Resume-Builder" 
             target='_blank'
             className="text-blue-600 dark:text-blue-400 no-underline hover:underline"
           >
-            <strong>NishantkSingh0/resume-builder-web-application</strong>
+            <strong>NishantkSingh0/Resume-Builder</strong>
           </a>
         </p>
       ) : (
