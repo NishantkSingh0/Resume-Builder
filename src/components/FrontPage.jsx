@@ -133,15 +133,13 @@ const FrontPage = () => {
         </p>
         </div>
 
-      <div className="md:hidden absolute bottom-2 font-bold text-gray-800 left-1/2 -translate-x-1/2 text-center dark:text-white/80">
+      <div className="md:hidden absolute bottom-4 font-bold text-gray-800 left-1/2 -translate-x-1/2 text-center dark:text-white/80">
         <a
-          href=""
-          target="_blank"
-          rel="noopener noreferrer"
           onClick={handleViewTemplates}
+          className="cursor-pointer dark:text-gray-300"
         >
-            Generated Templates
-        </a> 
+          Generated Templates
+        </a>
       </div>
 
       {/* <p className="text-sm sm:text-lg text-gray-500 font-semibold mb-4">       Here the desktop span are with mobile id
