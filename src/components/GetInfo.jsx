@@ -92,7 +92,7 @@ const GetInfo = () => {
         providerName: "Coursera"
       },
     ],
-    selectedTemplateEx: "" 
+    selectedTemplateEx: "1" 
   });
   
 
@@ -294,16 +294,21 @@ const GetInfo = () => {
   
       navigate('/Result');
       if (!isExampleProcessing){
-        fetch("http://127.0.0.1:5000/upload", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-      })
-      .then(response => response.json())
-      .then(data => console.log("Success:", data))
-      .catch(error => console.error("Error:", error));
+        navigate('/Result');
+        console.log("Form submitted:", formData);
+    
+        const jsonData = JSON.stringify(formData, null, 2);
+        const blob = new Blob([jsonData], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+    
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "resume_data.json";
+        document.body.appendChild(a);
+        a.click();
+    
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
       }else{
         const jsonData = JSON.stringify(ExampleJsonData, null, 2);
         fetch("http://127.0.0.1:5000/upload", {
@@ -728,7 +733,7 @@ const GetInfo = () => {
               ))}
               <button
                 className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-                title="You can't add Experiences because it is predefined data formate" 
+                title="You can't add Projects because it is predefined data formate" 
               >
                 ❌ Add Project
               </button>
@@ -878,7 +883,7 @@ const GetInfo = () => {
 
                 <button
                   className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-                  title="You can't add Experiences because it is predefined data formate" 
+                  title="You can't add Educations because it is predefined data formate" 
                 >
                   ❌ Add Education
                 </button>
@@ -987,7 +992,7 @@ const GetInfo = () => {
               ))}
               <button
                 className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-                title="You can't add Experiences because it is predefined data formate" 
+                title="You can't add Certificates because it is predefined data formate" 
               >
                 ❌ Add Certificate
               </button>
@@ -1005,9 +1010,9 @@ const GetInfo = () => {
                   {[1,2,3,4,5,6,7].map((template) => (
                     <div
                       key={template}
-                      onClick={() => setFormData((prev) => ({ ...prev, selectedTemplate: String(template - 1) }))}
+                      onClick={() => setFormData((prev) => ({ ...prev, selectedTemplate: String(template) }))}
                       className={`p-4 border-2 rounded-lg cursor-pointer transition-transform duration-400 shadow-md hover:scale-95 dark:shadow-gray-600  ${
-                        formData.selectedTemplate === String(template - 1) ? 'border-blue-600 bg-blue-50 dark:bg-slate-800' : 'dark:border-gray-700'
+                        formData.selectedTemplate === String(template) ? 'border-blue-600 bg-blue-50 dark:bg-slate-800' : 'dark:border-gray-700'
                       }`}
                     >
                       <img
@@ -1034,9 +1039,9 @@ const GetInfo = () => {
                   {[1,2,3,4,5,6,7].map((template) => (
                     <div
                       key={template}
-                      onClick={() => setExampleJsonData((prev) => ({ ...prev, selectedTemplateEx: String(template - 1) }))}
+                      onClick={() => setExampleJsonData((prev) => ({ ...prev, selectedTemplateEx: String(template) }))}
                       className={`p-4 border-2 rounded-lg cursor-pointer transition-transform duration-400 shadow-md hover:scale-95 dark:shadow-gray-600  ${
-                        ExampleJsonData.selectedTemplateEx === String(template - 1) ? 'border-blue-600 bg-blue-50 dark:bg-slate-800' : 'dark:border-gray-700'
+                        ExampleJsonData.selectedTemplateEx === String(template) ? 'border-blue-600 bg-blue-50 dark:bg-slate-800' : 'dark:border-gray-700'
                       }`}
                     >
                       <img
@@ -1075,7 +1080,7 @@ const GetInfo = () => {
         </button>
 
         <div className={`${isOpen || "hidden md:block"}`}>
-          <h1 className={"text-2xl font-bold pt-14 md:pt-6 text-center text-blue-80 text-blue-800 dark:text-amber-300 cursor-pointer"} title='About us' onClick={handleAbout}>BRAVERS</h1>
+          <h1 className={"text-2xl font-bold pt-14 md:pt-6 text-center text-blue-80 text-blue-800 dark:text-amber-300 cursor-pointer"}>BRAVERS</h1>
           <div className="w-[30%] h-1 bg-blue-900  mb-6 mx-auto mt-1 rounded dark:bg-amber-400"></div>
           <div className="space-y-4 p-2">
             {steps.map((step, index) => (

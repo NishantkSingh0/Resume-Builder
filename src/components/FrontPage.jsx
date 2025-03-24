@@ -74,6 +74,7 @@ const FrontPage = () => {
             onClick={handleTheme}>
             {isDark?<MdDarkMode className="text-white" />:<MdDarkMode className="text-black" /> }
           </button>
+         
           <button
             className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105"
             onClick={handleViewTemplates}
@@ -82,6 +83,7 @@ const FrontPage = () => {
             Generated Resumes
           </button>
         </div>
+        
         <h1 className="text-xl font-bold text-gray-800 dark:text-white deco no-underline"> <a href="https://github.com/NishantkSingh0/resume-builder-web-application" title="Address to github repository of this project" target="_blank">Resume Builder Web Application</a></h1>
         <div className="flex space-x-4">
           <button className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105" onClick={handleAboutUs}>
@@ -108,13 +110,13 @@ const FrontPage = () => {
         </button>
 
         <div className="md:hidden flex space-x-4">
-          <button
+          {/* <button
             className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105"
             onClick={handleViewTemplates}
             title="View Generated resume samples"
           >
             Generated
-          </button>
+          </button> */}
           <button className=" px-4 py-[3px] bg-blue-500 text-white rounded-full hover:bg-blue-700" onClick={handleContinue}>
             Continue
           </button>
@@ -136,12 +138,9 @@ const FrontPage = () => {
           href=""
           target="_blank"
           rel="noopener noreferrer"
-          onClick={(e) => {
-            e.preventDefault();  
-            handleAboutUs();
-            }}
+          onClick={handleViewTemplates}
         >
-            BRAVERS
+            Generated Templates
         </a> 
       </div>
 

@@ -50,8 +50,8 @@ export default function ViewTemplates() {
      <div className="w-[15%] h-1 bg-blue-700 mb-12 mx-auto mt-1 rounded dark:bg-blue-500"></div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-[50%] max-w-5xl mx-auto place-items-center">
         {items.map((item, index) => (
-          <div key={index} className="group relative mb-10 bg-white dark:bg-slate-700 shadow-xl hover:shadow-2xl hover:scale-110 transition-transform border-2 border-gray-300 dark:border-gray-700 dark:shadow-[0_-4px_10px_rgba(0,0,0,0.1)] dark:shadow-gray-800 dark:hover:shadow-gray-700 rounded-lg overflow-hidden xl:w-72 lg:w-64 md:w-48 w-52 max-w-md flex flex-col items-center">
-            <img src={item.img} alt={item.title} className="w-full h-auto object-cover dark:opacity-95" />
+          <div key={index} className="group relative mb-10 bg-white dark:bg-slate-700 hover:shadow-2xl hover:scale-110 transition-transform border-2 border-gray-300 dark:border-gray-700 dark:shadow-[0_-4px_10px_rgba(0,0,0,0.1)] dark:shadow-gray-800 dark:hover:shadow-gray-700 rounded-lg overflow-hidden xl:w-72 lg:w-64 md:w-48 w-52 max-w-md flex flex-col items-center">
+            <img src={item.img} alt={item.title} className="w-full h-auto object-cover dark:opacity-80 dark:brightness-80 dark:contrast-90" />
             <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 dark:bg-slate-700 p-4 rounded-md opacity-0 group-hover:opacity-100 transition-transform flex flex-col items-center">
               {/* <h3 className="text-lg font-semibold text-sky-800 mb-2">{item.title}</h3> */}
               <div className="flex space-x-4">
