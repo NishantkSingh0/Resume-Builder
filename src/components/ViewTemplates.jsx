@@ -75,7 +75,7 @@ export default function ViewTemplates() {
 
           </div>
         </div>
-        <div className="font-semibold text-gray-600 dark:text-gray-200"> {item.title} </div>
+        <div className="font-semibold text-gray-600 dark:text-gray-200 text-xs pb-2 pt-1 md:text-base"> {item.title} </div>
       </div>
     ))}
   </div>

@@ -71,7 +71,7 @@ const FrontPage = () => {
         <div className="flex items-center">
           <button 
             className="mr-6 mt-1"
-            title="The Dark/Light mode will be chosen randomly on each refresh, allowing users to experience both modes. You can also set it to your preferred mode."
+            title="The Dark/Light mode will be chosen randomly on each refresh, allowing users to experience both modes. You can also set it as you prefer"
             onClick={handleTheme}>
               <Switch/>
           </button>
@@ -139,7 +139,7 @@ const FrontPage = () => {
         </p>
         <a
           onClick={handleViewTemplates}
-          className="cursor-pointer dark:text-gray-300/80 font-bold"
+          className="cursor-pointer text-gray-600 dark:text-gray-300/80 font-bold"
         >
           Generated Templates
         </a> 
