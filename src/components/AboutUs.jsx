@@ -90,6 +90,21 @@ function AboutUs() {
                   "Analyzed ATS algorithms for effective resume selection."
                 ]}
               />}
+            {dev.name === "Amisha Pal" && <ExpandButton
+                content=" . . . "
+                message={[
+                  "Designed all templates in HTML/CSS",
+                  "Researched designs and innovation ideas",
+                  "Gived optimization idea for various modules",
+                ]}
+              />}
+            {dev.name === "Ankush Kumar" && <ExpandButton
+                content=" . . . "
+                message={[
+                  "Managed All written works (Synopsis, Project file)",
+                  "Designed PPT for presentation",
+                ]}
+              />}
             </p>
 
             <div className="flex flex-col items-center space-y-4 px-4 md:px-32">
