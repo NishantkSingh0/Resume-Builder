@@ -3,7 +3,8 @@ import Typed from "typed.js";
 import Examplepages from './Examplepage.jsx'
 import { useNavigate } from 'react-router-dom';
 import { ThemeContext } from "./ThemeContext.jsx";
-import { MdDarkMode } from "react-icons/md";
+// import { MdDarkMode } from "react-icons/md";
+import Switch from "./Switch.jsx";
 
 const features=[
   "Build your resume easily",
@@ -67,12 +68,12 @@ const FrontPage = () => {
   return (
     <div className="flex flex-col h-screen bg-gray-300 text-center px-4 dark:bg-slate-950">
       <div className="hidden md:flex justify-between items-center w-full px-6 py-3 bg-white shadow-md rounded-2xl mt-3 dark:bg-slate-800">
-        <div>
+        <div className="flex items-center">
           <button 
-            className="text-2xl mr-8"
+            className="mr-6"
             title="The Dark/Light mode will be chosen randomly on each refresh, allowing users to experience both modes. You can also set it to your preferred mode."
             onClick={handleTheme}>
-            {isDark?<MdDarkMode className="text-white" />:<MdDarkMode className="text-black" /> }
+              <Switch/>
           </button>
          
           <button
@@ -84,7 +85,12 @@ const FrontPage = () => {
           </button>
         </div>
         
-        <h1 className="text-xl font-bold text-gray-800 dark:text-white deco no-underline"> <a href="https://github.com/NishantkSingh0/Resume-Builder" title="Address to github repository of this project" target="_blank">Resume Builder Web Application</a></h1>
+        <h1 className="text-xl font-bold text-gray-800 dark:text-white no-underline">
+          <a href="https://github.com/NishantkSingh0/Resume-Builder" title="Address to GitHub repository of this project" target="_blank">
+            <span className="lg:hidden">Resume Builder</span>
+            <span className="hidden lg:block">Resume Builder Web Application</span>
+          </a>
+        </h1>
         <div className="flex space-x-4">
           <button className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105" onClick={handleAboutUs}>
             About Us
@@ -103,10 +109,10 @@ const FrontPage = () => {
       {/* Mobile View */}
       <div className="flex md:hidden justify-between items-center w-full h-12 px-6 py-3 bg-white shadow-md mt-6 rounded-3xl dark:bg-slate-800">
         <button 
-          className="text-2xl"
-          title="This Day/Night mode will choose randomly on refresh so that user experience both modes (You can also select it so that before refresh it could be at your choice)"
+          className="text-2xl mr-8"
+          title="The Dark/Light mode will be chosen randomly on each refresh, allowing users to experience both modes. You can also set it to your preferred mode."
           onClick={handleTheme}>
-          {isDark?<MdDarkMode className="text-white" />:<MdDarkMode className="text-black" /> }
+            <Switch/>
         </button>
 
         <div className="md:hidden flex space-x-4">
