@@ -46,8 +46,9 @@ export default function ViewTemplates() {
 
   return (
 <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-900 p-4">
-  <h3 className="mt-10 mb-2 text-3xl text-gray-500 dark:text-slate-200 font-bold">Generated Templates</h3>
-  <div className="w-[200px] h-1 bg-blue-700 mb-12 mx-auto mt-1 rounded dark:bg-blue-500"></div>
+  <h3 className="mt-10 mb-2 text-3xl text-gray-600 dark:text-slate-200 font-bold">Generated Templates</h3>
+  <div className="w-[200px] h-1 bg-blue-700 mb-2 mx-auto mt-1 rounded dark:bg-blue-500"></div>
+  <h5 className="mb-12 text-base font-semibold text-gray-500">Note: Consider to View Templates only on desktop mode</h5>
   
   {/* Change grid-cols-1 to grid-cols-2 for mobile */}
   <div className="grid grid-cols-2 gap-14 sm:grid-cols-2 md:grid-cols-2 max-w-5xl mx-auto place-items-center">
@@ -57,8 +58,21 @@ export default function ViewTemplates() {
         <img src={item.img} alt={item.title} className="w-full h-auto object-cover dark:opacity-80 dark:brightness-80 dark:contrast-90" />
         <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 dark:bg-slate-700 p-4 rounded-md opacity-0 group-hover:opacity-100 transition-transform flex flex-col items-center">
           <div className="flex space-x-4">
-            <a href={item.codeLink} className="text-gray-50 text-xs bg-green-600 hover:bg-green-700 px-2 py-1 rounded-md" target="_blank">View Code</a>
-            <a href={item.templateLink} className="text-gray-50 text-xs bg-green-600 hover:bg-green-700 px-2 py-1 rounded-md" target="_blank">View Template</a>
+          <div className="flex space-x-2">
+            <a href={item.codeLink} className="text-gray-50 text-xs bg-green-600 hover:bg-green-700 px-2 py-1 rounded-md md:hidden" target="_blank">
+              Code
+            </a>
+            <a href={item.templateLink} className="text-gray-50 text-xs bg-green-600 hover:bg-green-700 px-2 py-1 rounded-md md:hidden" target="_blank">
+              Resume
+            </a>
+            <a href={item.codeLink} className="text-gray-50 text-xs bg-green-600 hover:bg-green-700 px-2 py-1 rounded-md hidden md:block" target="_blank">
+              View Code
+            </a>
+            <a href={item.templateLink} className="text-gray-50 text-xs bg-green-600 hover:bg-green-700 px-2 py-1 rounded-md hidden md:block" target="_blank">
+              View Resume
+            </a>
+          </div>
+
           </div>
         </div>
         <div className="font-semibold text-gray-600 dark:text-gray-200"> {item.title} </div>

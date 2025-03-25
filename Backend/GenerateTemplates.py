@@ -64,7 +64,7 @@ def T1(jsonData,desc):
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 1131px; 
+          height: 1120px; 
       }
 
       .resume {
@@ -102,6 +102,7 @@ def T1(jsonData,desc):
 
       .SUsection {
           padding-top: 10px;
+          padding-left: 8px;
       }
 
       .section,.SUsection {
@@ -119,6 +120,7 @@ def T1(jsonData,desc):
 
       .Contact div {
           margin-bottom: 4px; 
+          margin-left: 8px;
       }
 
       .Contact {
@@ -159,17 +161,25 @@ def T1(jsonData,desc):
           margin-bottom: 10px;
       }
 
+      .section{
+        padding-left: 8px;
+      }
+      
+      .LDsection{
+        padding-left: 8px;
+      }
+
       .content {
           display: flex;
           justify-content: center;
           border-bottom: 2px solid #353333;
-          margin: 0 40px; 
+          margin: 0 20px 0 20px; 
       }
 
       .upperContent {
           display: flex;
           justify-content: center;
-          margin: 0 40px; 
+          margin: 0 20px 0 20px; 
           border-top: 2px solid #353333;
           border-bottom: 2px solid #353333;
       }
@@ -387,7 +397,7 @@ def T2(jsonData,desc):
 
    .resume-container {
      max-width: 800px;
-     height: auto;
+     height: 1150px;
      margin: 0 auto;
      background: #fff;
      border-radius: 8px;
@@ -922,6 +932,7 @@ def T4(jsonData,desc):
       background: #ffffff;
       border: 1px solid #ddd;
       border-radius: 15px;
+      margin-top: 20px;
       padding: 0 30px 0 0;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
    }
@@ -1238,6 +1249,7 @@ def T5(jsonData,desc):
 
    .resume-container {
      max-width: 800px;
+     max-height: 1200px;
      margin: 0 auto;
      background: #fff;
      border-radius: 15px;
