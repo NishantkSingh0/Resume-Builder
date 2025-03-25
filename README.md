@@ -2,7 +2,6 @@
 
 A smart and user-friendly web application that helps job seekers create high-quality, ATS-friendly resumes effortlessly. It offers both HTML/CSS and PDF formats, ensuring flexibility and professional presentation.   
 
-https://github.com/user-attachments/assets/8c2125ac-64cd-4161-bc4d-3370cb513a6e
 
 
 
