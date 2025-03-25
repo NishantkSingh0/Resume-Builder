@@ -70,7 +70,7 @@ const FrontPage = () => {
       <div className="hidden md:flex justify-between items-center w-full px-6 py-3 bg-white shadow-md rounded-2xl mt-3 dark:bg-slate-800">
         <div className="flex items-center">
           <button 
-            className="mr-6"
+            className="mr-6 mt-1"
             title="The Dark/Light mode will be chosen randomly on each refresh, allowing users to experience both modes. You can also set it to your preferred mode."
             onClick={handleTheme}>
               <Switch/>
@@ -107,9 +107,9 @@ const FrontPage = () => {
 
 
       {/* Mobile View */}
-      <div className="flex md:hidden justify-between items-center w-full h-12 px-6 py-3 bg-white shadow-md mt-6 rounded-3xl dark:bg-slate-800">
+      <div className="flex md:hidden justify-between items-center w-full h-14 px-6 py-3 bg-white shadow-md mt-6 rounded-3xl dark:bg-slate-800">
         <button 
-          className="text-2xl mr-8"
+          className="text-2xl mr-8 mt-1"
           title="The Dark/Light mode will be chosen randomly on each refresh, allowing users to experience both modes. You can also set it to your preferred mode."
           onClick={handleTheme}>
             <Switch/>
@@ -137,14 +137,21 @@ const FrontPage = () => {
         <p className="text-sm sm:text-lg text-gray-500 font-semibold mb-4">   {/* Here the mobile span are with desktop id  */}
           <span id="mobile-typing-text" className="md:hidden text-xl sm:text-2xl text-gray-800 h-6 mb-4 dark:text-white"></span>
         </p>
+        <a
+          onClick={handleViewTemplates}
+          className="cursor-pointer dark:text-gray-300/80 font-bold"
+        >
+          Generated Templates
+        </a> 
         </div>
 
       <div className="md:hidden absolute bottom-4 font-bold text-gray-800 left-1/2 -translate-x-1/2 text-center dark:text-white/80">
+<br />
         <a
-          onClick={handleViewTemplates}
+          onClick={handleAboutUs}
           className="cursor-pointer dark:text-gray-300"
         >
-          Generated Templates
+          About Us
         </a>
       </div>
 

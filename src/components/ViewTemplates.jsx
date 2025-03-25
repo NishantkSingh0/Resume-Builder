@@ -47,8 +47,8 @@ export default function ViewTemplates() {
   return (
 <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-900 p-4">
   <h3 className="mt-10 mb-2 text-3xl text-gray-600 dark:text-slate-200 font-bold">Generated Templates</h3>
-  <div className="w-[200px] h-1 bg-blue-700 mb-2 mx-auto mt-1 rounded dark:bg-blue-500"></div>
-  <h5 className="mb-12 text-base font-semibold text-gray-500">Note: Consider to View Templates only on desktop mode</h5>
+  <h5 className="mb-4 text-sm md:text-base font-semibold text-gray-500">Note: Consider to View Templates only on desktop mode</h5>
+  <div className="w-[200px] h-1 bg-blue-700 mb-16 mx-auto mt-1 rounded dark:bg-blue-500"></div>
   
   {/* Change grid-cols-1 to grid-cols-2 for mobile */}
   <div className="grid grid-cols-2 gap-14 sm:grid-cols-2 md:grid-cols-2 max-w-5xl mx-auto place-items-center">
