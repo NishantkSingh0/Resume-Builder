@@ -1,15 +1,16 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useContext } from "react";
+import styled from "styled-components";
+import { ThemeContext } from "./ThemeContext";
 
 const Switch = () => {
+  const { isDark } = useContext(ThemeContext);
+
   return (
-    <StyledWrapper>
-      <div className="wrapper">
-        <input type="checkbox" name="checkbox" className="switch" />
-      </div>
+    <StyledWrapper isDark={isDark}>
+      <input type="checkbox" className="switch" checked={isDark} readOnly />
     </StyledWrapper>
   );
-}
+};
 
 const StyledWrapper = styled.div`
   .switch {
@@ -19,7 +20,7 @@ const StyledWrapper = styled.div`
     margin: 0px;
     appearance: none;
     -webkit-appearance: none;
-    background-color: rgb(0, 195, 255); /* Light Mode Default */
+    background-color: ${({ isDark }) => (isDark ? "#1201ac" : "rgb(0, 195, 255)")};
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 25px;
