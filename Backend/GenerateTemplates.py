@@ -1460,7 +1460,7 @@ def T7(jsonData,desc):
       height: auto;         /* (W/H) Ratio should be 0.7069 */
    }
    .resume {
-      width: 800px;           /* (W/H) Ratio should be 0.7069 */
+      width: 900px;           /* (W/H) Ratio should be 0.7069 */
       /* height: 1131px; */
       background: #ffffff;
       border: 1px solid #ddd;

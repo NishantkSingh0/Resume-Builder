@@ -1,4 +1,3 @@
-import { use } from "framer-motion/client";
 import { createContext, useState } from "react";
 
 export const ThemeContext = createContext();

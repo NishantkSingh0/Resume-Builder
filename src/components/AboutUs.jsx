@@ -72,7 +72,7 @@ function AboutUs() {
                 {dev.name}
                 {dev.name === "Nishant Singh" && <ExpandButton
                   content="/Resume-Builder/BinaryBunch.jpeg"
-                  message="Secured 3rd rank in University 24hr Hackathon (TechWizard) on"
+                  message="Have secured 3rd rank in University 24hr Hackathon (TechWizard) on"
                   linkText="Proctoring System"
                   linkUrl="https://github.com/NishantkSingh0/Proctoring-System"
                 />}
@@ -96,6 +96,7 @@ function AboutUs() {
                   "Designed all templates in HTML/CSS",
                   "Researched designs and innovation ideas",
                   "Gived optimization idea for various modules",
+                  "Researched other Resume builder websites and suggested improvemnets"
                 ]}
               />}
             {dev.name === "Ankush Kumar" && <ExpandButton
@@ -103,6 +104,7 @@ function AboutUs() {
                 message={[
                   "Managed All written works (Synopsis, Project file)",
                   "Designed PPT for presentation",
+                  "Researched other Resume builder websites and suggested improvemnets"
                 ]}
               />}
             </p>

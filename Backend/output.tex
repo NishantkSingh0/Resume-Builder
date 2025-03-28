@@ -1,0 +1,317 @@
+\documentclass{article}%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+%
+%
+%
+\begin{document}%
+\normalsize%
+\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\% Deedy {-} One Page Two Column Resume\newline%
+\% LaTeX Template\newline%
+\% Version 1.3 (22/9/2018)\newline%
+\%\newline%
+\% Original author:\newline%
+\% Debarghya Das (http://debarghyadas.com)\newline%
+\%\newline%
+\% Original repository:\newline%
+\% https://github.com/deedydas/Deedy{-}Resume\newline%
+\%\newline%
+\% v1.3 author:\newline%
+\% Zachary Taylor\newline%
+\%\newline%
+\% v1.3 repository:\newline%
+\% https://github.com/ZDTaylor/Deedy{-}Resume{-}Reversed\newline%
+\%\newline%
+\% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX\newline%
+\%\newline%
+\% This template uses several fonts not included with Windows/Linux by\newline%
+\% default. If you get compilation errors saying a font is missing, find the line\newline%
+\% on which the font is used and either change it to a font included with your\newline%
+\% operating system or comment the line out to use the default font.\newline%
+\%\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%\newline%
+\% TODO:\newline%
+\% 1. Add various styling and section options and allow for multiple pages smoothly.\newline%
+\%\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%\newline%
+\% CHANGELOG:\newline%
+\% v1.3:\newline%
+\% 1. Removed MacFonts version as I have no desire to maintain it nor access to macOS\newline%
+\% 2. Switched column ordering\newline%
+\% 3. Changed font styles/colors for easier human readability\newline%
+\% 4. Added, removed, and rearranged sections to reflect my own experience\newline%
+\% 5. Hid last updated\newline%
+\%\newline%
+\% v1.2:\newline%
+\% 1. Added publications in place of societies.\newline%
+\% 2. Collapsed a portion of education.\newline%
+\% 3. Fixed a bug with alignment of overflowing long last updated dates on the top right.\newline%
+\%\newline%
+\% v1.1:\newline%
+\% 1. Fixed several compilation bugs with \textbackslash{}renewcommand\newline%
+\% 2. Got Open{-}source fonts (Windows/Linux support)\newline%
+\% 3. Added Last Updated\newline%
+\% 4. Move Title styling into .sty\newline%
+\% 5. Commented .sty file.\newline%
+\%\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%\newline%
+\% Known Issues:\newline%
+\% 1. Overflows onto second page if any column's contents are more than the vertical limit\newline%
+\% 2. Hacky space on the first bullet point on the second column.\newline%
+\%\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\newline%
+\newline%
+\textbackslash{}documentclass{[}{]}\{deedy{-}resume{-}reversed\}\newline%
+\textbackslash{}usepackage\{fancyhdr\}\newline%
+\newline%
+\textbackslash{}pagestyle\{fancy\}\newline%
+\textbackslash{}fancyhf\{\}\newline%
+\newline%
+\textbackslash{}begin\{document\}\newline%
+\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%\newline%
+\%     LAST UPDATED DATE\newline%
+\%\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\% \textbackslash{}lastupdated\newline%
+\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%\newline%
+\%     TITLE NAME\newline%
+\%\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\textbackslash{}namesection\{John Doe\}\{ \%\textbackslash{}urlstyle\{same\}\textbackslash{}href\{http://example.com\}\{example.com\}| \textbackslash{}href\{http://example2.co\}\{example2.co\}\textbackslash{}\textbackslash{}\newline%
+\textbackslash{}href\{mailto:john.doe@example.com\}\{john.doe@example.com\} | \textbackslash{}href\{tel:11111111111\}\{111.111.1111\}\newline%
+\}\newline%
+\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%\newline%
+\%     COLUMN ONE\newline%
+\%\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\newline%
+\textbackslash{}begin\{minipage\}{[}t{]}\{0.60\textbackslash{}textwidth\}\newline%
+\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%     EXPERIENCE\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\newline%
+\textbackslash{}section\{Experience\}\newline%
+\textbackslash{}runsubsection\{Company A\}\newline%
+\textbackslash{}descript\{| Advanced Development Intern \}\newline%
+\textbackslash{}location\{May 2018 – Aug 2018 | Somewhere, XX\}\newline%
+\textbackslash{}vspace\{\textbackslash{}topsep\} \% Hacky fix for awkward extra vertical space\newline%
+\textbackslash{}begin\{tightemize\}\newline%
+\textbackslash{}item Developed a cloud{-}based solution to automate and enhance the engineering process for network installation using AWS and Python.\newline%
+\textbackslash{}item Worked with other teams to create a system to collect and visualize telemetry data of network elements in real time using AWS, Python, and DOMO.\newline%
+\textbackslash{}item Consulted with other teams to jump start cloud{-}technology adoption and solutions throughout the company.\newline%
+\textbackslash{}item Contributed to initial planning for optics{-}alignment system utilizing AWS, reinforcement learning, and an IoT architecture.\newline%
+\textbackslash{}end\{tightemize\}\newline%
+\textbackslash{}sectionsep\newline%
+\newline%
+\textbackslash{}runsubsection\{Company B\}\newline%
+\textbackslash{}descript\{| Intern \}\newline%
+\textbackslash{}location\{Feb 2017 – Nov 2017 | Somewhere, XX\}\newline%
+\textbackslash{}begin\{tightemize\}\newline%
+\textbackslash{}item Coordinated with multiple departments to lead a software product evaluation resulting in a fit{-}for{-}purpose verdict and provided a recommendation on moving forward.\newline%
+\textbackslash{}item Organized meetings with the vendor to receive in{-}depth product information and answers to cross{-}departmental questions.\newline%
+\textbackslash{}item Participated on the Web Development Taskforce to provide AngularJS sites to internal customers.\newline%
+\textbackslash{}item Participated in an internal CodeJam to prototype a blockchain application for managing a model supply{-}chain.\newline%
+\textbackslash{}item Worked with a team to plan executive visit and team{-}building exercise for 200 employees.\newline%
+\textbackslash{}end\{tightemize\}\newline%
+\textbackslash{}sectionsep\newline%
+\newline%
+\textbackslash{}runsubsection\{My University ITS\}\newline%
+\textbackslash{}descript\{| Assistant Support Specialist \}\newline%
+\textbackslash{}location\{Aug 2015 – Oct 2016 | Somewhere, XX\}\newline%
+\textbackslash{}begin\{tightemize\}\newline%
+\textbackslash{}item Interacted with clients to assess their problems and implement a solution in an efficient, friendly manner.\newline%
+\textbackslash{}item Prepared workstations and laptops for future use by company employees.\newline%
+\textbackslash{}item Created scripts to automate common tasks and increase productivity.\newline%
+\textbackslash{}end\{tightemize\}\newline%
+\textbackslash{}sectionsep\newline%
+\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%     PROJECTS\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\newline%
+\textbackslash{}section\{Projects\}\newline%
+\textbackslash{}runsubsection\{Space Robotics Team\}\newline%
+\textbackslash{}descript\{| Path{-}Planning Lead\}\newline%
+\textbackslash{}location\{Jan 2018 – Present | Somewhere, XX\}\newline%
+\textbackslash{}begin\{tightemize\}\newline%
+\textbackslash{}item Spearhead the development effort for the path{-}planning functionality of a team of three robots.\newline%
+\textbackslash{}item ROS provides movement servers and the planning is being implemented in Python to allow for fully{-}autonomous operation.\newline%
+\textbackslash{}end\{tightemize\}\newline%
+\textbackslash{}sectionsep\newline%
+\newline%
+\textbackslash{}runsubsection\{Chit Chat\}\newline%
+\textbackslash{}descript\{| Class Project for Distributed Client{-}Server Programming\}\newline%
+\textbackslash{}location\{Jan 2018 – May 2018 | Somewhere, XX\}\newline%
+\textbackslash{}begin\{tightemize\}\newline%
+\textbackslash{}item Lead the development of \textbackslash{}textbf\{\textbackslash{}href\{https://github.com/user/repo\}\{Chit Chat\}\}, an anonymous chat application created as a class project.\newline%
+\textbackslash{}item Chit Chat provides real{-}time communication while utilizing a PHP backend and AngularJS frontend.\newline%
+\textbackslash{}end\{tightemize\}\newline%
+\textbackslash{}sectionsep\newline%
+\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%     RESEARCH\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\newline%
+\% \textbackslash{}section\{Research\}\newline%
+\% \textbackslash{}runsubsection\{Cornell Robot Learning Lab\}\newline%
+\% \textbackslash{}descript\{| Researcher\}\newline%
+\% \textbackslash{}location\{Jan 2014 – Jan 2015 | Ithaca, NY\}\newline%
+\% Worked with \textbackslash{}textbf\{\textbackslash{}href\{http://www.cs.cornell.edu/\textasciitilde{}ashesh/\}\{Ashesh Jain\}\} and \textbackslash{}textbf\{\textbackslash{}href\{http://www.cs.cornell.edu/\textasciitilde{}asaxena/\}\{Prof Ashutosh Saxena\}\} to create \textbackslash{}textbf\{PlanIt\}, a tool which  learns from large scale user preference feedback to plan robot trajectories in human environments.\newline%
+\% \textbackslash{}sectionsep\newline%
+\newline%
+\% \textbackslash{}runsubsection\{Cornell Phonetics Lab\}\newline%
+\% \textbackslash{}descript\{| Head Undergraduate Researcher\}\newline%
+\% \textbackslash{}location\{Mar 2012 – May 2013 | Ithaca, NY\}\newline%
+\% Led the development of \textbackslash{}textbf\{QuickTongue\}, the first ever breakthrough tongue{-}controlled game with \textbackslash{}textbf\{\textbackslash{}href\{http://conf.ling.cornell.edu/\textasciitilde{}tilsen/\}\{Prof Sam Tilsen\}\} to aid in Linguistics research.\newline%
+\% \textbackslash{}sectionsep\newline%
+\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%     COMMUNITY SERVICE\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\newline%
+\% \textbackslash{}section\{Community Service\}\newline%
+\newline%
+\% \textbackslash{}begin\{tabular\}\{rll\}\newline%
+\% 2013 {-}{-} 2018    \& Tennessee     \& St. Baldrick's Foundation\textbackslash{}\textbackslash{}\newline%
+\% 2014 {-}{-} 2017	\& Tennessee     \& American Cancer Society's Hope Lodge\textbackslash{}\textbackslash{}\newline%
+\% 2013 {-}{-} 2015    \& Tennessee     \& Habitat for Humanity\textbackslash{}\textbackslash{}\newline%
+\% 2011 {-}{-} 2015    \& Tennessee     \& Special Olympics\textbackslash{}\textbackslash{}\newline%
+\% \textbackslash{}end\{tabular\}\newline%
+\% \textbackslash{}sectionsep\newline%
+\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%     SOCIETIES\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\newline%
+\% \textbackslash{}section\{Societies\}\newline%
+\newline%
+\% \textbackslash{}begin\{tabular\}\{rll\}\newline%
+\% 2018 {-}{-} 2018    \& National      \& Association of Computing Machinery (ACM)\textbackslash{}\textbackslash{}\newline%
+\% 2017 {-}{-} 2019	\& National      \& Scrum Alliance Certified ScrumMaster\textbackslash{}\textbackslash{}\newline%
+\% 2015 {-}{-} 2019    \& University    \& Shackouls Honors College\textbackslash{}\textbackslash{}\newline%
+\% \textbackslash{}end\{tabular\}\newline%
+\% \textbackslash{}sectionsep\newline%
+\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%     AWARDS\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\newline%
+\% \textbackslash{}section\{Awards\}\newline%
+\% \textbackslash{}begin\{tabular\}\{rll\}\newline%
+\% 2015        \& 99\textbackslash{}textsuperscript\{th\} percentile \& National Merit Scholarship Finalist\textbackslash{}\textbackslash{}\newline%
+\% \textbackslash{}end\{tabular\}\newline%
+\% \textbackslash{}sectionsep\newline%
+\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%     PUBLICATIONS\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\newline%
+\% \textbackslash{}section\{Publications\}\newline%
+\% \textbackslash{}renewcommand\textbackslash{}refname\{\textbackslash{}vskip {-}1.5cm\} \% Couldn't get this working from the .cls file\newline%
+\% \textbackslash{}bibliographystyle\{abbrv\}\newline%
+\% \textbackslash{}bibliography\{publications\}\newline%
+\% \textbackslash{}nocite\{*\}\newline%
+\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%\newline%
+\%     COLUMN TWO\newline%
+\%\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\newline%
+\textbackslash{}end\{minipage\}\newline%
+\textbackslash{}hfill\newline%
+\textbackslash{}begin\{minipage\}{[}t{]}\{0.33\textbackslash{}textwidth\}\newline%
+\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%     EDUCATION\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\newline%
+\textbackslash{}section\{Education\}\newline%
+\newline%
+\textbackslash{}subsection\{My University\}\newline%
+\textbackslash{}descript\{Bachelor of Science in Computer Science with minors in Mathematics and Statistics\}\newline%
+\textbackslash{}location\{Expected Dec 2019 | Somewhere, XX\}\newline%
+\% College of Engineering \textbackslash{}\textbackslash{}\newline%
+Dean's List (All Semesters) \textbackslash{}\textbackslash{}\newline%
+\textbackslash{}location\{ Cum. GPA: 4.0 / 4.0\}\newline%
+\textbackslash{}sectionsep\newline%
+\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%     SKILLS\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\newline%
+\textbackslash{}section\{Skills\}\newline%
+\textbackslash{}subsection\{Programming\}\newline%
+\textbackslash{}location\{3+ years:\}\newline%
+Python \textbackslash{}textbullet\{\} C/C++ \textbackslash{}\textbackslash{}\newline%
+\textbackslash{}location\{1+ years:\}\newline%
+PHP \textbackslash{}textbullet\{\} JavaScript \textbackslash{}\textbackslash{}\newline%
+\textbackslash{}location\{0+ years:\}\newline%
+Matlab \textbackslash{}textbullet\{\} R \textbackslash{}textbullet\{\} SAS \textbackslash{}\textbackslash{}\newline%
+\textbackslash{}sectionsep\newline%
+\newline%
+\textbackslash{}subsection\{Technology\}\newline%
+Git/Github \textbackslash{}textbullet\{\} AWS \textbackslash{}textbullet\{\} Linux \textbackslash{}\textbackslash{}\newline%
+UNIX \textbackslash{}textbullet\{\} Windows \textbackslash{}textbullet\{\} ROS \textbackslash{}\textbackslash{}\newline%
+Artificial Intelligence \textbackslash{}textbullet\{\} Automation \textbackslash{}\textbackslash{}\newline%
+\textbackslash{}sectionsep\newline%
+\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%     COURSEWORK\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\newline%
+\textbackslash{}section\{Coursework\}\newline%
+\textbackslash{}subsection\{Graduate\}\newline%
+Analysis of Algorithms\newline%
+\textbackslash{}sectionsep\newline%
+\newline%
+\textbackslash{}subsection\{Undergraduate\}\newline%
+Artificial Intelligence \textbackslash{}\textbackslash{}\newline%
+\{\textbackslash{}footnotesize \textbackslash{}textit\{\textbackslash{}textbf\{(Teaching Assistant) \}\}\} \textbackslash{}\textbackslash{}\newline%
+AI Robotics \textbackslash{}\textbackslash{}\newline%
+Operating Systems I \textbackslash{}\textbackslash{}\newline%
+Calculus I{-}IV \textbackslash{}\textbackslash{}\newline%
+Data Analysis I \textbackslash{}\textbackslash{}\newline%
+Introduction to Probability \textbackslash{}\textbackslash{}\newline%
+\textbackslash{}sectionsep\newline%
+\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%     Societies\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\newline%
+\textbackslash{}section\{Societies\}\newline%
+Association for Computing Machinery (ACM)\textbackslash{}\textbackslash{}\newline%
+Scrum Alliance Certified ScrumMaster\textbackslash{}\textbackslash{}\newline%
+University Honors College\textbackslash{}\textbackslash{}\newline%
+National Merit Scholarship Finalist \textbackslash{}\textbackslash{}\newline%
+\textbackslash{}sectionsep\newline%
+\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\%     LINKS\newline%
+\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\newline%
+\newline%
+\textbackslash{}section\{Links\}\newline%
+Github:// \textbackslash{}href\{https://github.com/\}\{\textbackslash{}bf JohnDoe\} \textbackslash{}\textbackslash{}\newline%
+LinkedIn://  \textbackslash{}href\{https://www.linkedin.com/\}\{\textbackslash{}bf johndoe\}\newline%
+\textbackslash{}sectionsep\newline%
+\newline%
+\textbackslash{}end\{minipage\}\newline%
+\textbackslash{}end\{document\}  \textbackslash{}documentclass{[}{]}\{article\}\newline%
+%
+\end{document}

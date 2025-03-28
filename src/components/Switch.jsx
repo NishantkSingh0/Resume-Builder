@@ -7,7 +7,7 @@ const Switch = () => {
 
   return (
     <StyledWrapper isDark={isDark}>
-      <input type="checkbox" className="switch" checked={isDark} readOnly />
+      <input type="checkbox" className="switch shadow-lg shadow-slate-400 dark:shadow-slate-600" checked={isDark} readOnly />
     </StyledWrapper>
   );
 };
@@ -20,7 +20,7 @@ const StyledWrapper = styled.div`
     margin: 0px;
     appearance: none;
     -webkit-appearance: none;
-    background-color: ${({ isDark }) => (isDark ? "#1201ac" : "rgb(0, 195, 255)")};
+    background-color: ${({ isDark }) => (isDark ? "#2e6ada" : "rgb(0, 195, 255)")};
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 25px;
@@ -31,7 +31,7 @@ const StyledWrapper = styled.div`
   }
 
   .switch:checked {
-    background-color: #1201ac; /* Dark Mode */
+    background-color: #2558b6; /* Dark Mode */
     background-size: cover;
     transition: background-image 1s ease-in-out;
   }
