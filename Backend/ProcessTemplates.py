@@ -4,96 +4,100 @@ import os
 import weasyprint
 from weasyprint import HTML
 
-# with open('resume_data.json', 'r') as f:
-#    JsonData = json.load(f)
+# Desc="A passionated AI developer with extensive experience in various machine learning models, Primarily i focus on building models from scratch rather than relying heavily on fine-tuning pre-trained models. All my projects, showcasing my skills and contributions, are available on GitHub & Kaggle."
 
 # JsonData={
 #   "contactInfo": {
-#     "fullName": "Nishant kumar",
-#     "phoneNumber": "9217290469",
-#     "emailAddress": "nishantsingh.talk@gmail.com",
-#     "linkedin": "nishantksingh1",
-#     "portfolio": "nishantksingh0.github.io",
-#     "jobTitle": "Data Scientist",
-#     "Languages": "English, Hindi, French",
-#     "Location": "Haridwar (Uttrakhand)"
+#     "fullName": "Shahid malik",
+#     "phoneNumber": "9368863048",
+#     "emailAddress": "sahidmalik9368@gmail.com",
+#     "linkedin": "shahid-malik-765113306",
+#     "portfolio": "https://github.com/SHAHID-glitch",
+#     "jobTitle": "Data scientist ",
+#     "Languages": "Hindi, English ",
+#     "Location": "Haridwar (Uttarakhand)"
 #   },
 #   "skills": {
-#     "hardSkills": "TensorFlow, PyTorch, Scikit-learn, Keras, Hugging Face, C/C++, Java, JavaScript, React",
-#     "softSkills": "TeamWork, strong Problem-Solving skill, Leadership, Critical thinking, Communication"
+#     "hardSkills": "Ai, ml, data science, Python, Data Handling ",
+#     "softSkills": "Teamwork, problem solving."
 #   },
 #   "workExperience": [
 #     {
-#       "jobTitle": "Data scientist",
-#       "companyName": "Onlei tech",
-#       "WorkDuration": "Dec-2024 to Mar-2025",
-#       "keyAchievements": "Learn to visualize patterns from data using matplotlib and Built several DL models"
+#       "jobTitle": "Data scientist ",
+#       "companyName": "ONLEI TECHNOLOGIES ",
+#       "WorkDuration": "Jan-2025 to feb-2025",
+#       "keyAchievements": "Learn to visualise data patterns"
 #     },
 #     {
-#       "jobTitle": "Python engineer",
-#       "companyName": "Microsoft",
-#       "WorkDuration": "May-2024 to Jul-2024",
-#       "keyAchievements": "Learn to use python in NLP tasks to take advantages of LLM"
+#       "jobTitle": "Python Engineer ",
+#       "companyName": "Codsoft",
+#       "WorkDuration": "Mar-2025 to apr-2025",
+#       "keyAchievements": "Learn  python of data science "
+#     },
+#     {
+#       "jobTitle": "Ai analyst ",
+#       "companyName": "Open ai",
+#       "WorkDuration": "May-2025 to jun-2025",
+#       "keyAchievements": "Learning generative ai"
 #     }
 #   ],
 #   "projects": [
 #     {
+#       "projectTitle": "Resume builder web application ",
+#       "toolsTechUsed": "React, tailwind, deepseekR1, weasyprint"
+#     },
+#     {
 #       "projectTitle": "Transformer based translation model",
-#       "toolsTechUsed": "Tensorflow, Trasformer architecture, NumPy, WMT Translation dataset"
-#     },
-#     {
-#       "projectTitle": "Exam Proctoring system",
-#       "toolsTechUsed": "React, Flask, OpenCV, NumPy, Mediapipe, Pillow, WebSocket, ThreadPool"
-#     },
-#     {
-#       "projectTitle": "Persion bounding box detection",
-#       "toolsTechUsed": "OpenCV, Json, Tensorflow, Pandas, Matplotlib, NumPy"
+#       "toolsTechUsed": "Numpy, pandas, matplotlib, scit learn, tensorflow"
 #     }
 #   ],
 #   "education": [
 #     {
-#       "institutionName": "Haridwar University",
-#       "degreeName": "Batchelor in Computer application",
+#       "institutionName": "Haridwar University ",
+#       "degreeName": "Bachelor in computer applications ",
 #       "graduationYear": "2023 - 2026",
-#       "currentSGPA": "8"
+#       "currentSGPA": "7"
 #     },
 #     {
-#       "institutionName": "Vidya Mandir Sec-5 (Haridwar)",
-#       "degreeName": "Primary/Secondary",
-#       "graduationYear": "2021 - 2023",
-#       "currentSGPA": "8"
+#       "institutionName": "Vidya Vikassnee intern college",
+#       "degreeName": "Primary, secondary",
+#       "graduationYear": "2021-2023",
+#       "currentSGPA": "7"
 #     }
 #   ],
 #   "certificates": [
 #     {
-#       "certificateName": "Azure AI Engineer association",
-#       "courseDuration": "2 month ",
-#       "providerName": "Microsoft"
+#       "certificateName": "Python ",
+#       "courseDuration": "1 month",
+#       "providerName": "Hacker rank"
 #     },
 #     {
-#       "certificateName": "C/C++",
-#       "courseDuration": "2 Month",
-#       "providerName": "Cad Planet"
+#       "certificateName": "Spoken tutorial  ",
+#       "courseDuration": "1 month",
+#       "providerName": "IIT BOMBAY"
 #     },
 #     {
-#       "certificateName": "DataScientist Internship",
-#       "courseDuration": "2 Month",
-#       "providerName": "Onlei Tech"
-#     },
-#     {
-#       "certificateName": "Intro To responsive AI",
-#       "courseDuration": "1 Month",
-#       "providerName": "SimpliLearn"
-#     },
-#     {
-#       "certificateName": "Bits & byts of computer",
-#       "courseDuration": "1 Month",
+#       "certificateName": "The bites and Bytes of computer",
+#       "courseDuration": "1 month",
 #       "providerName": "Coursera"
+#     },
+#     {
+#       "certificateName": "Technical support fundamental ",
+#       "courseDuration": "1 month",
+#       "providerName": "Coursera"
+#     },
+#     {
+#       "certificateName": "Power BI data mining",
+#       "courseDuration": "1 month",
+#       "providerName": "Simplilern"
 #     }
 #   ],
-#   "selectedTemplateEx": "4" 
+#   "selectedTemplate": "1"
 # }
 
+# GeneratedCode=gtps.T2(JsonData, Desc)
+# with open('./GeneratedTemps/T11.html','w') as f:
+#    f.write(GeneratedCode)
 
 def GenerateResume(JsonData):
   ExampleDesc="A passionated AI developer with extensive experience in various machine learning models, Primarily i focus on building models from scratch rather than relying heavily on fine-tuning pre-trained models. All my projects, showcasing my skills and contributions, are available on GitHub & Kaggle."

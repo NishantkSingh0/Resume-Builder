@@ -9,6 +9,7 @@ import { ThemeContext } from './components/ThemeContext.jsx';
 import GoogleVarification from './components/GoogleVarification.jsx';
 // import VarifyMob from './components/VarifyMob.jsx';
 import ViewTemplates from './components/ViewTemplates.jsx';
+// import Practice from './components/Practice.jsx'
 
 const App = () => {
 
@@ -24,7 +25,7 @@ const App = () => {
 
   return (
     // <>
-    //   <ViewTemplates/>
+    //   <Practice/>
     // </>
     <div>
       <Toaster />

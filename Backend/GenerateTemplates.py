@@ -1,4 +1,7 @@
 import validators
+# import numpy as np
+
+# signs=['https://www.freepnglogos.com/uploads/signature-png/nguy-ecnh-nguyen-van-binh-signature-png-5.png','https://www.wisestamp.com/wp-content/uploads/2020/08/Serena-Williams-handwritten-signature.png','https://shop.mikael-b.com/wp-content/uploads/2017/02/signature-mp-1400x741.png','https://www.freepnglogos.com/uploads/signature-png/signature-julia-download-png-18.png','https://th.bing.com/th/id/R.f3f90c581a787a59dfefd42918d86937?rik=TqtbH3SCq2XrLQ&riu=http%3a%2f%2fclipart-library.com%2fimages%2fBcgrnXgdi.png&ehk=Ol4L0GSJ7sdEk%2ftk9J8cbzDMHpJ4bA6nhnYRq6H%2fCbk%3d&risl=&pid=ImgRaw&r=0']
 
 def removespace(text):
    """Remove the spaces from a single sentences. Example: " Hello" -> "Hello" """
@@ -64,10 +67,11 @@ def T1(jsonData,desc):
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 1120px; 
+          height: 1250px; 
       }
 
       .resume {
+          margin-top: 100px;
           width: 800px; 
           background: #f1f1f1;
           border-radius: 15px;
@@ -81,7 +85,6 @@ def T1(jsonData,desc):
           border-top: 2px solid #353333;
           padding: 80px 0px 80px 0px; 
           margin: 0px 40px 0px 40px; 
-          background-image: url('./Img/Sig.png');
           background-repeat: no-repeat;
           background-size: 250px;
           background-position: center;
@@ -237,7 +240,7 @@ def T1(jsonData,desc):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Designed by BRAVERS</title>
-    <link rel="icon" type="image/png" href="bravers.png" />          <!-- Address you fevicon here -->
+    <link rel="icon" href="https://raw.githubusercontent.com/NishantkSingh0/Resume-Builder/main/public/N.png">
     <style>
       {css}
     </style>
@@ -389,6 +392,7 @@ def T2(jsonData,desc):
    }
 
    body {
+     margin-top: 100px;
      font-family: Arial, sans-serif;
      background: #e4e4e4;
      color: #333;
@@ -543,6 +547,7 @@ def T2(jsonData,desc):
    <head>
      <meta charset="UTF-8" />
      <title>Designed by BRAVERS</title>
+     <link rel="icon" href="https://raw.githubusercontent.com/NishantkSingh0/Resume-Builder/main/public/N.png">
      <style>
       {css}
      </style>
@@ -642,7 +647,7 @@ def T3(jsonData,desc):
    css="""
    body {
       font-family: Arial, sans-serif;
-      margin: 20px 0 20px 0;
+      margin: 100px 0 20px 0;
       padding: 0;
       background-color: #d6cece;
       display: flex;
@@ -774,7 +779,9 @@ def T3(jsonData,desc):
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Designed by BRAVERS</title>
+      <title>Designed by BRAVERS</title>    
+      <link rel="icon" href="https://raw.githubusercontent.com/NishantkSingh0/Resume-Builder/main/public/N.png">
+
       <link rel="icon" type="image/png" href="./Img/N.png" />
       <style>
         {css}
@@ -882,14 +889,14 @@ def T4(jsonData,desc):
       column1+=1
       column2+=1
    HardSkills=f"""<ul>
-                           {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1)))}
-                        </ul>
-                        <ul>
-                           {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1,column2+column1)))}
-                        </ul>
-                        <ul>
-                           {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column2+column1,column3+column2+column1)))}
-                        </ul>"""
+                     {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1)))}
+                  </ul>
+                  <ul>
+                     {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column1,column2+column1)))}
+                  </ul>
+                  <ul>
+                     {' <br> '.join(("<li>"+skills[skl]+"</li>" for skl in range(column2+column1,column3+column2+column1)))}
+                  </ul>"""
    
 
    Education='\n <br> \n<br> \n'.join((f"""                     
@@ -932,7 +939,7 @@ def T4(jsonData,desc):
       background: #ffffff;
       border: 1px solid #ddd;
       border-radius: 15px;
-      margin-top: 20px;
+      margin-top: 100px;
       padding: 0 30px 0 0;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
    }
@@ -1106,7 +1113,8 @@ def T4(jsonData,desc):
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Designed by BRAVERS</title>
+      <title>Designed by BRAVERS</title>    
+      <link rel="icon" href="https://raw.githubusercontent.com/NishantkSingh0/Resume-Builder/main/public/N.png">
       <link rel="icon" type="image/png" href="./Img/N.png" />
       <style>
         {css}
@@ -1243,6 +1251,7 @@ def T5(jsonData,desc):
    body {
      font-family: Arial, sans-serif;
      background: #c9c9c9;
+     margin-top: 80px;
      color: #333;
      padding: 20px;
    }
@@ -1376,6 +1385,8 @@ def T5(jsonData,desc):
    <head>
      <meta charset="UTF-8" />
      <title>Designed by BRAVERS</title>
+     <link rel="icon" href="https://raw.githubusercontent.com/NishantkSingh0/Resume-Builder/main/public/N.png">
+
      <style>
         {css}
      </style>
@@ -1541,12 +1552,13 @@ def T7(jsonData,desc):
     <head>
        <meta charset="UTF-8">
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/png" href="./Img/N.png" />
          <style>
            {css}
          </style>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
        <title>Designed by BRAVERS</title>
+       <link rel="icon" href="https://raw.githubusercontent.com/NishantkSingh0/Resume-Builder/main/public/N.png">
+
     </head>
     <body>
        <div class="resume">
