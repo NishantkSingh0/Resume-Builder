@@ -7,6 +7,7 @@ const AutoSuggestInput = ({
   value,
   onChange,
   suggestions,
+  isTextArea=false,
   isMultiSuggestion = true,
 }) => {
   const [inputValue, setInputValue] = useState(value || "");
@@ -85,16 +86,42 @@ const AutoSuggestInput = ({
           {label}
         </label>
       )}
-      <input
-        type="text"
-        className="w-full sm:p-2 sm:px-6 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-        placeholder={placeholder}
-        value={inputValue}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-        onBlur={() => setShowSuggestions(false)}
-        onFocus={() => inputValue && setFilteredSuggestions(fuse.search(isMultiSuggestion ? inputValue.split(/[,\s]+/).pop() : inputValue).map(res => res.item))}
-      />
+      {isTextArea ? (
+        <textarea
+          placeholder={placeholder}
+          className="w-full min-h-[120px] px-3 py-2 border rounded resize-none peer focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+          value={inputValue}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          onBlur={() => setShowSuggestions(false)}
+          onFocus={() =>
+            inputValue &&
+            setFilteredSuggestions(
+              fuse
+                .search(isMultiSuggestion ? inputValue.split(/[,\s]+/).pop() : inputValue)
+                .map((res) => res.item)
+            )
+          }
+        />
+      ) : (
+        <input
+          type="text"
+          placeholder={placeholder}
+          className="w-full sm:p-2 sm:px-6 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+          value={inputValue}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          onBlur={() => setShowSuggestions(false)}
+          onFocus={() =>
+            inputValue &&
+            setFilteredSuggestions(
+              fuse
+                .search(isMultiSuggestion ? inputValue.split(/[,\s]+/).pop() : inputValue)
+                .map((res) => res.item)
+            )
+          }
+        />
+      )}
 
       {showSuggestions && filteredSuggestions.length > 0 && (
         <ul className="absolute z-10 w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md mt-1 max-h-60 overflow-y-auto shadow-lg">

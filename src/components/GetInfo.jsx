@@ -93,6 +93,7 @@ const GetInfo = () => {
         providerName: "Coursera"
       },
     ],
+    Description:"Passionate AI developer & backend specialist with expertise in deep learning, computer vision, NLP, and transformers, focusing on building models from scratch. Proficient in React, frontend design, Flask, and Django, enabling seamless AI integration into real world applications. Developed and deployed 22+ projects, showcased on GitHub & Kaggle. Always eager to solve complex challenges and innovate in AI & software development.",
     selectedTemplateEx: "1" 
   });
   
@@ -133,9 +134,18 @@ const GetInfo = () => {
       courseDuration: '',
       providerName: ''
     }],
+    Description:'',
     selectedTemplate: 0
   });
   
+  const ResumeDescriptions=[
+    `A passionate ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, with expertise in ${formData.skills.hardSkills} honed through 8+ projects. Skilled at leveraging cutting-edge tools to deliver innovative solutions. Proficient in ${formData.contactInfo.Languages} and recognized for exceptional ${formData.skills.softSkills}.`,
+    `A results-driven ${formData.contactInfo.jobTitle} from ${formData.education[0]?.institutionName}, mastering ${formData.skills.hardSkills} across 10+ real-world projects. Adept in ${formData.contactInfo.Languages} and highly valued for strong ${formData.skills.softSkills} that drive team success and problem-solving.`,
+    `A dedicated ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, specializing in ${formData.skills.hardSkills} with hands-on experience in building 12+ impactful projects. Fluent in ${formData.contactInfo.Languages}, with proven strengths in ${formData.skills.softSkills}, bringing creativity and precision to every challenge.`,
+    `A skilled ${formData.contactInfo.jobTitle} from ${formData.education[0]?.institutionName}, with expertise in ${formData.skills.hardSkills} built over 22+ practical projects. Familiar with ${formData.contactInfo.Languages}, and known for outstanding ${formData.skills.softSkills} that foster innovation and collaboration.`,
+    `An innovative ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, with proficiency in ${formData.skills.hardSkills}, demonstrated through 13+ diverse projects. Well-versed in ${formData.contactInfo.Languages}, and appreciated for exceptional ${formData.skills.softSkills} in dynamic work environments.`,
+  ]
+
   const [completedSteps, setCompletedSteps]=useState(new Set());
   const [isInvalidMob,setIsInvalidMob]=useState(false);
   const [isInvalidMail,setIsInvalidMail]=useState(false);
@@ -157,17 +167,14 @@ const GetInfo = () => {
     { title: 'Highlight your top projects', key: 'Projects' },
     { title: 'Demonstrate your knowledge', key: 'Education' },
     { title: 'Add your achieved certifications', key: 'Certificates' },
+    { title: 'Decribe about you', key: 'Description' },
     { title: 'Choose a template that suits you best', key: 'Template' }
   ];
-
-  const handleAbout = () => {
-    navigate('/AboutUs');
-  };
   
   const HandleExampleProcessing = () => {
     setIsExampleProcessing(true);
     const newSet = new Set();
-    for (let i = 0; i < 7 - 1; i++) {
+    for (let i = 0; i < 8 - 1; i++) {
       newSet.add(i);
     }
     setCompletedSteps(newSet);
@@ -193,13 +200,15 @@ const GetInfo = () => {
     }
   };
   
-  const handleInputChange = (section, field, value, index = null) => {
+  const handleInputChange = (section, field=null, value, index = null) => {
     setFormData(prev => {
       const newData = { ...prev };
-      if (index !== null) {
+      if (index !== null && field!=null) {
         newData[section][index][field] = value;
-      } else if (typeof newData[section] === 'object' && !Array.isArray(newData[section])) {
+      } else if (typeof newData[section] === 'object' && !Array.isArray(newData[section]) && field!=null) {
         newData[section][field] = value;
+      } else {
+        newData[section]=value;
       }
       return newData;
     });
@@ -249,7 +258,8 @@ const GetInfo = () => {
       3: formData.projects.length > 0 ? formData.projects.map(proj => [proj.projectTitle, proj.toolsTechUsed]) : [[]],
       4: formData.education.length > 0 ? formData.education.map(edu => [edu.institutionName, edu.degreeName, edu.graduationYear, edu.currentSGPA]) : [[]],
       5: formData.certificates.length > 0 ? formData.certificates.map(cert => [cert.certificateName, cert.courseDuration, cert.providerName]) : [[]],
-      6: [formData.selectedTemplate],
+      6: [formData.Description],
+      7: [formData.selectedTemplate],
     };
   
     if (!(currentStep in Fields)) {
@@ -1021,8 +1031,53 @@ const GetInfo = () => {
             </div>
           );
         }
-
       case 6:
+        if (!isExampleProcessing){
+          return (
+            <div className="space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">
+                Description
+              </h2>
+              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Consider to edit them more and make professional</p>
+
+          
+              <div className="space-y-2 pt-8 pb-16">
+                <div className="peer">
+                  <Suggestions
+                    label="Resume Description"
+                    placeholder="Passionate AI Developer & Backend Specialist with expertise in Deep Learning, Computer Vision, NLP, and Transformers. Skilled at building models from scratch and integrating them into real-world applications using React, Flask, and Django. Developed and deployed 22+ projects available on GitHub & Kaggle."
+                    value={formData.Description}
+                    onChange={(val) => handleInputChange('Description', val)}
+                    suggestions={ResumeDescriptions}
+                    isTextArea={true}
+                    isMultiSuggestion={false}
+                  />
+                </div>
+                <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+              </div>
+            </div>
+          );
+          
+        }else{
+          return (
+            <div className="space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">
+                Description
+              </h2>
+              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Consider to edit them more and make professional</p>
+              <div className="space-y-2 pt-16 pb-16">
+                <textarea
+                  placeholder="Passionate AI Developer & Backend Specialist with expertise in Deep Learning, Computer Vision, NLP, and Transformers. Skilled at building models from scratch and integrating them into real-world applications using React, Flask, and Django. Developed and deployed 22+ projects available on GitHub & Kaggle."
+                  className="w-full min-h-[145px] px-3 py-2 border rounded resize-none peer focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                  value={ExampleJsonData.Description}
+                />
+                <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+              </div>
+            </div>
+          );
+        }
+
+      case 7:
         if(!isExampleProcessing){
           return (
             <div className="space-y-4">
@@ -1096,13 +1151,13 @@ const GetInfo = () => {
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="absolute top-4 left-3 md:hidden p-2 rounded-full bg-gray-200 dark:bg-gray-600 dark:text-cyan-300"
+          className="absolute top-6 pl-7 md:hidden p-3 rounded-r-full bg-gray-200 dark:bg-gray-600 dark:text-cyan-300"
         >
           {isOpen ? <X size={20} /> : <Menu size={15} />}
         </button>
 
         <div className={`${isOpen || "hidden md:block"}`}>
-          <h1 className={"text-2xl font-bold pt-14 md:pt-6 text-center text-blue-80 text-blue-800 dark:text-amber-300 cursor-pointer"}>BRAVERS</h1>
+          <h1 className={"text-2xl font-bold pt-20 md:pt-4 text-center text-blue-80 text-blue-800 dark:text-amber-300 cursor-pointer"}>BRAVERS</h1>
           <div className="w-[30%] h-1 bg-blue-900  mb-6 mx-auto mt-1 rounded dark:bg-amber-400"></div>
           <div className="space-y-4 p-2">
             {steps.map((step, index) => (
@@ -1128,7 +1183,7 @@ const GetInfo = () => {
           </div>
           <div>
             <h2
-              className="space-y-3 mx-4 md:mx-0 mt-10 p-2 flex items-center justify-center gap-3 rounded-lg cursor-pointer transition-transform duration-400 bg-blue-50 hover:bg-blue-100 text-blue-600 dark:text-zinc-300 dark:bg-slate-700/50 dark:hover:bg-slate-700/95"
+              className="space-y-3 mx-4 md:mx-0 mt-6 p-2 flex items-center justify-center gap-3 rounded-lg cursor-pointer transition-transform duration-400 bg-blue-50 hover:bg-blue-100 text-blue-600 dark:text-zinc-300 dark:bg-slate-700/50 dark:hover:bg-slate-700/95"
               title="It is only for Test & Present purpose. with authorized access"
               onClick={() => {
                 if (showInput){
@@ -1155,7 +1210,7 @@ const GetInfo = () => {
         </div>
       </div>
 
-      <div className={`flex-1 pt-14 pr-3 pl-1 md:p-8 transition-all duration-300 ${isOpen ? "ml-64" : "ml-2"} md:ml-64`}>
+      <div className={`flex-1 pt-20 pr-3 pl-1 md:p-8 transition-all duration-300 ${isOpen ? "ml-64" : "ml-2"} md:ml-64`}>
         <div className="max-w-2xl mx-auto">
           {renderFormSection()}
 
