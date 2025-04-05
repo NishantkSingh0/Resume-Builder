@@ -22,7 +22,7 @@ const GetInfo = () => {
     },
     skills: {
       hardSkills: "TensorFlow, PyTorch, Scikit-learn, Keras, Hugging Face, C/C++, Java, JavaScript, React",
-      softSkills: "TeamWork, strong Problem-Solving skill, Leadership, Critical thinking, Communication"
+      softSkills: "TeamWork, Problem-Solving, Leadership, Critical thinking, Communication, Creativity"
     },
     workExperience: [
       {
@@ -139,11 +139,11 @@ const GetInfo = () => {
   });
   
   const ResumeDescriptions=[
-    `A passionate ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, with expertise in ${formData.skills.hardSkills} honed through 8+ projects. Skilled at leveraging cutting-edge tools to deliver innovative solutions. Proficient in ${formData.contactInfo.Languages} and recognized for exceptional ${formData.skills.softSkills}.`,
-    `A results-driven ${formData.contactInfo.jobTitle} from ${formData.education[0]?.institutionName}, mastering ${formData.skills.hardSkills} across 10+ real-world projects. Adept in ${formData.contactInfo.Languages} and highly valued for strong ${formData.skills.softSkills} that drive team success and problem-solving.`,
-    `A dedicated ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, specializing in ${formData.skills.hardSkills} with hands-on experience in building 12+ impactful projects. Fluent in ${formData.contactInfo.Languages}, with proven strengths in ${formData.skills.softSkills}, bringing creativity and precision to every challenge.`,
-    `A skilled ${formData.contactInfo.jobTitle} from ${formData.education[0]?.institutionName}, with expertise in ${formData.skills.hardSkills} built over 22+ practical projects. Familiar with ${formData.contactInfo.Languages}, and known for outstanding ${formData.skills.softSkills} that foster innovation and collaboration.`,
-    `An innovative ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, with proficiency in ${formData.skills.hardSkills}, demonstrated through 13+ diverse projects. Well-versed in ${formData.contactInfo.Languages}, and appreciated for exceptional ${formData.skills.softSkills} in dynamic work environments.`,
+    `A passionate ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, with expertise in ${formData.skills.hardSkills}honed through 8+ projects. Skilled at leveraging cutting-edge tools to deliver innovative solutions. Proficient in ${formData.contactInfo.Languages}and recognized for exceptional ${formData.skills.softSkills}.`,
+    `A results-driven ${formData.contactInfo.jobTitle} Graduated from ${formData.education[0]?.institutionName}, mastered in ${formData.skills.hardSkills}Built over 10+ real-world projects. Adept in ${formData.contactInfo.Languages}and highly valued for strong ${formData.skills.softSkills}& creativity that drive Collaborative team work.`,
+    `A dedicated ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, specializing in ${formData.skills.hardSkills}with hands-on experience in building 12+ impactful projects. Fluent in ${formData.contactInfo.Languages}with proven strengths in ${formData.skills.softSkills}bringing creativity and precision to every challenge.`,
+    `A skilled ${formData.contactInfo.jobTitle} Graduated from ${formData.education[0]?.institutionName}, with expertise in ${formData.skills.hardSkills}built over 22+ practical projects. Familiar with ${formData.contactInfo.Languages}and known for outstanding ${formData.skills.softSkills}that foster innovation and collaboration.`,
+    `An innovative ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, with proficiency in ${formData.skills.hardSkills}demonstrated through 13+ diverse projects. Well-versed in ${formData.contactInfo.Languages}and appreciated for exceptional ${formData.skills.softSkills}in dynamic work environments.`,
   ]
 
   const [completedSteps, setCompletedSteps]=useState(new Set());
@@ -481,8 +481,7 @@ const GetInfo = () => {
                       handleInputChange("skills", "hardSkills", val);
                     }
                   }}
-                  suggestions={[
-                    "Python", "C", "C++" ,"Matplotlib" , "Java", "JavaScript", "TypeScript", "Golang", "Rust","Kotlin", "Swift", "PHP", "Ruby", "MATLAB","TensorFlow", "PyTorch", "Scikit-learn", "Keras", "Hugging Face", "OpenCV","XGBoost", "LightGBM", "FastAI", "Transformers", "Stable Diffusion", "LangChain","HTML", "CSS", "Tailwind CSS", "React", "Next.js", "Vue.js", "Angular","Node.js", "Express.js", "Django", "Flask","MySQL", "PostgreSQL", "MongoDB", "SQLite", "Redis", "Cassandra", "Firebase", "Supabase","Terraform", "Linux", "Bash Scripting","Apache Spark", "Hadoop", "Apache Kafka", "Airflow", "Pandas", "NumPy", "SQL", "ETL Pipelines","Computer Vision", "NLP", "Data Analysis", "Data Visualization", "Tableau","Power BI", "REST API", "GraphQL", "Microservices", "System Design","CI/CD", "Unit Testing", "Design Patterns", "OOP"]}
+                  suggestions={["Python", "C/C++", "LLM's" ,"Matplotlib" , "Java", "JavaScript", "TypeScript", "Golang", "Rust","Kotlin", "Swift", "PHP", "Ruby", "MATLAB","TensorFlow", "PyTorch", "Scikit-learn", "Keras", "Hugging Face", "OpenCV","XGBoost", "LightGBM", "FastAI", "Transformers", "Stable Diffusion", "LangChain","HTML", "CSS", "Tailwind CSS", "React", "Next.js", "Vue.js", "Angular","Node.js", "Express.js", "Django", "Flask","MySQL", "PostgreSQL", "MongoDB", "SQLite", "Redis", "Cassandra", "Firebase", "Supabase","Terraform", "Linux", "Bash Scripting","Apache Spark", "Hadoop", "Apache Kafka", "Airflow", "Pandas", "NumPy", "SQL", "ETL Pipelines","Computer Vision", "NLP", "Data Analysis", "Data Visualization", "Tableau","Power BI", "REST API", "GraphQL", "Microservices", "System Design","CI/CD", "Unit Testing", "Design Patterns", "OOP"]}
                 />
               </div>
               <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
@@ -492,7 +491,7 @@ const GetInfo = () => {
                 <div className="peer">
                   <Suggestions
                     label="Soft Skills"
-                    placeholder="TeamWork, strong Problem-Solving skill, Leadership, Critical thinking, Communication"
+                    placeholder="TeamWork, Problem-Solving, Leadership, Critical thinking, Communication"
                     value={isExampleProcessing ? ExampleJsonData.skills.softSkills : formData.skills.softSkills}
                     onChange={(val) => {
                       if (!isExampleProcessing) {
