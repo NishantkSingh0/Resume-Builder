@@ -25,7 +25,8 @@ const Result = () => {
             className="text-blue-600 dark:text-blue-400 no-underline hover:underline"
           >
             <strong>NishantkSingh0/Resume-Builder</strong>
-          </a>
+          </a> <br />
+          or contact with us <br /> <a href="mailto:nishantsingh.talk@gmail.com" className="text-blue-600 dark:text-blue-400 no-underline hover:underline">nishantsingh.talk@gmail.com</a>
         </p>
       ) : (
         <div className="relative w-[220px] h-[320px] rounded-[14px] overflow-hidden flex flex-col items-center justify-center shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] dark:shadow-[20px_20px_60px_#1a1a1a,-20px_-20px_60px_#2a2a2a] transition-all duration-300">

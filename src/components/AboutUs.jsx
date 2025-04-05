@@ -87,7 +87,8 @@ function AboutUs() {
                   "Developed and integrated frontend and backend systems.",
                   "Proposed innovative project ideas with structured workflows.",
                   "Researched high-rated resumes for optimization.",
-                  "Analyzed ATS algorithms for effective resume selection."
+                  "Analyzed ATS algorithms for effective resume selection.",
+                  "Handled suggestion items and integrate with UI"
                 ]}
               />}
             {dev.name === "Amisha Pal" && <ExpandButton

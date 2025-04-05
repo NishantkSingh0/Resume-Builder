@@ -258,7 +258,7 @@ def T1(jsonData,desc):
             <div class="Contact"> 
                <div class="section-title"><b>Contact</b> <i class="fas fa-address-card"></i></div><br>
                <div class="Litem"><i class="fa fa-phone rotate-90 TextLight"></i> {jsonData['contactInfo']['phoneNumber']} </div>
-               <div class="Litem NoneDecorationBlack"><i class="fas fa-envelope TextLight"></i><a href="mailto:"+{jsonData['contactInfo']['emailAddress']}> {jsonData['contactInfo']['emailAddress'].split('@')[0]} </a></div>
+               <div class="Litem NoneDecorationBlack"><i class="fas fa-envelope TextLight"></i><a href="mailto:{jsonData['contactInfo']['emailAddress']}"> {jsonData['contactInfo']['emailAddress'].split('@')[0]} </a></div>
                <div class="Litem NoneDecorationBlack"><i class="fab fa-linkedin TextLight"></i><a href={'https://www.linkedin.com/in/'+jsonData['contactInfo']['linkedin']} target="_blank"> {jsonData['contactInfo']['linkedin']}</a></div>
                <div class="Litem NoneDecorationBlack"><i class="fas fa-globe TextLight"></i><a href={jsonData['contactInfo']['portfolio'] if validators.url(jsonData['contactInfo']['portfolio']) else 'https://github.com/'+jsonData['contactInfo']['portfolio']} target="_blank"> {jsonData['contactInfo']['portfolio']} </a></div>
                <div class="Litem "><i class="fa fa-map-marker TextLight"></i> {jsonData['contactInfo']['Location']}</div> <br>
@@ -800,7 +800,7 @@ def T3(jsonData,desc):
                   <div class="Contact"> 
                      <div class="section-title"><b>Contact</b> <i class="fas fa-address-card"></i></div><br>
                      <div class="Litem"><i class="fa fa-phone rotate-90 IconLight"></i> {jsonData['contactInfo']['phoneNumber']} </div>
-                     <div class="Litem"><i class="fas fa-envelope IconLight"></i><a href="mailto:"+{jsonData['contactInfo']['emailAddress']}> {jsonData['contactInfo']['emailAddress'].split('@')[0]} </a></div>
+                     <div class="Litem"><i class="fas fa-envelope IconLight"></i><a href="mailto:{jsonData['contactInfo']['emailAddress']}"> {jsonData['contactInfo']['emailAddress'].split('@')[0]} </a></div>
                      <div class="Litem"><i class="fab fa-linkedin IconLight"></i><a href={'https://www.linkedin.com/in/'+jsonData['contactInfo']['linkedin']} target="_blank"> {jsonData['contactInfo']['linkedin']}</a></div>
                      <div class="Litem"><i class="fas fa-globe IconLight"></i><a href={jsonData['contactInfo']['portfolio'] if validators.url(jsonData['contactInfo']['portfolio']) else 'https://github.com/'+jsonData['contactInfo']['portfolio']} target="_blank"> {jsonData['contactInfo']['portfolio']} </a></div>
                      <div class="Litem"><i class="fa fa-map-marker IconLight"></i> {jsonData['contactInfo']['Location']}</div> <br>
@@ -1144,7 +1144,7 @@ def T4(jsonData,desc):
                   <div class="Contact"> 
                      <div class="Lsection-title"><b>Contact</b> <i class="fas fa-address-card"></i></div> <br>
                      <div class="Litem"><i class="fa fa-phone rotate-90"></i> {jsonData['contactInfo']['phoneNumber']} </div>
-                     <div class="Litem"><i class="fas fa-envelope"></i><a href="mailto:"+{jsonData['contactInfo']['emailAddress']}> {jsonData['contactInfo']['emailAddress'].split('@')[0]} </a></div>
+                     <div class="Litem"><i class="fas fa-envelope"></i><a href="mailto:{jsonData['contactInfo']['emailAddress']}"> {jsonData['contactInfo']['emailAddress'].split('@')[0]} </a></div>
                      <div class="Litem"><i class="fab fa-linkedin"></i><a href={'https://www.linkedin.com/in/'+jsonData['contactInfo']['linkedin']} target="_blank"> {jsonData['contactInfo']['linkedin']}</a></div>
                      <div class="Litem"><i class="fas fa-globe"></i><a href={jsonData['contactInfo']['portfolio'] if validators.url(jsonData['contactInfo']['portfolio']) else 'https://github.com/'+jsonData['contactInfo']['portfolio']} target="_blank"> {jsonData['contactInfo']['portfolio']} </a></div>
                      <div class="Litem"><i class="fa fa-map-marker"></i> {jsonData['contactInfo']['Location']}</div> 
@@ -1564,7 +1564,7 @@ def T7(jsonData,desc):
        <div class="resume">
           <div class="contacts">
              <h1>{jsonData['contactInfo']['fullName']}</h1>
-             <p>{jsonData['contactInfo']['Location']} <br>{jsonData['contactInfo']['phoneNumber']} | <a href="mailto:"+{jsonData['contactInfo']['emailAddress']} target="_blank">{jsonData['contactInfo']['emailAddress']}</a> | <a href={jsonData['contactInfo']['portfolio'] if validators.url(jsonData['contactInfo']['portfolio']) else 'https://github.com/'+jsonData['contactInfo']['portfolio']} target="_blank"> {jsonData['contactInfo']['portfolio']} <a></p>
+             <p>{jsonData['contactInfo']['Location']} <br>{jsonData['contactInfo']['phoneNumber']} | <a href="mailto:{jsonData['contactInfo']['emailAddress']}" target="_blank">{jsonData['contactInfo']['emailAddress']}</a> | <a href={jsonData['contactInfo']['portfolio'] if validators.url(jsonData['contactInfo']['portfolio']) else 'https://github.com/'+jsonData['contactInfo']['portfolio']} target="_blank"> {jsonData['contactInfo']['portfolio']} <a></p>
           </div>
           <div class="Conts">
              <div class="title">Objectives:</div>
