@@ -1,5 +1,4 @@
 import GenerateTemplates as gtps
-import GenerateText as gtxt
 import os
 import weasyprint
 from weasyprint import HTML
@@ -99,31 +98,33 @@ from weasyprint import HTML
 # with open('./GeneratedTemps/T11.html','w') as f:
 #    f.write(GeneratedCode)
 
-def GenerateResume(JsonData):
-  ExampleDesc="A passionated AI developer with extensive experience in various machine learning models, Primarily i focus on building models from scratch rather than relying heavily on fine-tuning pre-trained models. All my projects, showcasing my skills and contributions, are available on GitHub & Kaggle."
-  GeneratedText=""
-  Address=f"Backend/OnWebCall/T{JsonData['selectedTemplateEx']}.html"
-  match JsonData['selectedTemplateEx']:
-    case "1":
-      GeneratedText=gtps.T1(JsonData)
-    case "2":
-      GeneratedText=gtps.T2(JsonData)
-    case "3":
-      GeneratedText=gtps.T3(JsonData)
-    case "4":
-      GeneratedText=gtps.T4(JsonData)
-    case "5":
-      GeneratedText=gtps.T5(JsonData)
-    case "6":
-      GeneratedText=gtps.T1(JsonData)
-    case "7":
-      GeneratedText=gtps.T7(JsonData)
-    case _:
-      print("Incorrect template number provided!")
+HTML("./GeneratedTemps/T8.html").write_pdf("./GeneratedTemps/T8.pdf")
 
-  with open(Address+'.html','w') as f:
-    f.write(GeneratedText)
+# def GenerateResume(JsonData):
+#   ExampleDesc="A passionated AI developer with extensive experience in various machine learning models, Primarily i focus on building models from scratch rather than relying heavily on fine-tuning pre-trained models. All my projects, showcasing my skills and contributions, are available on GitHub & Kaggle."
+#   GeneratedText=""
+#   Address=f"Backend/OnWebCall/T{JsonData['selectedTemplateEx']}.html"
+#   match JsonData['selectedTemplateEx']:
+#     case "1":
+#       GeneratedText=gtps.T1(JsonData)
+#     case "2":
+#       GeneratedText=gtps.T2(JsonData)
+#     case "3":
+#       GeneratedText=gtps.T3(JsonData)
+#     case "4":
+#       GeneratedText=gtps.T4(JsonData)
+#     case "5":
+#       GeneratedText=gtps.T5(JsonData)
+#     case "6":
+#       GeneratedText=gtps.T1(JsonData)
+#     case "7":
+#       GeneratedText=gtps.T7(JsonData)
+#     case _:
+#       print("Incorrect template number provided!")
 
-  HTML(Address+".html").write_pdf(Address+".pdf")
+#   with open(Address+'.html','w') as f:
+#     f.write(GeneratedText)
+
+#   HTML(Address+".html").write_pdf(Address+".pdf")
   
-  return Address
+#   return Address

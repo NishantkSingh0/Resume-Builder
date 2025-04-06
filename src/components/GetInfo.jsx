@@ -93,7 +93,9 @@ const GetInfo=() => {
         providerName: "Coursera"
       },
     ],
-    Description:"Passionate AI developer & backend specialist with expertise in deep learning, computer vision, NLP, and transformers, focusing on building models from scratch. Proficient in React, frontend design, Flask, and Django, enabling seamless AI integration into real world applications. Developed and deployed 22+ projects, showcased on GitHub & Kaggle. Always eager to solve complex challenges and innovate in AI & software development.",
+    Description:{
+      UserDescription: "Passionate AI developer & backend specialist with expertise in deep learning, computer vision, NLP, and transformers, focusing on building models from scratch. Proficient in React, frontend design, Flask, and Django, enabling seamless AI integration into real world applications. Developed and deployed 22+ projects, showcased on GitHub & Kaggle. Always eager to solve complex challenges and innovate in AI & software development"
+    },
     selectedTemplateEx: "1" 
   });
   
@@ -134,16 +136,18 @@ const GetInfo=() => {
       courseDuration: '',
       providerName: ''
     }],
-    Description:'',
-    selectedTemplate: 0
+    Description: {
+      UserDescription: ""
+    },
+    selectedTemplate: ""
   });
   
   const ResumeDescriptions=[
-    `A passionate ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, with expertise in ${formData.skills.hardSkills}honed through 8+ projects. Skilled at leveraging cutting-edge tools to deliver innovative solutions. Proficient in ${formData.contactInfo.Languages}and recognized for exceptional ${formData.skills.softSkills}.`,
-    `A results-driven ${formData.contactInfo.jobTitle} Graduated from ${formData.education[0]?.institutionName}, mastered in ${formData.skills.hardSkills}Built over 10+ real-world projects. Adept in ${formData.contactInfo.Languages}and highly valued for strong ${formData.skills.softSkills}& creativity that drive Collaborative team work.`,
-    `A dedicated ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, specializing in ${formData.skills.hardSkills}with hands-on experience in building 12+ impactful projects. Fluent in ${formData.contactInfo.Languages}with proven strengths in ${formData.skills.softSkills}bringing creativity and precision to every challenge.`,
-    `A skilled ${formData.contactInfo.jobTitle} Graduated from ${formData.education[0]?.institutionName}, with expertise in ${formData.skills.hardSkills}built over 22+ practical projects. Familiar with ${formData.contactInfo.Languages}and known for outstanding ${formData.skills.softSkills}that foster innovation and collaboration.`,
-    `An innovative ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, with proficiency in ${formData.skills.hardSkills}demonstrated through 13+ diverse projects. Well-versed in ${formData.contactInfo.Languages}and appreciated for exceptional ${formData.skills.softSkills}in dynamic work environments.`,
+    `A passionate ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, with expertise in ${formData.skills.hardSkills} honed through 8+ projects. Skilled at leveraging cutting-edge tools to deliver innovative solutions. Proficient in ${formData.contactInfo.Languages}and recognized for exceptional ${formData.skills.softSkills}.`,
+    `A results-driven ${formData.contactInfo.jobTitle} Graduated from ${formData.education[0]?.institutionName}, mastered in ${formData.skills.hardSkills} Built over 10+ real-world projects. Adept in ${formData.contactInfo.Languages}and highly valued for strong ${formData.skills.softSkills}& creativity that drive Collaborative team work.`,
+    `A dedicated ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, specializing in ${formData.skills.hardSkills} with hands-on experience in building 12+ impactful projects. Fluent in ${formData.contactInfo.Languages}with proven strengths in ${formData.skills.softSkills}bringing creativity and precision to every challenge.`,
+    `A skilled ${formData.contactInfo.jobTitle} Graduated from ${formData.education[0]?.institutionName}, with expertise in ${formData.skills.hardSkills} built over 22+ practical projects. Familiar with ${formData.contactInfo.Languages}and known for outstanding ${formData.skills.softSkills}that foster innovation and collaboration.`,
+    `An innovative ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, with proficiency in ${formData.skills.hardSkills} demonstrated through 13+ diverse projects. Well-versed in ${formData.contactInfo.Languages}and appreciated for exceptional ${formData.skills.softSkills}in dynamic work environments.`,
   ]
 
   const [completedSteps, setCompletedSteps]=useState(new Set());
@@ -200,15 +204,13 @@ const GetInfo=() => {
     }
   };
   
-  const handleInputChange=(section, field=null, value, index=null) => {
+  const handleInputChange=(section, field, value, index=null) => {
     setFormData(prev => {
       const newData={ ...prev };
       if (index !== null && field!=null) {
         newData[section][index][field]=value;
       } else if (typeof newData[section] === 'object' && !Array.isArray(newData[section]) && field!=null) {
         newData[section][field]=value;
-      } else {
-        newData[section]=value;
       }
       return newData;
     });
@@ -258,7 +260,7 @@ const GetInfo=() => {
       3: formData.projects.length > 0 ? formData.projects.map(proj => [proj.projectTitle, proj.toolsTechUsed]) : [[]],
       4: formData.education.length > 0 ? formData.education.map(edu => [edu.institutionName, edu.degreeName, edu.graduationYear, edu.currentSGPA]) : [[]],
       5: formData.certificates.length > 0 ? formData.certificates.map(cert => [cert.certificateName, cert.courseDuration, cert.providerName]) : [[]],
-      6: [formData.Description],
+      6: [formData.Description.UserDescription],
       7: [formData.selectedTemplate],
     };
   
@@ -292,7 +294,7 @@ const GetInfo=() => {
     if (currentStep < steps.length - 1) {
       setCurrentStep((prev) => prev + 1);
     } else {          // its only validate if input current step is previously doned {if future step found to be next without filling  details it though error}
-      for (let step=0; step <= 6; step++) {
+      for (let step=0; step <= 7; step++) {
         const requiredFields=Fields[step].flat();
         if (requiredFields.length > 0 && !areFieldsValid(requiredFields) && !isExampleProcessing) {
           toast.error("Please complete all required fields before submitting.", {
@@ -1044,9 +1046,9 @@ const GetInfo=() => {
                 <div className="peer">
                   <Suggestions
                     label="Resume Description"
-                    placeholder="Passionate AI Developer & Backend Specialist with expertise in Deep Learning, Computer Vision, NLP, and Transformers. Skilled at building models from scratch and integrating them into real-world applications using React, Flask, and Django. Developed and deployed 22+ projects available on GitHub & Kaggle."
-                    value={formData.Description}
-                    onChange={(val) => handleInputChange('Description', val)}
+                    placeholder="Passionated AI Developer & Backend Specialist with expertise in Deep Learning, Computer Vision, NLP, and Transformers. Skilled at building models from scratch and integrating them into real-world applications using React, Flask, and Django. Developed and deployed 22+ projects available on GitHub & Kaggle."
+                    value={formData.Description.UserDescription}
+                    onChange={(val) => handleInputChange('Description','UserDescription', val)}
                     suggestions={ResumeDescriptions}
                     isTextArea={true}
                     isMultiSuggestion={false}
@@ -1152,11 +1154,11 @@ const GetInfo=() => {
           onClick={() => setIsOpen(!isOpen)}
           className="absolute top-6 pl-7 md:hidden p-3 rounded-r-full bg-gray-200 dark:bg-gray-600 dark:text-cyan-300"
         >
-          {isOpen ? <X size={20} /> : <Menu size={15} />}
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
 
         <div className={`${isOpen || "hidden md:block"}`}>
-          <h1 className={"text-2xl font-bold pt-20 md:pt-4 text-center text-blue-80 text-blue-800 dark:text-amber-300 cursor-pointer"}>BRAVERS</h1>
+          <h1 className={"text-2xl font-bold pt-20 md:pt-4 text-center text-blue-80 text-blue-800 dark:text-amber-300 cursor-pointer"} title="Name of team">BRAVERS</h1>
           <div className="w-[30%] h-1 bg-blue-900  mb-6 mx-auto mt-1 rounded dark:bg-amber-400"></div>
           <div className="space-y-4 p-2">
             {steps.map((step, index) => (

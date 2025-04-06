@@ -1,0 +1,49 @@
+{
+   "contactInfo": {
+     "fullName": "Nishant",
+     "phoneNumber": "9917760469",
+     "emailAddress": "nishnt@gmail.com",
+     "linkedin": "nishantkssingh1",
+     "portfolio": "ghj",
+     "jobTitle": "Backend Developer",
+     "Languages": "English, ",
+     "Location": "Haridwar (Uttarakhand)"
+   },
+   "skills": {
+     "hardSkills": "TensorFlow, ",
+     "softSkills": "Teamwork, "
+   },
+   "workExperience": [
+     {
+       "jobTitle": "Data Scientist",
+       "companyName": "OnleiTech",
+       "WorkDuration": "dec-23 to jan-26",
+       "keyAchievements": "ghj"
+     }
+   ],
+   "projects": [
+     {
+       "projectTitle": "Tran",
+       "toolsTechUsed": "ghbnj"
+     }
+   ],
+   "education": [
+     {
+       "institutionName": "gbnj",
+       "degreeName": "bnm",
+       "graduationYear": "23-26",
+       "currentSGPA": "7"
+     }
+   ],
+   "certificates": [
+     {
+       "certificateName": "azure",
+       "courseDuration": "bn",
+       "providerName": "nm"
+     }
+   ],
+   "Description": {
+     "UserDescription": "An innovative Backend Developer graduated from gbnj, with proficiency in TensorFlow,  demonstrated through 13+ diverse projects. Well-versed in English, and appreciated for exceptional Teamwork, in dynamic work environments."
+   },
+   "selectedTemplate": "1"
+ }

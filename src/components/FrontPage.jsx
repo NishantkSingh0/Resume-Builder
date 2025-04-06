@@ -67,10 +67,10 @@ const FrontPage=()=>{
 
   return (
     <div className="flex flex-col h-screen bg-gray-300 text-center px-4 dark:bg-slate-950">
-      <div className="hidden md:flex justify-between items-center w-full px-6 py-3 bg-white shadow-md rounded-2xl mt-3 dark:bg-slate-800">
+      <div className="hidden md:flex justify-between items-center w-full px-6 py-3 bg-white shadow-md rounded-3xl mt-3 dark:bg-slate-800">
         <div className="flex items-center">
           <button 
-            className="mr-6 mt-1"
+            className="mr-4 mt-1"
             title="The Dark/Light mode will be chosen randomly on each refresh, allowing users to experience both modes. You can also set it as you prefer"
             onClick={handleTheme}>
               <Switch/>
@@ -85,17 +85,17 @@ const FrontPage=()=>{
           </button>
         </div>
         
-        <h1 className="text-xl font-bold text-gray-800 dark:text-white no-underline">
+        <h1 className="text-xl mr-5 font-bold text-gray-800 dark:text-white no-underline">
           <a href="https://github.com/NishantkSingh0/Resume-Builder" title="Address to GitHub repository of this project" target="_blank">
             <span className="lg:hidden">Resume Builder</span>
             <span className="hidden lg:block">Level Up Your First Impression</span>
           </a>
         </h1>
         <div className="flex space-x-4">
-          <button className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105" onClick={handleAboutUs}>
+          <button className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105" title="our contributions and contact information" onClick={handleAboutUs}>
             About Us
           </button>
-          <button className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105" onClick={handleContinue}>
+          <button className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105" title="Continue fiiling details and craft future jobs" onClick={handleContinue}>
             Continue ➤
           </button>
         </div>
