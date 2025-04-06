@@ -4,12 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import toast from "react-hot-toast";
 import Suggestions from "./Suggestions";
 
-const GetInfo = () => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [NextError, setNextError] = useState(false);
-  const navigate = useNavigate();
+const GetInfo=() => {
+  const [currentStep, setCurrentStep]=useState(0);
+  const [NextError, setNextError]=useState(false);
+  const navigate=useNavigate();
 
-  const [ExampleJsonData, setExampleJsonData] = useState({
+  const [ExampleJsonData, setExampleJsonData]=useState({
     contactInfo: {
       fullName: "Nishant kumar",
       phoneNumber: "9217290469",
@@ -98,7 +98,7 @@ const GetInfo = () => {
   });
   
 
-  const [formData, setFormData] = useState({
+  const [formData,setFormData]=useState({
     contactInfo: {
       fullName: '',
       phoneNumber: '',
@@ -154,13 +154,13 @@ const GetInfo = () => {
   const [isInvalidGDuration,setIsInvalidGDuration]=useState(false);
   const [isInvalidSGPA,setIsInvalidSGPA]=useState(false);
   const [isOpen, setIsOpen]=useState(false);
-  const [showInput, setShowInput] = useState(false);
-  const [pin, setPin] = useState("");
-  const [error, setError] = useState(false);
+  const [showInput, setShowInput]=useState(false);
+  const [pin, setPin]=useState("");
+  const [error, setError]=useState(false);
   
   const AboutTemps=["Simpler & Structured","Linear & Classic","Colourfull & Attractive","Colourful & Highly Designed","Simpler & Linear","Designed & Attractive","Highly Simpler & Classic"]
   
-  const steps = [
+  const steps=[
     { title: 'Begin with your contact details', key: 'Contact Info' },
     { title: 'Showcase your skills', key: 'Skills' },
     { title: 'Share your work experience', key: 'Work Experience' },
@@ -171,16 +171,16 @@ const GetInfo = () => {
     { title: 'Choose a template that suits you best', key: 'Template' }
   ];
   
-  const HandleExampleProcessing = () => {
+  const HandleExampleProcessing=() => {
     setIsExampleProcessing(true);
-    const newSet = new Set();
-    for (let i = 0; i < 8 - 1; i++) {
+    const newSet=new Set();
+    for (let i=0; i < 8 - 1; i++) {
       newSet.add(i);
     }
     setCompletedSteps(newSet);
   };
 
-  const handleVerify = (e) => {
+  const handleVerify=(e) => {
     if (e.key === "Enter" || e.key=="Tab") {  
       if (pin === "147895") {
         toast.success("Authorized", {
@@ -200,13 +200,13 @@ const GetInfo = () => {
     }
   };
   
-  const handleInputChange = (section, field=null, value, index = null) => {
+  const handleInputChange=(section, field=null, value, index=null) => {
     setFormData(prev => {
-      const newData = { ...prev };
+      const newData={ ...prev };
       if (index !== null && field!=null) {
-        newData[section][index][field] = value;
+        newData[section][index][field]=value;
       } else if (typeof newData[section] === 'object' && !Array.isArray(newData[section]) && field!=null) {
-        newData[section][field] = value;
+        newData[section][field]=value;
       } else {
         newData[section]=value;
       }
@@ -214,7 +214,7 @@ const GetInfo = () => {
     });
   };
 
-  const addNewItem = (section) => {
+  const addNewItem=(section) => {
     setFormData(prev => ({
       ...prev,
       [section]: [...prev[section], section === 'workExperience' ? {
@@ -238,8 +238,8 @@ const GetInfo = () => {
     }));
   };
 
-  const handleNext = () => {
-    const Fields = {
+  const handleNext=() => {
+    const Fields={
       0: [
         formData.contactInfo.fullName,
         formData.contactInfo.phoneNumber,
@@ -270,10 +270,10 @@ const GetInfo = () => {
       return;
     }
     
-    const areFieldsValid = (fields) => fields.every((field) => typeof field === "string" && field.trim() !== "");
+    const areFieldsValid=(fields) => fields.every((field) => typeof field === "string" && field.trim() !== "");
     setNextError(false);
-    for (let step = 0; step <= currentStep; step++) {
-      const requiredFields = Fields[step].flat();
+    for (let step=0; step <= currentStep; step++) {
+      const requiredFields=Fields[step].flat();
       if (requiredFields.length > 0 && !areFieldsValid(requiredFields) && !isExampleProcessing) {
         setNextError(true)
         toast.error("Please fill out all required fields From 'Contact Info' before proceeding further.", {
@@ -292,8 +292,8 @@ const GetInfo = () => {
     if (currentStep < steps.length - 1) {
       setCurrentStep((prev) => prev + 1);
     } else {          // its only validate if input current step is previously doned {if future step found to be next without filling  details it though error}
-      for (let step = 0; step <= 6; step++) {
-        const requiredFields = Fields[step].flat();
+      for (let step=0; step <= 6; step++) {
+        const requiredFields=Fields[step].flat();
         if (requiredFields.length > 0 && !areFieldsValid(requiredFields) && !isExampleProcessing) {
           toast.error("Please complete all required fields before submitting.", {
             duration: 3000, 
@@ -308,20 +308,20 @@ const GetInfo = () => {
         navigate('/Result');
         console.log("Form submitted:", formData);
     
-        const jsonData = JSON.stringify(formData, null, 2);
-        const blob = new Blob([jsonData], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
+        const jsonData=JSON.stringify(formData, null, 2);
+        const blob=new Blob([jsonData], { type: "application/json" });
+        const url=URL.createObjectURL(blob);
     
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "resume_data.json";
+        const a=document.createElement("a");
+        a.href=url;
+        a.download="resume_data.json";
         document.body.appendChild(a);
         a.click();
     
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
       }else{
-        const jsonData = JSON.stringify(ExampleJsonData, null, 2);
+        const jsonData=JSON.stringify(ExampleJsonData, null, 2);
         fetch("http://127.0.0.1:5000/upload", {
           method: "POST",
           headers: {
@@ -337,12 +337,12 @@ const GetInfo = () => {
   };
   
 
-  const renderFormSection = () => {
+  const renderFormSection=() => {
     switch (currentStep) {
       case 0:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl mb-4 font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Contact Information</h2>
+            <h2 className="text-xl sm:text-2xl mb-4 pb-1 font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Contact Information</h2>
               <div className="space-y-2">
                 <label className="block text-sm font-medium dark:text-slate-300">Full Name</label>
                 <input
@@ -373,7 +373,7 @@ const GetInfo = () => {
                     }
                   }}
                   onBlur={(e) => {
-                    const value = e.target.value;
+                    const value=e.target.value;
                     if (!/^\d{10}$/.test(value) && !isExampleProcessing) {
                       toast.error("Phone number must be of 10 digits", { duration: 3000, position: "top-right" });
                       setIsInvalidMob(true);
@@ -399,7 +399,7 @@ const GetInfo = () => {
                     }
                   }}
                   onBlur={(e) => {
-                    const value = e.target.value;
+                    const value=e.target.value;
                     if (!/^\S+@\S+\.\S+\s*$/.test(value) && !isExampleProcessing) {
                       toast.error("Invalid email format!", { duration: 3000, position: "top-right" });
                       setIsInvalidMail(true);
@@ -456,7 +456,7 @@ const GetInfo = () => {
                         handleInputChange('contactInfo', 'jobTitle', val)
                       }
                     }}
-                    suggestions={["Data Scientist","Machine Learning Engineer","AI Researcher","Data Analyst","Software Engineer","Full Stack Developer","Backend Developer","Frontend Developer","DevOps Engineer","Cloud Architect","Cybersecurity Analyst","Database Administrator","Blockchain Developer","Computer Vision Engineer","NLP Engineer","Data Engineer","Big Data Engineer","Research Scientist","Product Manager","Project Manager","Scrum Master","Program Manager","Technical Program Manager","Operations Manager","IT Manager","Marketing Manager","Digital Marketing Specialist","SEO Specialist","Content Manager","Brand Manager","Sales Executive","Business Development Manager","Social Media Manager","Growth Hacker","UI/UX Designer","Graphic Designer","Product Designer","Visual Designer","Creative Director","Motion Graphics Designer","Financial Analyst","Accountant","Investment Banker","Business Analyst","Management Consultant","HR Manager","Recruiter","Legal Advisor","AI Ethics Researcher","Prompt Engineer","Data Privacy Consultant","Automation Engineer","Robotics Engineer","Sustainability Consultant","Technical Writer"]}
+                    suggestions={["Data Scientist","Machine Learning Engineer","AI Researcher","Data Analyst","Software Engineer","Full Stack Developer","Backend Developer","Frontend Developer","DevOps Engineer","Cloud Architect","Cybersecurity Analyst","Database Administrator","Blockchain Developer","Computer Vision Engineer","NLP Engineer","Data Engineer","Big Data Engineer","Research Scientist","Product Manager","Project Manager","Scrum Master","Program Manager","Technical Program Manager","Operations Manager","IT Manager","Marketing Manager","Digital Marketing Specialist","SEO Specialist","Content Manager","Brand Manager","Sales Executive","Business Development Manager","Social Media Manager","Growth Hacker","UI/UX Designer","Graphic Designer","Product Designer","Visual Designer","Creative Director","Motion Graphics Designer","Financial Analyst","Accountant","Investment Banker","Business Analyst","Management Consultant","HR Manager","Recruiter","Legal Advisor","AI Ethics Researcher","Prompt Engineer","Data Privacy Consultant","Automation Engineer","Robotics Engineer","Sustainability Consultant","Technical Writer","Game Developer", "VR/AR Developer","Metaverse Architect","AI Product Manager","AI Trainer","Generative AI Specialist","MLOps Engineer","Cloud Security Engineer","Cybersecurity Consultant","Penetration Tester","Mobile App Developer","iOS Developer","Android Developer","Embedded Systems Engineer","IoT Engineer","Hardware Engineer","Quantum Computing Researcher","Bioinformatics Scientist","Healthcare Data Analyst","Data Visualization Specialist","Creative Technologist","Influencer Marketing Manager","Customer Success Manager","Community Manager","Localization Specialist","E-commerce Manager","UX Researcher","Animation Artist","Video Editor","AI Content Creator","AI Policy Analyst","SaaS Product Manager","Security Engineer","Energy Analyst","Renewable Energy Consultant","Ethical Hacker","Cloud Consultant","Digital Strategist"]}
                     isMultiSuggestion={false}
                   />
                 </div>
@@ -468,20 +468,20 @@ const GetInfo = () => {
       case 1:
         return (
           <div className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Skills</h2>
+            <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 pb-1 text-blue-800 dark:border-blue-500 dark:text-blue-400">Skills</h2>
 
             <div className="space-y-2">
               <div className="peer">
                 <Suggestions
                   label="Technical Skills"
-                  placeholder="TensorFlow, PyTorch, Scikit-learn, Keras, Hugging Face, C/C++, Java, JavaScript, React"
+                  placeholder="TensorFlow, NLP, Scikit-learn, Keras, Transformers, C/C++, Java, JavaScript, React"
                   value={isExampleProcessing ? ExampleJsonData.skills.hardSkills : formData.skills.hardSkills}
                   onChange={(val) => {
                     if (!isExampleProcessing) {
                       handleInputChange("skills", "hardSkills", val);
                     }
                   }}
-                  suggestions={["Python", "C/C++", "LLM's" ,"Matplotlib" , "Java", "JavaScript", "TypeScript", "Golang", "Rust","Kotlin", "Swift", "PHP", "Ruby", "MATLAB","TensorFlow", "PyTorch", "Scikit-learn", "Keras", "Hugging Face", "OpenCV","XGBoost", "LightGBM", "FastAI", "Transformers", "Stable Diffusion", "LangChain","HTML", "CSS", "Tailwind CSS", "React", "Next.js", "Vue.js", "Angular","Node.js", "Express.js", "Django", "Flask","MySQL", "PostgreSQL", "MongoDB", "SQLite", "Redis", "Cassandra", "Firebase", "Supabase","Terraform", "Linux", "Bash Scripting","Apache Spark", "Hadoop", "Apache Kafka", "Airflow", "Pandas", "NumPy", "SQL", "ETL Pipelines","Computer Vision", "NLP", "Data Analysis", "Data Visualization", "Tableau","Power BI", "REST API", "GraphQL", "Microservices", "System Design","CI/CD", "Unit Testing", "Design Patterns", "OOP"]}
+                  suggestions={["Python","C/C++","LLM's","Matplotlib","Java","JavaScript","TypeScript","Golang","Rust","Kotlin","Swift","PHP","Ruby","MATLAB","TensorFlow","PyTorch","Scikit-learn","Keras","Hugging Face","OpenCV","XGBoost","LightGBM","FastAI","Transformers","Stable Diffusion","LangChain","HTML","CSS","Tailwind CSS","React","Next.js","Vue.js","Angular","Node.js","Express.js","Django","Flask","MySQL","PostgreSQL","MongoDB","SQLite","Redis","Cassandra","Firebase","Supabase","Terraform","Linux","Bash Scripting","Docker","Kubernetes","AWS","Azure","Google Cloud Platform (GCP)","Apache Spark","Hadoop","Apache Kafka","Airflow","Pandas","NumPy","SQL","ETL Pipelines","Computer Vision","NLP","Data Analysis","Data Visualization","Tableau","Power BI","REST API","GraphQL","gRPC","Microservices","System Design","CI/CD","Unit Testing","Integration Testing","Design Patterns","OOP","SOLID Principles","Blockchain","Smart Contracts","Solidity","Web3.js","IPFS","Cybersecurity Fundamentals","OWASP","JWT Authentication","OAuth 2.0","Prometheus","Grafana","ELK Stack (Elasticsearch,Logstash,Kibana)","Serverless Architecture","AWS Lambda","Firebase Functions","Figma","Adobe XD","Framer Motion","Three.js","WebGL","Jenkins","GitHub Actions","GitLab CI","CircleCI","BigQuery","Snowflake","Redshift","LangSmith","AutoML","Vertex AI","MLOps","MLflow","Weights & Biases (WandB)","Prompt Engineering","Vector Databases","Pinecone","ChromaDB","Agile Methodology","Scrum","Kanban","Socket.IO","WebSockets","Real-time Applications","MQTT Protocol","IoT Systems","Embedded Systems"]}
                 />
               </div>
               <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
@@ -545,7 +545,7 @@ const GetInfo = () => {
         if (!isExampleProcessing){
           return (
             <div className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Work Experience</h2>
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Work Experience</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
               {formData.workExperience.map((exp, index) => (
                 <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
@@ -573,7 +573,7 @@ const GetInfo = () => {
                           value={exp.companyName}
                           onChange={(val) => handleInputChange('workExperience', 'companyName', val, index)}
                           suggestions={["OnleiTech","Rubico IT","Tata Consultancy Services","Infosys","HCL Technologies","Wipro","Tech Mahindra","Cognizant Technology Solutions","IBM India","Larsen & Toubro Infotech","Mindtree","Mphasis","Oracle Financial Services Software","Redington India","Ingram Micro India","Dell India","SAP India","Capgemini India","Accenture India","Cisco Systems India","Amazon Development Centre India","Google India","Microsoft India","Adobe Systems India","Intel Technology India","HP India","Siemens India","Samsung R&D Institute India","Infosys BPM","Wipro Technologies","HCL Infosystems","Tech Mahindra Business Services","L&T Technology Services","Persistent Systems","Hexaware Technologies","Zensar Technologies","Birlasoft","NIIT Technologies","Cyient","Sonata Software","Mindtree Consulting","Mastek","Sasken Technologies","Polaris Consulting & Services","Ramco Systems","CMC Limited","iGate","Patni Computer Systems","Mahindra Satyam","3i Infotech","Coforge","eClerx Services","Firstsource Solutions","L&T Infotech","Syntel","QuEST Global","KPIT Technologies","Nucleus Software Exports","Oracle India","IBM Daksh","Dell International Services","Concentrix India","Genpact","EXL Service","WNS Global Services","Hinduja Global Solutions","Teleperformance India","Sutherland Global Services","Aegis Limited","Infosys McCamish Systems","TCS e-Serve","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Infosys BPO","TCS BPO","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Infosys BPO","TCS BPO","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Zoho Corporation","Freshworks","Paytm","Ola Cabs","Zomato","Swiggy","Byju's","Flipkart","Snapdeal","MakeMyTrip","PolicyBazaar","Delhivery","InMobi","Quikr","Hike","Naukri.com","BookMyShow","BigBasket","Lenskart","OYO Rooms","CureFit","Razorpay","PhonePe","Myntra","ShopClues","UrbanClap","Practo","1mg","CarDekho","Housing.com","Pepperfry","Nykaa","Dream11","Udaan","Meesho","ShareChat","Dunzo","BlackBuck","Rivigo","Infra.Market","Moglix","OfBusiness","UpGrad","Unacademy","Vedantu","WhiteHat Jr.","Eruditus","Simplilearn","Toppr","Lido Learning","Classplus","Testbook","Doubtnut","Embibe","Khatabook","OkCredit","BharatPe","CRED","Groww","Zerodha","Smallcase","INDmoney","CoinSwitch Kuber","WazirX","Instamojo","Mswipe","Pine Labs","Chargebee","Capillary Technologies","WebEngage","MoEngage","Netcore Solutions","BrowserStack","Postman","Wingify","FusionCharts","HackerRank","HackerEarth","InterviewBit","Scaler","Coding Ninjas","GeeksforGeeks","Tata Elxsi","Cyient","Persistent Systems","Zensar Technologies","Sonata Software","Mastek","Sasken Technologies","Mindtree","L&T Technology Services","Birlasoft","Hexaware Technologies","NIIT Technologies","Mphasis","QuEST Global","KPIT Technologies","Nucleus Software Exports","Ramco Systems","CMC Limited","iGate","Patni Computer Systems","Mahindra Satyam","3i Infotech","Coforge"]}
-                          isMultiSuggestion = {false}
+                          isMultiSuggestion={false}
                         />
                       </div>
                       <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
@@ -588,7 +588,7 @@ const GetInfo = () => {
                         value={exp.WorkDuration}
                         onChange={(e) => handleInputChange("workExperience", "WorkDuration", e.target.value, index)}
                         onBlur={(e) => {
-                          const value = e.target.value;
+                          const value=e.target.value;
                           if (!/^\s*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)-(\d{2,4})\s*to\s*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)-(\d{2,4})\s*$/.test(value)) {
                             toast.error("Invalid format!\n Use as Dec-2023 to Mar-2025", { duration: 3000, position: "top-right" });
                             e.target.focus();
@@ -625,7 +625,7 @@ const GetInfo = () => {
         }else{
           return (
             <div className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Work Experience</h2>
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Work Experience</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
               {ExampleJsonData.workExperience.map((exp, index) => (
                 <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
@@ -686,7 +686,7 @@ const GetInfo = () => {
         if (!isExampleProcessing){
           return (
             <div className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Projects</h2>
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Projects</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 3 projects which you did in your academics</p>
               {formData.projects.map((project, index) => (
                 <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
@@ -729,7 +729,7 @@ const GetInfo = () => {
         }else{
           return (
             <div className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Projects</h2>
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4  pb-1 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Projects</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 3 projects which you did in your academics</p>
               {ExampleJsonData.projects.map((project, index) => (
                 <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
@@ -770,7 +770,7 @@ const GetInfo = () => {
           if (!isExampleProcessing){
             return (
               <div className="space-y-4">
-                <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Education</h2>
+                <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Education</h2>
                 <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add your pre/post graduations on different sections (Consider listing your most recent Qualifications first)</p>
                 {formData.education.map((edu, index) => (
                   <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
@@ -813,7 +813,7 @@ const GetInfo = () => {
                         value={edu.graduationYear}
                         onChange={(e) => handleInputChange("education", "graduationYear", e.target.value, index)}
                         onBlur={(e) => {
-                          const value = e.target.value;
+                          const value=e.target.value;
                           if (!/^\s*(\d{2,4})\s*-\s*(\d{2,4})\s*$/.test(value)) {
                             toast.error("Invalid format! \nUse as 2023 - 2026", { duration: 3000, position: "top-right" });
                             e.target.focus(); 
@@ -835,7 +835,7 @@ const GetInfo = () => {
                         value={edu.currentSGPA}
                         onChange={(e) => handleInputChange('education', 'currentSGPA', e.target.value, index)}
                         onBlur={(e) => {
-                          const value = e.target.value;
+                          const value=e.target.value;
                           if (!/^\s*([0-9](\.\d{1})?|10(\.0)?)\s*$/.test(value)) {
                             toast.error("Invalid format! \nUse as 7 or 8.3 and less then 10", { duration: 3000, position: "top-right" });
                             e.target.focus(); 
@@ -861,7 +861,7 @@ const GetInfo = () => {
           }else{
             return (
               <div className="space-y-4">
-                <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Education</h2>
+                <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Education</h2>
                 <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add your pre/post graduations on different sections (Consider listing your most recent Qualifications first)</p>
                 {ExampleJsonData.education.map((edu, index) => (
                   <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
@@ -924,7 +924,7 @@ const GetInfo = () => {
         if (!isExampleProcessing){
           return (
             <div className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Certificates</h2>
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Certificates</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 5 high rated certificates</p>
               {formData.certificates.map((cert, index) => (
                 <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
@@ -963,7 +963,7 @@ const GetInfo = () => {
                           value={cert.providerName}
                           onChange={(val) => handleInputChange('certificates', 'providerName', val, index)}
                           suggestions={["OnleiTech","Rubico IT","Tata Consultancy Services","Infosys","HCL Technologies","Wipro","Tech Mahindra","Cognizant Technology Solutions","IBM India","Larsen & Toubro Infotech","Mindtree","Mphasis","Oracle Financial Services Software","Redington India","Ingram Micro India","Dell India","SAP India","Capgemini India","Accenture India","Cisco Systems India","Amazon Development Centre India","Google India","Microsoft India","Adobe Systems India","Intel Technology India","HP India","Siemens India","Samsung R&D Institute India","Infosys BPM","Wipro Technologies","HCL Infosystems","Tech Mahindra Business Services","L&T Technology Services","Persistent Systems","Hexaware Technologies","Zensar Technologies","Birlasoft","NIIT Technologies","Cyient","Sonata Software","Mindtree Consulting","Mastek","Sasken Technologies","Polaris Consulting & Services","Ramco Systems","CMC Limited","iGate","Patni Computer Systems","Mahindra Satyam","3i Infotech","Coforge","eClerx Services","Firstsource Solutions","L&T Infotech","Syntel","QuEST Global","KPIT Technologies","Nucleus Software Exports","Oracle India","IBM Daksh","Dell International Services","Concentrix India","Genpact","EXL Service","WNS Global Services","Hinduja Global Solutions","Teleperformance India","Sutherland Global Services","Aegis Limited","Infosys McCamish Systems","TCS e-Serve","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Infosys BPO","TCS BPO","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Infosys BPO","TCS BPO","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Zoho Corporation","Freshworks","Paytm","Ola Cabs","Zomato","Swiggy","Byju's","Flipkart","Snapdeal","MakeMyTrip","PolicyBazaar","Delhivery","InMobi","Quikr","Hike","Naukri.com","BookMyShow","BigBasket","Lenskart","OYO Rooms","CureFit","Razorpay","PhonePe","Myntra","ShopClues","UrbanClap","Practo","1mg","CarDekho","Housing.com","Pepperfry","Nykaa","Dream11","Udaan","Meesho","ShareChat","Dunzo","BlackBuck","Rivigo","Infra.Market","Moglix","OfBusiness","UpGrad","Unacademy","Vedantu","WhiteHat Jr.","Eruditus","Simplilearn","Toppr","Lido Learning","Classplus","Testbook","Doubtnut","Embibe","Khatabook","OkCredit","BharatPe","CRED","Groww","Zerodha","Smallcase","INDmoney","CoinSwitch Kuber","WazirX","Instamojo","Mswipe","Pine Labs","Chargebee","Capillary Technologies","WebEngage","MoEngage","Netcore Solutions","BrowserStack","Postman","Wingify","FusionCharts","HackerRank","HackerEarth","InterviewBit","Scaler","Coding Ninjas","GeeksforGeeks","Tata Elxsi","Cyient","Persistent Systems","Zensar Technologies","Sonata Software","Mastek","Sasken Technologies","Mindtree","L&T Technology Services","Birlasoft","Hexaware Technologies","NIIT Technologies","Mphasis","QuEST Global","KPIT Technologies","Nucleus Software Exports","Ramco Systems","CMC Limited","iGate","Patni Computer Systems","Mahindra Satyam","3i Infotech","Coforge"]}
-                          isMultiSuggestion = {false}
+                          isMultiSuggestion={false}
                         />
                       </div>
                       <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
@@ -982,7 +982,7 @@ const GetInfo = () => {
         }else{
           return (
             <div className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Certificates</h2>
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Certificates</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 5 high rated certificates</p>
               {ExampleJsonData.certificates.map((cert, index) => (
                 <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
@@ -1034,7 +1034,7 @@ const GetInfo = () => {
         if (!isExampleProcessing){
           return (
             <div className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">
                 Description
               </h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Consider to edit them more and make professional</p>
@@ -1060,7 +1060,7 @@ const GetInfo = () => {
         }else{
           return (
             <div className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">
                 Description
               </h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Consider to edit them more and make professional</p>
@@ -1080,7 +1080,7 @@ const GetInfo = () => {
         if(!isExampleProcessing){
           return (
             <div className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Choose Template</h2>
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Choose Template</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>We will frequently add more template designs to provide more resume options.</p>
               <div className="grid grid-cols-2 gap-5">
                   {[1,2,3,4,5,6,7].map((template) => (
@@ -1109,7 +1109,7 @@ const GetInfo = () => {
         }else{
           return (
             <div className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Choose Template</h2>
+              <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Choose Template</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>We will frequently add more template designs to provide more resume options.</p>
               <div className="grid grid-cols-2 gap-5">
                   {[1,2,3,4,5,6,7].map((template) => (
@@ -1170,11 +1170,18 @@ const GetInfo = () => {
                 `}
               >
                 <div
-                    className={`w-6 h-6 rounded-full flex items-center justify-center border 
-                    ${completedSteps.has(index) ? "bg-white border-green-600 dark:border-amber-300 dark:bg-gray-800" : "border-gray-400 dark:border-gray-400"}
+                  className={`w-6 h-6 rounded-full flex items-center justify-center border transition-all duration-300 ease-in-out
+                    ${completedSteps.has(index) 
+                      ? "bg-white border-green-600 dark:border-amber-300 dark:bg-gray-800" 
+                      : "border-gray-400 dark:border-gray-400"
+                    }
                   `}
                 >
-                    {completedSteps.has(index) ? <Check size={14} /> : <span className="text-sm">{index + 1}</span>}
+                  {completedSteps.has(index) ? (
+                    <Check size={14} className="transition-all duration-300 scale-110 opacity-100" />
+                  ) : (
+                    <span className="text-sm transition-all duration-300 opacity-80">{index + 1}</span>
+                  )}
                 </div>
                 <span className="text-sm font-medium">{step.key}</span>
               </div>
@@ -1214,16 +1221,27 @@ const GetInfo = () => {
           {renderFormSection()}
 
           <div className="mt-8 flex justify-end">
-          <button
-            title={`${NextError ? "Don't cheat! its essential to fill all details for a good resume" : "Fill all details and continue to next page"}`}
-            onClick={handleNext}
-            className={`flex items-center gap-2 px-6 py-2 mt-5 text-white rounded-full ${
-              NextError ? "bg-red-500 hover:bg-red-600 transition-transform scale-105" : "bg-blue-600 hover:bg-blue-700"
-            }`}
-          >
-            {currentStep === steps.length - 1 ? "Submit" : "Next"}  
-            {NextError ? <i className="fas fa-times-circle"></i> : <ChevronRight size={16} />}
-          </button>
+            <button
+              title={NextError 
+                ? "Don't cheat! Fill all details for a good resume" 
+                : "Fill all details and continue to next page"
+              }
+              onClick={handleNext}
+              className={`flex items-center gap-2 px-6 py-2 mt-5 text-white rounded-full transition-all duration-300 ${
+                NextError 
+                  ? "bg-red-500 hover:bg-red-600 scale-105 cursor-not-allowed" 
+                  : "bg-blue-600 hover:bg-blue-700"
+              }`}           
+> 
+              {currentStep === steps.length - 1 ? "Submit" : "Next"           }
+            
+              <span className={`transition-all duration-300 ${NextError ? "scale-110 rotate-90" : "scale-100 rotate-0"}`}>
+                {NextError 
+                  ? <i className="fas fa-times-circle" /> 
+                  : <ChevronRight size={16} />
+                }
+              </span>
+            </button>
           </div>
         </div>
       </div>

@@ -19,29 +19,29 @@ const features=[
   "Light weight application. just take 1.8MB of RAM and approximately 0 CPU time"
 ]
 
-const FrontPage = () => {
-  const navigate = useNavigate();
+const FrontPage=()=>{
+  const navigate=useNavigate();
 
-  const handleContinue = () => {
+  const handleContinue=()=>{
     navigate('/GetInfo');
   };
 
-  const handleViewTemplates = () => {
+  const handleViewTemplates=()=>{
     navigate('/ViewTemplates');
   };
 
-  const handleAboutUs = () => {
+  const handleAboutUs=()=>{
     navigate('/AboutUs');
   };
 
-  const { isDark, setIsDark } = useContext(ThemeContext);
+  const { isDark, setIsDark }=useContext(ThemeContext);
 
-  const handleTheme = () => {
-    setIsDark((prev) => !prev);
+  const handleTheme=()=>{
+    setIsDark((prev)=>!prev);
   };
 
-  useEffect(() => {
-    const typedMobile = new Typed("#mobile-typing-text", {
+  useEffect(()=>{
+    const typedMobile=new Typed("#mobile-typing-text",{
       strings: features,
       loop: true,
       typeSpeed: 35,
@@ -50,7 +50,7 @@ const FrontPage = () => {
       cursorChar: " ",
     });
 
-    const typed = new Typed("#desktop-typing-text", {
+    const typed=new Typed("#desktop-typing-text",{
       strings: features,
       loop: true,
       typeSpeed: 35,
@@ -59,7 +59,7 @@ const FrontPage = () => {
       cursorChar: " "
     });
 
-    return () => {
+    return ()=>{
       typedMobile.destroy();
       typed.destroy();
     };
@@ -88,7 +88,7 @@ const FrontPage = () => {
         <h1 className="text-xl font-bold text-gray-800 dark:text-white no-underline">
           <a href="https://github.com/NishantkSingh0/Resume-Builder" title="Address to GitHub repository of this project" target="_blank">
             <span className="lg:hidden">Resume Builder</span>
-            <span className="hidden lg:block">Resume Builder Web Application</span>
+            <span className="hidden lg:block">Level Up Your First Impression</span>
           </a>
         </h1>
         <div className="flex space-x-4">
@@ -131,9 +131,9 @@ const FrontPage = () => {
       </div>
 
       <div className="md:hidden flex justify-center flex-col items-center flex-grow">
-        <h1 className="text-2xl md:hidden sm:text-3xl font-bold mb-3 dark:text-white">
+        {/* <h1 className="text-2xl md:hidden sm:text-3xl font-bold mb-3 dark:text-white">
           Resume Builder
-        </h1>
+        </h1> */}
         <p className="text-sm sm:text-lg text-gray-500 font-semibold mb-4">   {/* Here the mobile span are with desktop id  */}
           <span id="mobile-typing-text" className="md:hidden text-xl sm:text-2xl text-gray-800 h-6 mb-4 dark:text-white"></span>
         </p>
