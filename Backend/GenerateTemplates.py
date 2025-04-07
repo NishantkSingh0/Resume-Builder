@@ -1439,7 +1439,7 @@ def T5(jsonData,desc):
    """
    return UpdatedTemplate
 
-def T7(jsonData,desc):
+def T7(jsonData):
 
    Education='\n'.join(f"""<div class="subtitle">{ed['degreeName']}</div>
                 {ed['institutionName']} | {ed['graduationYear']} | SGPA: {ed['currentSGPA']}""" for ed in jsonData['education'])
@@ -1460,6 +1460,11 @@ def T7(jsonData,desc):
                 </ul>""" for exp in jsonData['workExperience'])
 
    css="""
+   @page {
+     size: 1000px 1340px; 
+     margin: 0;
+   }
+   
    body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -1568,7 +1573,7 @@ def T7(jsonData,desc):
           </div>
           <div class="Conts">
              <div class="title">Objectives:</div>
-             {desc}
+             {jsonData['Description']['UserDescription']}
           </div>
           <div class="Conts">
              <div class="title">Education:</div>

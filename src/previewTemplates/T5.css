@@ -1,0 +1,149 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+ }
+
+ body {
+   font-family: Arial, sans-serif;
+   background: #c9c9c9;
+   margin-top: 80px;
+   color: #333;
+   padding: 20px;
+ }
+
+ .resume-container {
+   max-width: 900px;
+   max-height: 1400px;
+   margin: 0 auto;
+   background: #fff;
+   border-radius: 15px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+   padding: 2rem;
+ }
+
+ .header {
+   text-align: center;
+   margin-bottom: 1.5rem;
+ }
+
+ .header h1 {
+   font-size: 32px;
+   letter-spacing: 1px;
+   margin-bottom: 0.25rem;
+   color: #7d3c98; 
+   text-transform: uppercase;
+ }
+
+ .header h2 {
+   font-size: 24px;
+   font-weight: normal;
+   color: #555;
+   margin-bottom: 0.75rem;
+ }
+
+ .header p {
+   font-size: 0.9rem;
+   color: #666;
+ }
+
+ h3 {
+   font-size: 19px;
+   text-transform: uppercase;
+   color: #7d3c98;
+   margin-top: 1.5rem;
+   margin-bottom: 0.75rem;
+   letter-spacing: 1px;
+ }
+
+ .spacebetween {
+   display: flex;
+   justify-content: space-between;
+ }
+
+ .flexConts{
+  display: flex;
+ }
+
+ .mar-30{
+  margin: 0 30px 0 30px;
+ }
+
+ .summary, .projects, .experience, .education-section, .Certifications, .skills {
+   border-top: 2px solid #333;
+   margin-bottom: 25px;
+ }
+
+ .summary p {
+   line-height: 1.5;
+   margin-bottom: 0.5rem;
+   margin-left: 10px;
+   margin-right: 10px;
+ }
+
+ .project-item {
+   margin: 0 25px 10px 25px;
+ }
+
+ .experience-item {
+   margin-bottom: 1rem;
+   margin-right: 20px;
+ }
+
+ .experience-item h4 {
+   font-size: 16px;
+   margin-bottom: 0.25rem;
+   font-weight: bold;
+ }
+
+ .experience-item span {
+   font-size: 0.9rem;
+   color: #757474;
+ }
+
+ .experience-item ul {
+   list-style: circle;
+   margin-left: 1.2rem;
+   margin-top: 0.5rem;
+ }
+
+ .experience-item li {
+   margin-bottom: 0.5rem;
+ }
+
+ .education-item {
+   margin: 0 20px 10px 20px;
+ }
+
+ .education-item h4 {
+   font-size: 1rem;
+   margin-bottom: 0.25rem;
+   font-weight: bold;
+ }
+
+ .education-item span {
+   font-size: 0.9rem;
+   color: #757474;
+ }
+
+ .Certificate-item {
+   margin: 0 10px 0 10px;
+ }
+
+ .skills-item {
+   margin-bottom: 5px;
+   margin-left: 10px;
+ }
+
+ .DecorationNone {
+   text-decoration: none;
+   color: #1d4780;
+ }
+
+ .fontLight{
+  color: #5e5d5d;
+ }
+
+ .square-list {
+   list-style-type: square; 
+ }

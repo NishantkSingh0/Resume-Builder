@@ -146,7 +146,7 @@ const FrontPage=()=>{
         </div>
 
       <div className="md:hidden absolute bottom-4 font-bold text-gray-800 left-1/2 -translate-x-1/2 text-center dark:text-white/80">
-<br />
+        <br />
         <a
           onClick={handleAboutUs}
           className="cursor-pointer dark:text-gray-300"
