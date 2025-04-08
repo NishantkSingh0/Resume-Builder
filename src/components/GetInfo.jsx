@@ -170,7 +170,7 @@ const GetInfo=() => {
   const [pin, setPin]=useState("");
   const [error, setError]=useState(false);
   const AboutTemps=["Simpler and Structured","Linear and Classic","Colourfull and Attractive","Colourful and Highly Designed","Simpler and Linear","Highly Simpler and Classic"]
-  const Suggests=["Hi, I'm here to assist you in building a strong, high-quality, and ATS-friendly resume. Let's make it impressive together!"," First, start by choosing a template that best fits your style and profession.",`You choosed template ${Number(formData.selectedTemplate)} which is ${AboutTemps[Number(formData.selectedTemplate)-1]} 🤟. lets process further and fill details (Click next)`,"Now, start by filling in your basic details as the form asks. \nDon't worry -- you got suggestions onward which saves much of your time after that click next","Good job! Now it's time to showcase your skills...\n As you can see, your data is being live-rendered by our app and displayed above in real-time"];
+  const Suggests=["Hi, I'm here to assist you in building a strong, high-quality, and ATS-friendly resume. Let's make it impressive together!"," First, start by choosing a template that best fits your style and profession.",`You choosed template ${Number(formData.selectedTemplate)} which is ${AboutTemps[Number(formData.selectedTemplate)-1]} 🤟. lets process further and fill details (Click next)`,"Now, start by filling in your basic details as the form asks. \nDon't worry -- you got suggestions onward which saves much of your time ☺️ after that. click Next","Good job! Now it's time to showcase your skills...\n As you can see, your data is being live-rendered by our app and displayed above in real-time"];
   const [i, setI] = useState(0);
 
   useEffect(() => {
@@ -1291,7 +1291,7 @@ const GetInfo=() => {
       >
         <button
           onClick={() => setIsPreviewOpen(!isPreviewOpen)}
-          className="absolute top-6 right-7 md:hidden p-3 rounded-l-full bg-gray-200 dark:bg-gray-600 dark:text-cyan-300"
+          className="absolute top-6 mr-0 right-0 pr-8 md:hidden p-3 rounded-l-full bg-gray-200 dark:bg-gray-600 dark:text-cyan-300"
         >
           {isPreviewOpen ? <X size={20} /> : <Eye size={20} />}
         </button>
@@ -1312,7 +1312,8 @@ const GetInfo=() => {
                 width="40" 
                 height="40" 
               />
-              <span className="font-semibold">Suggestion Bot</span>
+              <span className="font-semibold border-b-2 border-blue-700 pb-[2px]">Suggestion Bot</span>
+              {/* <div className="w-[30%] h-1 bg-blue-900 mb-6 mx-auto mt-1 rounded dark:bg-amber-400"></div> */}
             </div><span id="Suggestion-typing-text" className='text-lime-700 dark:text-lime-400'></span>
           </div>
         </div>
