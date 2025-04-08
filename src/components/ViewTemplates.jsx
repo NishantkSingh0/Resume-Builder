@@ -1,5 +1,5 @@
 export default function ViewTemplates() {
-  const titles=["","Simpler & Structured","Linear & Classic","Colourful & Attractive","Colourful & Highly Designed","Simpler & Linear","Designed & Attractive","Highly Simpler & Classic"]
+  const titles=["","Simpler & Structured","Linear & Classic","Colourful & Attractive","Colourful & Highly Designed","Simpler & Linear","Highly Simpler & Classic"]
   const items = [
     {
       img: "/Resume-Builder/Temp/temp1.png",
@@ -38,8 +38,8 @@ export default function ViewTemplates() {
     //  templateLink: "#",
     // },
     {
-      img: "/Resume-Builder/Temp/temp7.png",
-      title: titles[7],
+      img: "/Resume-Builder/Temp/temp6.png",
+      title: titles[6],
       codeLink: "https://github.com/NishantkSingh0/Generated-Templates/blob/main/T7.html",
       templateLink: "https://NishantkSingh0.github.io/Generated-Templates/T7",
     },

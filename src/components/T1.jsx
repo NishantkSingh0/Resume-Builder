@@ -1,5 +1,5 @@
 import React from 'react';
-import './T1.css'
+import styled from "styled-components";
 
 const removespace = (str) => str.trim();
 
@@ -13,8 +13,8 @@ const isValidUrl = (url) => {
 };
 
 const T1 = ({ jsonData}) => {
-  const Education = jsonData.education.map(edu => (
-    <div key={edu.institutionName}>
+  const Education = jsonData.education.map((edu,index) => (
+    <div key={`Education-${index}`}>
       <div className="TextLight">
         <b>{edu.graduationYear}<br/>{edu.institutionName}</b>
       </div>
@@ -82,7 +82,7 @@ const T1 = ({ jsonData}) => {
         <div>{we.WorkDuration}</div>
       </div>
       {we.jobTitle} <br/>
-      {we.keyAchievements} <br /><br />
+      {we.keyAchievements} <br />{index < column4 - 1 && <br />}
     </li>
   ));
 
@@ -92,6 +92,7 @@ const T1 = ({ jsonData}) => {
   const certificatePlaceholders = Array(jsonData.certificates.length).fill('⇒');
 
   return (
+    <StyledWrapper>
     <div className="resume">
       <div className="header">
         <h1>{jsonData.contactInfo.fullName}</h1>
@@ -219,7 +220,192 @@ const T1 = ({ jsonData}) => {
         </div>
       </div>
     </div>
+  </StyledWrapper>
   );
 };
+
+const StyledWrapper = styled.div`body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   line-height: 1.25;
+   padding: 0;
+   background-color: #d6cece;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 1250px; 
+}
+
+.resume {
+   margin-top: 100px;
+   width: 900px; 
+   background: #f1f1f1;
+   border-radius: 15px;
+   border: 1px solid #ddd;
+   padding: 20px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+   text-align: center;
+   border-top: 2px solid #353333;
+   padding: 80px 0px 80px 0px; 
+   margin: 0px 40px 0px 40px; 
+  //  background-image: url('https://www.wisestamp.com/wp-content/uploads/2020/08/Serena-Williams-handwritten-signature.png');
+   background-repeat: no-repeat;
+   background-size: 250px;
+   background-position: center;
+   margin-top: 10px;
+}
+
+.header h1 {
+   margin: 0;
+   font-size: 40px;
+   font-weight: bold;
+   color: #4e4c4c;
+}
+
+.header h2 {
+   margin: 5px 0 0;
+   font-size: 18px;
+   font-weight: bold;
+   color: #555;
+}
+
+.SUsection {
+   padding-top: 10px;
+   padding-left: 8px;
+}
+
+.section,.SUsection {
+   margin-bottom: 15px;
+   border-bottom: 2px solid #000000;
+}
+
+.content .left {
+   margin-top: 20px; 
+}
+
+.rotate-90 {
+   transform: rotate(90deg); 
+}
+
+.Contact div {
+   margin-bottom: 4px; 
+   margin-left: 8px;
+}
+
+.Contact {
+   width: 33%;
+}
+
+.Contact,.Usection {
+   padding-top: 20px;
+}
+
+.NoneDecorationBlack a {
+   text-decoration: none;
+   color: #000000;
+}
+
+.colorBlue{
+   color: #277ca3;
+}
+
+.TextLight{     /* Used for subheadings of the content & contact fasfonts to make it more classic */
+   color: #333333;
+}
+
+.NoneDecoration a {         /* Used in More Certificates to remove text decoration but add blue color to make it Easy to understand */
+   text-decoration: none;
+   color: #277ca3;
+}
+
+.subcont,.SkillSubCon {
+   display: flex;
+   justify-content: space-between;
+}
+
+.section-title {
+   font-size: 18px;
+   color: #5e6163;
+   padding: 0 10px 0 10px; 
+   margin-bottom: 10px;
+}
+
+.section{
+ padding-left: 8px;
+}
+
+.LDsection{
+ padding-left: 8px;
+}
+
+.content {
+   display: flex;
+   justify-content: center;
+   border-bottom: 2px solid #353333;
+   margin: 0 20px 0 20px; 
+}
+
+.upperContent {
+   display: flex;
+   justify-content: center;
+   margin: 0 20px 0 20px; 
+   border-top: 2px solid #353333;
+   border-bottom: 2px solid #353333;
+}
+
+.upperContent .Usection {
+   border-left: 4px solid #5e6163;
+   width: 67%;
+}
+
+.content .left {
+   width: 33%;
+   height: 100%;
+   border-radius: 2px;
+}
+
+.section-title,.content .right .item-title {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.content .right {
+   width: 67%;
+   height: 100%;
+   border-left: 4px solid rgb(109, 106, 106);
+}
+
+.Litem {
+   margin-bottom: 10px;
+   padding-right: 20px;
+}
+
+.Ritem {
+   margin-bottom: 10px;
+   padding-left: 10px;
+}
+
+.item-title {
+   font-weight: bold;
+}
+
+.fontLight{
+   /* font-weight: bold; */
+   color: #5f5f5f;
+}
+
+ul {
+   list-style: circle;
+   padding-left: 20px;
+   margin: 5px 0;
+}
+
+ul li {
+   margin-bottom: 5px;
+}`;
 
 export default T1;

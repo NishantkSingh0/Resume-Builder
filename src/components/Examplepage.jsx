@@ -7,8 +7,7 @@ const Examplepage = ({
       '/Resume-Builder/Temp/temp3.png',
       '/Resume-Builder/Temp/temp4.png',
       '/Resume-Builder/Temp/temp5.png',
-      '/Resume-Builder/Temp/temp6.png',
-      '/Resume-Builder/Temp/temp7.png'
+      '/Resume-Builder/Temp/temp6.png'
     ], 
   interval = 3000,
   showIndicators = true 

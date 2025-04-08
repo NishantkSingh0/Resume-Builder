@@ -7,6 +7,7 @@ const AutoSuggestInput = ({
   value,
   onChange,
   suggestions,
+  isPara=false,
   isTextArea=false,
   isMultiSuggestion = true,
 }) => {
@@ -71,7 +72,7 @@ const AutoSuggestInput = ({
     if (isMultiSuggestion) {
       const words = inputValue.trim().split(/[,\s]+/);
       words[words.length - 1] = suggestion;
-      newValue = words.join(", ") + ", ";
+      newValue = isPara ? words.join(" ") + " " : words.join(", ") + ", ";
     }
 
     setInputValue(newValue);

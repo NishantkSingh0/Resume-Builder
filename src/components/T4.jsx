@@ -1,5 +1,6 @@
-import './T4.css'
 import React from 'react';
+import styled from "styled-components";
+
 
 const T4 = ({ jsonData, desc }) => {
   const isValidUrl = (url) => {
@@ -39,6 +40,7 @@ const T4 = ({ jsonData, desc }) => {
   const skillColumn4 = skills.slice(column1 + column2 + column3, column1 + column2 + column3 + column4);
 
   return (
+    <StyledWrapper>
     <div className="resume">
       <div className="header">
         <div className="left">
@@ -109,7 +111,7 @@ const T4 = ({ jsonData, desc }) => {
           <div className="section">
             <div className="section-title"><b>Profile Summary</b></div>
             <p>
-              A passionate AI developer with extensive experience in various machine learning models, Primarily I focus on building models from scratch rather than relying heavily on fine-tuning pre-trained models. All my projects, showcasing my skills and contributions, are available on GitHub & Kaggle.
+              {jsonData.Description.UserDescription}
             </p>
           </div>
           
@@ -232,7 +234,201 @@ const T4 = ({ jsonData, desc }) => {
         </div>
       </div>
     </div>
+    </StyledWrapper>
   );
 };
+
+const StyledWrapper=styled.div`body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   background-color: #d6cece;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 1380px; /* (W/H) Ratio should be 0.7069 */
+}
+
+.resume {
+   width: 900px; /* (W/H) Ratio should be 0.7069 */
+   /* height: 1225px; */
+   background: #ffffff;
+   border: 1px solid #ddd;
+   border-radius: 15px;
+   margin-top: 100px;
+   padding: 0 30px 0 0;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.Underline{
+   width: 75px;
+   border:2px solid black;
+   margin-top: 10px;
+   border-radius: 20px;
+}
+
+.NoneDecoration a{
+   text-decoration: none;
+   color:#0363b1;
+}
+
+.header {
+   display: flex; 
+   align-items: center;
+}
+
+.header .left {
+   width: 36.6%;
+   display: flex;
+   justify-content: center;
+   padding: 10px 20px 10px 20px;
+   background-color: #0363b1;
+   border-top-left-radius: 15px;
+   border-right: 4px solid #0363b1;
+}
+
+.left img{
+   width: 200px;
+   height: 200px;
+   background-color: #4c4fda;
+   border-radius: 50%;
+   object-fit: cover;
+}
+
+.header .right {
+   width: 65%;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   margin-right: 40px;
+}
+
+.header .right .head {
+   padding-left: 40px;
+}
+
+.textGray{
+   color: #4e4e53;
+}
+
+.right h1 {
+   font-size: 40px;
+   margin-bottom: 5px;
+}
+
+.right h2 {
+   font-size: 16px;
+   color: #4d4b4b;
+}
+
+.section-title {
+   font-size: 18px;
+   color: #3e3e3f;
+   margin-bottom: 10px;
+   border-bottom: 1px solid #96a75a;
+   padding-bottom: 5px;
+}
+
+.SkillsSection-title {
+   font-size: 18px;
+   color: #3e3e3f;
+   border-bottom: 1px solid #96a75a;
+}
+
+.Lsection-title {
+   font-size: 18px;
+   color: #f5f5f5;
+   margin-bottom: 10px;
+   border-bottom: 1px solid #d4d4d2;
+   padding-bottom: 5px;
+}
+
+.content {
+   display: flex;
+   justify-content: center;
+}
+
+.content .left {
+   width: 35%;
+   padding-right: 10px;
+   background-color: #0363b1;
+   border-bottom-left-radius: 15px;
+   border-right: 4px solid #0363b1;
+   /* border-top: 4px solid #0363b1; */
+}
+
+.content .right {
+   width: 65%;
+   margin-left: 10px;
+}
+
+.Lsection,.Contact {
+   margin-bottom: 20px;
+   padding-left: 20px;
+   color: #e1ebf3;
+}
+
+.Contact div {
+   margin-bottom: 5px;
+}
+
+.content .Contact div a {
+   text-decoration: none;
+   color: #e1ebf3;
+}
+
+.subcont,.SkillSubCon {
+    display: flex;
+    justify-content: space-between;
+}  
+
+.section,.SUsection {
+   margin-bottom: 20px;
+   color: #141414;
+}
+
+.item {
+   margin-bottom: 10px;
+}
+
+.item-title {
+   font-weight: bold;
+}
+
+.content .right .item-title,
+.content .left .section-title,
+.Lsection-title {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+ul {
+   list-style-type: circle;
+   padding-left: 20px;
+   margin: 5px 0;
+}
+
+ul li {
+   margin-bottom: 5px;
+}
+
+.textLight{
+   font-weight: 500;
+   color: #626263;
+}
+
+.rotate-90 {
+   transform: rotate(90deg);
+}
+
+.content .right .section .Cont {
+   border-left: 2px solid #53677a;
+   margin-left: 5px;
+}
+
+.content .right .section .Cont .item {
+   margin-left: 10px;
+}`;
 
 export default T4;

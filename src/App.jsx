@@ -7,11 +7,9 @@ import AboutUs from './components/AboutUs.jsx';
 import { Toaster } from "react-hot-toast";
 import { ThemeContext } from './components/ThemeContext.jsx';
 import GoogleVarification from './components/GoogleVarification.jsx';
-// import VarifyMob from './components/VarifyMob.jsx';
 import ViewTemplates from './components/ViewTemplates.jsx';
-// import Practice from './components/Practice.jsx'
-// import T7 from './components/previewTemplates/T7.jsx';
 import Loader from './components/Loader.jsx'
+// import T7 from './components/T7.jsx'
 
 const App = () => {
 

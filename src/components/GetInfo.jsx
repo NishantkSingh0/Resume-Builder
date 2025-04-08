@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
-import { Check, Plus, ChevronRight, Menu, X } from 'lucide-react';
+import React, { useState,useEffect } from 'react';
+import { Check, Plus, ChevronRight, Menu, X ,Eye} from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import Typed from "typed.js"; 
 import toast from "react-hot-toast";
 import Suggestions from "./Suggestions";
+import T1 from './T1.jsx';
+import T2 from './T2.jsx';
+import T3 from './T3.jsx';
+import T4 from './T4.jsx';
+import T5 from './T5.jsx';
+import T6 from './T6.jsx';
 
 const GetInfo=() => {
   const [currentStep, setCurrentStep]=useState(0);
@@ -10,6 +17,7 @@ const GetInfo=() => {
   const navigate=useNavigate();
 
   const [ExampleJsonData, setExampleJsonData]=useState({
+    selectedTemplateEx: "1",
     contactInfo: {
       fullName: "Nishant kumar",
       phoneNumber: "9217290469",
@@ -95,12 +103,12 @@ const GetInfo=() => {
     ],
     Description:{
       UserDescription: "Passionate AI developer & backend specialist with expertise in deep learning, computer vision, NLP, and transformers, focusing on building models from scratch. Proficient in React, frontend design, Flask, and Django, enabling seamless AI integration into real world applications. Developed and deployed 22+ projects, showcased on GitHub & Kaggle. Always eager to solve complex challenges and innovate in AI & software development"
-    },
-    selectedTemplateEx: "1" 
+    }
   });
   
 
   const [formData,setFormData]=useState({
+    selectedTemplate: "",
     contactInfo: {
       fullName: '',
       phoneNumber: '',
@@ -138,8 +146,7 @@ const GetInfo=() => {
     }],
     Description: {
       UserDescription: ""
-    },
-    selectedTemplate: ""
+    }
   });
   
   const ResumeDescriptions=[
@@ -158,27 +165,49 @@ const GetInfo=() => {
   const [isInvalidGDuration,setIsInvalidGDuration]=useState(false);
   const [isInvalidSGPA,setIsInvalidSGPA]=useState(false);
   const [isOpen, setIsOpen]=useState(false);
+  const [isPreviewOpen, setIsPreviewOpen]=useState(false);
   const [showInput, setShowInput]=useState(false);
   const [pin, setPin]=useState("");
   const [error, setError]=useState(false);
+  const AboutTemps=["Simpler and Structured","Linear and Classic","Colourfull and Attractive","Colourful and Highly Designed","Simpler and Linear","Highly Simpler and Classic"]
+  const Suggests=["Hi, I'm here to assist you in building a strong, high-quality, and ATS-friendly resume. Let's make it impressive together!"," First, start by choosing a template that best fits your style and profession.",`You choosed template ${Number(formData.selectedTemplate)} which is ${AboutTemps[Number(formData.selectedTemplate)-1]} 🤟. lets process further and fill details (Click next)`,"Now, start by filling in your basic details as the form asks. \nDon't worry -- you got suggestions onward which saves much of your time after that click next","Good job! Now it's time to showcase your skills...\n As you can see, your data is being live-rendered by our app and displayed above in real-time"];
+  const [i, setI] = useState(0);
+
+  useEffect(() => {
+    const Suggest = new Typed("#Suggestion-typing-text", {
+      strings: [Suggests[i]],
+      loop: false,
+      typeSpeed: 40,
+      showCursor: true,
+    });
   
-  const AboutTemps=["Simpler & Structured","Linear & Classic","Colourfull & Attractive","Colourful & Highly Designed","Simpler & Linear","Designed & Attractive","Highly Simpler & Classic"]
+    if (i === 0) {
+      const timer = setTimeout(() => {
+        setI(1);
+      }, 11000);
+      return () => clearTimeout(timer);
+    }
+  
+    return () => {
+      Suggest.destroy();
+    };
+  }, [i]);
   
   const steps=[
+    { title: 'Choose a template that suits you best', key: 'Template' },
     { title: 'Begin with your contact details', key: 'Contact Info' },
     { title: 'Showcase your skills', key: 'Skills' },
     { title: 'Share your work experience', key: 'Work Experience' },
     { title: 'Highlight your top projects', key: 'Projects' },
     { title: 'Demonstrate your knowledge', key: 'Education' },
     { title: 'Add your achieved certifications', key: 'Certificates' },
-    { title: 'Decribe about you', key: 'Description' },
-    { title: 'Choose a template that suits you best', key: 'Template' }
+    { title: 'Decribe about you', key: 'Description' }
   ];
   
   const HandleExampleProcessing=() => {
     setIsExampleProcessing(true);
     const newSet=new Set();
-    for (let i=0; i < 8 - 1; i++) {
+    for (let i=0; i < 8; i++) {
       newSet.add(i);
     }
     setCompletedSteps(newSet);
@@ -242,7 +271,8 @@ const GetInfo=() => {
 
   const handleNext=() => {
     const Fields={
-      0: [
+      0: [formData.selectedTemplate],
+      1: [
         formData.contactInfo.fullName,
         formData.contactInfo.phoneNumber,
         formData.contactInfo.emailAddress,
@@ -250,18 +280,17 @@ const GetInfo=() => {
         formData.contactInfo.portfolio,
         formData.contactInfo.jobTitle,
       ],
-      1: [
+      2: [
         formData.skills.hardSkills,
         formData.skills.softSkills,
         formData.contactInfo.Languages,
         formData.contactInfo.Location,
       ],
-      2: formData.workExperience.length > 0 ? formData.workExperience.map(exp => [exp.jobTitle, exp.companyName, exp.WorkDuration, exp.keyAchievements]) : [[]],
-      3: formData.projects.length > 0 ? formData.projects.map(proj => [proj.projectTitle, proj.toolsTechUsed]) : [[]],
-      4: formData.education.length > 0 ? formData.education.map(edu => [edu.institutionName, edu.degreeName, edu.graduationYear, edu.currentSGPA]) : [[]],
-      5: formData.certificates.length > 0 ? formData.certificates.map(cert => [cert.certificateName, cert.courseDuration, cert.providerName]) : [[]],
-      6: [formData.Description.UserDescription],
-      7: [formData.selectedTemplate],
+      3: formData.workExperience.length > 0 ? formData.workExperience.map(exp => [exp.jobTitle, exp.companyName, exp.WorkDuration, exp.keyAchievements]) : [[]],
+      4: formData.projects.length > 0 ? formData.projects.map(proj => [proj.projectTitle, proj.toolsTechUsed]) : [[]],
+      5: formData.education.length > 0 ? formData.education.map(edu => [edu.institutionName, edu.degreeName, edu.graduationYear, edu.currentSGPA]) : [[]],
+      6: formData.certificates.length > 0 ? formData.certificates.map(cert => [cert.certificateName, cert.courseDuration, cert.providerName]) : [[]],
+      7: [formData.Description.UserDescription],
     };
   
     if (!(currentStep in Fields)) {
@@ -341,23 +370,24 @@ const GetInfo=() => {
 
   const renderFormSection=() => {
     switch (currentStep) {
-      case 0:
+      case 1:
+        {i==2 && setI(3)}
         return (
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl mb-4 pb-1 font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Contact Information</h2>
               <div className="space-y-2">
-                <label className="block text-sm font-medium dark:text-slate-300">Full Name</label>
-                <input
-                  type="text"
-                  placeholder='Your name'
-                  className="w-full sm:p-2 sm:px-6 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                <Suggestions
+                  label="Full Name"
+                  placeholder="Your name"
                   value={isExampleProcessing ? ExampleJsonData.contactInfo.fullName : formData.contactInfo.fullName}
-                  onChange={(e) => {
+                  onChange={(val) => {
                     if (!isExampleProcessing) { // Prevent changes when true
-                      handleInputChange("contactInfo", "fullName", e.target.value);
+                      handleInputChange("contactInfo", "fullName", val);
                     }
                   }}
-                />  
+                  suggestions={["Aarav","Nishant","Amisha","Ankush", "Vivaan", "Aditya","Kumar", "Vihaan", "Arjun", "Krishna", "Aryan", "Rohan", "Kunal", "Aniket","Rahul", "Amit", "Siddharth", "Manish", "Karthik", "Chirag", "Deepak", "Gaurav", "Harsh", "Nikhil","Suresh", "Rajesh", "Vikram", "Prakash", "Dinesh", "Ravi", "Sagar", "Abhishek", "Yash", "Sandeep","Naveen", "Mahesh", "Ajay", "Dev", "Ritesh", "Sameer", "Arvind", "Bhavesh", "Sumit", "Varun","Shivam", "Raghav", "Parth", "Mohan", "Rajiv", "Vikas", "Tejas", "Lakshya","Ashu", "Jatin", "Ashwin","Neha", "Priya", "Aisha", "Ishita", "Sanya", "Pooja", "Divya", "Riya", "Ananya", "Shruti","Meera", "Lata", "Kavita", "Rekha", "Sneha", "Tanvi", "Bhavna", "Swati", "Preeti", "Sonali","Aarohi", "Simran", "Radhika", "Tanya", "Nikita", "Payal", "Vidya", "Trisha", "Kriti", "Aditi","Shalini", "Lavanya", "Manisha", "Mitali", "Rupali", "Komal", "Vaishnavi", "Asmita", "Prachi", "Chaitali","Juhi", "Mallika", "Harshita", "Bhumi", "Surbhi", "Alisha", "Pallavi","Sourav", "Bhawna", "Arpita", "Nidhi","Hari", "Srinivas", "Ramesh", "Venkatesh", "Madhavan", "Surya", "Kiran", "Anirudh", "Rajinikanth", "Karthikeyan","Lakshmi", "Radha", "Sowmya", "Keerthi", "Anitha", "Revathi", "Sindhu", "Divyashree", "Shruthi", "Meenakshi","Subham", "Sourav","Shahid", "Anupam", "Dipankar", "Tanmoy", "Ritwik", "Arindam", "Prithwish","Moumita", "Sanchari", "Madhumita", "Sutapa", "Piyali", "Laboni", "Ipsita", "Sumita","Gurpreet", "Harpreet", "Manpreet", "Parminder", "Baljit", "Gagandeep", "Satnam","Simranjeet", "Kiranpreet", "Jasleen", "Navjot", "Harleen", "Ravneet","Ayaan", "Zaid", "Faizan", "Rehan", "Irfan", "Armaan","Ayesha", "Fatima", "Zara", "Sana", "Nazma", "Rabia","Jignesh", "Dhaval", "Hemant", "Chintan", "Bhavin","Aparna", "Supriya", "Rupali", "Urmila", "Mrunal","Sharma", "Verma", "Singh", "Yadav", "Gupta", "Agarwal", "Choudhary", "Rana", "Thakur", "Mehta","Bansal", "Goyal", "Tripathi", "Mishra", "Tiwari", "Pandey", "Dubey", "Dwivedi", "Joshi", "Jha","Pathak", "Srivastava", "Nigam", "Saxena", "Rawat", "Bhatt", "Rastogi", "Kulshreshtha", "Bhardwaj","Reddy", "Naidu", "Iyer", "Iyengar", "Menon", "Pillai", "Shetty", "Rao", "Nair", "Gowda","Mudaliar", "Krishnan", "Murthy", "Swamy", "Chowdary", "Kumar", "Prasad", "Raj", "Subramanian","Das", "Ghosh", "Chakraborty", "Mukherjee", "Bhattacharya", "Bandyopadhyay", "Dutta", "Sinha", "Paul","Chatterjee", "Sen", "Roy", "Bose", "Deb", "Pal", "Sarkar", "Mondal", "Mitra","Patel", "Desai", "Modi", "Rathod", "Joshi", "Shah","Rajput", "Chauhan", "Solanki", "Prajapati", "Parmar","Dave", "Thakkar", "Gohil", "Barot", "Suthar", "Jadeja", "Mahajan","Kaur", "Singh", "Dhillon", "Sandhu", "Sidhu", "Grewal", "Gill", "Brar", "Mann", "Bajwa","Khan", "Ansari", "Ali", "Sheikh", "Qureshi", "Syed", "Farooqi", "Mirza", "Siddiqui", "Hussain","Fernandes", "D'Souza", "Dias", "Pereira", "Rodrigues", "George", "Mathew", "Joseph", "Thomas", "Abraham"]}
+                  isPara={true}
+                />
                 <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
 
@@ -467,7 +497,8 @@ const GetInfo=() => {
           </div>
         );
 
-      case 1:
+      case 2:
+        {i==3 && setI(4)}
         return (
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold border-b-4 border-blue-900 mb-4 pb-1 text-blue-800 dark:border-blue-500 dark:text-blue-400">Skills</h2>
@@ -543,7 +574,7 @@ const GetInfo=() => {
           </div>
         );
 
-      case 2:
+      case 3:
         if (!isExampleProcessing){
           return (
             <div className="space-y-4">
@@ -604,13 +635,13 @@ const GetInfo=() => {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="block text-sm font-medium dark:text-slate-300">Key Achievements <span className='text-slate-600 ml-1'> (What you learned there)</span></label>
-                      <input
-                        type="text"
-                        placeholder='Learn to visualize patterns from data using matplotlib and Built several DL models'
-                        className="w-full sm:px-6 sm:p-2 border rounded peer px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                      <Suggestions
+                        label="Key Achievements"
+                        placeholder="Learn to visualize patterns from data using matplotlib and Built several DL models"
                         value={exp.keyAchievements}
-                        onChange={(e) => handleInputChange('workExperience', 'keyAchievements', e.target.value, index)}
+                        onChange={(val) => handleInputChange('workExperience', 'keyAchievements', val, index)}
+                        suggestions={["Education", "Learning", "Knowledge", "Skills", "Development", "Growth", "Discipline", "Creativity","Curiosity", "Critical", "Thinking", "Problem-Solving", "Innovation", "Empowerment", "Potential","Opportunities", "Success", "Wisdom", "Literacy", "Training", "Understanding", "Mindset","Character", "Focus", "Dedication", "Motivation", "Scholarship", "Study", "Research", "Exploration","Experience", "Guidance", "Curriculum", "Subjects", "Syllabus", "Mentorship", "Coaching","Academics", "Assessment", "Examination", "Evaluation", "Concepts", "Projects", "Presentation","Seminars", "Workshops", "Internship", "Collaboration", "Communication", "Teamwork", "Leadership","Career", "Responsibility", "Self-Study", "Observation", "Practical-Learning", "Theoretical-Knowledge","Hardwork", "Persistence", "Vision", "Goal-Setting", "Time-Management", "Experimentation","Exposure", "System", "Competence", "Research-Skills", "Interactive-Learning", "Future-Ready","Holistic-Education","is", "and", "or", "for", "with", "to", "in", "on", "by", "of", "at", "from", "this", "that", "these", "those", "are", "was", "were", "as", "an", "a", "be", "has", "have", "will", "can","which", "who", "whose", "where", "when", "how", "it", "its", "also", "but", "if", "so", "then"]}
+                        isPara={true}
                       />
                       <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
@@ -684,7 +715,7 @@ const GetInfo=() => {
           );
         }
 
-      case 3:
+      case 4:
         if (!isExampleProcessing){
           return (
             <div className="space-y-4">
@@ -713,7 +744,7 @@ const GetInfo=() => {
                           placeholder='Tensorflow, NumPy, Pandas, Matplotlib, Multi30k Dataset, ModelSubclassing'
 			                    value={project.toolsTechUsed}
                           onChange={(val) => handleInputChange('projects', 'toolsTechUsed', val, index)}
-                          suggestions={["TensorFlow", "Keras", "PyTorch", "Scikit-learn", "XGBoost", "LightGBM", "CatBoost", "FastAI","NumPy", "Pandas", "Matplotlib", "Seaborn", "Plotly", "Altair", "Statsmodels", "SciPy","NLTK", "SpaCy", "Transformers", "Gensim", "BERT", "GPT", "Word2Vec", "TF-IDF", "Llama","OpenCV", "Pillow", "Albumentations", "MMDetection", "Detectron2", "YOLO", "MediaPipe","MNIST Dataset", "CIFAR-10", "CIFAR-100", "ImageNet", "COCO Dataset", "Multi30k Dataset","Human Parsing Dataset", "HuggingFace Datasets", "UCI Repository","Transfer Learning", "Model Subclassing", "Data Augmentation", "Feature Engineering", "Ensemble Learning", "Hyperparameter Tuning", "Cross Validation", "Grid Search", "Early Stopping","Apache Spark", "Hadoop", "Airflow", "Kafka", "Snowflake", "BigQuery", "ETL Pipelines","AWS", "Azure", "Google Cloud Platform", "IBM Cloud", "Oracle Cloud", "Firebase","Docker", "Kubernetes", "Terraform", "Jenkins", "GitHub Actions", "Prometheus", "Grafana","MySQL", "PostgreSQL", "MongoDB", "Redis", "SQLite", "Elasticsearch", "Cassandra","Django", "Flask", "FastAPI", "Express.js", "Spring Boot", "Node.js","React", "Vue.js", "Angular", "Next.js", "Tailwind CSS", "Bootstrap", "SASS", "Material UI","Python", "Java", "C++", "C", "JavaScript", "TypeScript", "Go", "Rust", "R", "Julia", "SQL","Git", "GitHub", "GitLab", "Bitbucket","Tableau", "Power BI", "Looker", "Google Data Studio","Jupyter Notebook", "Google Colab", "VS Code", "Anaconda", "PyCharm", "Postman","REST API", "GraphQL", "gRPC", "NGINX", "Apache","PyTest", "Selenium", "Cypress", "JUnit", "Postman","BeautifulSoup", "Scrapy", "LangChain", "Streamlit", "Gradio", "Dash", "MLflow","Weights & Biases", "HuggingFace Hub", "OpenAI API", "Google API", "Cloud Functions"]}
+                          suggestions={["TensorFlow", "LLM's","HTML/CSS", "Keras", "PyTorch", "Scikit-learn", "XGBoost", "LightGBM", "CatBoost", "FastAI","NumPy", "Pandas", "Matplotlib", "Seaborn", "Plotly", "Altair", "Statsmodels", "SciPy","NLTK", "SpaCy", "Transformers", "Gensim", "BERT", "GPT", "Word2Vec", "TF-IDF", "Llama","OpenCV", "Pillow", "Albumentations", "MMDetection", "Detectron2", "YOLO", "MediaPipe","MNIST Dataset", "CIFAR-10", "CIFAR-100", "ImageNet", "COCO Dataset", "Multi30k Dataset","Human Parsing Dataset", "HuggingFace Datasets", "UCI Repository","Transfer Learning", "Model Subclassing", "Data Augmentation", "Feature Engineering", "Ensemble Learning", "Hyperparameter Tuning", "Cross Validation", "Grid Search", "Early Stopping","Apache Spark", "Hadoop", "Airflow", "Kafka", "Snowflake", "BigQuery", "ETL Pipelines","AWS", "Azure", "Google Cloud Platform", "IBM Cloud", "Oracle Cloud", "Firebase","Docker", "Kubernetes", "Terraform", "Jenkins", "GitHub Actions", "Prometheus", "Grafana","MySQL", "PostgreSQL", "MongoDB", "Redis", "SQLite", "Elasticsearch", "Cassandra","Django", "Flask", "FastAPI", "Express.js", "Spring Boot", "Node.js","React", "Vue.js", "Angular", "Next.js", "Tailwind CSS", "Bootstrap", "SASS", "Material UI","Python", "Java", "Advanced C++","C++","C", "JavaScript", "TypeScript", "Go", "Rust", "R", "Julia", "SQL","Git", "GitHub", "GitLab", "Bitbucket","Tableau", "Power BI", "Looker", "Google Data Studio","Jupyter Notebook", "Google Colab", "VS Code", "Anaconda", "PyCharm", "Postman","REST API", "GraphQL", "gRPC", "NGINX", "Apache","PyTest", "Selenium", "Cypress", "JUnit", "Postman","BeautifulSoup", "Scrapy", "LangChain", "Streamlit", "Gradio", "Dash", "MLflow","Weights & Biases", "HuggingFace Hub", "OpenAI API", "Google API", "Cloud Functions"]}
                         />
                       </div>
                       <div class="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
@@ -768,7 +799,7 @@ const GetInfo=() => {
           );
         }
 
-        case 4:
+        case 5:
           if (!isExampleProcessing){
             return (
               <div className="space-y-4">
@@ -922,7 +953,7 @@ const GetInfo=() => {
             );
           }
 
-      case 5:
+      case 6:
         if (!isExampleProcessing){
           return (
             <div className="space-y-4">
@@ -1032,7 +1063,7 @@ const GetInfo=() => {
             </div>
           );
         }
-      case 6:
+      case 7:
         if (!isExampleProcessing){
           return (
             <div className="space-y-4">
@@ -1070,7 +1101,7 @@ const GetInfo=() => {
                 <textarea
                   placeholder="Passionate AI Developer & Backend Specialist with expertise in Deep Learning, Computer Vision, NLP, and Transformers. Skilled at building models from scratch and integrating them into real-world applications using React, Flask, and Django. Developed and deployed 22+ projects available on GitHub & Kaggle."
                   className="w-full min-h-[145px] px-3 py-2 border rounded resize-none peer focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                  value={ExampleJsonData.Description}
+                  value={ExampleJsonData.Description.UserDescription}
                 />
                 <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
@@ -1078,17 +1109,20 @@ const GetInfo=() => {
           );
         }
 
-      case 7:
+      case 0:
         if(!isExampleProcessing){
           return (
             <div className="space-y-4">
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Choose Template</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>We will frequently add more template designs to provide more resume options.</p>
               <div className="grid grid-cols-2 gap-5">
-                  {[1,2,3,4,5,6,7].map((template) => (
+                  {[1,2,3,4,5,6].map((template) => (
                     <div
                       key={template}
-                      onClick={() => setFormData((prev) => ({ ...prev, selectedTemplate: String(template) }))}
+                      onClick={() => {
+                        setFormData((prev) => ({ ...prev, selectedTemplate: String(template) }));
+                        setI(2); 
+                      }}
                       className={`p-4 border-2 rounded-lg cursor-pointer transition-transform duration-400 shadow-md hover:scale-95 dark:shadow-gray-600  ${
                         formData.selectedTemplate === String(template) ? 'border-blue-600 bg-blue-50 dark:bg-slate-800' : 'dark:border-gray-700'
                       }`}
@@ -1114,7 +1148,7 @@ const GetInfo=() => {
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Choose Template</h2>
               <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>We will frequently add more template designs to provide more resume options.</p>
               <div className="grid grid-cols-2 gap-5">
-                  {[1,2,3,4,5,6,7].map((template) => (
+                  {[1,2,3,4,5,6].map((template) => (
                     <div
                       key={template}
                       onClick={() => setExampleJsonData((prev) => ({ ...prev, selectedTemplateEx: String(template) }))}
@@ -1146,6 +1180,7 @@ const GetInfo=() => {
 
   return (
     <div className="flex min-h-screen bg-gray-100 dark:bg-slate-900">
+      {/* Left Sidebar */}
       <div
         className={`fixed top-0 left-0 h-full bg-white border-r shadow-md hover:shadow-xl p-0 md:p-4 transition-all duration-300 ease-in-out
         ${isOpen ? "w-64" : "w-0"} md:w-64 dark:border-r-slate-800 dark:bg-slate-800`}
@@ -1156,10 +1191,10 @@ const GetInfo=() => {
         >
           {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
-
+  
         <div className={`${isOpen || "hidden md:block"}`}>
-          <h1 className={"text-2xl font-bold pt-20 md:pt-4 text-center text-blue-80 text-blue-800 dark:text-amber-300 cursor-pointer"} title="Name of team">BRAVERS</h1>
-          <div className="w-[30%] h-1 bg-blue-900  mb-6 mx-auto mt-1 rounded dark:bg-amber-400"></div>
+          <h1 className="text-2xl font-bold pt-20 md:pt-4 text-center text-blue-800 dark:text-amber-300 cursor-pointer" title="Name of team">Sections</h1>
+          <div className="w-[30%] h-1 bg-blue-900 mb-6 mx-auto mt-1 rounded dark:bg-amber-400"></div>
           <div className="space-y-4 p-2">
             {steps.map((step, index) => (
               <div
@@ -1201,7 +1236,7 @@ const GetInfo=() => {
             >
               Example Processing
             </h2>
-
+  
             {showInput && (
               <div className="mx-4 md:mx-0 dark:bg-gray-800 rounded-lg">
                 <input
@@ -1217,9 +1252,10 @@ const GetInfo=() => {
           </div>            
         </div>
       </div>
-
-      <div className={`flex-1 pt-20 pr-3 pl-1 md:p-8 transition-all duration-300 ${isOpen ? "ml-64" : "ml-2"} md:ml-64`}>
-        <div className="max-w-2xl mx-auto">
+  
+      {/* Main Content */}
+      <div className={`flex-1 pt-20 pr-3 pl-1 md:py-8 transition-all duration-300 ${isOpen ? "ml-60" : "ml-2"} md:ml-0`}>
+        <div className="lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl mx-auto">
           {renderFormSection()}
 
           <div className="mt-8 flex justify-end">
@@ -1234,7 +1270,7 @@ const GetInfo=() => {
                   ? "bg-red-500 hover:bg-red-600 scale-105 cursor-not-allowed" 
                   : "bg-blue-600 hover:bg-blue-700"
               }`}           
-> 
+              > 
               {currentStep === steps.length - 1 ? "Submit" : "Next"           }
             
               <span className={`transition-all duration-300 ${NextError ? "scale-110 rotate-90" : "scale-100 rotate-0"}`}>
@@ -1247,8 +1283,41 @@ const GetInfo=() => {
           </div>
         </div>
       </div>
+  
+      {/* Right Preview Templates Sidebar */}
+      <div
+        className={`fixed top-0 right-0 h-full bg-white border-l shadow-md hover:shadow-xl p-0 md:p-4 transition-all duration-300 ease-in-out
+        ${isPreviewOpen ? "w-64" : "w-0"} md:w-72 dark:border-l-slate-800 dark:bg-slate-800`}
+      >
+        <button
+          onClick={() => setIsPreviewOpen(!isPreviewOpen)}
+          className="absolute top-6 right-7 md:hidden p-3 rounded-l-full bg-gray-200 dark:bg-gray-600 dark:text-cyan-300"
+        >
+          {isPreviewOpen ? <X size={20} /> : <Eye size={20} />}
+        </button>
+  
+        <div className={`${isPreviewOpen || "hidden md:block"}`}>
+          <h1 className="text-2xl font-bold pt-20 md:pt-4 text-center text-blue-800 dark:text-amber-300 cursor-pointer" title="Live preview. how your resume looks">Preview</h1>
+          <div className="w-[30%] h-1 bg-blue-900 mb-6 mx-auto mt-1 rounded dark:bg-amber-400"></div>
+          <div className="p-2 w-[250px] h-[400px] overflow-hidden bg-white dark:bg-slate-800 ">
+            <div className="scale-[0.25] origin-top-left flex">
+              {(isExampleProcessing?ExampleJsonData.selectedTemplateEx==1:formData.selectedTemplate==1)?<T1 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:(isExampleProcessing?ExampleJsonData.selectedTemplateEx==2:formData.selectedTemplate==2)?<T2 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:(isExampleProcessing?ExampleJsonData.selectedTemplateEx==3:formData.selectedTemplate==3)?<T3 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:(isExampleProcessing?ExampleJsonData.selectedTemplateEx==4:formData.selectedTemplate==4)?<T4 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:(isExampleProcessing?ExampleJsonData.selectedTemplateEx==5:formData.selectedTemplate==5)?<T5 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:(isExampleProcessing?ExampleJsonData.selectedTemplateEx==6:formData.selectedTemplate==6)?<T6 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:<div></div>}
+            </div>
+          </div>
+          <div className={`whitespace-pre-line dark:text-slate-300 p-1 ${isExampleProcessing?"hidden":"block"}`}>
+            <div className="flex items-center gap-2 mb-3">
+              <img 
+                src="https://github.com/NishantkSingh0/NishantkSingh0/blob/main/Images/N.png?raw=true" 
+                alt="N" 
+                width="40" 
+                height="40" 
+              />
+              <span className="font-semibold">Suggestion Bot</span>
+            </div><span id="Suggestion-typing-text" className='text-lime-700 dark:text-lime-400'></span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
-
 export default GetInfo;

@@ -1,10 +1,11 @@
 import React from 'react';
-import './T3.css'
+import styled from "styled-components";
 
-const T3 = ({ jsonData }) => {
+const T3 = ({jsonData}) => {
   const removespace = (text) => text.trim();
 
   const skills = jsonData.skills.hardSkills.split(',');
+  console.log(skills, 'from T3.jsx')
   const eachColumn = Math.floor(skills.length / 4);
   
   let column1 = eachColumn;
@@ -24,7 +25,8 @@ const T3 = ({ jsonData }) => {
   }
 
   return (
-    <>
+    <StyledWrapper>
+    <div>
       <div className="header">
         <h1>{jsonData.contactInfo.fullName}</h1>
         <h2>{jsonData.contactInfo.jobTitle}</h2>
@@ -189,7 +191,8 @@ const T3 = ({ jsonData }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
+    </StyledWrapper>
   );
 };
 
@@ -201,5 +204,135 @@ const isValidUrl = (string) => {
     return false;
   }
 };
+
+const StyledWrapper = styled.div`body {
+   font-family: Arial, sans-serif;
+   margin: 100px 0 20px 0;
+   padding: 0;
+   background-color: #d6cece;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   height: 1231px; /* (W/H) Ratio should be 0.7069 */
+}
+
+.resume {
+   width: 900px;
+   background: #ffffff;
+   border-bottom-left-radius: 20px;
+   border-bottom-right-radius: 20px;
+   padding: 20px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   margin-top: 0; /* Ensure no space between header and resume */
+}
+
+.NoDecorationBlue a{
+   text-decoration: None;
+   color: #0c6291;
+}
+
+.TextLight{
+   color: #424242;;
+   font-weight: 500;
+}
+
+.IconLight{
+   color: #4e4e4e;
+}
+
+.header {
+   text-align: center;
+   width: 900px;
+   background: #b6dbf0;
+   padding: 90px 0 90px 0; 
+   border-top-left-radius: 20px;
+   border-top-right-radius: 20px;
+   margin-bottom: 0; /* Remove bottom margin */
+}
+
+.header h1 {
+   margin: 0;
+   font-size: 40px;
+   font-weight: bold;
+   color: #333;
+}
+
+.header h2 {
+   margin: 5px 0 0;
+   font-size: 18px;
+   font-weight: bold;
+   color: #555;
+}
+
+.section, .SUsection {
+   margin-bottom: 20px;
+}
+
+.section-title {
+   font-size: 18px;
+   color: #0073b1;
+   margin-bottom: 10px;
+   border-bottom: 1px solid #96a75a;
+   padding-bottom: 5px;
+}
+
+.content {
+   display: flex;
+   justify-content: center;
+}
+
+.content .left {
+   width: 35%;
+   padding-right: 10px;
+   border-right: 4px solid rgb(109, 106, 106);
+   border-radius: 2px;
+}
+
+.content .right {
+   width: 60%;
+   margin-left: 10px;
+}
+
+.content .left .section-title,.content .right .item-title {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.content .right .item-title {
+   font-weight: bold;
+}
+
+.Contact div {
+   margin-bottom: 5px;
+}
+
+.content .Contact div a {
+   text-decoration: none;
+   color: #000000;
+}
+
+.subcont,.SkillSubCon {
+   display: flex;
+   justify-content: space-between;
+}
+
+.item {
+   margin-bottom: 10px;
+}
+
+ul {
+   list-style: square;
+   padding-left: 20px;
+   margin: 5px 0;
+}
+
+ul li {
+   margin-bottom: 5px;
+}
+
+.rotate-90 { 
+   transform: rotate(90deg); /* Rotates the icon 90 degrees */ 
+}`;
 
 export default T3;
