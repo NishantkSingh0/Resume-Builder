@@ -18,7 +18,7 @@ const T6 = ({ jsonData }) => {
         <h1>{jsonData.contactInfo.fullName}</h1>
         <p>
           {jsonData.contactInfo.Location} <br />
-          {jsonData.contactInfo.phoneNumber} | <a href={`mailto:${jsonData.contactInfo.emailAddress}`} target="_blank" rel="noreferrer">{jsonData.contactInfo.emailAddress}</a> | <a href={isValidUrl(jsonData.contactInfo.portfolio) ? jsonData.contactInfo.portfolio : `https://github.com/${jsonData.contactInfo.portfolio}`} target="_blank" rel="noreferrer"> {jsonData.contactInfo.portfolio}</a>
+          {jsonData.contactInfo.phoneNumber} | <a href={`mailto:${jsonData.contactInfo.emailAddress}`} target="_blank" rel="noreferrer">{jsonData.contactInfo.emailAddress}</a> | <a href={isValidUrl(jsonData.contactInfo.portfolio) ? jsonData.contactInfo.portfolio : `https://github.com/${jsonData.contactInfo.portfolio}`} target="_blank" rel="noreferrer"> {jsonData.contactInfo.portfolio.replace(/^https?:\/\//, '')}</a>
         </p>
       </div>
 

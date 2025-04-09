@@ -178,8 +178,8 @@ const StyledWrapper = styled.div`* {
  }
 
  .resume-container {
-   max-width: 900px;
-   height: 1300px;
+   width: 900px;
+  //  height: 1300px;
    margin: 0 auto;
    background: #fff;
    border-radius: 8px;

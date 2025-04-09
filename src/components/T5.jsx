@@ -15,8 +15,8 @@ const T5 = ({ jsonData, desc }) => {
         <h1><b>{jsonData.contactInfo.fullName}</b></h1><br />
         <p>
           <a className="DecorationNone" href={handlePortfolioLink(jsonData.contactInfo.portfolio)} target="_blank" rel="noreferrer">
-            {jsonData.contactInfo.portfolio}
-          </a> | <a className="DecorationNone" href="#"> 9917760469</a> | <a href={`mailto:${jsonData.contactInfo.emailAddress}`} className="DecorationNone" target="_blank" rel="noreferrer">
+            {jsonData.contactInfo.portfolio.replace(/^https?:\/\//, '')}
+          </a> | <a className="DecorationNone" href="#"> {jsonData.contactInfo.phoneNumber}</a> | <a href={`mailto:${jsonData.contactInfo.emailAddress}`} className="DecorationNone" target="_blank" rel="noreferrer">
             {jsonData.contactInfo.emailAddress}
           </a> <br /> 
           <div style={{ marginTop: "6px" }}>{jsonData.contactInfo.Location}</div>
@@ -149,8 +149,8 @@ const StyledWrapper=styled.div`* {
  }
 
  .resume-container {
-   max-width: 900px;
-   max-height: 1400px;
+   width: 900px;
+  //  height: 1300px;
    margin: 0 auto;
    background: #fff;
    border-radius: 15px;

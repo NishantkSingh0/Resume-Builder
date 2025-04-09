@@ -169,6 +169,7 @@ const GetInfo=() => {
   const [showInput, setShowInput]=useState(false);
   const [pin, setPin]=useState("");
   const [error, setError]=useState(false);
+  const [selectTemp, setSelectTemp]=useState(false);
   const AboutTemps=["Simpler and Structured","Linear and Classic","Colourfull and Attractive","Colourful and Highly Designed","Simpler and Linear","Highly Simpler and Classic"]
   const Suggests=["Hi, I'm here to assist you in building a strong, high-quality, and ATS-friendly resume. Let's make it impressive together!"," First, start by choosing a template that best fits your style and profession.",`You choosed template ${Number(formData.selectedTemplate)} which is ${AboutTemps[Number(formData.selectedTemplate)-1]} 🤟. lets process further and fill details (Click next)`,"Now, start by filling in your basic details as the form asks. \nDon't worry -- you got suggestions onward which saves much of your time ☺️ after that. click Next","Good job! Now it's time to showcase your skills...\n As you can see, your data is being live-rendered by our app and displayed above in real-time"];
   const [i, setI] = useState(0);
@@ -184,6 +185,7 @@ const GetInfo=() => {
     if (i === 0) {
       const timer = setTimeout(() => {
         setI(1);
+        setSelectTemp(true)
       }, 11000);
       return () => clearTimeout(timer);
     }
@@ -1120,8 +1122,14 @@ const GetInfo=() => {
                     <div
                       key={template}
                       onClick={() => {
-                        setFormData((prev) => ({ ...prev, selectedTemplate: String(template) }));
-                        setI(2); 
+                        if (selectTemp) {
+                          setFormData((prev) => ({ ...prev, selectedTemplate: String(template) }));
+                          setI(1);
+                          const timer = setTimeout(() => {
+                            setI(2);
+                          }, 50);
+                          return () => clearTimeout(timer);
+                        }
                       }}
                       className={`p-4 border-2 rounded-lg cursor-pointer transition-transform duration-400 shadow-md hover:scale-95 dark:shadow-gray-600  ${
                         formData.selectedTemplate === String(template) ? 'border-blue-600 bg-blue-50 dark:bg-slate-800' : 'dark:border-gray-700'
@@ -1183,10 +1191,15 @@ const GetInfo=() => {
       {/* Left Sidebar */}
       <div
         className={`fixed top-0 left-0 h-full bg-white border-r shadow-md hover:shadow-xl p-0 md:p-4 transition-all duration-300 ease-in-out
-        ${isOpen ? "w-64" : "w-0"} md:w-64 dark:border-r-slate-800 dark:bg-slate-800`}
+        ${isOpen ? "w-64" : "w-0"} md:w-64 dark:border-r-slate-800 dark:bg-slate-800 z-50`}
       >
         <button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => {
+            setIsOpen(!isOpen);
+            if (isPreviewOpen) {
+              setIsPreviewOpen(!isPreviewOpen);
+            }
+          }}
           className="absolute top-6 pl-7 md:hidden p-3 rounded-r-full bg-gray-200 dark:bg-gray-600 dark:text-cyan-300"
         >
           {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -1290,7 +1303,12 @@ const GetInfo=() => {
         ${isPreviewOpen ? "w-64" : "w-0"} md:w-72 dark:border-l-slate-800 dark:bg-slate-800`}
       >
         <button
-          onClick={() => setIsPreviewOpen(!isPreviewOpen)}
+          onClick={() => {
+            setIsPreviewOpen(!isPreviewOpen);
+            if (isOpen) {
+              setIsOpen(!isOpen);
+            }
+          }}
           className="absolute top-6 mr-0 right-0 pr-8 md:hidden p-3 rounded-l-full bg-gray-200 dark:bg-gray-600 dark:text-cyan-300"
         >
           {isPreviewOpen ? <X size={20} /> : <Eye size={20} />}

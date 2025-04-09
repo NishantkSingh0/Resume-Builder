@@ -68,7 +68,7 @@ const T4 = ({ jsonData, desc }) => {
               <a href={`https://www.linkedin.com/in/${jsonData.contactInfo.linkedin}`} target="_blank" rel="noreferrer"> {jsonData.contactInfo.linkedin}</a>
             </div>
             <div className="Litem"><i className="fas fa-globe"></i>
-              <a href={isValidUrl(jsonData.contactInfo.portfolio) ? jsonData.contactInfo.portfolio : `https://github.com/${jsonData.contactInfo.portfolio}`} target="_blank" rel="noreferrer"> {jsonData.contactInfo.portfolio} </a>
+              <a href={isValidUrl(jsonData.contactInfo.portfolio) ? jsonData.contactInfo.portfolio : `https://github.com/${jsonData.contactInfo.portfolio}`} target="_blank" rel="noreferrer"> {jsonData.contactInfo.portfolio.replace(/^https?:\/\//, '')} </a>
             </div>
             <div className="Litem"><i className="fa fa-map-marker"></i> {jsonData.contactInfo.Location}</div>
           </div>

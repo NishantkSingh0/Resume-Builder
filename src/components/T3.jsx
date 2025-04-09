@@ -42,7 +42,7 @@ const T3 = ({jsonData}) => {
               <div className="Litem">
                 <i className="fas fa-globe IconLight"></i>
                 <a 
-                  href={isValidUrl(jsonData.contactInfo.portfolio) ? jsonData.contactInfo.portfolio : `https://github.com/${jsonData.contactInfo.portfolio}`} target="_blank" rel="noreferrer"> {jsonData.contactInfo.portfolio} </a>
+                  href={isValidUrl(jsonData.contactInfo.portfolio) ? jsonData.contactInfo.portfolio : `https://github.com/${jsonData.contactInfo.portfolio}`} target="_blank" rel="noreferrer"> {jsonData.contactInfo.portfolio.replace(/^https?:\/\//, '')} </a>
               </div>
               <div className="Litem"><i className="fa fa-map-marker IconLight"></i> {jsonData.contactInfo.Location}</div> <br />
             </div>

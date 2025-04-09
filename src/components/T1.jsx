@@ -110,7 +110,7 @@ const T1 = ({ jsonData}) => {
             <i className="fab fa-linkedin TextLight"></i> <a href={`https://www.linkedin.com/in/${jsonData.contactInfo.linkedin}`} target="_blank" rel="noreferrer">{jsonData.contactInfo.linkedin}</a>
           </div>
           <div className="Litem NoneDecorationBlack">
-            <i className="fas fa-globe TextLight"></i> <a href={isValidUrl(jsonData.contactInfo.portfolio) ? jsonData.contactInfo.portfolio : `https://github.com/${jsonData.contactInfo.portfolio}`} target="_blank" rel="noreferrer"> {jsonData.contactInfo.portfolio}</a>
+            <i className="fas fa-globe TextLight"></i> <a href={isValidUrl(jsonData.contactInfo.portfolio) ? jsonData.contactInfo.portfolio : `https://github.com/${jsonData.contactInfo.portfolio}`} target="_blank" rel="noreferrer"> {jsonData.contactInfo.portfolio.replace(/^https?:\/\//, '')}</a>
           </div>
           <div className="Litem">
             <i className="fa fa-map-marker TextLight"></i> {jsonData.contactInfo.Location}

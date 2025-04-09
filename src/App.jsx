@@ -9,7 +9,7 @@ import { ThemeContext } from './components/ThemeContext.jsx';
 import GoogleVarification from './components/GoogleVarification.jsx';
 import ViewTemplates from './components/ViewTemplates.jsx';
 import Loader from './components/Loader.jsx'
-// import T7 from './components/T7.jsx'
+// import T5 from './components/T5.jsx'
 
 const App = () => {
 
@@ -129,7 +129,7 @@ const App = () => {
 
   return (
     // <>
-    //   <T7 jsonData={jsonData}/>
+    //   <T5 jsonData={jsonData}/>
     // </>
     <div>
       <Toaster />
