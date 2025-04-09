@@ -28,7 +28,7 @@ const T2 = ({ jsonData }) => {
         <h1 className="Name">{jsonData.contactInfo.fullName}</h1>
         <h2 className="fontBold" style={{ fontWeight: 700 }}>{jsonData.contactInfo.jobTitle}</h2>
         <p style={{ color: '#333' }}> 
-          <a href="#" className="NoneDecoration">{jsonData.contactInfo.Location}</a> | <a className="NoneDecoration" href={`mailto:${jsonData.contactInfo.emailAddress}`} target="_blank" rel="noreferrer">{jsonData.contactInfo.emailAddress}</a> | <a className="NoneDecoration" href={`https://www.linkedin.com/in/${jsonData.contactInfo.linkedin}`} target="_blank" rel="noreferrer">{jsonData.contactInfo.linkedin}</a>
+          <a href="#" className="NoneDecoration">{jsonData.contactInfo.Location}</a> | <a className="NoneDecoration" href={`mailto:${jsonData.contactInfo.emailAddress}`} target="_blank" rel="noreferrer">{jsonData.contactInfo.phoneNumber}</a> | <a className="NoneDecoration" href={`https://www.linkedin.com/in/${jsonData.contactInfo.linkedin}`} target="_blank" rel="noreferrer">{jsonData.contactInfo.linkedin}</a>
         </p>
       </div>
 
