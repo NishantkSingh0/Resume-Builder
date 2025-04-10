@@ -26,7 +26,7 @@ const T3 = ({jsonData}) => {
 
   return (
     <StyledWrapper>
-    <div>
+    <div id="capture-content">
       <div className="header">
         <h1>{jsonData.contactInfo.fullName}</h1>
         <h2>{jsonData.contactInfo.jobTitle}</h2>
@@ -52,7 +52,7 @@ const T3 = ({jsonData}) => {
               <div className="Litem">
                 {jsonData.education.map((edu, index) => (
                   <React.Fragment key={index}>
-                    <div className="mb-3">
+                    <div className="mbb-3">
                         <div className="SubSec-title TextLight"><b>{edu.graduationYear}<br />{edu.institutionName}</b></div>
                         {edu.degreeName} <br />
                         GPA: {edu.currentSGPA}
@@ -110,7 +110,7 @@ const T3 = ({jsonData}) => {
               <div className="Ritem">
                 <ul>
                   {jsonData.workExperience.map((we, index) => (
-                    <li key={index} className='mb-2'>
+                    <li key={index} className='mbb-2'>
                       <div className="item-title TextLight">{we.companyName}<div>{we.WorkDuration}</div> </div>
                       {we.jobTitle}<br />
                       {we.keyAchievements}
@@ -241,6 +241,7 @@ const StyledWrapper = styled.div`body {
 }
 
 .header {
+   padding: 20px;
    text-align: center;
    width: 900px;
    background: #b6dbf0;
@@ -279,6 +280,14 @@ const StyledWrapper = styled.div`body {
 .content {
    display: flex;
    justify-content: center;
+}
+
+.mbb-3 {
+   margin-bottom: 0.75rem /* 12px */;
+}
+
+.mb-2 {
+   margin-bottom: 0.5rem /* 8px */;
 }
 
 .content .left {

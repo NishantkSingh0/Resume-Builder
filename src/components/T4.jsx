@@ -41,7 +41,7 @@ const T4 = ({ jsonData, desc }) => {
 
   return (
     <StyledWrapper>
-    <div className="resume">
+    <div className="resume" id="capture-content">
       <div className="header">
         <div className="left">
           <img src="https://www.skibalawchicago.com/wp-content/uploads/2024/06/profile-placeholder.jpg" alt="Profile" />
@@ -138,7 +138,7 @@ const T4 = ({ jsonData, desc }) => {
                   <React.Fragment key={index}>
                     {/* {index > 0 && <br />} */}
                     <li>
-                      <div className="item-title textGray mt-3">
+                      <div className="item-title textGray mtt-3">
                         {we.companyName}
                         <div>{we.WorkDuration}</div>
                       </div>
@@ -346,6 +346,10 @@ const StyledWrapper=styled.div`body {
 .content {
    display: flex;
    justify-content: center;
+}
+
+.mtt-3 {
+   margin-top: 0.75rem /* 12px */;
 }
 
 .content .left {

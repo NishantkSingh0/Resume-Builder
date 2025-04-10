@@ -10,7 +10,7 @@ const T5 = ({ jsonData, desc }) => {
 
   return (
     <StyledWrapper>
-    <div className="resume-container">
+    <div className="resume-container" id="capture-content">
       <div className="header">
         <h1><b>{jsonData.contactInfo.fullName}</b></h1><br />
         <p>

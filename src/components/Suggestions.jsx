@@ -112,7 +112,9 @@ const AutoSuggestInput = ({
           value={inputValue}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
-          onBlur={() => setShowSuggestions(false)}
+          onBlur={(e) => {
+            setShowSuggestions(false);  // local logic
+          }}
           onFocus={() =>
             inputValue &&
             setFilteredSuggestions(

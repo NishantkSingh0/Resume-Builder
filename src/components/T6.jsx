@@ -13,7 +13,7 @@ const T6 = ({ jsonData }) => {
 
   return (
     <StyledWrapper>
-    <div className="resume">
+    <div className="resume" id="capture-content">
       <div className="contacts">
         <h1>{jsonData.contactInfo.fullName}</h1>
         <p>
@@ -115,7 +115,7 @@ const T6 = ({ jsonData }) => {
             <br />
           </div>
         </div>
-        <a className="NoneDecoration ml-3" href="#" target="_blank" rel="noreferrer">More Certificates</a>
+        <a className="NoneDecoration mll-3" href="#" target="_blank" rel="noreferrer">More Certificates</a>
       </div>
 
       <div className="Conts">
@@ -188,6 +188,10 @@ ul {
    color: #474646;
    margin-bottom: 5px;
    margin-top: 15px;
+}
+
+.mll-3 {
+   margin-left: 0.75rem /* 12px */;
 }
 
 .Conts{

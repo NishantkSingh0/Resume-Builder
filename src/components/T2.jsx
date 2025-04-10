@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const T2 = ({ jsonData }) => {
-  const skills = jsonData.skills.hardSkills.split(',');
+  const skills = jsonData.skills.hardSkills.split(', ');
   const eachColumn = Math.floor(skills.length / 4);
   
   let column1 = eachColumn;
@@ -23,7 +23,7 @@ const T2 = ({ jsonData }) => {
 
   return (
     <StyledWrapper>
-    <div className="resume-container">
+    <div className="resume-container" id="capture-content">
       <div className="header">
         <h1 className="Name">{jsonData.contactInfo.fullName}</h1>
         <h2 className="fontBold" style={{ fontWeight: 700 }}>{jsonData.contactInfo.jobTitle}</h2>
@@ -56,7 +56,7 @@ const T2 = ({ jsonData }) => {
         {jsonData.workExperience.map((exp, index) => (
           <div className="experience-item" key={index}>
             <ul>
-              <li className="SpaceBetween">{exp.companyName} {exp.jobTitle} <span>{exp.WorkDuration}</span></li>
+              <li className="SpaceBetween">{exp.companyName} | {exp.jobTitle} <span>{exp.WorkDuration}</span></li>
               {exp.keyAchievements}
             </ul>
           </div>

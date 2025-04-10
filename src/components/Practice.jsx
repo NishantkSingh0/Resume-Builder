@@ -1,83 +1,47 @@
-import React, { useState } from 'react';
-import Fuse from 'fuse.js';
+import React, { useState, useEffect } from 'react';
 
-const suggestions = {
-  fullName: ["John Doe", "Jane Smith", "Alice Johnson"],
-  jobTitle: ["Software Engineer", "Data Scientist", "Product Manager"],
-};
+const Result = () => {
+  const [countdown, setCountdown] = useState(10);
+  const [error, setError] = useState(false);
 
-const fuseOptions = { includeScore: true, threshold: 0.3 };
-
-const Practice = ({ formData, handleInputChange, isExampleProcessing, ExampleJsonData }) => {
-  const [filteredSuggestions, setFilteredSuggestions] = useState({});
-
-  const handleSuggestion = (field, value) => {
-    if (suggestions[field]) {
-      const fuse = new Fuse(suggestions[field], fuseOptions);
-      const results = fuse.search(value).map((res) => res.item);
-      setFilteredSuggestions((prev) => ({ ...prev, [field]: results }));
+  useEffect(() => {
+    if (countdown > 0) {
+      const timer = setTimeout(() => setCountdown(countdown - 1), 1500);
+      return () => clearTimeout(timer);
+    } else {
+      setError(true);
     }
-  };
+  }, [countdown]);
 
   return (
-    <div className="space-y-4">
-      <h2 className="text-xl sm:text-2xl mb-4 font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">
-        Contact Information
-      </h2>
-      
-      {/* Full Name */}
-      <div className="space-y-2">
-        <label className="block text-sm font-medium dark:text-slate-300">Full Name</label>
-        <input
-          type="text"
-          placeholder="John Doe"
-          className="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500"
-          value={isExampleProcessing ? ExampleJsonData.contactInfo.fullName : formData.contactInfo.fullName}
-          onChange={(e) => {
-            if (!isExampleProcessing) {
-              handleInputChange("contactInfo", "fullName", e.target.value);
-              handleSuggestion("fullName", e.target.value);
-            }
-          }}
-        />
-        {filteredSuggestions.fullName && (
-          <ul className="bg-white border mt-1">
-            {filteredSuggestions.fullName.map((suggestion, index) => (
-              <li key={index} className="cursor-pointer p-2 hover:bg-gray-200" onClick={() => handleInputChange("contactInfo", "fullName", suggestion)}>
-                {suggestion}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+    <div className="flex items-center justify-center h-screen w-screen text-center transition-colors duration-300 bg-gray-100 dark:bg-slate-800">
+      {error ? (
+        <p className="text-[16px] text-red-500 dark:text-amber-300 font-bold text-center">
+          The server is not connected to the frontend. <br />
+          Please refer to the instructions provided in the Git repository: <br />
+          <a 
+            href="https://github.com/NishantkSingh0/Resume-Builder" 
+            target='_blank'
+            className="text-blue-600 dark:text-blue-400 no-underline hover:underline"
+          >
+            <strong>NishantkSingh0/Resume-Builder</strong>
+          </a> <br />
+          or contact with us <br /> <a href="mailto:nishantsingh.talk@gmail.com" className="text-blue-600 dark:text-blue-400 no-underline hover:underline">nishantsingh.talk@gmail.com</a>
+        </p>
+      ) : (
+        <div className="relative w-[220px] h-[320px] rounded-[14px] overflow-hidden flex flex-col items-center justify-center shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] dark:shadow-[20px_20px_60px_#1a1a1a,-20px_-20px_60px_#2a2a2a] transition-all duration-300">
+          
+          {/* Blob with custom animation */}
+          <div className="absolute top-1/2 left-1/2 w-[200px] h-[200px] rounded-full bg-[#3449ff] dark:bg-gray-200 opacity-100 filter blur-[8px] animate-blob-bounce transition-colors duration-300"></div>
 
-      {/* Job Title */}
-      <div className="space-y-2">
-        <label className="block text-sm font-medium dark:text-slate-300">Job Title</label>
-        <input
-          type="text"
-          placeholder="Data Scientist"
-          className="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500"
-          value={isExampleProcessing ? ExampleJsonData.contactInfo.jobTitle : formData.contactInfo.jobTitle}
-          onChange={(e) => {
-            if (!isExampleProcessing) {
-              handleInputChange("contactInfo", "jobTitle", e.target.value);
-              handleSuggestion("jobTitle", e.target.value);
-            }
-          }}
-        />
-        {filteredSuggestions.jobTitle && (
-          <ul className="bg-white border mt-1">
-            {filteredSuggestions.jobTitle.map((suggestion, index) => (
-              <li key={index} className="cursor-pointer p-2 hover:bg-gray-200" onClick={() => handleInputChange("contactInfo", "jobTitle", suggestion)}>
-                {suggestion}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+          {/* Foreground card */}
+          <div className="absolute top-[5px] left-[5px] w-[210px] h-[310px] bg-white dark:bg-slate-950 backdrop-blur-[24px] rounded-[10px] outline outline-2 outline-white dark:outline-gray-600 flex items-center justify-center text-center text-[14px] text-[#3449ff] dark:text-blue-300 font-bold p-[10px] transition-colors duration-300">
+            <p>Designing ...</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default Practice;
+export default Result;

@@ -12,7 +12,7 @@ const isValidUrl = (url) => {
   }
 };
 
-const T1 = ({ jsonData}) => {
+const T1 = ({ jsonData }) => {
   const Education = jsonData.education.map((edu,index) => (
     <div key={`Education-${index}`}>
       <div className="TextLight">
@@ -93,7 +93,7 @@ const T1 = ({ jsonData}) => {
 
   return (
     <StyledWrapper>
-    <div className="resume">
+    <div className="resume" id="capture-content">
       <div className="header">
         <h1>{jsonData.contactInfo.fullName}</h1>
         <h2>{jsonData.contactInfo.jobTitle}</h2>
