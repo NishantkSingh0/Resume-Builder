@@ -761,7 +761,7 @@ const GetInfo=() => {
 
       case 4:
         if (!isExampleProcessing){
-          {i===11 && setI(12)}
+          {(i===11 || i===10) && setI(12)}
           return (
             <div className="space-y-4">
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Projects</h2>
@@ -1206,7 +1206,7 @@ const GetInfo=() => {
                           setFormData((prev) => ({ ...prev, selectedTemplate: String(template) }));
                           setI(1);
                           const timer2 = setTimeout(() => {
-                            setI(2);
+                            {(i===1 || i===2) && setI(2)};
                           }, 50);
                           return () => clearTimeout(timer2);
                         }
