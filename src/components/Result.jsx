@@ -12,8 +12,7 @@ const Result = () => {
   const [countdown, setCountdown] = useState(10);
   const location = useLocation();
   const { jsonData } = location.state || {};
-  
-  // Get the selected template number from jsonData or default to "1"
+
   const selectedTemplate = jsonData?.selectedTemplate || "1";
 
   useEffect(() => {
@@ -21,33 +20,52 @@ const Result = () => {
       const timer = setTimeout(() => setCountdown(countdown - 1), 1500);
       return () => clearTimeout(timer);
     } else {
-      generateHTMLFile();
+      generateAndDownloadPDF(); // Call backend to download PDF
     }
   }, [countdown]);
 
-  const generateHTMLFile = async () => {
-    try {
-      const content = document.getElementById('capture-content').innerHTML;
-      const cssURL=`https://cdn.jsdelivr.net/gh/NishantkSingh0/Generated-Templates/CSS%20linking/T${selectedTemplate}.css?v=dev123`
-      const htmlContent = `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Designed by BRAVERS</title>
-<link rel="stylesheet" href=${cssURL}>
-<link rel="icon" href="https://raw.githubusercontent.com/NishantkSingh0/Resume-Builder/main/public/N.png">
-</head>
-<body>${content}</body>
-</html>`;
+  const generateAndDownloadPDF = async () => {
+    const content = document.getElementById('capture-content').innerHTML;
 
-      const blob = new Blob([htmlContent], { type: 'text/html' });
+    const cssURL = `https://cdn.jsdelivr.net/gh/NishantkSingh0/Generated-Templates/CSS%20linking/T${selectedTemplate}.css?v=dev123`;
+
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Designed by BRAVERS</title>
+        <link rel="stylesheet" href=${cssURL}>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="icon" href="https://raw.githubusercontent.com/NishantkSingh0/Resume-Builder/main/public/N.png">
+      </head>
+      <body>${content}</body>
+      </html>
+    `;
+
+    try {
+      const response = await fetch('https://your-backend.onrender.com/generate-pdf', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ html: htmlContent }),
+      });
+
+      if (!response.ok) {
+        throw new Error('PDF generation failed');
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+
       const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'Resume.html';
+      link.href = url;
+      link.download = 'resume.pdf';
       link.click();
+
+      window.URL.revokeObjectURL(url);
     } catch (error) {
-      console.error('Error generating HTML file:', error);
+      console.error('Error generating PDF:', error);
     }
   };
 

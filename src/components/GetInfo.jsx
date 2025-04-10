@@ -1204,7 +1204,7 @@ const GetInfo=() => {
                       onClick={() => {
                         if (selectTemp) {
                           setFormData((prev) => ({ ...prev, selectedTemplate: String(template) }));
-                          setI(1);
+                          {i===2 && setI(1)}
                           const timer2 = setTimeout(() => {
                             {(i===1 || i===2) && setI(2)};
                           }, 50);
