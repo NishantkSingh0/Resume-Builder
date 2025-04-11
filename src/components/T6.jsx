@@ -147,7 +147,7 @@ export const T6 = ({ jsonData }) => {
       <div className="Conts">
         <div className="title">Technical skills:</div>
         <div className="subcont SpaceBetween">
-          <div className="left">Hard Skills <br />Soft Skills </div>
+          <div className="left"><strong style={{ color: "rgb(75, 77, 77)" }}>Tech Skills: </strong> <br /><strong style={{ color: "rgb(75, 77, 77)" }}>Soft Skills: </strong></div>
           <div className="mid">--<br />--<br /></div>
           <div className="right">{jsonData.skills.hardSkills}<br />{jsonData.skills.softSkills} <br /></div>
         </div>

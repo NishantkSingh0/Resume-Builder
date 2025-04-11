@@ -276,8 +276,8 @@ export const T5 = ({ jsonData, desc }) => {
           {jsonData.skills.softSkills}
         </p>
         <p className="skills-item">
-          <strong>Tech Skills: </strong>
-          <span style={{ color: "rgb(75, 77, 77)" }}>{jsonData.skills.hardSkills}</span>
+          <strong style={{ color: "rgb(75, 77, 77)" }}>Tech Skills: </strong>
+          <span>{jsonData.skills.hardSkills}</span>
         </p>
       </div>
     </div>
