@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-// Import all template components
+import { html as html_beautify } from 'js-beautify';
 import {T1,T1Css} from './T1.jsx';
 import {T2,T2Css} from './T2.jsx';
 import {T3,T3Css} from './T3.jsx';
@@ -37,13 +37,15 @@ const Result = () => {
 
   const generateAndDownloadFiles = async () => {
     try {
-      const contentElement = document.getElementById('capture-content');
+      const UnformatedHTML = document.getElementById('capture-content');
+      const rawHtml = UnformatedHTML.outerHTML;
+      const contentElement = html_beautify(rawHtml);
+      
       if (!contentElement) {
         throw new Error("Content element not found. Template may not be rendered correctly.");
       }
   
-      const content = contentElement.innerHTML;
-      if (!content.trim()) {
+      if (!contentElement.trim()) {
         throw new Error("Template content is empty. Please check the template rendering.");
       }
   
@@ -64,7 +66,7 @@ const Result = () => {
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
           <link rel="icon" href="https://raw.githubusercontent.com/NishantkSingh0/Resume-Builder/main/public/N.png">
         </head>
-        <body>${content}</body>
+        <body>${contentElement}</body>
         </html>
       `;
   
@@ -179,18 +181,21 @@ const Result = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen w-screen text-center transition-colors duration-300 bg-gray-100 dark:bg-slate-800">
-      {/* Always render the template but keep it hidden during loading */}
-      <div 
-        id="capture-content" 
-        className="scale-[0.4] text-left"
-        style={{ visibility: status === 'completed' ? 'visible' : 'hidden', position: status === 'completed' ? 'relative' : 'absolute' }}
-      >
-        {jsonData && renderSelectedTemplate()}
-      </div>
+<div className="flex flex-col items-center justify-center min-h-screen w-full bg-gray-100 dark:bg-slate-800 px-4 py-8 transition-colors duration-300">
+  {/* Always render the template but keep it hidden during loading */}
+  <div 
+    id="capture-content" 
+    className="scale-[0.4] text-left w-full mb-6"
+    style={{ visibility: status === 'completed' ? 'visible' : 'hidden', position: status === 'completed' ? 'relative' : 'absolute' }}
+  >
+    {jsonData && renderSelectedTemplate()}
+  </div>
 
-      {/* Show loading animation while not completed */}
-      {status !== 'completed' && status !== 'error' ? (
+  {/* Messages container - always positioned below */}
+  <div className="w-full max-w-md mt-0">
+    {/* Show loading animation while not completed */}
+    {status !== 'completed' && status !== 'error' ? (
+      <div className="w-full flex flex-row items-center mb-6">
         <div className="relative w-[220px] h-[320px] rounded-[14px] overflow-hidden flex flex-col items-center justify-center shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] dark:shadow-[20px_20px_60px_#1a1a1a,-20px_-20px_60px_#2a2a2a] transition-all duration-300">
           {/* Blob with custom animation */}
           <div className="absolute top-1/2 left-1/2 w-[200px] h-[200px] rounded-full bg-[#3449ff] dark:bg-gray-200 opacity-100 filter blur-[8px] animate-blob-bounce transition-colors duration-300"></div>
@@ -210,42 +215,44 @@ const Result = () => {
             )}
           </div>
         </div>
-      ) : status === 'error' ? (
-        // Show error message if there's an error
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative max-w-md">
-          <strong className="font-bold">Error:</strong>
-          <span className="block sm:inline"> {errorMessage}</span>
+      </div>
+    ) : status === 'error' ? (
+      // Show error message if there's an error
+      <div className="w-full bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+        <strong className="font-bold">Error:</strong>
+        <span className="block sm:inline"> {errorMessage}</span>
+        <button 
+          className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          onClick={handleTryAgain}
+        >
+          Try Again
+        </button>
+      </div>
+    ) : (
+      // Show success message when completed
+      <div className="w-full flex flex-col items-center">
+        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative w-full mb-4 text-left">
+          <strong className="font-bold">Success!</strong>
+          <span className="block sm:inline"> Your resume has been successfully generated and downloaded! I'm confident your ATS score will be <b>85+</b>. However, keep in mind — websites like EnhanceCV, LiveCareer, Resumake, Resume-Now, and other online resume builders often show lower scores intentionally to encourage users to rebuild their resumes using their platform. Focus on content quality, clarity, and relevance — that's what truly matters to recruiters and real-world ATS systems!</span>
+        </div>
+        <div className="flex flex-wrap gap-3 justify-center">
           <button 
-            className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             onClick={handleTryAgain}
           >
-            Try Again
+            Download Again
+          </button>
+          <button 
+            className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+            onClick={() => window.history.back()}
+          >
+            Back to Editor
           </button>
         </div>
-      ) : (
-        // Show success message when completed
-        <div className="flex flex-col items-center">
-          <div className="bg-green-100 border border-green-400 text-green-700 px-4 ml- py-3 rounded relative max-w-md mb-4">
-            <strong className="font-bold">Success!</strong>
-            <span className="block sm:inline"> Your resume has been successfully generated and downloaded. Believe me your ATS score will be <b>85+</b></span>
-          </div>
-          <div className="flex gap-3">
-            <button 
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              onClick={handleTryAgain}
-            >
-              Download Again
-            </button>
-            <button 
-              className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-              onClick={() => window.history.back()}
-            >
-              Back to Editor
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
+      </div>
+    )}
+  </div>
+</div>
   );
 };
 

@@ -6,7 +6,7 @@ const StyledWrapper = styled.div`
   body {
     margin-top: 10px !important;
     font-family: Arial, sans-serif;
-    background: #fff !important;
+    background: #E5E7EB !important;
     color: #333;
     padding: 20px;
   }
@@ -17,7 +17,7 @@ const StyledWrapper = styled.div`
   .resume-container {
     width: 900px;
     margin: 0 auto;
-    background: #fff;
+    background: #E5E7EB;
     border: 0px solid #ddd !important;
     border-radius: 8px;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0.05) !important;
@@ -40,17 +40,16 @@ const StyledWrapper = styled.div`
 body {
   margin-top: 100px;
   font-family: Arial, sans-serif;
-  background: #e4e4e4;
+  background: #cfcfcf;
   color: #333;
   padding: 20px;
 }
 
 .resume-container {
   width: 900px;
- //  height: 1300px;
   margin: 0 auto;
-  background: #fff;
-  border: 2px solid #ddd !important;
+  background: #E5E7EB;
+  border: 2px solid #ddd;
   border-radius: 8px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
   padding: 2rem;
@@ -372,7 +371,7 @@ export const T2Css=`
         body {
           margin-top: 10px !important;
           font-family: Arial, sans-serif;
-          background: #fff !important;
+          background: #E5E7EB !important;
           color: #333;
           padding: 20px;
         }
@@ -383,7 +382,7 @@ export const T2Css=`
         .resume-container {
           width: 900px;
           margin: 0 auto;
-          background: #fff;
+          background: #E5E7EB;
           border: 0px solid #ddd !important;
           border-radius: 8px;
           box-shadow: 0 0 0 rgba(0, 0, 0, 0.05) !important;
@@ -406,17 +405,16 @@ export const T2Css=`
        body {
          margin-top: 100px;
          font-family: Arial, sans-serif;
-         background: #e4e4e4;
+         background: #cfcfcf;
          color: #333;
          padding: 20px;
        }
       
        .resume-container {
          width: 900px;
-        //  height: 1300px;
          margin: 0 auto;
-         background: #fff;
-         border: 0px solid #ddd !important;
+         background: #E5E7EB;
+         border: 2px solid #ddd;
          border-radius: 8px;
          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
          padding: 2rem;

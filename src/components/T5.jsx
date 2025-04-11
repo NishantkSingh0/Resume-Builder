@@ -17,7 +17,6 @@ body {
 
 .resume-container {
   width: 900px;
- //  height: 1300px;
   margin: 0 auto;
   background: #fff;
   border-radius: 15px;
@@ -154,7 +153,6 @@ h3 {
 
 
 export const T5 = ({ jsonData, desc }) => {
-  // Helper function to check if a string contains a dot (.)
   const handlePortfolioLink = (portfolio) => {
    return portfolio.indexOf('.') > -1 ? `https://${portfolio}` : `https://github.com/${portfolio}`;
  };
@@ -300,7 +298,6 @@ export const T5Css=`
   }
  .resume-container {
    width: 900px;
-  //  height: 1300px;
    margin: 10px auto;
    background: #fff;
    border-radius: 15px;
@@ -325,7 +322,6 @@ export const T5Css=`
 
  .resume-container {
    width: 900px;
-  //  height: 1300px;
    margin: 0 auto;
    background: #fff;
    border-radius: 15px;

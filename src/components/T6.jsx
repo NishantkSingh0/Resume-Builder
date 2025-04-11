@@ -14,7 +14,7 @@ const StyledWrapper=styled.div`body {
 .resume {
   width: 900px;           /* (W/H) Ratio should be 0.7069 */
   /* height: 1131px; */
-  background: #ffffff;
+  background: #F1F5F9;
   border: 1px solid #ddd;
   border-radius: 15px;
   padding: 20px;
@@ -242,7 +242,7 @@ export const T6Css=`
      font-family: Arial, sans-serif;
      margin: 0;
      padding: 0;
-     background-color: #ffffff !important;
+     background-color: #F1F5F9 !important;
      display: flex;
      justify-content: center;
      align-items: center;
@@ -254,7 +254,7 @@ export const T6Css=`
   }
   .resume {
      width: 900px;         
-     background: #ffffff;
+     background: #F1F5F9;
      border: 0px solid #ddd !important;
      border-radius: 15px;
      padding: 20px;
@@ -275,7 +275,7 @@ body {
 .resume {
    width: 900px;           /* (W/H) Ratio should be 0.7069 */
    /* height: 1131px; */
-   background: #ffffff;
+   background: #F1F5F9;
    border: 1px solid #ddd;
    border-radius: 15px;
    padding: 20px;
