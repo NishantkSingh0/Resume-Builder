@@ -1,7 +1,217 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const T2 = ({ jsonData }) => {
+const StyledWrapper = styled.div`
+@media print {
+  body {
+    margin-top: 10px !important;
+    font-family: Arial, sans-serif;
+    background: #fff !important;
+    color: #333;
+    padding: 20px;
+  }
+  @page {
+   size: 930px 1300px; 
+   margin: 0;
+  }
+  .resume-container {
+    width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border: 0px solid #ddd !important;
+    border-radius: 8px;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.05) !important;
+    padding: 2rem;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.Name{
+  font-family: Verdana;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+body {
+  margin-top: 100px;
+  font-family: Arial, sans-serif;
+  background: #e4e4e4;
+  color: #333;
+  padding: 20px;
+}
+
+.resume-container {
+  width: 900px;
+ //  height: 1300px;
+  margin: 0 auto;
+  background: #fff;
+  border: 2px solid #ddd !important;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: #666;
+  margin-bottom: 0.75rem;
+}
+
+.header p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.summary p {
+  line-height: 1.5;
+  margin: 0 20px 0 20px;
+  margin-bottom: 0.5rem;
+}
+
+.skills ul {
+  margin-left: 10px;
+  padding-left: 0;
+}
+
+.skills li {
+  margin: 0 20px 0 30px;
+  margin-bottom: 0.5rem;
+}
+
+.experience-item {
+  margin:0 20px 10px 0;
+}
+
+.experience-item h4 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.experience-item span {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.Certificats span {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.experience-item ul {
+  list-style: disc;
+  margin-left: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+ul{
+ list-style-type: circle;
+}
+
+.experience-item li {
+  margin-bottom: 0.5rem;
+}
+
+.education {
+  margin-left: 10px;
+}
+
+.education-item {
+  margin: 0 10px 10px 20px;
+}
+
+.education-item h4 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.education-item span {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.Projects-items {
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.Projects-items h4 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.Projects-items p {
+  font-size: medium;
+  font-weight: lighter;
+}
+
+.Certificats {
+  margin: 10px 20px;
+}
+
+.SpaceBetween {
+ display: flex;
+ flex-direction: row;   /* Force row direction */
+ justify-content: space-between;
+ font-weight: bolder;
+ color: #525151;
+}
+
+.mar-30{
+ margin: 0 20px 0 20px;
+}
+
+.justflex {
+ display: flex;
+ flex-direction: row;   /* Force row direction */
+ align-items: center;
+ font-weight: bolder;
+ color: #525151;
+}
+
+.fontlight{
+  color: #494848;
+}
+
+.fontBold {
+  font-weight: bolder;
+  color: #333;
+}
+
+.NoneDecoration {
+  text-decoration: none;
+  color: #2d3499;
+}
+
+.Heading {
+  padding: 13px 20px 10px 20px;
+  color: #424141;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  background-color: #c5c3c3;
+}`;
+
+export const T2 = ({ jsonData }) => {
   const skills = jsonData.skills.hardSkills.split(', ');
   const eachColumn = Math.floor(skills.length / 4);
   
@@ -91,7 +301,7 @@ const T2 = ({ jsonData }) => {
         <div className='mar-30'>
           {jsonData.certificates.map((_, index) => (
             <React.Fragment key={index}>
-              ⇒
+              --
               {index < jsonData.certificates.length - 1 && <br />}
             </React.Fragment>
           ))}
@@ -157,189 +367,212 @@ const T2 = ({ jsonData }) => {
   );
 };
 
-const StyledWrapper = styled.div`* {
-   box-sizing: border-box;
-   margin: 0;
-   padding: 0;
- }
-
- .Name{
-   font-family: Verdana;
-   font-size: 2rem;
-   font-weight: bold;
- }
-
- body {
-   margin-top: 100px;
-   font-family: Arial, sans-serif;
-   background: #e4e4e4;
-   color: #333;
-   padding: 20px;
- }
-
- .resume-container {
-   width: 900px;
-  //  height: 1300px;
-   margin: 0 auto;
-   background: #fff;
-   border-radius: 8px;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-   padding: 2rem;
- }
-
- .header {
-   margin-bottom: 2rem;
- }
-
- .header h1 {
-   font-size: 2rem;
-   letter-spacing: 1px;
-   margin-bottom: 0.25rem;
-   text-transform: uppercase;
- }
-
- .header h2 {
-   font-size: 1.2rem;
-   font-weight: normal;
-   color: #666;
-   margin-bottom: 0.75rem;
- }
-
- .header p {
-   font-size: 0.9rem;
-   color: #666;
- }
-
- .summary p {
-   line-height: 1.5;
-   margin: 0 20px 0 20px;
-   margin-bottom: 0.5rem;
- }
-
- .skills ul {
-   margin-left: 10px;
-   padding-left: 0;
- }
-
- .skills li {
-   margin: 0 20px 0 30px;
-   margin-bottom: 0.5rem;
- }
-
- .experience-item {
-   margin:0 20px 10px 0;
- }
-
- .experience-item h4 {
-   font-size: 1rem;
-   font-weight: bold;
-   margin-bottom: 0.25rem;
- }
-
- .experience-item span {
-   font-size: 0.9rem;
-   color: #999;
- }
-
- .Certificats span {
-   font-size: 0.9rem;
-   color: #999;
- }
-
- .experience-item ul {
-   list-style: disc;
-   margin-left: 1.2rem;
-   margin-top: 0.5rem;
- }
-
- ul{
-  list-style-type: circle;
- }
-
- .experience-item li {
-   margin-bottom: 0.5rem;
- }
-
- .education {
-   margin-left: 10px;
- }
-
- .education-item {
-   margin: 0 10px 10px 20px;
- }
-
- .education-item h4 {
-   font-size: 1rem;
-   font-weight: bold;
-   margin-bottom: 0.25rem;
- }
-
- .education-item span {
-   font-size: 0.9rem;
-   color: #999;
- }
-
- .Projects-items {
-   margin-bottom: 10px;
-   margin-left: 20px;
- }
-
- .Projects-items h4 {
-   font-size: 1rem;
-   font-weight: bold;
-   margin-bottom: 0.25rem;
- }
-
- .Projects-items p {
-   font-size: medium;
-   font-weight: lighter;
- }
-
- .Certificats {
-   margin: 10px 20px;
- }
-
- .SpaceBetween {
-  display: flex;
-  flex-direction: row;   /* Force row direction */
-  justify-content: space-between;
-  font-weight: bolder;
-  color: #525151;
- }
-
-.mar-30{
-  margin: 0 20px 0 20px;
-}
-
- .justflex {
-  display: flex;
-  flex-direction: row;   /* Force row direction */
-  align-items: center;
-  font-weight: bolder;
-  color: #525151;
- }
-
- .fontlight{
-   color: #494848;
- }
-
- .fontBold {
-   font-weight: bolder;
-   color: #333;
- }
-
- .NoneDecoration {
-   text-decoration: none;
-   color: #2d3499;
- }
-
- .Heading {
-   padding: 13px 20px 10px 20px;
-   color: #424141;
-   border-radius: 20px;
-   margin-bottom: 5px;
-   font-weight: bold;
-   background-color: #c5c3c3;
- }`;
-
-export default T2;
+export const T2Css=`
+      @media print {
+        body {
+          margin-top: 10px !important;
+          font-family: Arial, sans-serif;
+          background: #fff !important;
+          color: #333;
+          padding: 20px;
+        }
+        @page {
+         size: 930px 1300px; 
+         margin: 0;
+        }
+        .resume-container {
+          width: 900px;
+          margin: 0 auto;
+          background: #fff;
+          border: 0px solid #ddd !important;
+          border-radius: 8px;
+          box-shadow: 0 0 0 rgba(0, 0, 0, 0.05) !important;
+          padding: 2rem;
+        }
+      }
+      
+      * {
+         box-sizing: border-box;
+         margin: 0;
+         padding: 0;
+       }
+      
+       .Name{
+         font-family: Verdana;
+         font-size: 2rem;
+         font-weight: bold;
+       }
+      
+       body {
+         margin-top: 100px;
+         font-family: Arial, sans-serif;
+         background: #e4e4e4;
+         color: #333;
+         padding: 20px;
+       }
+      
+       .resume-container {
+         width: 900px;
+        //  height: 1300px;
+         margin: 0 auto;
+         background: #fff;
+         border: 0px solid #ddd !important;
+         border-radius: 8px;
+         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+         padding: 2rem;
+       }
+      
+       .header {
+         margin-bottom: 2rem;
+       }
+      
+       .header h1 {
+         font-size: 2rem;
+         letter-spacing: 1px;
+         margin-bottom: 0.25rem;
+         text-transform: uppercase;
+       }
+      
+       .header h2 {
+         font-size: 1.2rem;
+         font-weight: normal;
+         color: #666;
+         margin-bottom: 0.75rem;
+       }
+      
+       .header p {
+         font-size: 0.9rem;
+         color: #666;
+       }
+      
+       .summary p {
+         line-height: 1.5;
+         margin: 0 20px 0 20px;
+         margin-bottom: 0.5rem;
+       }
+      
+       .skills ul {
+         margin-left: 10px;
+         padding-left: 0;
+       }
+      
+       .skills li {
+         margin: 0 20px 0 30px;
+         margin-bottom: 0.5rem;
+       }
+      
+       .experience-item {
+         margin:0 20px 10px 0;
+       }
+      
+       .experience-item h4 {
+         font-size: 1rem;
+         font-weight: bold;
+         margin-bottom: 0.25rem;
+       }
+      
+       .experience-item span {
+         font-size: 0.9rem;
+         color: #999;
+       }
+      
+       .Certificats span {
+         font-size: 0.9rem;
+         color: #999;
+       }
+      
+       .experience-item ul {
+         list-style: disc;
+         margin-left: 1.2rem;
+         margin-top: 0.5rem;
+       }
+      
+       ul{
+        list-style-type: circle;
+       }
+      
+       .experience-item li {
+         margin-bottom: 0.5rem;
+       }
+      
+       .education {
+         margin-left: 10px;
+       }
+      
+       .education-item {
+         margin: 0 10px 10px 20px;
+       }
+      
+       .education-item h4 {
+         font-size: 1rem;
+         font-weight: bold;
+         margin-bottom: 0.25rem;
+       }
+      
+       .education-item span {
+         font-size: 0.9rem;
+         color: #999;
+       }
+      
+       .Projects-items {
+         margin-bottom: 10px;
+         margin-left: 20px;
+       }
+      
+       .Projects-items h4 {
+         font-size: 1rem;
+         font-weight: bold;
+         margin-bottom: 0.25rem;
+       }
+      
+       .Projects-items p {
+         font-size: medium;
+         font-weight: lighter;
+       }
+      
+       .Certificats {
+         margin: 10px 20px;
+       }
+      
+       .SpaceBetween {
+        display: flex;
+        flex-direction: row;   /* Force row direction */
+        justify-content: space-between;
+        font-weight: bolder;
+        color: #525151;
+       }
+      
+      .mar-30{
+        margin: 0 20px 0 20px;
+      }
+      
+       .justflex {
+        display: flex;
+        flex-direction: row;   /* Force row direction */
+        align-items: center;
+        font-weight: bolder;
+        color: #525151;
+       }
+      
+       .fontlight{
+         color: #494848;
+       }
+      
+       .fontBold {
+         font-weight: bolder;
+         color: #333;
+       }
+      
+       .NoneDecoration {
+         text-decoration: none;
+         color: #2d3499;
+       }
+      
+       .Heading {
+         padding: 13px 20px 10px 20px;
+         color: #424141;
+         border-radius: 20px;
+         margin-bottom: 5px;
+         font-weight: bold;
+         background-color: #c5c3c3;
+       }`

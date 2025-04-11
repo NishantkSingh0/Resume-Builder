@@ -4,12 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import Typed from "typed.js"; 
 import toast from "react-hot-toast";
 import Suggestions from "./Suggestions";
-import T1 from './T1.jsx';
-import T2 from './T2.jsx';
-import T3 from './T3.jsx';
-import T4 from './T4.jsx';
-import T5 from './T5.jsx';
-import T6 from './T6.jsx';
+import {T1} from './T1.jsx';
+import {T2} from './T2.jsx';
+import {T3} from './T3.jsx';
+import {T4} from './T4.jsx';
+import {T5} from './T5.jsx';
+import {T6} from './T6.jsx';
 
 const GetInfo=() => {
   const [currentStep, setCurrentStep]=useState(0);
@@ -175,7 +175,7 @@ const GetInfo=() => {
     "Hi, I'm here to assist you in building a strong, high-quality, and ATS-friendly resume. Let's make it impressive together! 🤝",
     "First, start by choosing a template that best fits your style and profession.",
     `You choosed template ${Number(formData.selectedTemplate)} which is ${AboutTemps[Number(formData.selectedTemplate)-1]} 🤟. lets process further and fill details (Click next)`,
-    "Now, start by filling in your basic details as the form asks. \nDon't worry -- you got suggestions onward which saves much of your time ☺️ after that. click Next",
+    "Now, start by filling in your basic details as the form asks. \nDon't worry -- you got suggestions onward which saves much of your time ☺️",
     "Good job! Now it's time to showcase your skills... \nAs you can see, your data is being live-rendered by our app and displayed above in real-time",
     "Consider adding 8+ 'relevant' technical skills. It not only demonstrates your technical breadth but also highlights your creativity, adaptability, and eagerness to learn 🚀",
     "The soft skills will show in summary of resume. or either display on template. consider to show your uniqueness",
@@ -1196,7 +1196,7 @@ const GetInfo=() => {
           return (
             <div className="space-y-4">
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Choose Template</h2>
-              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>We will frequently add more template designs to provide more resume options.</p>
+              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>We will frequently add more template designs to provide more robust options.</p>
               <div className="grid grid-cols-2 gap-5">
                   {[1,2,3,4,5,6].map((template) => (
                     <div
@@ -1286,9 +1286,9 @@ const GetInfo=() => {
         </button>
   
         <div className={`${isOpen || "hidden md:block"}`}>
-          <h1 className="text-2xl font-bold pt-20 md:pt-4 text-center text-blue-800 dark:text-amber-300 cursor-pointer" title="Name of team">Sections</h1>
+          <h1 className="text-2xl font-bold pt-20 md:pt-4 text-center text-blue-800 dark:text-amber-300 cursor-pointer" title="Details user have to fill">Sections</h1>
           <div className="w-[30%] h-1 bg-blue-900 mb-6 mx-auto mt-1 rounded dark:bg-amber-400"></div>
-          <div className="space-y-4 p-2">
+          <div className="space-y-4 px-2">
             {steps.map((step, index) => (
               <div
                 key={index}
@@ -1319,7 +1319,7 @@ const GetInfo=() => {
           </div>
           <div>
             <h2
-              className="space-y-3 mx-4 md:mx-0 mt-6 p-2 flex items-center justify-center gap-3 rounded-lg cursor-pointer transition-transform duration-400 bg-blue-50 hover:bg-blue-100 text-blue-600 dark:text-zinc-300 dark:bg-slate-700/50 dark:hover:bg-slate-700/95"
+              className="space-y-3 mx-4 md:mx-0 mt-4 p-2 flex items-center justify-center gap-3 rounded-lg cursor-pointer transition-transform duration-400 bg-blue-50 hover:bg-blue-100 text-blue-600 dark:text-zinc-300 dark:bg-slate-700/50 dark:hover:bg-slate-700/95"
               title="It is only for Test & Present purpose. with authorized access"
               onClick={() => {
                 if (showInput){
@@ -1398,7 +1398,7 @@ const GetInfo=() => {
           <h1 className="text-2xl font-bold pt-20 md:pt-4 text-center text-blue-800 dark:text-amber-300 cursor-pointer" title="Live preview. how your resume looks">Preview</h1>
           <div className="w-[25%] h-1 bg-blue-900 mb-4 mx-auto mt-1 rounded dark:bg-amber-400"></div>
           <div className="px-2 w-[250px] ml-3 h-[400px] overflow-hidden bg-white dark:bg-slate-800 ">
-            <div className="scale-[0.24] origin-top-left flex">
+            <div className="scale-[0.24] origin-top-left shadow-xl w-[905px] h-[1300px] flex ">
               {(isExampleProcessing?ExampleJsonData.selectedTemplate==1:formData.selectedTemplate==1)?<T1 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:(isExampleProcessing?ExampleJsonData.selectedTemplate==2:formData.selectedTemplate==2)?<T2 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:(isExampleProcessing?ExampleJsonData.selectedTemplate==3:formData.selectedTemplate==3)?<T3 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:(isExampleProcessing?ExampleJsonData.selectedTemplate==4:formData.selectedTemplate==4)?<T4 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:(isExampleProcessing?ExampleJsonData.selectedTemplate==5:formData.selectedTemplate==5)?<T5 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:(isExampleProcessing?ExampleJsonData.selectedTemplate==6:formData.selectedTemplate==6)?<T6 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:<div></div>}
             </div>
           </div>

@@ -1,7 +1,114 @@
 import styled from "styled-components";
 import React from 'react';
 
-const T6 = ({ jsonData }) => {
+const StyledWrapper=styled.div`body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #d6cece;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;         /* (W/H) Ratio should be 0.7069 */
+}
+.resume {
+  width: 900px;           /* (W/H) Ratio should be 0.7069 */
+  /* height: 1131px; */
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+ul {
+  list-style-type: circle;
+  padding-left: 20px;
+}
+.title{
+  font-size: 24px;
+  font-weight: bold;
+  color: #474646;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #535351;
+  padding-bottom: 5px;
+}
+
+.contacts h1{
+  font-size: 32px;  /* or whatever you like */
+  font-weight: bold;
+  color: #333;
+}
+
+.NoneDecoration{
+  text-decoration: none;
+  color: rgb(1, 82, 187);
+  padding-left: 20px;
+}
+
+.TextGray{
+  color:#363636;
+  font-weight: bold;
+}
+
+.TextLight{
+  color:#4e4e4e;
+}
+
+.subtitle,.item-title{
+  font-size: 18px;
+  font-weight: bold;
+  color: #474646;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+.mll-3 {
+  margin-left: 0.75rem /* 12px */;
+}
+
+.Conts{
+  margin-top: 25px;
+}
+
+.subcont{
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.subcont .mid{
+  padding-right: 40px;
+}
+
+.flexConts{
+  display: flex;
+}
+
+.mar-30{
+  margin: 0 30px 0 30px;
+}
+
+.contacts a{
+  text-decoration: none;
+  color: black;
+}
+
+.signature{
+  font-family: 'Dancing Script', cursive;
+  font-size: 18px;
+  font-weight:500;
+  display: flex;
+  justify-content: end;
+  margin-right: 50px;
+}
+
+.SpaceBetween{
+  display: flex;
+  margin-bottom: 2px;
+  justify-content: space-between;
+  padding: 0 20px 0 20px;
+}`;
+
+export const T6 = ({ jsonData }) => {
   const isValidUrl = (url) => {
     try {
       new URL(url);
@@ -41,7 +148,7 @@ const T6 = ({ jsonData }) => {
         <div className="title">Technical skills:</div>
         <div className="subcont SpaceBetween">
           <div className="left">Hard Skills <br />Soft Skills </div>
-          <div className="mid">~ <br />~ <br /></div>
+          <div className="mid">--<br />--<br /></div>
           <div className="right">{jsonData.skills.hardSkills}<br />{jsonData.skills.softSkills} <br /></div>
         </div>
       </div>
@@ -91,7 +198,7 @@ const T6 = ({ jsonData }) => {
             {jsonData.certificates.map((_, index) => (
               <React.Fragment key={index}>
                 {index > 0 && <br />}
-                ⇒
+                --
               </React.Fragment>
             ))}
             <br />
@@ -129,7 +236,33 @@ const T6 = ({ jsonData }) => {
   );
 };
 
-const StyledWrapper=styled.div`body {
+export const T6Css=`
+@media print {
+  body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0;
+     background-color: #ffffff !important;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: auto;        
+  }
+  @page {
+   size: 950px 1300px; 
+   margin: 0;
+  }
+  .resume {
+     width: 900px;         
+     background: #ffffff;
+     border: 0px solid #ddd !important;
+     border-radius: 15px;
+     padding: 20px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+body {
    font-family: Arial, sans-serif;
    margin: 0;
    padding: 0;
@@ -234,6 +367,4 @@ ul {
    margin-bottom: 2px;
    justify-content: space-between;
    padding: 0 20px 0 20px;
-}`;
-
-export default T6;
+}`
