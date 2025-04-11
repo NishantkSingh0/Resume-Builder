@@ -1348,7 +1348,7 @@ const GetInfo=() => {
   
       {/* Main Content */}
       <div className={`flex-1 pt-20 pr-3 pl-1 md:py-8 transition-all duration-300 ${isOpen ? "ml-60" : "ml-2"} md:ml-0`}>
-        <div className="lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl mx-auto">
+        <div className="md:max-w-96 lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl mx-auto">
           {renderFormSection()}
 
           <div className="mt-8 flex justify-end">
@@ -1398,7 +1398,7 @@ const GetInfo=() => {
           <h1 className="text-2xl font-bold pt-20 md:pt-4 text-center text-blue-800 dark:text-amber-300 cursor-pointer" title="Live preview. how your resume looks">Preview</h1>
           <div className="w-[25%] h-1 bg-blue-900 mb-4 mx-auto mt-1 rounded dark:bg-amber-400"></div>
           <div className="px-2 w-[250px] ml-3 h-[400px] overflow-hidden bg-white dark:bg-slate-800 ">
-            <div className="scale-[0.24] origin-top-left shadow-xl w-[905px] h-[1300px] flex ">
+            <div className="scale-[0.24] origin-top-left flex ">
               {(isExampleProcessing?ExampleJsonData.selectedTemplate==1:formData.selectedTemplate==1)?<T1 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:(isExampleProcessing?ExampleJsonData.selectedTemplate==2:formData.selectedTemplate==2)?<T2 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:(isExampleProcessing?ExampleJsonData.selectedTemplate==3:formData.selectedTemplate==3)?<T3 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:(isExampleProcessing?ExampleJsonData.selectedTemplate==4:formData.selectedTemplate==4)?<T4 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:(isExampleProcessing?ExampleJsonData.selectedTemplate==5:formData.selectedTemplate==5)?<T5 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:(isExampleProcessing?ExampleJsonData.selectedTemplate==6:formData.selectedTemplate==6)?<T6 jsonData={isExampleProcessing ? ExampleJsonData : formData}/>:<div></div>}
             </div>
           </div>

@@ -58,7 +58,6 @@ body {
   border-top: 2px solid #353333;
   padding: 80px 0px 80px 0px; 
   margin: 0px 40px 0px 40px; 
- //  background-image: url('https://www.wisestamp.com/wp-content/uploads/2020/08/Serena-Williams-handwritten-signature.png');
   background-repeat: no-repeat;
   background-size: 250px;
   background-position: center;
@@ -293,7 +292,7 @@ export const T1 = ({ jsonData }) => {
         {we.companyName}
         <div>{we.WorkDuration}</div>
       </div>
-      {we.jobTitle} <br/>
+      ({we.jobTitle}) <br/>
       {we.keyAchievements} <br />{index < column4 - 1 && <br />}
     </li>
   ));
@@ -490,7 +489,6 @@ export const T1Css=`
        border-top: 2px solid #353333;
        padding: 80px 0px 80px 0px; 
        margin: 0px 40px 0px 40px; 
-      //  background-image: url('https://www.wisestamp.com/wp-content/uploads/2020/08/Serena-Williams-handwritten-signature.png');
        background-repeat: no-repeat;
        background-size: 250px;
        background-position: center;

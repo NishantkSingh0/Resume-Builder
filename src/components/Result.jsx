@@ -227,7 +227,7 @@ const Result = () => {
         <div className="flex flex-col items-center">
           <div className="bg-green-100 border border-green-400 text-green-700 px-4 ml- py-3 rounded relative max-w-md mb-4">
             <strong className="font-bold">Success!</strong>
-            <span className="block sm:inline"> Your resume has been successfully generated and downloaded.</span>
+            <span className="block sm:inline"> Your resume has been successfully generated and downloaded. Believe me your ATS score will be <b>85+</b></span>
           </div>
           <div className="flex gap-3">
             <button 
