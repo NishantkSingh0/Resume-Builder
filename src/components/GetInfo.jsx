@@ -149,12 +149,23 @@ const GetInfo=() => {
     }
   });
   
+  const topHardSkills = formData.skills.hardSkills?.split(",").slice(0, 5).map(skill => skill.trim()).join(", ");
+
   const ResumeDescriptions=[
-    `A passionate ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, with expertise in ${formData.skills.hardSkills} honed through 8+ projects. Skilled at leveraging cutting-edge tools to deliver innovative solutions. Proficient in ${formData.contactInfo.Languages}and recognized for exceptional ${formData.skills.softSkills}.`,
-    `A results-driven ${formData.contactInfo.jobTitle} Graduated from ${formData.education[0]?.institutionName}, mastered in ${formData.skills.hardSkills} Built over 10+ real-world projects. Adept in ${formData.contactInfo.Languages}and highly valued for strong ${formData.skills.softSkills}& creativity that drive Collaborative team work.`,
-    `A dedicated ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, specializing in ${formData.skills.hardSkills} with hands-on experience in building 12+ impactful projects. Fluent in ${formData.contactInfo.Languages}with proven strengths in ${formData.skills.softSkills}bringing creativity and precision to every challenge.`,
-    `A skilled ${formData.contactInfo.jobTitle} Graduated from ${formData.education[0]?.institutionName}, with expertise in ${formData.skills.hardSkills} built over 22+ practical projects. Familiar with ${formData.contactInfo.Languages}and known for outstanding ${formData.skills.softSkills}that foster innovation and collaboration.`,
-    `An innovative ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, with proficiency in ${formData.skills.hardSkills} demonstrated through 13+ diverse projects. Well-versed in ${formData.contactInfo.Languages}and appreciated for exceptional ${formData.skills.softSkills}in dynamic work environments.`,
+    `A passionate ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, with expertise in ${topHardSkills} and more. honed through 8+ projects. Skilled at leveraging cutting-edge tools to deliver innovative solutions. Proficient in ${formData.contactInfo.Languages}and recognized for exceptional ${formData.skills.softSkills}.`,
+    `A results-driven ${formData.contactInfo.jobTitle} Graduated from ${formData.education[0]?.institutionName}, mastered in ${topHardSkills} and more. Built over 10+ real-world projects. Adept in ${formData.contactInfo.Languages}and highly valued for strong ${formData.skills.softSkills}& creativity that drive Collaborative team work.`,
+    `A dedicated ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, specializing in ${topHardSkills} and more. with hands-on experience in building 12+ impactful projects. Fluent in ${formData.contactInfo.Languages}with proven strengths in ${formData.skills.softSkills}bringing creativity and precision to every challenge.`,
+    `A skilled ${formData.contactInfo.jobTitle} Graduated from ${formData.education[0]?.institutionName}, with expertise in ${topHardSkills} and more. built over 22+ practical projects. Familiar with ${formData.contactInfo.Languages}and known for outstanding ${formData.skills.softSkills}that foster innovation and collaboration.`,
+    `An innovative ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, with proficiency in ${topHardSkills} and more. demonstrated through 13+ diverse projects. Well-versed in ${formData.contactInfo.Languages}and appreciated for exceptional ${formData.skills.softSkills}in dynamic work environments.`,
+    `A forward-thinking ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, with strong expertise in ${topHardSkills} and more. Successfully delivered 15+ innovative projects, demonstrating proficiency in ${formData.contactInfo.Languages}and earning recognition for exceptional ${formData.skills.softSkills}in fast-paced environments.`,
+    `An enthusiastic ${formData.contactInfo.jobTitle} from ${formData.education[0]?.institutionName}, with a proven track record in ${topHardSkills} and more. across 18+ industry-relevant projects. Skilled communicator in ${formData.contactInfo.Languages}with a reputation for ${formData.skills.softSkills}, problem-solving, and strategic thinking.`,
+    `A dynamic ${formData.contactInfo.jobTitle} holding a Bachelor's from ${formData.education[0]?.institutionName}, specializing in ${topHardSkills} and more. Accomplished 20+ successful projects that blend innovation with practical impact. Strong command over ${formData.contactInfo.Languages}and valued for adaptive ${formData.skills.softSkills}and leadership abilities.`,
+    `An ambitious ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, excelling in ${topHardSkills} and more. through hands-on contributions to 25+ real-world projects. Proficient in ${formData.contactInfo.Languages}with a passion for applying ${formData.skills.softSkills}to solve complex challenges collaboratively.`,
+    `A detail-oriented ${formData.contactInfo.jobTitle} from ${formData.education[0]?.institutionName}, specializing in ${topHardSkills} and a proven track record of delivering 30+ impactful projects that drive business growth. Proficient in ${formData.contactInfo.Languages}, with a strong focus on ${formData.skills.softSkills}, bringing innovation, efficiency, and a solution-driven mindset to every project.`,
+    `An accomplished ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, with deep knowledge in ${topHardSkills} and more. Built 17+ scalable projects demonstrating fluency in ${formData.contactInfo.Languages}and a consistent record of ${formData.skills.softSkills}that foster productive teamwork and innovation.`,
+    `A highly motivated ${formData.contactInfo.jobTitle} from ${formData.education[0]?.institutionName}, specialized in ${topHardSkills} and more. with extensive hands-on project experience. Delivered 19+ high-quality solutions with strong command over ${formData.contactInfo.Languages}and trusted for excellent ${formData.skills.softSkills}and professional integrity.`,
+    `A creative and analytical ${formData.contactInfo.jobTitle} graduated from ${formData.education[0]?.institutionName}, mastering ${topHardSkills} and more. through development of 14+ impactful projects. Fluent in ${formData.contactInfo.Languages}, with exceptional ${formData.skills.softSkills}that contribute to innovative product development and collaborative growth.`,
+    `A performance-driven ${formData.contactInfo.jobTitle} from ${formData.education[0]?.institutionName}, leveraging ${topHardSkills} and more. expertise to deliver 21+ successful projects. Skilled in ${formData.contactInfo.Languages}with a commitment to continuous learning and ${formData.skills.softSkills}that elevate team performance and project outcomes.`,
   ]
 
   const [completedSteps, setCompletedSteps]=useState(new Set());
@@ -1270,8 +1281,8 @@ const GetInfo=() => {
     <div className="flex min-h-screen bg-gray-100 dark:bg-slate-900">
       {/* Left Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full bg-white border-r shadow-md hover:shadow-xl p-0 md:p-4 transition-all duration-300 ease-in-out
-        ${isOpen ? "w-64" : "w-0"} md:w-64 dark:border-r-slate-800 dark:bg-slate-800 z-50`}
+        className={`fixed top-0 left-0 h-full bg-white border-r shadow-md hover:shadow-xl p-0 lg:p-4 transition-all duration-300 ease-in-out
+        ${isOpen ? "w-64" : "w-0"} lg:w-64 dark:border-r-slate-800 dark:bg-slate-800 z-50`}
       >
         <button
           onClick={() => {
@@ -1280,13 +1291,13 @@ const GetInfo=() => {
               setIsPreviewOpen(!isPreviewOpen);
             }
           }}
-          className="absolute top-6 pl-7 md:hidden p-3 rounded-r-full bg-gray-200 dark:bg-gray-600 dark:text-cyan-300"
+          className="absolute top-6 pl-7 lg:hidden p-3 rounded-r-full bg-gray-200 dark:bg-gray-600 dark:text-cyan-300"
         >
           {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
   
-        <div className={`${isOpen || "hidden md:block"}`}>
-          <h1 className="text-2xl font-bold pt-20 md:pt-4 text-center text-blue-800 dark:text-amber-300 cursor-pointer" title="Details user have to fill">Sections</h1>
+        <div className={`${isOpen || "hidden lg:block"}`}>
+          <h1 className="text-2xl font-bold pt-20 lg:pt-4 text-center text-blue-800 dark:text-amber-300 cursor-pointer" title="Details user have to fill">Sections</h1>
           <div className="w-[30%] h-1 bg-blue-900 mb-6 mx-auto mt-1 rounded dark:bg-amber-400"></div>
           <div className="space-y-4 px-2">
             {steps.map((step, index) => (
@@ -1347,8 +1358,8 @@ const GetInfo=() => {
       </div>
   
       {/* Main Content */}
-      <div className={`flex-1 pt-20 pr-3 pl-1 md:py-8 transition-all duration-300 ${isOpen ? "ml-60" : "ml-2"} md:ml-0`}>
-        <div className="md:max-w-96 lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl mx-auto">
+      <div className={`flex-1 pt-20 pr-3 pl-1 lg:py-8 transition-all duration-300 ${isOpen ? "ml-60" : "ml-2"} lg:ml-0`}>
+        <div className="md:max-w-[720px] md:mr-72 lg:ml-64 lg:max-w-[700px] xl:max-w-full xl:px-24 2xl:max-w-3xl mx-auto">
           {renderFormSection()}
 
           <div className="mt-8 flex justify-end">
