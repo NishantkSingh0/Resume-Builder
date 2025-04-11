@@ -212,7 +212,9 @@ ul{
 }`;
 
 export const T2 = ({ jsonData }) => {
-  const skills = jsonData.skills.hardSkills.split(', ');
+  const skills = jsonData.skills.hardSkills.split(',').map(skill => skill.trim()).filter(skill => skill !== '').map((skill, index) => (
+    <li key={`soft-${index}`}>{removespace(skill)}</li>
+  ));;
   const eachColumn = Math.floor(skills.length / 4);
   
   let column1 = eachColumn;

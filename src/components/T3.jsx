@@ -145,7 +145,7 @@ ul li {
 export const T3 = ({jsonData}) => {
   const removespace = (text) => text.trim();
 
-  const skills = jsonData.skills.hardSkills.split(',');
+  const skills = jsonData.skills.hardSkills.split(',').map(skill => skill.trim()).filter(skill => skill !== '');
   console.log(skills, 'from T3.jsx')
   const eachColumn = Math.floor(skills.length / 4);
   
@@ -208,7 +208,7 @@ export const T3 = ({jsonData}) => {
             <div className="section">
               <div className="section-title"><b>Soft Skills </b><i className="fa fa-book"></i></div><br />
               <ul>
-                {jsonData.skills.softSkills.split(',').map((skill, index) => (
+                {jsonData.skills.softSkills.split(',').map(skill => skill.trim()).filter(skill => skill !== '').map((skill, index) => (
                   <li key={index}>{removespace(skill)}</li>
                 ))}
               </ul>
@@ -217,8 +217,8 @@ export const T3 = ({jsonData}) => {
             <div className="section">
               <div className="section-title"><b>Languages </b><i className="fa fa-language"></i></div><br />
               <ul>
-                {jsonData.contactInfo.Languages.split(',').map((language, index) => (
-                  <li key={index}>{removespace(language)}: Fluent</li>
+                {jsonData.contactInfo.Languages.split(',').map(lang => lang.trim()).filter(lang => lang !== '').map((lang, index) => (
+                  <li key={index}>{removespace(lang)}: Fluent</li>
                 ))}
               </ul>
             </div>

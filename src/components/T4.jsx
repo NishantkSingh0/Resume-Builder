@@ -213,7 +213,7 @@ export const T4 = ({ jsonData, desc }) => {
     return skill.trim();
   };
 
-  const skills = jsonData.skills.hardSkills.split(',');
+  const skills = jsonData.skills.hardSkills.split(',').map(skill => skill.trim()).filter(skill => skill !== '');
   const eachColumn = Math.floor(skills.length / 4);
   let column1 = eachColumn;
   let column2 = eachColumn;
@@ -288,7 +288,7 @@ export const T4 = ({ jsonData, desc }) => {
           <div className="Lsection">
             <div className="Lsection-title"><b>Soft Skills </b><i className="fa fa-book"></i></div><br />
             <ul>
-              {jsonData.skills.softSkills.split(',').map((skill, index) => (
+              {jsonData.skills.softSkills.split(',').map(skill => skill.trim()).filter(skill => skill !== '').map((skill, index) => (
                 <li key={index}>{removeSpace(skill)}</li>
               ))}
             </ul>
@@ -297,8 +297,8 @@ export const T4 = ({ jsonData, desc }) => {
           <div className="Lsection">
             <div className="Lsection-title"><b>Languages </b><i className="fa fa-language"></i></div><br />
             <ul>
-              {jsonData.contactInfo.Languages.split(',').map((skill, index) => (
-                <li key={index}>{removeSpace(skill)}: Fluent</li>
+              {jsonData.contactInfo.Languages.split(',').map(lang => lang.trim()).filter(lang => lang !== '').map((lang, index) => (
+                <li key={index}>{removeSpace(lang)}: Fluent</li>
               ))}
             </ul>
           </div>

@@ -235,7 +235,7 @@ export const T1 = ({ jsonData }) => {
     </div>
   ));
 
-  const skills = jsonData.skills.hardSkills.split(',');
+  const skills = jsonData.skills.hardSkills.split(',').map(skill => skill.trim()).filter(skill => skill !== '');
   const eachColumn = Math.floor(skills.length / 4);
   let column1 = eachColumn;
   let column2 = eachColumn;
@@ -269,11 +269,11 @@ export const T1 = ({ jsonData }) => {
     <li key={`skill3-${index}`}>{skill}</li>
   ));
 
-  const softSkillsList = jsonData.skills.softSkills.split(',').map((skill, index) => (
+  const softSkillsList = jsonData.skills.softSkills.split(',').map(skill => skill.trim()).filter(skill => skill !== '').map((skill, index) => (
     <li key={`soft-${index}`}>{removespace(skill)}</li>
   ));
 
-  const languagesList = jsonData.contactInfo.Languages.split(',').map((lang, index) => (
+  const languagesList = jsonData.contactInfo.Languages.split(',').map(lang => lang.trim()).filter(lang => lang !== '').map((lang, index) => (
     <li key={`lang-${index}`}>{removespace(lang)}: Fluent</li>
   ));
 
