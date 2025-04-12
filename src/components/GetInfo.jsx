@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Typed from "typed.js"; 
 import toast from "react-hot-toast";
 import Suggestions from "./Suggestions";
+import JsonFiles from "./JsonFiles.jsx"
 import {T1} from './T1.jsx';
 import {T2} from './T2.jsx';
 import {T3} from './T3.jsx';
@@ -16,95 +17,7 @@ const GetInfo=() => {
   const [NextError, setNextError]=useState(false);
   const navigate=useNavigate();
 
-  const [ExampleJsonData, setExampleJsonData]=useState({
-    selectedTemplate: "2",
-    contactInfo: {
-      fullName: "Nishant kumar",
-      phoneNumber: "9217290469",
-      emailAddress: "nishantsingh.talk@gmail.com",
-      linkedin: "nishantksingh1",
-      portfolio: "nishantksingh0.github.io",
-      jobTitle: "Data Scientist",
-      Languages: "English, Hindi, French",
-      Location: "Haridwar (Uttrakhand)"
-    },
-    skills: {
-      hardSkills: "TensorFlow, PyTorch, Scikit-learn, Keras, Hugging Face, C/C++, Java, JavaScript, React",
-      softSkills: "TeamWork, Problem-Solving, Leadership, Critical thinking, Communication, Creativity"
-    },
-    workExperience: [
-      {
-        jobTitle: "Data scientist",
-        companyName: "Onlei tech",
-        WorkDuration: "Dec-2024 to Mar-2025",
-        keyAchievements: "Learn to visualize patterns from data using matplotlib and Built several DL models"
-      },
-      {
-        jobTitle: "Python engineer",
-        companyName: "Microsoft",
-        WorkDuration: "May-2024 to Jul-2024",
-        keyAchievements: "Learn to use python in NLP tasks to take advantages of LLM"
-      }
-    ],
-    projects: [
-      {
-        projectTitle: "Transformer based translation model",
-        toolsTechUsed: "Tensorflow, Trasformer architecture, NumPy, WMT Translation dataset"
-      },
-      {
-        projectTitle: "Exam Proctoring system",
-        toolsTechUsed: "React, Flask, OpenCV, NumPy, Mediapipe, Pillow, WebSocket, ThreadPool"
-      },
-      {
-        projectTitle: "Persion bounding box detection",
-        toolsTechUsed: "OpenCV, Json, Tensorflow, Pandas, Matplotlib, NumPy"
-      }
-    ],
-    education: [
-      {
-        institutionName: "Haridwar University",
-        degreeName: "Batchelor in Computer application",
-        graduationYear: "2023 - 2026",
-        currentSGPA: "8"
-      },
-      {
-        institutionName: "Vidya Mandir Sec-5 (Haridwar)",
-        degreeName: "Primary/Secondary",
-        graduationYear: "2021 - 2023",
-        currentSGPA: "8"
-      }
-    ],
-    certificates: [
-      {
-        certificateName: "Azure AI Engineer association",
-        courseDuration: "2 month ",
-        providerName: "Microsoft"
-      },
-      {
-        certificateName: "C/C++",
-        courseDuration: "2 Month",
-        providerName: "Cad Planet"
-      },
-      {
-        certificateName: "DataScientist Internship",
-        courseDuration: "2 Month",
-        providerName: "Onlei Tech"
-      },
-      {
-        certificateName: "Intro To responsive AI",
-        courseDuration: "1 Month",
-        providerName: "SimpliLearn"
-      },
-      {
-        certificateName: "Bits & byts of computer",
-        courseDuration: "1 Month",
-        providerName: "Coursera"
-      },
-    ],
-    Description:{
-      UserDescription: "Passionate AI developer & backend specialist with expertise in deep learning, computer vision, NLP, and transformers, focusing on building models from scratch. Proficient in React, frontend design, Flask, and Django, enabling seamless AI integration into real world applications. Developed and deployed 22+ projects, showcased on GitHub & Kaggle. Always eager to solve complex challenges and innovate in AI & software development"
-    }
-  });
+  const [ExampleJsonData, setExampleJsonData]=useState(JsonFiles[Math.floor(Math.random() * JsonFiles.length)]);
   
 
   const [formData,setFormData]=useState({

@@ -316,7 +316,7 @@ export const T4 = ({ jsonData, desc }) => {
             <div className="section-title"><b>Projects</b></div>
             <ul>
               {jsonData.projects.map((proj, index) => (
-                <div key={index} className="Ritem">
+                <div key={index} className="Ritem" style={{ marginBottom: index < jsonData.projects.length - 1 ? "15px" : "0px" }}>
                   <li>
                     <div className="item-title textGray">{proj.projectTitle} </div>
                     <div> {proj.toolsTechUsed} </div>
@@ -333,7 +333,6 @@ export const T4 = ({ jsonData, desc }) => {
               <ul>
                 {jsonData.workExperience.map((we, index) => (
                   <React.Fragment key={index}>
-                    {/* {index > 0 && <br />} */}
                     <li>
                       <div className="item-title textGray mtt-3">
                         {we.companyName}
@@ -444,16 +443,15 @@ export const T4Css=`
      background-color: #ffffff !important;
      display: flex;
      justify-content: center;
-     align-items: center;
-     height: 1280px; 
+     align-items: stretch !important;
+     height: 100% !important; 
   }
   @page {
-   size: 985px 1220px; 
+   size: auto 1220px; 
    margin: 0;
   }
   .resume {
      width: 900px;
-     /* height: 1225px; */
      background: #ffffff;
      border: 1px solid #ffffff !important;
      border-radius: 15px;
@@ -476,7 +474,6 @@ body {
 
 .resume {
    width: 900px; /* (W/H) Ratio should be 0.7069 */
-   /* height: 1225px; */
    background: #ffffff;
    border: 1px solid #ddd;
    border-radius: 15px;

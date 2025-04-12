@@ -252,7 +252,7 @@ export const T2 = ({ jsonData }) => {
         {jsonData.education.map((ed, index) => (
           <div className="education-item" key={index}>
             <ul>
-              <li><h4 className="SpaceBetween">{ed.degreeName} <span>{ed.graduationYear}</span></h4></li>
+              <li><h4 className="SpaceBetween">{ed.degreeName} <span style={{ marginRight: '6%' }}>( {ed.graduationYear} )</span></h4></li>
               <p>{ed.institutionName} || SGPA: {ed.currentSGPA}</p>
             </ul>  
           </div>
@@ -265,7 +265,7 @@ export const T2 = ({ jsonData }) => {
         {jsonData.workExperience.map((exp, index) => (
           <div className="experience-item" key={index}>
             <ul>
-              <li className="SpaceBetween">{exp.companyName} | {exp.jobTitle} <span>{exp.WorkDuration}</span></li>
+              <li className="SpaceBetween">{exp.companyName} | {exp.jobTitle} <span>( {exp.WorkDuration} )</span></li>
               {exp.keyAchievements}
             </ul>
           </div>

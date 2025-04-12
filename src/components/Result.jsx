@@ -21,14 +21,12 @@ const Result = () => {
   const RETRY_DELAY = 10000; // 10 seconds
 
   useEffect(() => {
-    // Check if jsonData is available
     if (!jsonData) {
       setStatus('error');
       setErrorMessage("No resume data found. Please go back and enter your information.");
       return;
     }
 
-    // Wait for the template to be rendered first
     setTimeout(() => {
       setStatus('waking');
       generateAndDownloadFiles();
@@ -37,15 +35,13 @@ const Result = () => {
 
   const generateAndDownloadFiles = async () => {
     try {
-      const UnformatedHTML = document.getElementById('capture-content');
-      const rawHtml = UnformatedHTML.outerHTML;
-      const contentElement = html_beautify(rawHtml);
-      
-      if (!contentElement) {
+      const unformattedHTML = document.getElementById('capture-content');
+
+      if (!unformattedHTML) {
         throw new Error("Content element not found. Template may not be rendered correctly.");
       }
   
-      if (!contentElement.trim()) {
+      if (!unformattedHTML.innerHTML.trim()) {
         throw new Error("Template content is empty. Please check the template rendering.");
       }
   
@@ -53,22 +49,26 @@ const Result = () => {
   
       const Css = selectedTemplate==='1'?T1Css:selectedTemplate=='2'?T2Css:selectedTemplate=='3'?T3Css:selectedTemplate=='4'?T4Css:selectedTemplate=='5'?T5Css:T6Css;
   
-      const htmlContent = `
+      const generatedCode = `
         <!DOCTYPE html>
         <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Designed by BRAVERS</title>
-          <style>
-            ${Css}
-          </style>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-          <link rel="icon" href="https://raw.githubusercontent.com/NishantkSingh0/Resume-Builder/main/public/N.png">
-        </head>
-        <body>${contentElement}</body>
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Designed by BRAVERS</title>
+            <style>
+              ${Css}
+            </style>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+            <link rel="icon" href="https://raw.githubusercontent.com/NishantkSingh0/Resume-Builder/main/public/N.png">
+          </head>
+          <body>
+            ${unformattedHTML.innerHTML}
+          </body>
         </html>
       `;
+  
+      const htmlContent = html_beautify(generatedCode);
   
       console.log("Sending request to generate PDF...");
       setStatus('processing');
@@ -94,7 +94,7 @@ const Result = () => {
         pdfLink.click();
         window.URL.revokeObjectURL(pdfUrl);
     
-        console.log("PDF Downloaded Successfully");
+        console.log("PDF Downloaded Successfully",status);
         setDownloadStatus(prev => ({ ...prev, pdf: true }));
     
         // Generate HTML Blob for download
@@ -105,14 +105,13 @@ const Result = () => {
         htmlLink.download = 'Resume.html';
         htmlLink.click();
         window.URL.revokeObjectURL(htmlUrl);
+        setStatus('completed');
     
-        console.log("HTML Downloaded Successfully");
+        console.log("HTML Downloaded Successfully",status);
         setDownloadStatus(prev => ({ ...prev, html: true }));
     
-        setStatus('completed');
       } catch (error) {
         console.error('API Error:', error);
-        // Implement retry logic
         if (retryCount < MAX_RETRIES) {
           setRetryCount(prev => prev + 1);
           setErrorMessage(`Request failed: ${error.message}. Retrying in ${RETRY_DELAY/1000} seconds...`);
@@ -125,7 +124,6 @@ const Result = () => {
           setStatus('error');
         }
       }
-  
     } catch (error) {
       console.error('Error:', error);
       setErrorMessage(error.message || "An unknown error occurred");
@@ -133,7 +131,6 @@ const Result = () => {
     }
   };
   
-  // Function to render the selected template component with jsonData
   const renderSelectedTemplate = () => {
     switch(selectedTemplate) {
       case "1":
@@ -181,78 +178,73 @@ const Result = () => {
   };
 
   return (
-<div className="flex flex-col items-center justify-center min-h-screen w-full bg-gray-100 dark:bg-slate-800 px-4 py-8 transition-colors duration-300">
-  {/* Always render the template but keep it hidden during loading */}
-  <div 
-    id="capture-content" 
-    className="scale-[0.4] text-left w-full mb-6"
-    style={{ visibility: status === 'completed' ? 'visible' : 'hidden', position: status === 'completed' ? 'relative' : 'absolute' }}
-  >
-    {jsonData && renderSelectedTemplate()}
-  </div>
+    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-gray-100 dark:bg-slate-800 px-4 py-8 transition-colors duration-300">
+      {/* Always render the template but keep it hidden during loading */}
+      <div 
+        id="capture-content" 
+        className="scale-[0.4] text-left w-full mb-6"
+        style={{ visibility: status === 'completed' ? 'visible' : 'hidden', position: status === 'completed' ? 'relative' : 'absolute' }}
+      >
+        {jsonData && renderSelectedTemplate()}
+      </div>
 
-  {/* Messages container - always positioned below */}
-  <div className="w-full max-w-md mt-0">
-    {/* Show loading animation while not completed */}
-    {status !== 'completed' && status !== 'error' ? (
-      <div className="w-full flex flex-row items-center mb-6">
-        <div className="relative w-[220px] h-[320px] rounded-[14px] overflow-hidden flex flex-col items-center justify-center shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] dark:shadow-[20px_20px_60px_#1a1a1a,-20px_-20px_60px_#2a2a2a] transition-all duration-300">
-          {/* Blob with custom animation */}
-          <div className="absolute top-1/2 left-1/2 w-[200px] h-[200px] rounded-full bg-[#3449ff] dark:bg-gray-200 opacity-100 filter blur-[8px] animate-blob-bounce transition-colors duration-300"></div>
-
-          {/* Foreground card */}
-          <div className="absolute top-[5px] left-[5px] w-[210px] h-[310px] bg-white dark:bg-slate-950 backdrop-blur-[24px] rounded-[10px] outline outline-2 outline-white dark:outline-gray-600 flex flex-col items-center justify-center text-center text-[14px] text-[#3449ff] dark:text-blue-300 font-bold p-[10px] transition-colors duration-300">
-            <p title='Server sometimes get sleep. waking them up may take few seconds. please wait'>{getStatusMessage()}</p>
-            {status === 'waking' && (
-              <p className="text-xs mt-4 text-gray-500 dark:text-gray-400 max-w-[180px]">
-                Our server might be waking up from sleep mode. This can take up to a minute.
-              </p>
-            )}
-            {errorMessage && status !== 'error' && (
-              <p className="text-xs mt-4 text-yellow-600 dark:text-yellow-400 max-w-[180px]">
-                {errorMessage}
-              </p>
-            )}
+      {/* Messages container - always positioned below */}
+      <div className="w-full max-w-md mt-0">
+        {status !== 'completed' && status !== 'error' ? (
+          <div className="w-full flex flex-row items-center mb-6">
+            <div className="relative w-[220px] h-[320px] rounded-[14px] overflow-hidden flex flex-col items-center justify-center shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] dark:shadow-[20px_20px_60px_#1a1a1a,-20px_-20px_60px_#2a2a2a] transition-all duration-300">
+              <div className="absolute top-1/2 left-1/2 w-[200px] h-[200px] rounded-full bg-[#3449ff] dark:bg-gray-200 opacity-100 filter blur-[8px] animate-blob-bounce transition-colors duration-300"></div>
+              <div className="absolute top-[5px] left-[5px] w-[210px] h-[310px] bg-white dark:bg-slate-950 backdrop-blur-[24px] rounded-[10px] outline outline-2 outline-white dark:outline-gray-600 flex flex-col items-center justify-center text-center text-[14px] text-[#3449ff] dark:text-blue-300 font-bold p-[10px] transition-colors duration-300">
+                <p title='Server sometimes get sleep. waking them up may take some seconds. please wait'>{getStatusMessage()}</p>
+                {status === 'waking' && (
+                  <p className="text-xs mt-4 text-gray-500 dark:text-gray-400 max-w-[180px]">
+                    Our server might be waking up from sleep mode. This can take up to a minute.
+                  </p>
+                )}
+                {errorMessage && status !== 'error' && (
+                  <p className="text-xs mt-4 text-yellow-600 dark:text-yellow-400 max-w-[180px]">
+                    {errorMessage}
+                  </p>
+                )}
+              </div>
+            </div>
           </div>
-        </div>
+        ) : status === 'error' ? (
+          // Show error message if there's an error
+          <div className="w-full bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+            <strong className="font-bold">Error:</strong>
+            <span className="block sm:inline"> {errorMessage}</span>
+            <button 
+              className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+              onClick={handleTryAgain}
+            >
+              Try Again
+            </button>
+          </div>
+        ) : (
+          // Show success message when completed
+          <div className="w-full flex flex-col items-center">
+            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative w-full mb-4 text-left">
+              <span className="block sm:inline"> Your resume has been successfully generated and downloaded! I'm confident your ATS score will be <b>85+</b>. However, keep in mind — websites like EnhanceCV, LiveCareer, Resumake and other online resume builders often show lower scores intentionally to encourage users to rebuild their resumes using their platform. Focus on content quality, clarity, and relevance — that's what truly matters to recruiters and real-world ATS systems!</span>
+            </div>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <button 
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                onClick={handleTryAgain}
+              >
+                Download Again
+              </button>
+              <button 
+                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+                onClick={() => window.history.back()}
+              >
+                Back to Editor
+              </button>
+            </div>
+          </div>
+        )}
       </div>
-    ) : status === 'error' ? (
-      // Show error message if there's an error
-      <div className="w-full bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
-        <strong className="font-bold">Error:</strong>
-        <span className="block sm:inline"> {errorMessage}</span>
-        <button 
-          className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-          onClick={handleTryAgain}
-        >
-          Try Again
-        </button>
-      </div>
-    ) : (
-      // Show success message when completed
-      <div className="w-full flex flex-col items-center">
-        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative w-full mb-4 text-left">
-          <strong className="font-bold">Success!</strong>
-          <span className="block sm:inline"> Your resume has been successfully generated and downloaded! I'm confident your ATS score will be <b>85+</b>. However, keep in mind — websites like EnhanceCV, LiveCareer, Resumake, Resume-Now, and other online resume builders often show lower scores intentionally to encourage users to rebuild their resumes using their platform. Focus on content quality, clarity, and relevance — that's what truly matters to recruiters and real-world ATS systems!</span>
-        </div>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <button 
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            onClick={handleTryAgain}
-          >
-            Download Again
-          </button>
-          <button 
-            className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-            onClick={() => window.history.back()}
-          >
-            Back to Editor
-          </button>
-        </div>
-      </div>
-    )}
-  </div>
-</div>
+    </div>
   );
 };
 

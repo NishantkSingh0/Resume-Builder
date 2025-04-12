@@ -57,7 +57,7 @@ export default function ViewTemplates() {
     },
     {
       img: "/Resume-Builder/Temp/temp10.png",
-      title: titles[7],
+      title: titles[6],
       codeLink: "https://github.com/NishantkSingh0/Generated-Templates/blob/main/T10.html",
       templateLink: "https://NishantkSingh0.github.io/Generated-Templates/T10",
     },
