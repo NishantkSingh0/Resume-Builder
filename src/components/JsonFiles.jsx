@@ -1,4 +1,5 @@
-const JsonFiles=[{
+const JsonFiles=[
+      {
        contactInfo: {
          fullName: "Nishant kumar",
          phoneNumber: "9217290469",

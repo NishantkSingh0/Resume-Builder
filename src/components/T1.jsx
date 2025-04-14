@@ -247,7 +247,7 @@ export const T1 = ({ jsonData }) => {
   } else if (skills.length % 4 === 2) {
     column1 += 1;
     column2 += 1;
-  } else if (skills.length % 4 === 2) {
+  } else if (skills.length % 4 === 3) {
     column1 += 1;
     column2 += 1;
     column3 += 1;
@@ -266,7 +266,7 @@ export const T1 = ({ jsonData }) => {
   ));
 
   const HardSkillsColumn4 = skills.slice(column1 + column2 + column3, column1 + column2 + column3 + column4).map((skill, index) => (
-    <li key={`skill3-${index}`}>{skill}</li>
+    <li key={`skill4-${index}`}>{skill}</li>
   ));
 
   const softSkillsList = jsonData.skills.softSkills.split(',').map(skill => skill.trim()).filter(skill => skill !== '').map((skill, index) => (

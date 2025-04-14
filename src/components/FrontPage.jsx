@@ -23,7 +23,7 @@ const FrontPage=()=>{
   const navigate=useNavigate();
 
   const handleContinue=()=>{
-    navigate('/GetInfo');
+    navigate('/FileUploadPage');
   };
 
   const handleViewTemplates=()=>{

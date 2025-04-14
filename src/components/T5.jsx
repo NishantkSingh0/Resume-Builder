@@ -162,14 +162,14 @@ export const T5 = ({ jsonData, desc }) => {
     <div className="resume-container" id="capture-content">
       <div className="header">
         <h1><b>{jsonData.contactInfo.fullName}</b></h1><br />
-        <p>
+        <div>
           <a className="DecorationNone" href={handlePortfolioLink(jsonData.contactInfo.portfolio)} target="_blank" rel="noreferrer">
             {jsonData.contactInfo.portfolio.replace(/^https?:\/\//, '')}
           </a> | <a className="DecorationNone" href="#"> {jsonData.contactInfo.phoneNumber}</a> | <a href={`mailto:${jsonData.contactInfo.emailAddress}`} className="DecorationNone" target="_blank" rel="noreferrer">
             {jsonData.contactInfo.emailAddress}
           </a> <br /> 
           <div style={{ marginTop: "6px" }}>{jsonData.contactInfo.Location}</div>
-        </p>
+        </div>
       </div>
 
       <div className="summary">

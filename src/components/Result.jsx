@@ -109,6 +109,19 @@ const Result = () => {
     
         console.log("HTML Downloaded Successfully",status);
         setDownloadStatus(prev => ({ ...prev, html: true }));
+
+        // Generate JSON Blob for download
+        const JsonBlob = new Blob([JSON.stringify(jsonData, null, 2)], { type: 'application/json' });
+        const JsonUrl = window.URL.createObjectURL(JsonBlob);
+        const JsonLink = document.createElement('a');
+        JsonLink.href = JsonUrl;
+        JsonLink.download = 'Resume.json';
+        JsonLink.click();
+        window.URL.revokeObjectURL(JsonUrl);
+        setStatus('completed');
+    
+        console.log("HTML Downloaded Successfully",status);
+        setDownloadStatus(prev => ({ ...prev, html: true }));
     
       } catch (error) {
         console.error('API Error:', error);
@@ -225,7 +238,7 @@ const Result = () => {
           // Show success message when completed
           <div className="w-full flex flex-col items-center">
             <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative w-full mb-4 text-left">
-              <span className="block sm:inline"> Your resume has been successfully generated and downloaded! I'm confident your ATS score will be <b>85+</b>. However, keep in mind — websites like EnhanceCV, LiveCareer, Resumake and other online resume builders often show lower scores intentionally to encourage users to rebuild their resumes using their platform. Focus on content quality, clarity, and relevance — that's what truly matters to recruiters and real-world ATS systems!</span>
+              <span className="block sm:inline">Your resume has been successfully generated and downloaded. Based on its content quality and structure, it is highly likely to achieve an ATS (Applicant Tracking System) score of 85 or above. While platforms like Enhancv, LiveCareer, Resumake, and others may display lower ATS scores to encourage users to opt for their paid services, Focus on content quality, clarity, and relevance — that's what truly matters to recruiters and real-world ATS systems!. If tools like Konbert, JsonResume, etc... are able to accurately extract your resume details into a structured JSON format, it's a strong indication that your resume is fully optimized and ATS-friendly.</span>
             </div>
             <div className="flex flex-wrap gap-3 justify-center">
               <button 

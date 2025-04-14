@@ -418,7 +418,7 @@ export const T4 = ({ jsonData, desc }) => {
                 ))}
               </ul>
               <ul>
-                {skillColumn3.map((skill, index) => (
+                {skillColumn4.map((skill, index) => (
                   <React.Fragment key={index}>
                     <li>{skill}</li>
                     {/* {index < skillColumn4.length - 1 && <br />} */}
