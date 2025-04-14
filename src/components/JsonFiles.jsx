@@ -1,5 +1,6 @@
 const JsonFiles=[
       {
+       selectedTemplate: "1",
        contactInfo: {
          fullName: "Nishant kumar",
          phoneNumber: "9217290469",
@@ -89,6 +90,7 @@ const JsonFiles=[
       },
 
       {
+         selectedTemplate: "2",
          contactInfo: {
          fullName: "Amisha pal",
          phoneNumber: "6587290469",
@@ -178,6 +180,7 @@ const JsonFiles=[
       },
 
       {
+        selectedTemplate: "3",
          contactInfo: {
          fullName: "Ankush Kumar",
          phoneNumber: "7369729046",
@@ -267,6 +270,7 @@ const JsonFiles=[
       },
 
       {
+         selectedTemplate: "4",
          contactInfo: {
          fullName: "Shahid Malik",
          phoneNumber: "9368890469",

@@ -167,7 +167,7 @@ const GetInfo=() => {
   };
 
   const handleVerify=(e) => {
-    if (e.key === "Enter" || e.key=="Tab") {  
+    if (e.key === "Enter" || e.key=="Tab" || pin.length==6) {  
       if (pin === "147895") {
         toast.success("Authorized", {
           duration: 3000,
@@ -557,7 +557,7 @@ const GetInfo=() => {
           return (
             <div className="space-y-4">
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Work Experience</h2>
-              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
+              <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
               {formData.workExperience.map((exp, index) => (
                 <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                   <h3 className="font-medium text-lg dark:text-slate-200">Experience {index + 1}</h3>
@@ -644,7 +644,7 @@ const GetInfo=() => {
           return (
             <div className="space-y-4">
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Work Experience</h2>
-              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
+              <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
               {ExampleJsonData.workExperience.map((exp, index) => (
                 <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                   <h3 className="font-medium text-lg dark:text-slate-200">Experience {index + 1}</h3>
@@ -730,7 +730,7 @@ const GetInfo=() => {
           return (
             <div className="space-y-4">
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Projects</h2>
-              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 3 projects which you did in your academics</p>
+              <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 3 projects which you did in your academics</p>
               {formData.projects.map((project, index) => (
                 <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                   <h3 className="font-medium text-lg dark:text-slate-200">Project {index + 1}</h3>
@@ -779,7 +779,7 @@ const GetInfo=() => {
           return (
             <div className="space-y-4">
               <h2 className="text-xl sm:text-2xl font-bold border-b-4  pb-1 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Projects</h2>
-              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 3 projects which you did in your academics</p>
+              <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 3 projects which you did in your academics</p>
               {ExampleJsonData.projects.map((project, index) => (
                 <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                   <h3 className="font-medium text-lg dark:text-slate-200">Project {index + 1}</h3>
@@ -830,7 +830,7 @@ const GetInfo=() => {
             return (
               <div className="space-y-4">
                 <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Education</h2>
-                <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add your pre/post graduations on different sections (Consider listing your most recent Qualifications first)</p>
+                <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add your pre/post graduations on different sections (Consider listing your most recent Qualifications first)</p>
                 {formData.education.map((edu, index) => (
                   <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                     <h3 className="font-medium text-lg dark:text-slate-200">Education {index + 1}</h3>
@@ -927,7 +927,7 @@ const GetInfo=() => {
             return (
               <div className="space-y-4">
                 <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Education</h2>
-                <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add your pre/post graduations on different sections (Consider listing your most recent Qualifications first)</p>
+                <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add your pre/post graduations on different sections (Consider listing your most recent Qualifications first)</p>
                 {ExampleJsonData.education.map((edu, index) => (
                   <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                     <h3 className="font-medium text-lg dark:text-slate-200">Education {index + 1}</h3>
@@ -1024,7 +1024,7 @@ const GetInfo=() => {
           return (
             <div className="space-y-4">
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Certificates</h2>
-              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 5 high rated certificates</p>
+              <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 5 high rated certificates</p>
               {formData.certificates.map((cert, index) => (
                 <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                   <h3 className="font-medium text-lg dark:text-slate-200">Certificate {index + 1}</h3>
@@ -1086,7 +1086,7 @@ const GetInfo=() => {
           return (
             <div className="space-y-4">
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Certificates</h2>
-              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 5 high rated certificates</p>
+              <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 5 high rated certificates</p>
               {ExampleJsonData.certificates.map((cert, index) => (
                 <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                   <h3 className="font-medium text-lg dark:text-slate-200">Certificate {index + 1}</h3>
@@ -1166,7 +1166,7 @@ const GetInfo=() => {
                     <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">
                       Description
                     </h2>
-                    <p className="text-xl font-semibold mb-6 text-gray-600 dark:text-gray-200">
+                    <p className="font-semibold mb-6 text-gray-600 dark:text-gray-200">
                       Hint: Consider to edit them more and make professional
                     </p>
         
@@ -1219,7 +1219,7 @@ const GetInfo=() => {
           return (
             <div className="space-y-4">
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Choose Template</h2>
-              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>We will frequently add more template designs to provide more robust options.</p>
+              <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>We will frequently add more template designs to provide more robust options.</p>
               <div className="grid grid-cols-2 gap-5">
                   {[1,2,3,4,5,6].map((template) => (
                     <div
@@ -1257,7 +1257,7 @@ const GetInfo=() => {
           return (
             <div className="space-y-4">
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">Choose Template</h2>
-              <p className='test-xl font-semibold mb-6 text-gray-600 dark:text-gray-200'>We will frequently add more template designs to provide more resume options.</p>
+              <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>We will frequently add more template designs to provide more resume options.</p>
               <div className="grid grid-cols-2 gap-5">
                   {[1,2,3,4,5,6].map((template) => (
                     <div

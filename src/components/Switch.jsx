@@ -7,7 +7,7 @@ const Switch = () => {
 
   return (
     <StyledWrapper isDark={isDark}>
-      <input type="checkbox" className="switch shadow-lg shadow-slate-400 dark:shadow-slate-600" checked={isDark} readOnly />
+      <input type="checkbox" className="switch shadow-lg shadow-slate-400 dark:shadow-slate-700/80" checked={isDark} readOnly />
     </StyledWrapper>
   );
 };
