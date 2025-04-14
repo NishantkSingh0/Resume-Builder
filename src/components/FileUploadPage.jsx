@@ -32,11 +32,40 @@ const FileUploadPage = () => {
     }
   };
 
+  async function ParseData(file) {
+    const formData = new FormData();
+    formData.append("file", file);
+  
+    const res = await fetch("http://127.0.0.1:5000/parse-resume", {
+      method: "POST",
+      body: formData,
+    });
+  
+    const json = await res.json();
+    console.log(json);
+  
+    // Convert JSON to blob
+    const blob = new Blob([JSON.stringify(json, null, 2)], {
+      type: "application/json",
+    });
+  
+    // Create a download link
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "parsed_resume.json";  // Download filename
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
   const handleDocUpload = (event) => {
     const file = event.target.files[0];
     if (file && (file.type.includes("pdf") || file.type.includes("word"))) {
       setDocUploaded(true);
       toast.success("Document uploaded successfully!", { duration: 3000,position: "top-right" });
+      // ParseData(file);
     } else {
       toast.error("Please upload a PDF or DOCX file.", { duration: 3000,position: "top-right" });
     }
@@ -48,23 +77,23 @@ const FileUploadPage = () => {
   
     {/* JSON Upload Container */}
     <div className="w-[90%] lg:w-4/5 mx-4 bg-gray-200 dark:bg-slate-800 rounded-xl shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between px-6 py-4 space-y-4 sm:space-y-0 hover:shadow-lg transition-shadow duration-300">
-      <div className="w-full sm:w-auto">
+      <div className="w-full sm:w-auto lg:ml-14">
         <p className="text-lg font-semibold text-gray-800 dark:text-gray-200">
           {jsonUploaded ? "JSON uploaded" : "Upload json data structured by us"}
         </p>
         <p className="text-md mt-1 font-semibold text-gray-500 dark:text-gray-400">
-          {jsonUploaded ? "You can now proceed further" : "The fastest way to redesign resume without filling whole data again"}
+          {jsonUploaded ? "You can now proceed further" : "The fastest way to redesign resume without filling whole details again"}
         </p>
       </div>
       {jsonUploaded ? (
         <button
-          className="w-full sm:w-auto px-5 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700"
+          className="w-full lg:mr-14 sm:w-auto px-5 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700"
           onClick={() => navigate("/GetInfo", { state: { jsonData } })}
         >
           Continue &gt;
         </button>
       ) : (
-        <label className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md cursor-pointer hover:bg-blue-700 transition duration-300">
+        <label className="w-full lg:mr-12 sm:w-auto inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md cursor-pointer hover:bg-blue-700 transition duration-300">
         <UploadCloud className="w-5 h-5 mr-2" /> Our&nbsp;JSON
           <input
             type="file"
@@ -78,7 +107,7 @@ const FileUploadPage = () => {
   
     {/* Fill Form */}
     <div className="w-[90%] lg:w-4/5 mx-4 bg-gray-200 dark:bg-slate-800 rounded-xl shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between px-6 py-4 space-y-4 sm:space-y-0 hover:shadow-lg transition-shadow duration-300">
-      <div className="w-full sm:w-auto">
+      <div className="w-full sm:w-auto lg:ml-14">
         <p className="text-lg font-semibold text-gray-800 dark:text-gray-200">
           Start by filling your details...
         </p>
@@ -87,7 +116,7 @@ const FileUploadPage = () => {
         </p>
       </div>
       <button
-        className="w-full sm:w-auto px-5 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700"
+        className="w-full sm:w-auto px-5 py-2 lg:mr-14 bg-blue-600 text-white rounded-xl hover:bg-blue-700"
         onClick={() => navigate("/GetInfo")}
       >
         Continue &gt;
@@ -96,22 +125,22 @@ const FileUploadPage = () => {
   
     {/* PDF/DOCX Upload Container */}
     <div className="w-[90%] lg:w-4/5 mx-4 bg-gray-200 dark:bg-slate-800 rounded-xl shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between px-6 py-4 space-y-4 sm:space-y-0 hover:shadow-lg transition-shadow duration-300">
-      <div className="w-full sm:w-auto">
+      <div className="w-full sm:w-auto lg:ml-14">
         <p className="text-lg font-semibold text-gray-800 dark:text-gray-200">
           {docUploaded ? "Document uploaded" : "Upload your existing resume to make parse most data from them"}
         </p>
         <p className="text-md mt-1 font-semibold text-gray-500 dark:text-gray-400">
           {docUploaded
             ? "You can't proceed with this feature now.."
-            : "This feature is based on an API by Affinda Resume Parser. We can't able to make this feature possible due to Security issue with API key"}
+            : "This feature is based on an API by Affinda Resume Parser. We can't able to make this feature possible due to Security issue with API key and handling costs..."}
         </p>
       </div>
       {docUploaded ? (
-        <button className="w-full sm:w-auto px-5 py-2 bg-red-600 text-white rounded-2xl hover:bg-red-700">
-          X Continue
+        <button className="w-full lg:mr-14 sm:w-auto px-5 py-2 bg-red-600 text-white rounded-2xl hover:bg-red-700">
+         X Continue
         </button>
       ) : (
-        <label className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md cursor-pointer hover:bg-blue-700 transition duration-300">
+        <label className="w-full lg:mr-12 sm:w-auto inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md cursor-pointer hover:bg-blue-700 transition duration-300">
         <UploadCloud className="w-5 h-5 mr-2" /> .pdf/.docx
           <input
             type="file"

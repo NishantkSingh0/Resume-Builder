@@ -1234,7 +1234,7 @@ const GetInfo=() => {
                           return () => clearTimeout(timer2);
                         }
                       }}
-                      className={`p-4 border-2 rounded-lg cursor-pointer transition-transform duration-400 shadow-md hover:scale-95 dark:shadow-gray-600  ${
+                      className={`p-4 border-2 rounded-lg cursor-pointer transition-transform duration-150 shadow-md hover:scale-95 dark:shadow-gray-600  ${
                         formData.selectedTemplate === String(template) ? 'border-blue-600 bg-blue-50 dark:bg-slate-800' : 'dark:border-gray-700'
                       }`}
                     >
@@ -1263,7 +1263,7 @@ const GetInfo=() => {
                     <div
                       key={template}
                       onClick={() => setExampleJsonData((prev) => ({ ...prev, selectedTemplate: String(template) }))}
-                      className={`p-4 border-2 rounded-lg cursor-pointer transition-transform duration-400 shadow-md hover:scale-95 dark:shadow-gray-600  ${
+                      className={`p-4 border-2 rounded-lg cursor-pointer transition-transform duration-150 shadow-md hover:scale-95 dark:shadow-gray-600  ${
                         ExampleJsonData.selectedTemplate === String(template) ? 'border-blue-600 bg-blue-50 dark:bg-slate-800' : 'dark:border-gray-700'
                       }`}
                     >
@@ -1434,7 +1434,7 @@ const GetInfo=() => {
                 height="40" 
               />
               <div className="ml-2">
-                <span className="font-semibold pb-[2px]">Suggestion Bot</span>
+                <span className="font-semibold pb-[2px]">Assistant Bot</span>
                 <div className="w-[75%] h-[3px] bg-blue-800 mx-auto mt-1 rounded dark:bg-amber-500"></div>
               </div>
             </div><span id="Suggestion-typing-text" className='text-lime-700 dark:text-lime-400'></span>

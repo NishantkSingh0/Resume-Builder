@@ -7,16 +7,19 @@ import { ThemeContext } from "./ThemeContext.jsx";
 import Switch from "./Switch.jsx";
 
 const features=[
-  "Build your resume easily",
-  "No need to worry about what to add what to not",
-  "Get high rated, ATS freindly resumes",
-  "Different variants of resume templates available",
-  "We carefully selected strong resume data inputs from users after a high research.",
-  "Download your resume in pdf or web formate",
-  "Use AI to create a perfect summary for your resume",
-  "Completely free to use",
-  "We didn't store your entered data and generated resumes (for user privacy)",
-  "Light weight application. just take 1.8MB of RAM and approximately 0 CPU time"
+  "Craft a stunning resume in just 8 to 10 minutes — no stress, no confusion.",
+  "Our Assistant Bot guide you in whole detail filling process",
+  "Choose from high-performing, job-winning templates tailored for ATS.",
+  "See your resume update in real time as you fill in your info — total control, zero surprises.",
+  "Professionally designed templates for every style and industry.",
+  "We never store your data or resumes — full confidentiality guaranteed.",
+  "Runs on just ~1.8MB RAM with near 0% CPU usage — smoother than a breeze.",
+  "Download your resume in PDF, HTML/CSS formate & JsonDatabase",
+  "Use auto-filled JSON data to avoid re-entering details every time.",
+  "Get real-time, relevant suggestions to speed up your form filling time.",
+  "No hidden fees. + students can fork and customize for their own college projects.",
+  "Each section is crafted based on research-backed resume insights.",
+  "You can view generated templates by navigating to GeneratedResumes."
 ]
 
 const FrontPage=()=>{
