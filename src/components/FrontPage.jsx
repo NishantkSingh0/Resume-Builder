@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import Typed from "typed.js"; 
+import {Eye} from 'lucide-react';
 import Examplepages from './Examplepage.jsx'
 import { useNavigate } from 'react-router-dom';
 import { ThemeContext } from "./ThemeContext.jsx";
@@ -22,7 +23,7 @@ const features=[
   "You can view generated templates by navigating to GeneratedResumes."
 ]
 
-const FrontPage=()=>{
+const FrontPage=({views})=>{
   const navigate=useNavigate();
 
   const handleContinue=()=>{
@@ -88,13 +89,14 @@ const FrontPage=()=>{
           </button>
         </div>
         
-        <h1 className="text-xl mr-5 font-bold text-gray-800 dark:text-white no-underline">
+        <h1 className="text-xl ml-10 font-bold text-gray-800 dark:text-white no-underline">
           <a href="https://github.com/NishantkSingh0/Resume-Builder" title="Address to GitHub repository of this project" target="_blank">
             <span className="lg:hidden">Resume Builder</span>
             <span className="hidden lg:block">Level Up Your First Impression</span>
           </a>
         </h1>
         <div className="flex space-x-4">
+        <div className="flex items-center gap-2 dark:text-gray-200" title="Number of peoples Engaged here"><Eye />{views}</div>
           <button className="px-4 py-[5px] bg-blue-500 text-white rounded-2xl hover:bg-blue-700 hover:scale-105" title="our contributions and contact information" onClick={handleAboutUs}>
             About Us
           </button>
