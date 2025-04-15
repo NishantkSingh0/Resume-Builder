@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import { Check, Plus, ChevronRight, Menu, X ,Eye} from 'lucide-react';
+import { Check, Plus, ChevronRight, Menu, X ,Eye, FileText } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Typed from "typed.js"; 
 import toast from "react-hot-toast";
@@ -16,6 +16,7 @@ import {T6} from './T6.jsx';
 const GetInfo=() => {
   const [currentStep, setCurrentStep]=useState(0);
   const [isExampleProcessing, setIsExampleProcessing] = useState(false);
+  const [ResumesBuilt, setResumesBuilt] = useState(0);
   const location = useLocation();
   const UserjsonData = location.state?.jsonData || null;
   const [NextError, setNextError]=useState(false);
@@ -145,6 +146,41 @@ const GetInfo=() => {
       Suggest.destroy();
     };
   }, [i]);
+
+  
+  const FIREBASE_URL = "https://resume-builder-suggestions-default-rtdb.firebaseio.com/ResumesBuilt.json";
+
+  useEffect(() => {
+    fetch(FIREBASE_URL)
+      .then(res => res.json())
+      .then(current => {
+        setResumesBuilt(current || 0);  // Show existing count
+      })
+      .catch(error => {
+        console.error("Error fetching resume count:", error);
+      });
+  }, []);
+
+  const updateResumeCount = () => {
+    fetch(FIREBASE_URL)
+      .then(res => res.json())
+      .then(current => {
+        const updated = (current || 0) + 1;
+  
+        return fetch(FIREBASE_URL, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(updated),
+        }).then(() => {
+          setResumesBuilt(updated);  // update UI
+        });
+      })
+      .catch(error => {
+        console.error("Error updating resume count:", error);
+      });
+  };
   
   const steps=[
     { title: 'Choose a template that suits you best', key: 'Template' },
@@ -327,6 +363,8 @@ const GetInfo=() => {
           return;
         }
       }
+
+      updateResumeCount();
   
       navigate('/Result', {
         state: {
@@ -1365,6 +1403,12 @@ const GetInfo=() => {
                 />
               </div>
             )}
+            <div className="flex items-center mt-4 justify-center gap-2 mr-2 dark:text-slate-300" title='Total number of Resumes built by this application'>
+              <p>Over</p>
+              <b>{ResumesBuilt === 0 ? "loading..." : ResumesBuilt}</b>
+              <FileText />
+              <p>Built</p>
+            </div>
           </div>            
         </div>
       </div>
