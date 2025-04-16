@@ -60,7 +60,7 @@ const JsonFiles=[
        certificates: [
          {
            certificateName: "Azure AI Engineer association",
-           courseDuration: "2 month ",
+           courseDuration: "2 Month",
            providerName: "Microsoft"
          },
          {
@@ -150,7 +150,7 @@ const JsonFiles=[
        certificates: [
          {
            certificateName: "Azure AI Engineer association",
-           courseDuration: "2 month ",
+           courseDuration: "2 Month",
            providerName: "Microsoft"
          },
          {
@@ -240,7 +240,7 @@ const JsonFiles=[
        certificates: [
          {
            certificateName: "Azure AI Engineer association",
-           courseDuration: "2 month ",
+           courseDuration: "2 Month",
            providerName: "Microsoft"
          },
          {
@@ -270,7 +270,7 @@ const JsonFiles=[
       },
 
       {
-         selectedTemplate: "4",
+         selectedTemplate: "5",
          contactInfo: {
          fullName: "Shahid Malik",
          phoneNumber: "9368890469",
@@ -330,7 +330,7 @@ const JsonFiles=[
        certificates: [
          {
            certificateName: "Azure AI Engineer association",
-           courseDuration: "2 month ",
+           courseDuration: "2 Month",
            providerName: "Microsoft"
          },
          {

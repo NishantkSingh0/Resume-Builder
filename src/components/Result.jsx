@@ -74,11 +74,12 @@ const Result = () => {
       setStatus('processing');
   
       try {
-        const response = await fetch('https://html2pdfviabravers.onrender.com/generate-pdf', {
+        const response = await fetch('https://html2pdfviabravers.onrender.com/generate-pdf', {            // https://html2pdfviabravers.onrender.com/generate-pdf
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ html: htmlContent })
         });
+        
     
         if (!response.ok) {
           throw new Error(`Server responded with status: ${response.status}`);

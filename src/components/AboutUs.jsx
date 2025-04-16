@@ -39,18 +39,18 @@ const developers = [
     email: "akbahot2004",
     emailLink: "mailto:akbahot2004@gmail.com"
   },
-  // {
-  //   name: "Nisha Mandal",
-  //   role: "Enhanced UI by adding Nightmode's and Other essential components",
-  //   github: "NishaKumari92",
-  //   gitLink: "https://github.com/NishaKumari9279",
-  //   linkedin: "nisha-kumari-59",
-  //   linLink: "https://www.linkedin.com/in/nisha-kumari-598611344?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-  //   portfolio: "Nisha.dev",
-  //   prtLink: "",
-  //   email: "nishakumari92",
-  //   emailLink: "mailto:nishakumari927979@gmail.com"
-  // },
+  {
+    name: "Nisha Mandal",
+    role: "Enhanced UI by adding Nightmode's and Other essential components",
+    github: "NishaKumari92",
+    gitLink: "https://github.com/NishaKumari9279",
+    linkedin: "nisha-kumari-59",
+    linLink: "https://www.linkedin.com/in/nisha-kumari-598611344?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    portfolio: "Nisha.dev",
+    prtLink: "",
+    email: "nishakumari92",
+    emailLink: "mailto:nishakumari927979@gmail.com"
+  },
 ];
 
 function AboutUs() {
