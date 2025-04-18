@@ -1,31 +1,40 @@
 # Resume Builder Web Application
 
-A smart and user-friendly web application that helps job seekers create high-quality, ATS-friendly resumes effortlessly. It offers both HTML/CSS and PDF formats, ensuring flexibility and professional presentation.   
+I’m excited to showcase our Resume Builder Application, designed to solve real-world problems and address common issues faced by users on existing resume builders.
 
 
 
 
 
-# 📌 Introduction.  
+# What Motivated us to build it:-
+- **74%** of job seekers feels confused about what information to include or what to leave out. **(Zety Resume Report, 2023)**
+- **68%** of peoples Don't know what recruiters care about most. **(LinkedIn Hiring Insights, 2024)**
+- **76%** of resumes are eliminated by Applicant Tracking Systems (ATS) before reaching a human recruiter, often due to formatting issues or missing keywords.  **(Jobscan ATS Compatibility Report, 2024)**
+- **88%** of resumes are rejected because they include a photo, which can introduce unconscious bias. **(TeamStage, 2024)**
+- **63%** of recruiters prefer resumes that are customized to the specific job position. **(TeamStage, 2024)**
+- **68%** of rejected resumes in the tech industry had inconsistent formatting, such as using multiple fonts or sizes. **(Better Resume, 2024)**
+- Only **2–3%** of resumes result in an interview, emphasizing the need for a well-crafted and tailored resume. **(Prosperity for America, 2025)**
 
-In today's competitive job market, crafting a well-structured resume is crucial but often challenging. Many job seekers struggle with formatting, ATS compatibility, and content optimization. Our **Resume Builder Web Application** automates this process, enabling users to generate professional resumes with minimal effort.
 
-This project was developed as part of our semester project, focusing on user convenience, AI-driven text enhancement, and multi-format resume generation.
+# Well there are existing resume builders that claim to build ATS friendly resumes but..
+- Most resume builders use rigid LaTeX-based templates that only provide static PDFs. While LaTeX offers clean formatting, over 95% of users find it hard to understand or customize—forcing them to repeatedly repurchase resumes for minor changes, making the process both frustrating and costly.
+- Most popular resume builders offer only basic, low-quality templates in their free tier — often outdated, unprofessional, or lacking modern design elements. Users are then prompted to pay $1–$2 per resume download, even after spending time building it.
+- Most resume builders use a rigid, step-by-step form that hides the full scope of required info. Fields appear one by one, forcing users to keep clicking “Next” without a clear overview—wasting time and causing confusion for those who want to prepare content in advance.
+- Many resume builders are slow and laggy, with unresponsive previews—creating friction for users who just want to build or update resumes quickly
 
-
-
-# ⚙️ How It Works
-
-1️⃣ **User Data Collection:** The frontend captures essential user details through an interactive form.  
-
-2️⃣ **Secure Data Transmission:** The collected information is securely sent to the backend using HTTPS.  
-
-3️⃣ **Resume Generation:** The backend dynamically creates a HTML/CSS-formatted resume based on the provided details.  
-
-4️⃣ **PDF Conversion:** The HTML resume is converted into a high-quality PDF using WeasyPrint.  
-
-5️⃣ **File Packaging & Download:** Both the HTML template and PDF file are zipped together and sent to the frontend for easy download.  
-
+# What we provide with this resume builder application :-
+- **Multi-format Export:** Instantly download resumes in .pdf, .html, or editable .json formats — flexible for any need.
+- **Intuitive UI:** Clean and user-friendly interface with smooth navigation across all resume sections.
+- **Smart Assistant Bot:** A personal assistant guides users through the form-filling process, ensuring nothing is missed.
+- **Live, Lag-Free Preview:** Instantly see changes with a real-time preview system, without any delays.
+- **Premium Templates for Free:** Access high-quality, modern templates — no any charges in any feature.
+- **No Login or Tracking:** Build your resume without the hassle of account creation or cookies.
+- **ATS-Friendly by Design:** Every resume is built with at least an 85+ ATS score, increasing your chances of selection.
+- **Efficient Editing:** Initial resume setup takes just 8–10 minutes. Re-edit later in seconds using your saved .json file and customize further. 
+- **Live Suggestions Engine:** Smart tips and error checks reduce formatting issues and save valuable time.
+- **Lightweight & Fast:** Consumes ~1.8MB of RAM and virtually no CPU, ensuring seamless performance on any device.
+- **Light & Dark Mode:** Choose the theme that suits your comfort for distraction-free editing.
+- **No Data Storage:** We prioritize user privacy and do not store any personal data — not even names. Resume details are sensitive and can be misused by third-party apps for misleading ads or cyber fraud. Our builder ensures complete confidentiality and peace of mind.
 
 
 # 🎨 User Interface Overview
@@ -33,21 +42,15 @@ This project was developed as part of our semester project, focusing on user con
 ## ✅ Desktop View:  
 
 * A clean header with a Night/Day mode toggle and navigation buttons.  
-
-* The center displays **Resume Builder Web Application** with a sliding showcase of AI-generated resume templates.  
-
+* The center displays Some resume generated sliding samples.  
 * At the bottom, a Type.js animation highlights the app's key features.  
-
 
 ## ✅ Mobile View:
 
 * A simplified header with essential navigation options.  
-
-* The feature showcase is placed centrally for easy readability.  
-
-* At the bottom, a **"BRAVERS"** text links to the About Us section.  
-
-
+* The feature showcase is placed centrally for easy readability.
+* You can view Generated Temps by clicking button downside of type.js animation
+* At the bottom, a **About Us** text links to the Developers introduction page.
 
 
 # 🛠️ Tech Stack
@@ -55,37 +58,21 @@ This project was developed as part of our semester project, focusing on user con
 ## Frontend:
 
 * **React.js** – For a smooth and dynamic user interface.  
-
 * **Tailwind CSS** – For professional and responsive styling.  
-
 * **JSON** – To manage and store user data efficiently.  
 
 
 ## Backend:
 
 * **Flask** – To handle user requests and generate resumes.  
-
 * **WeasyPrint** – To convert HTML templates into downloadable PDFs.  
 
-* **DeepSeek R1** – To generate AI-driven professional descriptions for resumes.  
+## DataBase:
+* **Firebase** - to handle resume number of user reached and number of resumes generated.
 
+# Application WorkFlow:
 
-
-
-# 🚀 Key Features & Achievements
-
-✔ **AI-Generated Resume Content** – Automatically suggests professional descriptions.  
-
-✔ **Dual Format Output** – Users can download resumes in both HTML/CSS and PDF formats.  
-
-✔ **Responsive Design** – Works seamlessly on both desktop and mobile devices.  
-
-✔ **Dark/Light Mode Support** – Enhances user experience with theme switching.  
-
-✔ **Fast & Secure** – Uses HTTPS for safe data transmission and quick processing.  
-
-✔ **Team Collaboration & Innovation** – Developed with teamwork and problem-solving in mind.  
-
+Watch demmo on <a href="https://www.linkedin.com/posts/nishantksingh1_hi-im-nishant-team-leader-of-bravers-activity-7318679470763061250--7lp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEXIrSMB1Q-v6W50Fho8DNLDqC0GfNeMxQQ" target="_blank">Linkedin</a>    
 
 
 # 📥 Installation & Setup
@@ -107,7 +94,7 @@ npm install
 ## 3. Run Backend:
 
 ```
-python ./Backend/Main.py
+python ./Backend/app.py
 ```
 
 
@@ -128,14 +115,8 @@ The app will now be available at `http://localhost:5173/Resume-Builder` 🚀
 ## This project helped us:
 
 * Understand real-world challenges in resume building.  
-
-* Implement AI-powered text generation for professional descriptions.  
-
 * Work collaboratively as a team to develop an efficient solution.  
-
-* Improve UI/UX design skills for better user engagement.  
-
-
+* Improve UI/UX design skills for better user engagement.
 
 
 # 📢 Have Questions?
@@ -144,6 +125,6 @@ Feel free to ask any question about project and suggest improvements. reach us o
 
 🔹 Email: <a href="mailto:nishantsingh.talk@gmail.com" target="_blank">nishantsingh.talk@gmail.com</a> 
 
-🔹 LinkedIn: <a href="https://www.linkedin.com/in/nishantksingh1/" target="_blank">NishantkSingh1</a>    
+🔹 LinkedIn: <a href="https://www.linkedin.com/posts/nishantksingh1_hi-im-nishant-team-leader-of-bravers-activity-7318679470763061250--7lp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEXIrSMB1Q-v6W50Fho8DNLDqC0GfNeMxQQ" target="_blank">NishantkSingh1</a>    
 
 
