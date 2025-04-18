@@ -17,10 +17,12 @@ I’m excited to showcase our Resume Builder Application, designed to solve real
 
 
 # Well there are existing resume builders that claim to build ATS friendly resumes but..
-- Most resume builders use rigid LaTeX-based templates that only provide static PDFs. While LaTeX offers clean formatting, over 95% of users find it hard to understand or customize—forcing them to repeatedly repurchase resumes for minor changes, making the process both frustrating and costly.
-- Most popular resume builders offer only basic, low-quality templates in their free tier — often outdated, unprofessional, or lacking modern design elements. Users are then prompted to pay $1–$2 per resume download, even after spending time building it.
-- Most resume builders use a rigid, step-by-step form that hides the full scope of required info. Fields appear one by one, forcing users to keep clicking “Next” without a clear overview—wasting time and causing confusion for those who want to prepare content in advance.
-- Many resume builders are slow and laggy, with unresponsive previews—creating friction for users who just want to build or update resumes quickly
+- **Very less customization option:** Most resume builders use rigid LaTeX-based templates that only provide static PDFs. While LaTeX offers clean formatting, over 95% of users find it hard to understand or customize—forcing them to repeatedly repurchase resumes for minor changes, making the process both frustrating and costly.
+- **Low quality and unprofessional template in free tier:** Most popular resume builders offer only basic, low-quality templates in their free tier — often outdated, unprofessional, or lacking modern design elements. Users are then prompted to pay $1–$2 per resume download, even after spending time building it.
+- **Frustrating Form Flow:** Most resume builders use a rigid, step-by-step form that hides the full scope of required info. Fields appear one by one, forcing users to keep clicking “Next” without a clear overview—wasting time and causing confusion for those who want to prepare content in advance.
+- **Laggy and complex interface:** Many resume builders are slow and laggy, with unresponsive previews—creating friction for users who just want to build or update resumes quickly
+- **Data Privacy Concerns:** Most resume builders compromise user privacy by using sensitive data without consent. They often collect personal information and use it for purposes beyond just resume building, including selling it to third parties for targeted ads and other uses.
+- **Login and Cookie Hassles:** Many resume builders require users to sign in and manage cookies, leading to unnecessary frustration and security concerns. This not only disrupts the user experience but also exposes personal data to potential risks.
 
 # What we provide with this resume builder application :-
 - **Multi-format Export:** Instantly download resumes in .pdf, .html, or editable .json formats — flexible for any need.
@@ -34,7 +36,7 @@ I’m excited to showcase our Resume Builder Application, designed to solve real
 - **Live Suggestions Engine:** Smart tips and error checks reduce formatting issues and save valuable time.
 - **Lightweight & Fast:** Consumes ~1.8MB of RAM and virtually no CPU, ensuring seamless performance on any device.
 - **Light & Dark Mode:** Choose the theme that suits your comfort for distraction-free editing.
-- **No Data Storage:** We prioritize user privacy and do not store any personal data — not even names. Resume details are sensitive and can be misused by third-party apps for misleading ads or cyber fraud. Our builder ensures complete confidentiality and peace of mind.
+- **No Data Storage:** We prioritize user privacy and do not store any personal data — 'not even names'. Resume details are sensitive and can be misused by third-party apps for misleading ads or cyber fraud. Our builder ensures complete confidentiality and peace of mind.
 
 
 # 🎨 User Interface Overview
