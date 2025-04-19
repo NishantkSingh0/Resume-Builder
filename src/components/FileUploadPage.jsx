@@ -79,7 +79,7 @@ const FileUploadPage = () => {
     <div className="w-[90%] lg:w-4/5 mx-4 bg-gray-200 dark:bg-slate-800 rounded-xl shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between px-6 py-4 space-y-4 sm:space-y-0 hover:shadow-lg transition-shadow duration-300">
       <div className="w-full sm:w-auto lg:ml-14">
         <p className="text-lg font-semibold text-gray-800 dark:text-gray-200">
-          {jsonUploaded ? "JSON uploaded" : "Upload json data structured by us"}
+          {jsonUploaded ? "JSON uploaded" : "Upload json data..  Structured by us"}
         </p>
         <p className="text-md mt-1 font-semibold text-gray-500 dark:text-gray-400">
           {jsonUploaded ? "You can now proceed further" : "The fastest way to redesign resume without filling whole details again"}

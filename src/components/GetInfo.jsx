@@ -101,7 +101,7 @@ const GetInfo=() => {
   const Suggests=[
     "Hi, I'm here to assist you in building a strong, high-quality, and ATS-friendly resume. Let's make it impressive together! 🤝",
     "First, start by choosing a template that best fits your style and profession.",
-    `You choosed template ${Number(formData.selectedTemplate)} which is ${AboutTemps[Number(formData.selectedTemplate)-1]} 🤟. lets process further and fill details (Click next)`,
+    `You selected template ${Number(formData.selectedTemplate)} which is ${AboutTemps[Number(formData.selectedTemplate) - 1]} ${Number(formData.selectedTemplate) === 4 ? "according to report This template currently has PDF alignment issues 🧐. Please choose a different one you like." : "🤟. Let's move forward and fill in the details (Click Next)." }`,
     "Now, start by filling in your basic details as the form asks. \nDon't worry -- you got suggestions onward which saves much of your time ☺️",
     "Good job! Now it's time to showcase your skills... \nAs you can see, your data is being live-rendered by our app and displayed above in real-time",
     "Consider adding 8+ 'relevant' technical skills. It not only demonstrates your technical breadth but also highlights your creativity, adaptability, and eagerness to learn 🚀",
@@ -1282,7 +1282,7 @@ const GetInfo=() => {
                         className="w-full h-auto rounded-lg dark:filter dark:brightness-90"
                       />
                       {isOpen ? (
-                        <p className="text-center mt-2">{template}</p>
+                        <p className="text-center mt-2 dark:text-gray-200">{template}</p>
                       ) : (
                         <p className="text-center mt-2 dark:text-gray-200">{AboutTemps[template-1]}</p>
                       )}
@@ -1414,7 +1414,7 @@ const GetInfo=() => {
       </div>
   
       {/* Main Content */}
-      <div className={`flex-1 pt-20 pr-3 pl-1 lg:py-8 transition-all duration-300 ${isOpen ? "ml-60" : "ml-2"} lg:ml-0`}>
+      <div className={`flex-1 pt-20 pr-3 px-4 lg:py-8 transition-all duration-300 ${isOpen ? "ml-60" : "ml-2"} lg:ml-0`}>
         <div className="md:max-w-[720px] md:mr-72 lg:ml-64 lg:max-w-[700px] xl:max-w-full xl:px-24 2xl:max-w-3xl mx-auto">
           {renderFormSection()}
 
@@ -1481,7 +1481,7 @@ const GetInfo=() => {
                 <span className="font-semibold pb-[2px]">Assistant Bot</span>
                 <div className="w-[75%] h-[3px] bg-blue-800 mx-auto mt-1 rounded dark:bg-amber-500"></div>
               </div>
-            </div><span id="Suggestion-typing-text" className='text-lime-700 dark:text-lime-400'></span>
+            </div><span id="Suggestion-typing-text" className={` ${i===2 && Number(formData.selectedTemplate) === 4?'text-red-700 dark:text-red-400':'text-lime-700 dark:text-lime-400' }`}></span>
           </div>
         </div>
       </div>
