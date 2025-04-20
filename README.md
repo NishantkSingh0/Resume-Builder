@@ -85,6 +85,7 @@ Watch demmo on <a href="https://www.linkedin.com/posts/nishantksingh1_hi-im-nish
 
 
 # 📥 Installation & Setup
+We’ve made this project open-source with the hope of fostering learning, growth, and collaboration within the developer community. Our goal is to create a space where developers of all levels can explore, experiment, and improve — and we’d love for you to be a part of it. Feel free to fork, download, and use the code, knowing that this is a shared space for education and creativity. We believe in the power of open collaboration, and we hope this project helps you learn something new and encourages you to build with kindness and curiosity!
 
 ## 1. Clone the Repository:  
 
