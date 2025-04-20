@@ -56,21 +56,28 @@ I’m excited to showcase our Resume Builder Application, designed to solve real
 
 
 # 🛠️ Tech Stack
+## - Frontend
 
-## Frontend:
+| Technology     | Description                                                                 |
+|----------------|-----------------------------------------------------------------------------|
+| React.js       | JavaScript library used to create a dynamic, fast, and interactive UI       |
+| Tailwind CSS   | Utility-first CSS framework for building responsive and modern UI designs   |
+| JSON           | Lightweight data format used to manage and structure user resume inputs     |
 
-* **React.js** – For a smooth and dynamic user interface.  
-* **Tailwind CSS** – For professional and responsive styling.  
-* **JSON** – To manage and store user data efficiently.  
+
+## - Backend
+
+| Technology     | Description                                                                                   |
+|----------------|-----------------------------------------------------------------------------------------------|
+| Flask          | Lightweight Python web framework that handles PDF generation efficiently                      |
+| WeasyPrint     | Powerful tool to convert styled HTML templates into high-quality, printable PDF documents     |
 
 
-## Backend:
+## - Database
 
-* **Flask** – To handle user requests and generate resumes.  
-* **WeasyPrint** – To convert HTML templates into downloadable PDFs.  
-
-## DataBase:
-* **Firebase** - to handle resume number of user reached and number of resumes generated.
+| Technology | Description                                                                                   |
+|------------|-----------------------------------------------------------------------------------------------|
+| Firebase   | Backend-as-a-Service platform used to track total users, monitor resume builds, and analytics |
 
 # Application WorkFlow:
 
