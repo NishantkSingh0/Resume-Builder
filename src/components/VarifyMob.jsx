@@ -1,3 +1,9 @@
+/*
+ - ResumeBuilder - A cool project for Building high quality and ATS freindly resumes in free...
+ - Copyright (C) 2025 NishantkSingh0
+ - Licensed under the GNU GPL v3.0 - see LICENSE file for details.
+ */
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import OTPInput from 'react-otp-input';
