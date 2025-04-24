@@ -81,7 +81,7 @@ I’m excited to showcase our Resume Builder Application, designed to solve real
 
 # Application WorkFlow:
 
-Watch demmo on <a href="https://www.linkedin.com/posts/nishantksingh1_hi-im-nishant-team-leader-of-bravers-activity-7318679470763061250--7lp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEXIrSMB1Q-v6W50Fho8DNLDqC0GfNeMxQQ" target="_blank">Linkedin</a>    
+Watch demmo on <a href="https://www.linkedin.com/posts/nishantksingh1_resumebuilder-atsfriendly-careertips-activity-7320307626867585024--Ts8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEXIrSMB1Q-v6W50Fho8DNLDqC0GfNeMxQQ" target="_blank">Linkedin</a>    
 
 
 # 📥 Installation & Setup
