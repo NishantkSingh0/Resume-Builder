@@ -10,7 +10,7 @@ const JsonFiles=[
        contactInfo: {
          fullName: "Nishant kumar",
          phoneNumber: "9217290469",
-         emailAddress: "nishantsingh.talk@gmail.com",
+         emailAddress: "nishantsingh@gmail.com",
          linkedin: "nishantksingh1",
          portfolio: "nishantksingh0.github.io",
          jobTitle: "Data Scientist",
@@ -272,96 +272,6 @@ const JsonFiles=[
        ],
        Description:{
          UserDescription: "An enthusiastic Full Stack Developer from Haridwar University with a proven track record in Web3.js, Flask, Firebase, Swift, Terraform, C/C++, Docker, JavaScript, React and more. across 18+ industry-relevant projects. Skilled communicator in Hindi English with a reputation for TeamWork, Critical thinking, Problem-Solving, Creativity, Leadership, Communication, problem-solving, and strategic thinking."
-       }
-      },
-
-      {
-         selectedTemplate: "5",
-         contactInfo: {
-         fullName: "Shahid Malik",
-         phoneNumber: "9368890469",
-         emailAddress: "Shahid.talk@gmail.com",
-         linkedin: "ShahidMalik1",
-         portfolio: "Shahid-Malik",
-         jobTitle: "Data Scientist",
-         Languages: "English, Hindi",
-         Location: "Haridwar (Uttrakhand)"
-       },
-       skills: {
-         hardSkills: "TensorFlow, PyTorch, Transformers, Keras, LLM's, C/C++, Java, JavaScript, React",
-         softSkills: "TeamWork, Problem-Solving, Leadership, Critical thinking, Communication, Creativity"
-       },
-       workExperience: [
-         {
-           jobTitle: "Data scientist",
-           companyName: "Onlei tech",
-           WorkDuration: "Dec-2024 to Mar-2025",
-           keyAchievements: "Learn to visualize patterns from data using matplotlib and Built several DL models"
-         },
-         {
-           jobTitle: "Python engineer",
-           companyName: "Microsoft",
-           WorkDuration: "May-2024 to Jul-2024",
-           keyAchievements: "Learn to use python in NLP tasks to take advantages of LLM"
-         }
-       ],
-       projects: [
-         {
-           projectTitle: "Transformer based translation model",
-           toolsTechUsed: "Tensorflow, Trasformer architecture, NumPy, WMT Translation dataset"
-         },
-         {
-           projectTitle: "Exam Proctoring system",
-           toolsTechUsed: "React, Flask, OpenCV, NumPy, Mediapipe, Pillow, WebSocket, ThreadPool"
-         },
-         {
-           projectTitle: "Persion bounding box detection",
-           toolsTechUsed: "OpenCV, Json, Tensorflow, Pandas, Matplotlib, NumPy"
-         }
-       ],
-       education: [
-         {
-           institutionName: "Haridwar University",
-           degreeName: "Batchelor in Computer application",
-           graduationYear: "2023 - 2026",
-           currentSGPA: "8"
-         },
-         {
-           institutionName: "Vidya Mandir Sec-5 (Haridwar)",
-           degreeName: "Primary/Secondary",
-           graduationYear: "2021 - 2023",
-           currentSGPA: "8"
-         }
-       ],
-       certificates: [
-         {
-           certificateName: "Azure AI Engineer association",
-           courseDuration: "2 Month",
-           providerName: "Microsoft"
-         },
-         {
-           certificateName: "C/C++",
-           courseDuration: "2 Month",
-           providerName: "Cad Planet"
-         },
-         {
-           certificateName: "DataScientist Internship",
-           courseDuration: "2 Month",
-           providerName: "Onlei Tech"
-         },
-         {
-           certificateName: "Intro To responsive AI",
-           courseDuration: "1 Month",
-           providerName: "SimpliLearn"
-         },
-         {
-           certificateName: "Bits & byts of computer",
-           courseDuration: "1 Month",
-           providerName: "Coursera"
-         },
-       ],
-       Description:{
-         UserDescription: "A detail-oriented Data Scientist from Haridwar University, specializing in TensorFlow, PyTorch, Transformers, Keras, LLM's, C/C++, Java, JavaScript, React and a proven track record of delivering 30+ impactful projects that drive business growth. Proficient in Hindi Enlish. with a strong focus on TeamWork, Problem-Solving, Leadership, Critical thinking, Communication, Creativity, bringing innovation, efficiency, and a solution-driven mindset to every project."
        }
       }
    ]

@@ -8,10 +8,12 @@ import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { UploadCloud } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
+// import Switch from './TechNontechButton.jsx'
 
 const FileUploadPage = () => {
   const [jsonUploaded, setJsonUploaded] = useState(false);
   const [docUploaded, setDocUploaded] = useState(false);
+  // const [isTech, setIsTech] = useState(false);
   const [jsonData, setJsonData] = useState(null);
   const navigate=useNavigate();
 
@@ -80,6 +82,22 @@ const FileUploadPage = () => {
   return (
     <div className="min-h-screen bg-white flex dark:bg-slate-900 flex-col items-center justify-center space-y-6 px-4">
     <Toaster position="top-right" />
+{/* 
+    <div className="w-[90%] lg:w-4/5 mx-4 bg-gray-200 dark:bg-slate-800 rounded-xl shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between px-6 py-4 space-y-4 sm:space-y-0 hover:shadow-lg transition-shadow duration-300">
+      <div className="w-full sm:w-auto lg:ml-14">
+        <p className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+          Are You a tech persion ? 
+        </p>
+        <p className="text-md mt-1 font-semibold text-gray-500 dark:text-gray-400">
+          {isTech ? "Okay.. you are a non-tech persion" : "By default we let you are from tech background"}
+        </p>
+      </div>
+      <Switch
+          className="w-full lg:mr-20 sm:w-auto rounded-xl"
+          onClick={() => setIsTech(prev => !prev)}
+        >
+        </Switch>
+    </div> */}
   
     {/* JSON Upload Container */}
     <div className="w-[90%] lg:w-4/5 mx-4 bg-gray-200 dark:bg-slate-800 rounded-xl shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between px-6 py-4 space-y-4 sm:space-y-0 hover:shadow-lg transition-shadow duration-300">
