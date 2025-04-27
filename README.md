@@ -25,17 +25,17 @@ I’m excited to showcase our Resume Builder Application, designed to solve real
 - **Login and Cookie Hassles:** Many resume builders require users to sign in and manage cookies, leading to unnecessary frustration and security concerns. This not only disrupts the user experience but also exposes personal data to potential risks.
 
 # What we provide with this resume builder application :-
-- **Multi-format Export:** Instantly download resumes in .pdf, .html, or editable .json formats — flexible for any need.
+- **Multi-format Export:** Instantly download resumes in .pdf or editable (.html, .json) formats — flexible for any need.
 - **Intuitive UI:** Clean and user-friendly interface with smooth navigation across all resume sections.
-- **Smart Assistant Bot:** A personal assistant guides users through the form-filling process, ensuring nothing is missed.
+- **Smart Assistant Bot:** A personal assistant guides users through the form-filling process, ensuring user don't feel alone.
 - **Live, Lag-Free Preview:** Instantly see changes with a real-time preview system, without any delays.
 - **Premium Templates for Free:** Access high-quality, modern templates — no any charges in any feature.
-- **No Login or Tracking:** Build your resume without the hassle of account creation or cookies.
-- **ATS-Friendly by Design:** Every resume is built with at least an 85+ ATS score, increasing your chances of selection.
+- **No Login or cookies:** Build your resume without the hassle of account creation or cookies.
+- **ATS-Friendly by Design:** Every template is built with at least an 85+ ATS score, increasing your chances of selection.
 - **Efficient Editing:** Initial resume setup takes just 8–10 minutes. Re-edit later in seconds using your saved .json file and customize further. 
 - **Live Suggestions Engine:** Smart tips and error checks reduce formatting issues and save valuable time.
 - **Lightweight & Fast:** Consumes ~1.8MB of RAM and virtually no CPU, ensuring seamless performance on any device.
-- **Light & Dark Mode:** Choose the theme that suits your comfort for distraction-free editing.
+- **Light & Dark Mode:** Choose the theme that suits your comfort for distraction-free editing. by default it choosed randomly to explore both modes.
 - **No Data Storage:** We prioritize user privacy and do not store any personal data — 'not even names'. Resume details are sensitive and can be misused by third-party apps for misleading ads or cyber fraud. Our builder ensures complete confidentiality and peace of mind.
 
 
@@ -81,7 +81,7 @@ I’m excited to showcase our Resume Builder Application, designed to solve real
 
 # Application WorkFlow:
 
-Watch demmo on <a href="https://www.linkedin.com/posts/nishantksingh1_hi-im-nishant-team-leader-of-bravers-activity-7318679470763061250--7lp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEXIrSMB1Q-v6W50Fho8DNLDqC0GfNeMxQQ" target="_blank">Linkedin</a>    
+Watch demmo on <a href="https://www.linkedin.com/posts/nishantksingh1_resumebuilder-atsfriendly-careertips-activity-7320307626867585024--Ts8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEXIrSMB1Q-v6W50Fho8DNLDqC0GfNeMxQQ" target="_blank">Linkedin</a>    
 
 
 # 📥 Installation & Setup
