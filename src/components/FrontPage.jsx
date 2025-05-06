@@ -54,18 +54,18 @@ const FrontPage=({views})=>{
     const typedMobile=new Typed("#mobile-typing-text",{
       strings: features,
       loop: true,
-      typeSpeed: 35,
-      backSpeed: 25,
-      backDelay: 500,
+      typeSpeed: 20,
+      backSpeed: 15,
+      backDelay: 900,
       cursorChar: " ",
     });
 
     const typed=new Typed("#desktop-typing-text",{
       strings: features,
       loop: true,
-      typeSpeed: 35,
-      backSpeed: 25,
-      backDelay: 500,
+      typeSpeed: 20,
+      backSpeed: 15,
+      backDelay: 900,
       cursorChar: " "
     });
 

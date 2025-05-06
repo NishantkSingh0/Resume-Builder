@@ -136,7 +136,7 @@ const GetInfo=() => {
     const Suggest = new Typed("#Suggestion-typing-text", {
       strings: [Suggests[i]],
       loop: false,
-      typeSpeed: 40,
+      typeSpeed: 30,
       showCursor: true,
     });
   
