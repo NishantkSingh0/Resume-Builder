@@ -271,8 +271,8 @@ export const T2 = ({ jsonData }) => {
         {jsonData.workExperience.map((exp, index) => (
           <div className="experience-item" key={index}>
             <ul>
-              <li className="SpaceBetween">{exp.companyName} | {exp.jobTitle} <span>( {exp.WorkDuration} )</span></li>
-              {exp.keyAchievements}
+              <li className="SpaceBetween">🔸{exp.companyName} | {exp.jobTitle} <span>( {exp.WorkDuration} )</span></li>
+              <p style={{ marginLeft: '22px' }}>{exp.keyAchievements}</p>
             </ul>
           </div>
         ))}

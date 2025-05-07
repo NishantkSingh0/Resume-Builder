@@ -154,7 +154,7 @@ export const T6 = ({ jsonData }) => {
         <div className="title">Technical skills:</div>
         <div className="subcont SpaceBetween">
           <div className="left"><strong style={{ color: "rgb(75, 77, 77)" }}>Tech Skills: </strong> <br /><strong style={{ color: "rgb(75, 77, 77)" }}>Soft Skills: </strong></div>
-          <div className="mid">--<br />--<br /></div>
+          <div className="mid">—<br />—<br /></div>
           <div className="right">{jsonData.skills.hardSkills}<br />{jsonData.skills.softSkills} <br /></div>
         </div>
       </div>
@@ -177,14 +177,16 @@ export const T6 = ({ jsonData }) => {
         <div className="title">Work Experience:</div>
         {jsonData.workExperience.map((exp, index) => (
           <div key={index}>
-            
-            <div className="internship TextGray SpaceBetween">
-              <div className="left ">{exp.companyName}</div>
-              <div className="Right">{exp.WorkDuration}</div>
-            </div>
             <ul>
-              <li>{exp.keyAchievements}</li>
+              <li>
+                <div className="internship TextGray SpaceBetween">
+                  <div className="left ">{exp.companyName} | {exp.jobTitle}</div>
+                  <div className="Right">{exp.WorkDuration}</div>
+                </div>
+              </li>
+              <span style={{marginLeft:'20px'}}>{exp.keyAchievements}</span>
             </ul>
+            
           </div>
         ))}
       </div>

@@ -24,7 +24,8 @@ const Result = () => {
 
   const selectedTemplate = jsonData?.selectedTemplate || "1";
   const MAX_RETRIES = 3;
-  const RETRY_DELAY = 10000; // 10 seconds
+  const RETRY_DELAY = 10000; 
+  const FIREBASE_URL = "https://resume-builder-suggestions-default-rtdb.firebaseio.com/ResumesBuilt.json";
 
   useEffect(() => {
     if (!jsonData) {
@@ -170,7 +171,6 @@ const Result = () => {
     }
   };
 
-  // Determine what message to show based on status
   const getStatusMessage = () => {
     switch(status) {
       case 'preparing':
@@ -195,6 +195,26 @@ const Result = () => {
       setStatus('waking');
       generateAndDownloadFiles();
     }, 1000);
+
+    // Updating resume count
+    fetch(FIREBASE_URL)
+    .then(res => res.json())
+    .then(current => {
+      const updated = (current || 0) + 1;
+
+      return fetch(FIREBASE_URL, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updated),
+      }).then(() => {
+        // setResumesBuilt(updated);  // update UI
+      });
+    })
+    .catch(error => {
+      console.error("Error updating resume count:", error);
+    });
   };
 
   return (

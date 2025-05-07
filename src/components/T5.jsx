@@ -90,7 +90,7 @@ h3 {
 }
 
 .project-item {
-  margin: 0 25px 10px 25px;
+  margin: 0 10px 10px 10px;
 }
 
 .experience-item {
@@ -220,12 +220,12 @@ export const T5 = ({ jsonData, desc }) => {
         <h3><b>Projects</b></h3>
         {jsonData.projects.map((proj, index) => (
           <div key={index} className="project-item">
-            <ul>
-              <li>
-                <h4 className="spacebetween">{proj.projectTitle}</h4>
-              </li>
-              <p>{proj.toolsTechUsed}</p>
-            </ul>
+
+            <h4 >
+              <span style={{ marginRight: "8px", color: "#007acc" }}>➤</span>
+              <b>{proj.projectTitle}</b>
+            </h4>
+            <p style={{ marginLeft: "24px", marginTop: "4px" }}>{proj.toolsTechUsed}</p>
           </div>
         ))}
       </div>
@@ -395,7 +395,7 @@ export const T5Css=`
  }
 
  .project-item {
-   margin: 0 25px 10px 25px;
+   margin: 0 10px 10px 10px;
  }
 
  .experience-item {
