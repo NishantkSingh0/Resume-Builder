@@ -1,6 +1,6 @@
 /*
  - ResumeBuilder - A cool project for Building high quality and ATS freindly resumes in free...
- - Copyright (C) 2025 NishantkSingh0
+ - Copyright (C) 2025 NishantkSingh0.github.io
  - Licensed under the GNU GPL v3.0 - see LICENSE file for details.
  */
 
@@ -8,11 +8,11 @@ const JsonFiles=[
       {
        selectedTemplate: "1",
        contactInfo: {
-         fullName: "Nishant kumar",
+         fullName: "Nishant Singh",
          phoneNumber: "9217290469",
          emailAddress: "nishantsingh@gmail.com",
          linkedin: "nishantksingh1",
-         portfolio: "nishantksingh0.github.io",
+         portfolio: "https://nishantksingh0.github.io",
          jobTitle: "Data Scientist",
          Languages: "English, Hindi, French",
          Location: "Haridwar (Uttrakhand)"
