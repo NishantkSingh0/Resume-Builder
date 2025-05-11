@@ -4,7 +4,7 @@
  - Licensed under the GNU GPL v3.0 - see LICENSE file for details.
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import toast from "react-hot-toast";
 import { useLocation } from 'react-router-dom';
 import { html as html_beautify } from 'js-beautify';
@@ -21,8 +21,9 @@ const Result = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [downloadStatus, setDownloadStatus] = useState({ pdf: false, html: false });
   const location = useLocation();
+  const [isBuilt, setIsBuilt] = useState(false);
   const { jsonData } = location.state || {};
-
+  const navigateToDiv = useRef(null);
   const selectedTemplate = jsonData?.selectedTemplate || "1";
   const MAX_RETRIES = 3;
   const RETRY_DELAY = 10000; 
@@ -35,10 +36,12 @@ const Result = () => {
       return;
     }
 
-    setTimeout(() => {
-      setStatus('waking');
-      generateAndDownloadFiles();
-    }, 1000);
+    if (!isBuilt){
+      setTimeout(() => {
+        setStatus('waking');
+        generateAndDownloadFiles();
+      }, 1000);
+    }
   }, [jsonData]);
 
   const generateAndDownloadFiles = async () => {
@@ -78,7 +81,7 @@ const Result = () => {
   
       const htmlContent = html_beautify(generatedCode);
 
-      toast.success("Generating your PDF... \nThis may take a few seconds if the server was asleep.", { duration: 6000, position: "top-right" });
+      toast.success("Generating your PDF... \nThis may take a few seconds if the server was not at sleep.", { duration: 10000, position: "top-right" });
       
   
       console.log("Sending request to generate PDF...");
@@ -102,7 +105,7 @@ const Result = () => {
         const pdfUrl = window.URL.createObjectURL(pdfBlob);
         const pdfLink = document.createElement('a');
         pdfLink.href = pdfUrl;
-        pdfLink.download = 'Resume.pdf';
+        pdfLink.download = 'Resume.pdf';  
         pdfLink.click();
         window.URL.revokeObjectURL(pdfUrl);
         console.log("PDF Downloaded Successfully",status);
@@ -134,10 +137,14 @@ const Result = () => {
               
         console.log("JSON Downloaded Successfully", status);
         setDownloadStatus(prev => ({ ...prev, json: true }));
-              
-
+        setIsBuilt(true);
         toast.success("PDF, HTML/CSS template and Our JSON formate downloaded successfully", { duration: 3000, position: "top-left" });
-    
+        
+        setTimeout(() => {
+          navigateToDiv.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 5000); // 5 seconds delay
+  
+  
       } catch (error) {
         console.error('API Error:', error);
         if (retryCount < MAX_RETRIES) {
@@ -229,7 +236,7 @@ const Result = () => {
       {/* Always render the template but keep it hidden during loading */}
       <div 
         id="capture-content" 
-        className={`text-left transition-all duration-300 ${status === 'completed' ? 'relative visible scale-[0.6]' : 'absolute invisible scale-[0.6]'}`}
+        className={`text-left transition-all duration-300 ${status === 'completed' ? 'relative visible scale-[0.4] md:scale-[0.6]' : 'absolute invisible scale-[0.4] md:scale-[0.6]'}`}
         style={{ transformOrigin: 'center' }}
       >
         {jsonData && renderSelectedTemplate()}
@@ -237,7 +244,7 @@ const Result = () => {
 
 
       {/* Messages container - always positioned below */}
-      <div className="w-full max-w-[80%] mt-0">
+      <div className="w-full max-w-[95%] md:max-w-[80%] mt-0">
         {status !== 'completed' && status !== 'error' ? (
           <div className="w-full flex flex-row justify-center mb-6">
             <div className="relative w-[220px] h-[320px] rounded-[14px] overflow-hidden flex flex-col items-center justify-center shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] dark:shadow-[20px_20px_60px_#1a1a1a,-20px_-20px_60px_#2a2a2a] transition-all duration-300">
@@ -271,9 +278,9 @@ const Result = () => {
           </div>
         ) : (
           // Show success message when completed
-          <div className="w-full flex flex-col items-center">
+          <div ref={navigateToDiv} className="w-full flex flex-col items-center">
             <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative w-full mb-4 text-left">
-              <span className="block sm:inline">Your resume has been successfully generated and downloaded. Based on its content quality and structure, it is highly likely to achieve an ATS (Applicant Tracking System) score of 85 or above. While platforms like Enhancv, LiveCareer, Resumake, and others may display lower ATS scores to encourage users to opt for their paid services, Focus on content quality, clarity, and relevance — that's what truly matters to recruiters and real-world ATS systems!. If tools like Konbert, JsonResume, etc... are able to accurately extract your resume details into a structured JSON format, it's a strong indication that your resume is fully optimized and ATS-friendly.</span>
+              <span className="block sm:inline">Your resume has been successfully generated and downloaded. Based on its content quality and structure, it is highly likely to achieve an ATS (Applicant Tracking System) score of 85 or above. While platforms like Enhancv, LiveCareer, Resumake, and others may display lower ATS scores (like 65-75) to encourage users to opt for their paid services, Focus on content quality, clarity, and relevance — that's what truly matters to recruiters and real-world ATS systems!. If tools like Konbert, JsonResume, etc... are able to accurately extract all your resume details into a structured JSON format, it's a strong indication that your resume is fully optimized and ATS-friendly.</span>
             </div>
             <div className="flex flex-wrap gap-3 justify-center">
               <button 

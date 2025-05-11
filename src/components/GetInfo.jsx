@@ -418,14 +418,16 @@ const GetInfo=() => {
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl mb-4 pb-1 font-bold border-b-4 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Contact Information</h2>
               <div className="space-y-2">
-                <Suggestions
-                  label="Full Name"
-                  placeholder="Your name"
-                  value={isExampleProcessing ? ExampleJsonData.contactInfo.fullName : formData.contactInfo.fullName}
-                  onChange={(val) => {handleInputChange("contactInfo", "fullName", val);}}
-                  suggestions={['Aarav', 'Aarohi','Tanishk','Piyush', 'Abhimanyu', 'Abhishek', 'Abraham', 'Adarsh', 'Aditi', 'Aditya', 'Agarwal', 'Aisha','Ajay', 'Ali', 'Alisha', 'Amisha', 'Amit', 'Ananya', 'Aniket', 'Anirudh', 'Anitha', 'Ankush', 'Ansari','Anupam', 'Aparna', 'Arindam', 'Arjun', 'Armaan', 'Arpita', 'Arvind', 'Aryan', 'Ashu', 'Ashwin', 'Asmita','Atul', 'Ayaan', 'Ayesha', 'Bajwa', 'Baljit', 'Bandyopadhyay', 'Bansal', 'Barot', 'Bhardwaj', 'Bhatt','Bhattacharya', 'Bhavesh', 'Bhavin', 'Bhavna', 'Bhawna', 'Bhumi', 'Bose', 'Brar', 'Chaitali', 'Chakraborty','Chatterjee', 'Chauhan', 'Chintan', 'Chirag', 'Choudhary', 'Chowdary', "D'Souza", 'Das', 'Dave', 'Deb','Deepak', 'Desai', 'Dev', 'Dhaval', 'Dhillon', 'Dias', 'Dinesh', 'Dipankar', 'Divya', 'Divyashree', 'Dubey','Dutta', 'Dwivedi', 'Faizan', 'Farooqi', 'Fatima', 'Fernandes', 'Gagandeep', 'Gaurav', 'George', 'Ghosh','Gill', 'Gohil', 'Gowda', 'Goyal', 'Grewal', 'Gupta', 'Gurpreet', 'Hari', 'Harleen', 'Harpreet', 'Harsh','Harshita', 'Hemant', 'Hussain', 'Ipsita', 'Irfan', 'Ishita', 'Iyengar', 'Iyer', 'Jadeja', 'Jasleen', 'Jatin','Jha', 'Jignesh', 'Joseph', 'Joshi', 'Juhi', 'Karthik', 'Karthikeyan', 'Kaur', 'Kavita', 'Keerthi', 'Khan','Kiran', 'Kiranpreet', 'Komal', 'Krishna', 'Krishnan', 'Kriti', 'Kulshreshtha', 'Kumar', 'Kunal', 'Laboni','Lakshmi', 'Lakshya', 'Lata', 'Lavanya', 'Madhavan', 'Madhumita', 'Mahajan', 'Mahesh', 'Mallika', 'Manish','Manisha', 'Mann', 'Manpreet', 'Mathew', 'Meenakshi', 'Meera', 'Mehta', 'Menon', 'Mirza', 'Mishra', 'Mitali','Mitra', 'Modi', 'Mohan', 'Mondal', 'Moumita', 'Mrunal', 'Mudaliar', 'Mukherjee', 'Murthy', 'Naidu', 'Nair','Naveen', 'Navjot', 'Nazma', 'Neha', 'Nidhi', 'Nigam', 'Nikhil', 'Nikita', 'Nishant', 'Pal', 'Pallavi','Pandey', 'Parmar', 'Parminder', 'Parth', 'Patel', 'Pathak', 'Paul', 'Payal', 'Pereira', 'Pillai', 'Piyali','Pooja', 'Prachi', 'Prajapati', 'Prakash', 'Prasad', 'Preeti', 'Prithwish', 'Priya', 'Qureshi', 'Rabia','Radha', 'Radhika', 'Raghav', 'Rahul', 'Raj', 'Rajesh', 'Rajinikanth', 'Rajiv', 'Rajput', 'Ramesh', 'Rana','Rao', 'Rastogi', 'Rathod', 'Ravi', 'Ravneet', 'Rawat', 'Reddy', 'Rehan', 'Rekha', 'Revathi', 'Ritesh','Ritwik', 'Riya', 'Rodrigues', 'Rohan', 'Roy', 'Rupa', 'Rupali', 'Sagar', 'Sameer', 'Sana', 'Sanchari','Sandeep', 'Sandhu', 'Sanya', 'Sarkar', 'Satnam', 'Saxena', 'Sen', 'Shah', 'Shahid', 'Shalini', 'Sharma','Sheikh', 'Shetty', 'Shivam', 'Shruthi', 'Shruti', 'Siddharth', 'Siddiqui', 'Sidhu', 'Simran', 'Simranjeet','Sindhu', 'Singh', 'Sinha', 'Sneha', 'Solanki', 'Sonali', 'Sourav', 'Sowmya', 'Srinivas', 'Srivastava','Subham', 'Subramanian', 'Sumit', 'Sumita', 'Supriya', 'Surbhi', 'Suresh', 'Surya', 'Sutapa', 'Suthar','Swamy', 'Swati', 'Syed', 'Tanmoy', 'Tanvi', 'Tanya', 'Tejas', 'Thakkar', 'Thakur', 'Thomas', 'Tiwari','Tripathi', 'Trisha', 'Urmila', 'Vaishnavi', 'Varun', 'Venkatesh', 'Verma', 'Vidya', 'Vihaan', 'Vikas','Vikram', 'Vivaan', 'Yadav', 'Yash', 'Zaid', 'Zara','Akhil', 'Anmol', 'Bhupinder', 'Chandan', 'Charan', 'Chinmay', 'Darshan', 'Deeksha', 'Diksha', 'Ekta','Eshan', 'Girish', 'Gunjan', 'Hemlata', 'Indira', 'Ishaan', 'Jayant', 'Jaya', 'Jeet', 'Jyoti', 'Kalyani','Kamlesh', 'Kanika', 'Karishma', 'Kaustubh', 'Khushboo', 'Kishore', 'Kriti', 'Leela', 'Madhuri', 'Mahima','Mala', 'Mangesh', 'Manju', 'Mehul', 'Mohit', 'Monika', 'Mridula', 'Namita', 'Nandini', 'Nayan', 'Nisha','Nishita', 'Omkar', 'Pankaj', 'Poojan', 'Pranav', 'Prerna', 'Radheshyam', 'Rajani', 'Rajendra', 'Rani','Ravindra', 'Ritika', 'Rohit', 'Roshni', 'Sahil', 'Saloni', 'Sampath', 'Sanket', 'Sarika', 'Seema','Sharad', 'Sharanya', 'Sharvani', 'Shashi', 'Sheetal', 'Shraddha', 'Shreyas', 'Snehal', 'Sonal', 'Sonam','Sudha', 'Sujata', 'Surabhi', 'Surbhi', 'Tanisha', 'Tarun', 'Tina', 'Uday', 'Upasana', 'Utkarsh', 'Vaibhav','Vasudha', 'Veena', 'Vibha', 'Vidushi', 'Vimal', 'Vishal', 'Vishesh', 'Yogesh']}
-                  isPara={true}
-                />
+                <div className="peer w-full">
+                  <Suggestions
+                    label="Full Name"
+                    placeholder="Your name"
+                    value={isExampleProcessing ? ExampleJsonData.contactInfo.fullName : formData.contactInfo.fullName}
+                    onChange={(val) => {handleInputChange("contactInfo", "fullName", val);}}
+                    suggestions={['Aarav', 'Aarohi','Tanishk','Piyush', 'Abhimanyu', 'Abhishek', 'Abraham', 'Adarsh', 'Aditi', 'Aditya', 'Agarwal', 'Aisha','Ajay', 'Ali', 'Alisha', 'Amisha', 'Amit', 'Ananya', 'Aniket', 'Anirudh', 'Anitha', 'Ankush', 'Ansari','Anupam', 'Aparna', 'Arindam', 'Arjun', 'Armaan', 'Arpita', 'Arvind', 'Aryan', 'Ashu', 'Ashwin', 'Asmita','Atul', 'Ayaan', 'Ayesha', 'Bajwa', 'Baljit', 'Bandyopadhyay', 'Bansal', 'Barot', 'Bhardwaj', 'Bhatt','Bhattacharya', 'Bhavesh', 'Bhavin', 'Bhavna', 'Bhawna', 'Bhumi', 'Bose', 'Brar', 'Chaitali', 'Chakraborty','Chatterjee', 'Chauhan', 'Chintan', 'Chirag', 'Choudhary', 'Chowdary', "D'Souza", 'Das', 'Dave', 'Deb','Deepak', 'Desai', 'Dev', 'Dhaval', 'Dhillon', 'Dias', 'Dinesh', 'Dipankar', 'Divya', 'Divyashree', 'Dubey','Dutta', 'Dwivedi', 'Faizan', 'Farooqi', 'Fatima', 'Fernandes', 'Gagandeep', 'Gaurav', 'George', 'Ghosh','Gill', 'Gohil', 'Gowda', 'Goyal', 'Grewal', 'Gupta', 'Gurpreet', 'Hari', 'Harleen', 'Harpreet', 'Harsh','Harshita', 'Hemant', 'Hussain', 'Ipsita', 'Irfan', 'Ishita', 'Iyengar', 'Iyer', 'Jadeja', 'Jasleen', 'Jatin','Jha', 'Jignesh', 'Joseph', 'Joshi', 'Juhi', 'Karthik', 'Karthikeyan', 'Kaur', 'Kavita', 'Keerthi', 'Khan','Kiran', 'Kiranpreet', 'Komal', 'Krishna', 'Krishnan', 'Kriti', 'Kulshreshtha', 'Kumar', 'Kunal', 'Laboni','Lakshmi', 'Lakshya', 'Lata', 'Lavanya', 'Madhavan', 'Madhumita', 'Mahajan', 'Mahesh', 'Mallika', 'Manish','Manisha', 'Mann', 'Manpreet', 'Mathew', 'Meenakshi', 'Meera', 'Mehta', 'Menon', 'Mirza', 'Mishra', 'Mitali','Mitra', 'Modi', 'Mohan', 'Mondal', 'Moumita', 'Mrunal', 'Mudaliar', 'Mukherjee', 'Murthy', 'Naidu', 'Nair','Naveen', 'Navjot', 'Nazma', 'Neha', 'Nidhi', 'Nigam', 'Nikhil', 'Nikita', 'Nishant', 'Pal', 'Pallavi','Pandey', 'Parmar', 'Parminder', 'Parth', 'Patel', 'Pathak', 'Paul', 'Payal', 'Pereira', 'Pillai', 'Piyali','Pooja', 'Prachi', 'Prajapati', 'Prakash', 'Prasad', 'Preeti', 'Prithwish', 'Priya', 'Qureshi', 'Rabia','Radha', 'Radhika', 'Raghav', 'Rahul', 'Raj', 'Rajesh', 'Rajinikanth', 'Rajiv', 'Rajput', 'Ramesh', 'Rana','Rao', 'Rastogi', 'Rathod', 'Ravi', 'Ravneet', 'Rawat', 'Reddy', 'Rehan', 'Rekha', 'Revathi', 'Ritesh','Ritwik', 'Riya', 'Rodrigues', 'Rohan', 'Roy', 'Rupa', 'Rupali', 'Sagar', 'Sameer', 'Sana', 'Sanchari','Sandeep', 'Sandhu', 'Sanya', 'Sarkar', 'Satnam', 'Saxena', 'Sen', 'Shah', 'Shahid', 'Shalini', 'Sharma','Sheikh', 'Shetty', 'Shivam', 'Shruthi', 'Shruti', 'Siddharth', 'Siddiqui', 'Sidhu', 'Simran', 'Simranjeet','Sindhu', 'Singh', 'Sinha', 'Sneha', 'Solanki', 'Sonali', 'Sourav', 'Sowmya', 'Srinivas', 'Srivastava','Subham', 'Subramanian', 'Sumit', 'Sumita', 'Supriya', 'Surbhi', 'Suresh', 'Surya', 'Sutapa', 'Suthar','Swamy', 'Swati', 'Syed', 'Tanmoy', 'Tanvi', 'Tanya', 'Tejas', 'Thakkar', 'Thakur', 'Thomas', 'Tiwari','Tripathi', 'Trisha', 'Urmila', 'Vaishnavi', 'Varun', 'Venkatesh', 'Verma', 'Vidya', 'Vihaan', 'Vikas','Vikram', 'Vivaan', 'Yadav', 'Yash', 'Zaid', 'Zara','Akhil', 'Anmol', 'Bhupinder', 'Chandan', 'Charan', 'Chinmay', 'Darshan', 'Deeksha', 'Diksha', 'Ekta','Eshan', 'Girish', 'Gunjan', 'Hemlata', 'Indira', 'Ishaan', 'Jayant', 'Jaya', 'Jeet', 'Jyoti', 'Kalyani','Kamlesh', 'Kanika', 'Karishma', 'Kaustubh', 'Khushboo', 'Kishore', 'Kriti', 'Leela', 'Madhuri', 'Mahima','Mala', 'Mangesh', 'Manju', 'Mehul', 'Mohit', 'Monika', 'Mridula', 'Namita', 'Nandini', 'Nayan', 'Nisha','Nishita', 'Omkar', 'Pankaj', 'Poojan', 'Pranav', 'Prerna', 'Radheshyam', 'Rajani', 'Rajendra', 'Rani','Ravindra', 'Ritika', 'Rohit', 'Roshni', 'Sahil', 'Saloni', 'Sampath', 'Sanket', 'Sarika', 'Seema','Sharad', 'Sharanya', 'Sharvani', 'Shashi', 'Sheetal', 'Shraddha', 'Shreyas', 'Snehal', 'Sonal', 'Sonam','Sudha', 'Sujata', 'Surabhi', 'Surbhi', 'Tanisha', 'Tarun', 'Tina', 'Uday', 'Upasana', 'Utkarsh', 'Vaibhav','Vasudha', 'Veena', 'Vibha', 'Vidushi', 'Vimal', 'Vishal', 'Vishesh', 'Yogesh']}
+                    isPara={true}
+                  />
+                </div>
                 <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
 
@@ -657,30 +659,38 @@ const GetInfo=() => {
                     </div>
 
                     <div className="space-y-2">
-                      <Suggestions
-                        label="Key Achievements"
-                        placeholder="Learn to visualize patterns from data using matplotlib and Built several DL models"
-                        value={exp.keyAchievements}
-                        onChange={(val) => {
-                          handleInputChange('workExperience', 'keyAchievements', val, index);
-                          if (i === 9) {
-                            setI(10);
-                          } else if (i===10 && index===1){
-                            setI(11);
-                          }
-                        }}
-                        suggestions={["Education", "Learning", "Knowledge", "Skills", "Development", "Growth", "Discipline", "Creativity","Curiosity", "Critical", "Thinking", "Problem-Solving", "Innovation", "Empowerment", "Potential","Opportunities", "Success", "Wisdom", "Literacy", "Training", "Understanding", "Mindset","Character", "Focus", "Dedication", "Motivation", "Scholarship", "Study", "Research", "Exploration","Experience", "Guidance", "Curriculum", "Subjects", "Syllabus", "Mentorship", "Coaching","Academics", "Assessment", "Examination", "Evaluation", "Concepts", "Projects", "Presentation","Seminars", "Workshops", "Internship", "Collaboration", "Communication", "Teamwork", "Leadership","Career", "Responsibility", "Self-Study", "Observation", "Practical-Learning", "Theoretical-Knowledge","Hardwork", "Persistence", "Vision", "Goal-Setting", "Time-Management", "Experimentation","Exposure", "System", "Competence", "Research-Skills", "Interactive-Learning", "Future-Ready","Holistic-Education","is", "and", "or", "for", "with", "to", "in", "on", "by", "of", "at", "from", "this", "that", "these", "those", "are", "was", "were", "as", "an", "a", "be", "has", "have", "will", "can","which", "who", "whose", "where", "when", "how", "it", "its", "also", "but", "if", "so", "then"]}
-                        isPara={true}
-                      />
+                      <div className="peer w-full">
+                        <Suggestions
+                          label="Key Achievements"
+                          placeholder="Learn to visualize patterns from data using matplotlib and Built several DL models"
+                          value={exp.keyAchievements}
+                          onChange={(val) => {
+                            handleInputChange('workExperience', 'keyAchievements', val, index);
+                            if (i === 9) {
+                              setI(10);
+                            } else if (i===10 && index===1){
+                              setI(11);
+                            }
+                          }}
+                          suggestions={["Education", "Learning", "Knowledge", "Skills", "Development", "Growth", "Discipline", "Creativity","Curiosity", "Critical", "Thinking", "Problem-Solving", "Innovation", "Empowerment", "Potential","Opportunities", "Success", "Wisdom", "Literacy", "Training", "Understanding", "Mindset","Character", "Focus", "Dedication", "Motivation", "Scholarship", "Study", "Research", "Exploration","Experience", "Guidance", "Curriculum", "Subjects", "Syllabus", "Mentorship", "Coaching","Academics", "Assessment", "Examination", "Evaluation", "Concepts", "Projects", "Presentation","Seminars", "Workshops", "Internship", "Collaboration", "Communication", "Teamwork", "Leadership","Career", "Responsibility", "Self-Study", "Observation", "Practical-Learning", "Theoretical-Knowledge","Hardwork", "Persistence", "Vision", "Goal-Setting", "Time-Management", "Experimentation","Exposure", "System", "Competence", "Research-Skills", "Interactive-Learning", "Future-Ready","Holistic-Education","is", "and", "or", "for", "with", "to", "in", "on", "by", "of", "at", "from", "this", "that", "these", "those", "are", "was", "were", "as", "an", "a", "be", "has", "have", "will", "can","which", "who", "whose", "where", "when", "how", "it", "its", "also", "but", "if", "so", "then"]}
+                          isPara={true}
+                        />
+                      </div>
                       <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
                 </div>
               ))}
               <button
-                onClick={() => addNewItem('workExperience')}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-              >
-                <Plus size={16} /> Add Experience
+                onClick={() => {
+                  if (formData['workExperience'].length < 3 || formData['workExperience'].length + formData['projects'].length < 5) {
+                    addNewItem('workExperience');
+                  }
+                }}
+                className={`flex items-center gap-2 px-4 py-2 text-white rounded transition-all duration-200 
+                  ${(formData['workExperience'].length > 2 || formData['workExperience'].length + formData['projects'].length > 4)
+                    ? "bg-red-500 hover:bg-red-600 scale-105 cursor-not-allowed" 
+                    : "bg-blue-600 hover:bg-blue-700"}`}                >
+                <Plus size={16} /> Add Experience 
               </button>
             </div>
           );
@@ -693,6 +703,7 @@ const GetInfo=() => {
                 <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                   <h3 className="font-medium text-lg dark:text-slate-200">Experience {index + 1}</h3>
                     <div className="space-y-2">
+                      <div className="peer w-full">
                         <Suggestions 
                           label="Job title"
                           placeholder='Data Scientist'
@@ -701,10 +712,12 @@ const GetInfo=() => {
                           suggestions={["Python engineer","Data Scientist","Machine Learning Engineer","AI Researcher","Data Analyst","Software Engineer","Full Stack Developer","Backend Developer","Frontend Developer","DevOps Engineer","Cloud Architect","Cybersecurity Analyst","Database Administrator","Blockchain Developer","Computer Vision Engineer","NLP Engineer","Data Engineer","Big Data Engineer","Research Scientist","Product Manager","Project Manager","Scrum Master","Program Manager","Technical Program Manager","Operations Manager","IT Manager","Marketing Manager","Digital Marketing Specialist","SEO Specialist","Content Manager","Brand Manager","Sales Executive","Business Development Manager","Social Media Manager","Growth Hacker","UI/UX Designer","Graphic Designer","Product Designer","Visual Designer","Creative Director","Motion Graphics Designer","Financial Analyst","Accountant","Investment Banker","Business Analyst","Management Consultant","HR Manager","Recruiter","Legal Advisor","AI Ethics Researcher","Prompt Engineer","Data Privacy Consultant","Automation Engineer","Robotics Engineer","Sustainability Consultant","Technical Writer","Software Intern","Data Science Intern","Marketing Intern","HR Intern","Operations Intern","Sales Intern","Content Writing Intern","UI/UX Design Intern","Graphic Design Intern","Customer Support Executive","Technical Support Executive","Office Assistant","Data Entry Operator","Junior Software Developer","Trainee Engineer","Research Intern","Quality Assurance Intern","Product Intern","Junior Data Analyst","Telecaller","Field Sales Executive","Backend Support Staff","Campus Ambassador","Freelance Content Writer","Part-time Graphic Designer","Online Tutor","Lab Assistant","Clerical Staff","Receptionist","Front Desk Executive"]}
                           isMultiSuggestion={false} 
                         />
+                      </div>
                       <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
 
                     <div className="space-y-2">
+                      <div className="peer w-full">
                         <Suggestions
                           label="Company Name"
                           placeholder='Onlei Teach'
@@ -713,6 +726,7 @@ const GetInfo=() => {
                           suggestions={["OnleiTech","Rubico IT","Tata Consultancy Services","Infosys","HCL Technologies","Wipro","Tech Mahindra","Cognizant Technology Solutions","IBM India","Larsen & Toubro Infotech","Mindtree","Mphasis","Oracle Financial Services Software","Redington India","Ingram Micro India","Dell India","SAP India","Capgemini India","Accenture India","Cisco Systems India","Amazon Development Centre India","Google India","Microsoft India","Adobe Systems India","Intel Technology India","HP India","Siemens India","Samsung R&D Institute India","Infosys BPM","Wipro Technologies","HCL Infosystems","Tech Mahindra Business Services","L&T Technology Services","Persistent Systems","Hexaware Technologies","Zensar Technologies","Birlasoft","Cyient","Sonata Software","Mindtree Consulting","Mastek","Sasken Technologies","Polaris Consulting & Services","Ramco Systems","CMC Limited","iGate","Patni Computer Systems","Mahindra Satyam","3i Infotech","Coforge","eClerx Services","Firstsource Solutions","L&T Infotech","Syntel","QuEST Global","KPIT Technologies","Nucleus Software Exports","Oracle India","IBM Daksh","Dell International Services","Concentrix India","Genpact","EXL Service","WNS Global Services","Hinduja Global Solutions","Teleperformance India","Sutherland Global Services","Aegis Limited","Infosys McCamish Systems","TCS e-Serve","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Infosys BPO","TCS BPO","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Infosys BPO","TCS BPO","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Zoho Corporation","Freshworks","Paytm","Ola Cabs","Zomato","Swiggy","Byju's","Flipkart","Snapdeal","MakeMyTrip","PolicyBazaar","Delhivery","InMobi","Quikr","Hike","Naukri.com","BookMyShow","BigBasket","Lenskart","OYO Rooms","CureFit","Razorpay","PhonePe","Myntra","ShopClues","UrbanClap","Practo","1mg","CarDekho","Housing.com","Pepperfry","Nykaa","Dream11","Udaan","Meesho","ShareChat","Dunzo","BlackBuck","Rivigo","Infra.Market","Moglix","OfBusiness","UpGrad","Unacademy","Vedantu","WhiteHat Jr.","Eruditus","Simplilearn","Toppr","Lido Learning","Classplus","Testbook","Doubtnut","Embibe","Khatabook","OkCredit","BharatPe","CRED","Groww","Zerodha","Smallcase","INDmoney","CoinSwitch Kuber","WazirX","Instamojo","Mswipe","Pine Labs","Chargebee","Capillary Technologies","WebEngage","MoEngage","Netcore Solutions","BrowserStack","Postman","Wingify","FusionCharts","HackerRank","HackerEarth","InterviewBit","Scaler","Coding Ninjas","GeeksforGeeks","Tata Elxsi","Cyient","Persistent Systems","Zensar Technologies","Sonata Software","Mastek","Sasken Technologies","Mindtree","L&T Technology Services","Birlasoft","Hexaware Technologies","NIIT Technologies","Mphasis","QuEST Global","KPIT Technologies","Nucleus Software Exports","Ramco Systems","CMC Limited","iGate","Patni Computer Systems","Mahindra Satyam","3i Infotech","Coforge"]}
                           isMultiSuggestion={false}
                         />
+                      </div>
                       <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
 
@@ -739,29 +753,37 @@ const GetInfo=() => {
                     </div>
 
                     <div className="space-y-2">
-                      <Suggestions
-                        label="Key Achievements"
-                        placeholder="Learn to visualize patterns from data using matplotlib and Built several DL models"
-                        value={exp.keyAchievements}
-                        onChange={(val) => {
-                          handleInputChange('workExperience', 'keyAchievements', val, index);
-                          if (i === 9) {
-                            setI(10);
-                          } else if (i===10 && index===1){
-                            setI(11);
-                          }
-                        }}
-                        suggestions={["Education", "Learning", "Knowledge", "Skills", "Development", "Growth", "Discipline", "Creativity","Curiosity", "Critical", "Thinking", "Problem-Solving", "Innovation", "Empowerment", "Potential","Opportunities", "Success", "Wisdom", "Literacy", "Training", "Understanding", "Mindset","Character", "Focus", "Dedication", "Motivation", "Scholarship", "Study", "Research", "Exploration","Experience", "Guidance", "Curriculum", "Subjects", "Syllabus", "Mentorship", "Coaching","Academics", "Assessment", "Examination", "Evaluation", "Concepts", "Projects", "Presentation","Seminars", "Workshops", "Internship", "Collaboration", "Communication", "Teamwork", "Leadership","Career", "Responsibility", "Self-Study", "Observation", "Practical-Learning", "Theoretical-Knowledge","Hardwork", "Persistence", "Vision", "Goal-Setting", "Time-Management", "Experimentation","Exposure", "System", "Competence", "Research-Skills", "Interactive-Learning", "Future-Ready","Holistic-Education","is", "and", "or", "for", "with", "to", "in", "on", "by", "of", "at", "from", "this", "that", "these", "those", "are", "was", "were", "as", "an", "a", "be", "has", "have", "will", "can","which", "who", "whose", "where", "when", "how", "it", "its", "also", "but", "if", "so", "then"]}
-                        isPara={true}
-                      />
+                      <div className="peer w-full">
+                        <Suggestions
+                          label="Key Achievements"
+                          placeholder="Learn to visualize patterns from data using matplotlib and Built several DL models"
+                          value={exp.keyAchievements}
+                          onChange={(val) => {
+                            handleInputChange('workExperience', 'keyAchievements', val, index);
+                            if (i === 9) {
+                              setI(10);
+                            } else if (i===10 && index===1){
+                              setI(11);
+                            }
+                          }}
+                          suggestions={["Education", "Learning", "Knowledge", "Skills", "Development", "Growth", "Discipline", "Creativity","Curiosity", "Critical", "Thinking", "Problem-Solving", "Innovation", "Empowerment", "Potential","Opportunities", "Success", "Wisdom", "Literacy", "Training", "Understanding", "Mindset","Character", "Focus", "Dedication", "Motivation", "Scholarship", "Study", "Research", "Exploration","Experience", "Guidance", "Curriculum", "Subjects", "Syllabus", "Mentorship", "Coaching","Academics", "Assessment", "Examination", "Evaluation", "Concepts", "Projects", "Presentation","Seminars", "Workshops", "Internship", "Collaboration", "Communication", "Teamwork", "Leadership","Career", "Responsibility", "Self-Study", "Observation", "Practical-Learning", "Theoretical-Knowledge","Hardwork", "Persistence", "Vision", "Goal-Setting", "Time-Management", "Experimentation","Exposure", "System", "Competence", "Research-Skills", "Interactive-Learning", "Future-Ready","Holistic-Education","is", "and", "or", "for", "with", "to", "in", "on", "by", "of", "at", "from", "this", "that", "these", "those", "are", "was", "were", "as", "an", "a", "be", "has", "have", "will", "can","which", "who", "whose", "where", "when", "how", "it", "its", "also", "but", "if", "so", "then"]}
+                          isPara={true}
+                        />
+                      </div>
                       <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
                 </div>
               ))}
               <button
-                onClick={() => addNewItem('workExperience')}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-              >
+                onClick={() => {
+                  if (ExampleJsonData['workExperience'].length < 3 || ExampleJsonData['workExperience'].length + ExampleJsonData['projects'].length < 5) {
+                    addNewItem('workExperience');
+                  }
+                }}
+                className={`flex items-center gap-2 px-4 py-2 text-white rounded transition-all duration-200 
+                  ${(ExampleJsonData['workExperience'].length > 2 || ExampleJsonData['workExperience'].length + ExampleJsonData['projects'].length > 4)
+                    ? "bg-red-500 hover:bg-red-600 scale-105 cursor-not-allowed" 
+                    : "bg-blue-600 hover:bg-blue-700"}`}                >
                 <Plus size={16} /> Add Experience
               </button>
             </div>
@@ -812,10 +834,16 @@ const GetInfo=() => {
                 </div>
               ))}
               <button
-                onClick={() => addNewItem('projects')}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-              >
-                <Plus size={16} /> Add Project
+                onClick={() => {
+                  if (formData['projects'].length + formData['workExperience'].length < 5 || formData['projects'].length < 3) {
+                    addNewItem('projects');
+                  }
+                }}
+                className={`flex items-center gap-2 px-4 py-2 text-white rounded transition-all duration-200 
+                  ${(formData['projects'].length + formData['workExperience'].length > 4 || formData['projects'].length > 2)
+                    ? "bg-red-500 hover:bg-red-600 scale-105 cursor-not-allowed" 
+                    : "bg-blue-600 hover:bg-blue-700"}`}>
+                <Plus size={16} /> Add Projects
               </button>
             </div>
           );
@@ -841,28 +869,36 @@ const GetInfo=() => {
                     </div>
 
                     <div className="space-y-2">
-                      <Suggestions
-                        label="Tools/Tech Used"
-                        placeholder='Tensorflow, NumPy, Pandas, Matplotlib, Multi30k Dataset, ModelSubclassing'
-			                  value={project.toolsTechUsed}
-                        onChange={(val) => {
-                          handleInputChange('projects', 'toolsTechUsed', val, index)
-                          if (i===12 && index===2) {
-                            setI(13);
-                            return; 
-                          };
-                        }}
-                        suggestions={["TensorFlow","WeasyPrint" ,"WebSocket (Live Rendering Protocol)", "LLM's","HTML/CSS", "Keras", "PyTorch", "Scikit-learn", "XGBoost", "LightGBM", "CatBoost", "FastAI","NumPy", "Pandas", "Matplotlib", "Seaborn", "Plotly", "Altair", "Statsmodels", "SciPy","NLTK", "SpaCy", "Transformers", "Gensim", "BERT", "GPT", "Word2Vec", "TF-IDF", "Llama","OpenCV", "Pillow", "Albumentations", "MMDetection", "Detectron2", "YOLO", "MediaPipe","MNIST Dataset", "CIFAR-10", "CIFAR-100", "ImageNet", "COCO Dataset", "Multi30k Dataset","Human Parsing Dataset", "HuggingFace Datasets", "UCI Repository","Transfer Learning", "Model Subclassing", "Data Augmentation", "Feature Engineering", "Ensemble Learning", "Hyperparameter Tuning", "Cross Validation", "Grid Search", "Early Stopping","Apache Spark", "Hadoop", "Airflow", "Kafka", "Snowflake", "BigQuery", "ETL Pipelines","AWS", "Azure", "Google Cloud Platform", "IBM Cloud", "Oracle Cloud", "Firebase","Docker", "Kubernetes", "Terraform", "Jenkins", "GitHub Actions", "Prometheus", "Grafana","MySQL", "PostgreSQL", "MongoDB", "Redis", "SQLite", "Elasticsearch", "Cassandra","Django", "Flask", "FastAPI", "Express.js", "Spring Boot", "Node.js","React", "Vue.js", "Angular", "Next.js", "Tailwind CSS", "Bootstrap", "SASS", "Material UI","Python", "Java", "Advanced C++","C++","C", "JavaScript", "TypeScript", "Go", "Rust", "R", "Julia", "SQL","Git", "GitHub", "GitLab", "Bitbucket","Tableau", "Power BI", "Looker", "Google Data Studio","Jupyter Notebook", "Google Colab", "VS Code", "Anaconda", "PyCharm", "Postman","REST API", "GraphQL", "gRPC", "NGINX", "Apache","PyTest", "Selenium", "Cypress", "JUnit", "Postman","BeautifulSoup", "Scrapy", "LangChain", "Streamlit", "Gradio", "Dash", "MLflow","Weights & Biases", "HuggingFace Hub", "OpenAI API", "Google API", "Cloud Functions"]}
-                      />
+                      <div className="peer w-full">
+                        <Suggestions
+                          label="Tools/Tech Used"
+                          placeholder='Tensorflow, NumPy, Pandas, Matplotlib, Multi30k Dataset, ModelSubclassing'
+			                    value={project.toolsTechUsed}
+                          onChange={(val) => {
+                            handleInputChange('projects', 'toolsTechUsed', val, index)
+                            if (i===12 && index===2) {
+                              setI(13);
+                              return; 
+                            };
+                          }}
+                          suggestions={["TensorFlow","WeasyPrint" ,"WebSocket (Live Rendering Protocol)", "LLM's","HTML/CSS", "Keras", "PyTorch", "Scikit-learn", "XGBoost", "LightGBM", "CatBoost", "FastAI","NumPy", "Pandas", "Matplotlib", "Seaborn", "Plotly", "Altair", "Statsmodels", "SciPy","NLTK", "SpaCy", "Transformers", "Gensim", "BERT", "GPT", "Word2Vec", "TF-IDF", "Llama","OpenCV", "Pillow", "Albumentations", "MMDetection", "Detectron2", "YOLO", "MediaPipe","MNIST Dataset", "CIFAR-10", "CIFAR-100", "ImageNet", "COCO Dataset", "Multi30k Dataset","Human Parsing Dataset", "HuggingFace Datasets", "UCI Repository","Transfer Learning", "Model Subclassing", "Data Augmentation", "Feature Engineering", "Ensemble Learning", "Hyperparameter Tuning", "Cross Validation", "Grid Search", "Early Stopping","Apache Spark", "Hadoop", "Airflow", "Kafka", "Snowflake", "BigQuery", "ETL Pipelines","AWS", "Azure", "Google Cloud Platform", "IBM Cloud", "Oracle Cloud", "Firebase","Docker", "Kubernetes", "Terraform", "Jenkins", "GitHub Actions", "Prometheus", "Grafana","MySQL", "PostgreSQL", "MongoDB", "Redis", "SQLite", "Elasticsearch", "Cassandra","Django", "Flask", "FastAPI", "Express.js", "Spring Boot", "Node.js","React", "Vue.js", "Angular", "Next.js", "Tailwind CSS", "Bootstrap", "SASS", "Material UI","Python", "Java", "Advanced C++","C++","C", "JavaScript", "TypeScript", "Go", "Rust", "R", "Julia", "SQL","Git", "GitHub", "GitLab", "Bitbucket","Tableau", "Power BI", "Looker", "Google Data Studio","Jupyter Notebook", "Google Colab", "VS Code", "Anaconda", "PyCharm", "Postman","REST API", "GraphQL", "gRPC", "NGINX", "Apache","PyTest", "Selenium", "Cypress", "JUnit", "Postman","BeautifulSoup", "Scrapy", "LangChain", "Streamlit", "Gradio", "Dash", "MLflow","Weights & Biases", "HuggingFace Hub", "OpenAI API", "Google API", "Cloud Functions"]}
+                        />
+                      </div>
                       <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
                 </div>
               ))}
               <button
-                onClick={() => addNewItem('projects')}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-              >
-                <Plus size={16} /> Add Project
+                onClick={() => {
+                  if (ExampleJsonData['projects'].length + ExampleJsonData['workExperience'].length < 5 || ExampleJsonData['projects'].length < 3) {
+                    addNewItem('projects');
+                  }
+                }}
+                className={`flex items-center gap-2 px-4 py-2 text-white rounded transition-all duration-200 
+                  ${(ExampleJsonData['projects'].length + ExampleJsonData['workExperience'].length> 4 || ExampleJsonData['projects'].length > 2)
+                    ? "bg-red-500 hover:bg-red-600 scale-105 cursor-not-allowed" 
+                    : "bg-blue-600 hover:bg-blue-700"}`}                >
+                <Plus size={16} /> Add Projects
               </button>
             </div>
           );
@@ -960,9 +996,15 @@ const GetInfo=() => {
                 ))}
 
                 <button
-                  onClick={() => addNewItem('education')}
-                  className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-                >
+                  onClick={() => {
+                    if (formData['education'].length < 3) {
+                      addNewItem('education');
+                    }
+                  }}
+                  className={`flex items-center gap-2 px-4 py-2 text-white rounded transition-all duration-200 
+                    ${formData['education'].length > 2 
+                      ? "bg-red-500 hover:bg-red-600 scale-105 cursor-not-allowed" 
+                      : "bg-blue-600 hover:bg-blue-700"}`}                >
                   <Plus size={16} /> Add Education
                 </button>
               </div>
@@ -977,26 +1019,30 @@ const GetInfo=() => {
                     <h3 className="font-medium text-lg dark:text-slate-200">Education {index + 1}</h3>
 
                     <div className="space-y-2">
-                      <Suggestions
-                        label="Institution Name"
-                        placeholder="Haridwar University"
-                        value={edu.institutionName}
-		                    onChange={(val) => handleInputChange('education', 'institutionName', val, index)}
-                        suggestions={["Haridwar University (HU)","Vidya Mandir Sector-5 BHEL (Haridwar)","Collage of Engineering roorkee (COER)","Roorkee institute of technology (RIT)","Phonix (Roorkee)","","IIT Gandhinagar","IIT Patna","IIT Bhubaneswar","IIT Mandi","IIT Jodhpur","IIT Ropar","IIT Palakkad","IIT Tirupati","IIT Dhanbad (ISM)","NIT Calicut","NIT Kurukshetra","NIT Silchar","NIT Hamirpur","NIT Jalandhar","NIT Durgapur","NIT Jaipur (MNIT)","NIT Nagpur (VNIT)","NIT Surat (SVNIT)","NIT Meghalaya","IIIT Allahabad","IIIT Pune","IIIT Lucknow","IIIT Bhubaneswar","IIIT Kancheepuram","IIIT Gwalior","IIITDM Jabalpur","IIIT Vadodara","Indian Statistical Institute (ISI)","Indian Institute of Information Technology Design & Manufacturing (IIITDM Kancheepuram)","Homi Bhabha National Institute","Indian Institute of Science Education and Research (IISER Pune)","IISER Mohali","IISER Kolkata","IISER Bhopal","IISER Thiruvananthapuram","IISER Tirupati","IISER Berhampur","Delhi University (DU)","Banaras Hindu University (BHU)","Jawaharlal Nehru University (JNU)","Jamia Millia Islamia","Aligarh Muslim University (AMU)","University of Calcutta","University of Mumbai","University of Hyderabad","Osmania University","Anna University","Visvesvaraya Technological University (VTU)","Panjab University","Kurukshetra University","Gujarat Technological University","Guru Nanak Dev University","Pondicherry University","Bharathiar University","Savitribai Phule Pune University (SPPU)","Rajiv Gandhi University of Health Sciences","Mangalore University","Symbiosis International University","Shiv Nadar University","Ashoka University","OP Jindal Global University","Amity University","Lovely Professional University (LPU)","Chandigarh University","MIT World Peace University","SRM Institute of Science and Technology","VIT Vellore","VIT Chennai","Kalinga Institute of Industrial Technology (KIIT)","Birla Institute of Technology Mesra (BIT Mesra)","Indian Institute of Foreign Trade (IIFT)","Narsee Monjee Institute of Management Studies (NMIMS)","Indian School of Business (ISB)","XLRI Jamshedpur","SP Jain Institute of Management and Research","IIM Ahmedabad","IIM Bangalore","IIM Calcutta","IIM Lucknow"]}
-                        isMultiSuggestion={false}
-                      />
+                      <div className="peer w-full">
+                        <Suggestions
+                          label="Institution Name"
+                          placeholder="Haridwar University"
+                          value={edu.institutionName}
+		                      onChange={(val) => handleInputChange('education', 'institutionName', val, index)}
+                          suggestions={["Haridwar University (HU)","Vidya Mandir Sector-5 BHEL (Haridwar)","Collage of Engineering roorkee (COER)","Roorkee institute of technology (RIT)","Phonix (Roorkee)","","IIT Gandhinagar","IIT Patna","IIT Bhubaneswar","IIT Mandi","IIT Jodhpur","IIT Ropar","IIT Palakkad","IIT Tirupati","IIT Dhanbad (ISM)","NIT Calicut","NIT Kurukshetra","NIT Silchar","NIT Hamirpur","NIT Jalandhar","NIT Durgapur","NIT Jaipur (MNIT)","NIT Nagpur (VNIT)","NIT Surat (SVNIT)","NIT Meghalaya","IIIT Allahabad","IIIT Pune","IIIT Lucknow","IIIT Bhubaneswar","IIIT Kancheepuram","IIIT Gwalior","IIITDM Jabalpur","IIIT Vadodara","Indian Statistical Institute (ISI)","Indian Institute of Information Technology Design & Manufacturing (IIITDM Kancheepuram)","Homi Bhabha National Institute","Indian Institute of Science Education and Research (IISER Pune)","IISER Mohali","IISER Kolkata","IISER Bhopal","IISER Thiruvananthapuram","IISER Tirupati","IISER Berhampur","Delhi University (DU)","Banaras Hindu University (BHU)","Jawaharlal Nehru University (JNU)","Jamia Millia Islamia","Aligarh Muslim University (AMU)","University of Calcutta","University of Mumbai","University of Hyderabad","Osmania University","Anna University","Visvesvaraya Technological University (VTU)","Panjab University","Kurukshetra University","Gujarat Technological University","Guru Nanak Dev University","Pondicherry University","Bharathiar University","Savitribai Phule Pune University (SPPU)","Rajiv Gandhi University of Health Sciences","Mangalore University","Symbiosis International University","Shiv Nadar University","Ashoka University","OP Jindal Global University","Amity University","Lovely Professional University (LPU)","Chandigarh University","MIT World Peace University","SRM Institute of Science and Technology","VIT Vellore","VIT Chennai","Kalinga Institute of Industrial Technology (KIIT)","Birla Institute of Technology Mesra (BIT Mesra)","Indian Institute of Foreign Trade (IIFT)","Narsee Monjee Institute of Management Studies (NMIMS)","Indian School of Business (ISB)","XLRI Jamshedpur","SP Jain Institute of Management and Research","IIM Ahmedabad","IIM Bangalore","IIM Calcutta","IIM Lucknow"]}
+                          isMultiSuggestion={false}
+                        />
+                      </div>
                       <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
                 
                     <div className="space-y-2">
-                      <Suggestions
-                        label="Degree Name"
-                        placeholder="Batchelor in computer application (BCA)"
-                        value={edu.degreeName}
-                        onChange={(val) => handleInputChange('education', 'degreeName', val, index)}
-                        suggestions={["Bachelor of Science (B.Sc)","Primary/Secondary","Bachelor of Technology (B.Tech)","Bachelor of Engineering (B.E)","Bachelor of Arts (B.A)","Bachelor of Commerce (B.Com)","Bachelor of Computer Applications (BCA)","Bachelor of Business Administration (BBA)","Bachelor of Fine Arts (BFA)","Bachelor of Design (B.Des)","Bachelor of Architecture (B.Arch)","Bachelor of Pharmacy (B.Pharm)","Bachelor of Laws (LLB)","Bachelor of Hotel Management (BHM)","Bachelor of Social Work (BSW)","Bachelor of Education (B.Ed)","Bachelor of Physical Education (B.P.Ed)","Bachelor of Science in Nursing (B.Sc Nursing)","Master of Science (M.Sc)","Master of Technology (M.Tech)","Master of Engineering (M.E)","Master of Computer Applications (MCA)","Master of Arts (M.A)","Master of Commerce (M.Com)","Master of Business Administration (MBA)","Master of Fine Arts (MFA)","Master of Design (M.Des)","Master of Architecture (M.Arch)","Master of Pharmacy (M.Pharm)","Master of Laws (LLM)","Master of Social Work (MSW)","Master of Education (M.Ed)","Master of Physical Education (M.P.Ed)","Master of Science in Nursing (M.Sc Nursing)","Master of Public Health (MPH)","Master of Data Science (MDS)","Master of Finance (MFin)","Master of Management Studies (MMS)","Master of Computer Science (MCS)"]}
-                        isMultiSuggestion={false}
-                      />
+                      <div className="peer w-full">
+                        <Suggestions
+                          label="Degree Name"
+                          placeholder="Batchelor in computer application (BCA)"
+                          value={edu.degreeName}
+                          onChange={(val) => handleInputChange('education', 'degreeName', val, index)}
+                          suggestions={["Bachelor of Science (B.Sc)","Primary/Secondary","Bachelor of Technology (B.Tech)","Bachelor of Engineering (B.E)","Bachelor of Arts (B.A)","Bachelor of Commerce (B.Com)","Bachelor of Computer Applications (BCA)","Bachelor of Business Administration (BBA)","Bachelor of Fine Arts (BFA)","Bachelor of Design (B.Des)","Bachelor of Architecture (B.Arch)","Bachelor of Pharmacy (B.Pharm)","Bachelor of Laws (LLB)","Bachelor of Hotel Management (BHM)","Bachelor of Social Work (BSW)","Bachelor of Education (B.Ed)","Bachelor of Physical Education (B.P.Ed)","Bachelor of Science in Nursing (B.Sc Nursing)","Master of Science (M.Sc)","Master of Technology (M.Tech)","Master of Engineering (M.E)","Master of Computer Applications (MCA)","Master of Arts (M.A)","Master of Commerce (M.Com)","Master of Business Administration (MBA)","Master of Fine Arts (MFA)","Master of Design (M.Des)","Master of Architecture (M.Arch)","Master of Pharmacy (M.Pharm)","Master of Laws (LLM)","Master of Social Work (MSW)","Master of Education (M.Ed)","Master of Physical Education (M.P.Ed)","Master of Science in Nursing (M.Sc Nursing)","Master of Public Health (MPH)","Master of Data Science (MDS)","Master of Finance (MFin)","Master of Management Studies (MMS)","Master of Computer Science (MCS)"]}
+                          isMultiSuggestion={false}
+                        />
+                      </div>
                       <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
                 
@@ -1053,9 +1099,15 @@ const GetInfo=() => {
                 ))}
 
                 <button
-                  onClick={() => addNewItem('education')}
-                  className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-                >
+                  onClick={() => {
+                    if (ExampleJsonData['education'].length < 3) {
+                      addNewItem('education');
+                    }
+                  }}
+                  className={`flex items-center gap-2 px-4 py-2 text-white rounded transition-all duration-200 
+                    ${ExampleJsonData['education'].length > 2 
+                      ? "bg-red-500 hover:bg-red-600 scale-105 cursor-not-allowed" 
+                      : "bg-blue-600 hover:bg-blue-700"}`}                 >
                   <Plus size={16} /> Add Education
                 </button>
               </div>
@@ -1087,6 +1139,7 @@ const GetInfo=() => {
                     </div>
 
                     <div className="space-y-2">
+                      <div className="peer w-full">
                         <Suggestions
                           label="Course Duration"
                           placeholder="2 Month"
@@ -1095,6 +1148,7 @@ const GetInfo=() => {
                           suggestions={['1 Month', '2 Month', '3 Month', '4 Month', '5 Month', '6 Month', '7 Month', '8 Month', '9 Month', '10 Month', '11 Month', '12 Month', '1 Year', '2 Year', '3 Year', '4 Year', '5 Year']}
                           isMultiSuggestion={false}
                         />
+                      </div>
                       <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
 
@@ -1119,10 +1173,16 @@ const GetInfo=() => {
                 </div>
               ))}
               <button
-                onClick={() => addNewItem('certificates')}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-              >
-                <Plus size={16} /> Add Certificate
+                onClick={() => {
+                  if (formData['certificates'].length < 7) {
+                    addNewItem('certificates');
+                  }
+                }}
+                className={`flex items-center gap-2 px-4 py-2 text-white rounded transition-all duration-200 
+                  ${formData['certificates'].length > 6 
+                    ? "bg-red-500 hover:bg-red-600 scale-105 cursor-not-allowed" 
+                    : "bg-blue-600 hover:bg-blue-700"}`}                >
+                <Plus size={16} /> Add Certifications
               </button>
             </div>
           );
@@ -1149,40 +1209,50 @@ const GetInfo=() => {
                     </div>
 
                     <div className="space-y-2">
-                      <Suggestions
-                        label="Course Duration"
-                        placeholder="2 Month"
-                        value={cert.courseDuration}
-                        onChange={(val) => handleInputChange('certificates', 'courseDuration', val, index)}
-                        suggestions={['1 Month', '2 Month', '3 Month', '4 Month', '5 Month', '6 Month', '7 Month', '8 Month', '9 Month', '10 Month', '11 Month', '12 Month', '1 Year', '2 Year', '3 Year', '4 Year', '5 Year']}
-                        isMultiSuggestion={false}
-                      />
-                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                      <div className="peer w-full">
+                        <Suggestions
+                          label="Course Duration"
+                          placeholder="2 Month"
+                          value={cert.courseDuration}
+                          onChange={(val) => handleInputChange('certificates', 'courseDuration', val, index)}
+                          suggestions={['1 Month', '2 Month', '3 Month', '4 Month', '5 Month', '6 Month', '7 Month', '8 Month', '9 Month', '10 Month', '11 Month', '12 Month', '1 Year', '2 Year', '3 Year', '4 Year', '5 Year']}
+                          isMultiSuggestion={false}
+                        />
+                        </div>
+                        <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
 
                     <div className="space-y-2">
-                      <Suggestions
-                        label="Provider Name"
-                        placeholder='Microsoft'
-                        value={cert.providerName}
-                        onChange={(val) => {
-                          handleInputChange('certificates', 'providerName', val, index)
-                          if(i===17 && index===0) setI(18);
-                          else if(i===18 && index===4) setI(19)
-                        }}
-                        suggestions={["OnleiTech","Coursera","AppWars","CadPlanet","Rubico IT","Tata Consultancy Services","Infosys","NIIT Technologies","IIT Bombay","IIT Madras", "IIT Kharagpur","IIT Bombay","IIT Madras","IIT Kanpur","IIT Delhi","IIT Guwahati","IIT Roorkee","IIT Ropar","IIT Bhubaneswar","IIT Gandhinagar","IIT Hyderabad","IIT Jodhpur","IIT Patna","IIT Indore","IIT Mandi","IIT (BHU) Varanasi","IIT Palakkad","IIT Tirupati","IIT Dhanbad","IIT Bhilai","IIT Goa","IIT Jammu","IIT Dharwad","NIT Warangal","NIT Tiruchirappalli","NIT Surathkal","NIT Calicut","NIT Rourkela","NIT Kurukshetra","NIT Durgapur","NIT Silchar","NIT Jaipur","NIT Allahabad","NIT Jalandhar","NIT Bhopal","NIT Nagpur","NIT Patna","NIT Raipur","NIT Agartala","NIT Srinagar","NIT Meghalaya","NIT Goa","NIT Delhi","NIT Puducherry","NIT Manipur","NIT Mizoram","NIT Nagaland","NIT Arunachal Pradesh","NIT Sikkim","NIT Uttarakhand","NIT Hamirpur","NIT Jamshedpur","NIT Andhra Pradesh","HCL Technologies","Wipro","Tech Mahindra","Cognizant Technology Solutions","IBM India","Larsen & Toubro Infotech","Mindtree","Mphasis","Oracle Financial Services Software","Redington India","Ingram Micro India","Dell India","SAP India","Capgemini India","Accenture India","Cisco Systems India","Amazon Development Centre India","Google India","Microsoft India","Adobe Systems India","Intel Technology India","HP India","Siemens India","Samsung R&D Institute India","Infosys BPM","Wipro Technologies","HCL Infosystems","Tech Mahindra Business Services","L&T Technology Services","Persistent Systems","Hexaware Technologies","Zensar Technologies","Birlasoft","NIIT Technologies","Cyient","Sonata Software","Mindtree Consulting","Mastek","Sasken Technologies","Polaris Consulting & Services","Ramco Systems","CMC Limited","iGate","Patni Computer Systems","Mahindra Satyam","3i Infotech","Coforge","eClerx Services","Firstsource Solutions","L&T Infotech","Syntel","QuEST Global","KPIT Technologies","Nucleus Software Exports","Oracle India","IBM Daksh","Dell International Services","Concentrix India","Genpact","EXL Service","WNS Global Services","Hinduja Global Solutions","Teleperformance India","Sutherland Global Services","Aegis Limited","Infosys McCamish Systems","TCS e-Serve","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Infosys BPO","TCS BPO","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Infosys BPO","TCS BPO","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Zoho Corporation","Freshworks","Paytm","Ola Cabs","Zomato","Swiggy","Byju's","Flipkart","Snapdeal","MakeMyTrip","PolicyBazaar","Delhivery","InMobi","Quikr","Hike","Naukri.com","BookMyShow","BigBasket","Lenskart","OYO Rooms","CureFit","Razorpay","PhonePe","Myntra","ShopClues","UrbanClap","Practo","1mg","CarDekho","Housing.com","Pepperfry","Nykaa","Dream11","Udaan","Meesho","ShareChat","Dunzo","BlackBuck","Rivigo","Infra.Market","Moglix","OfBusiness","UpGrad","Unacademy","Vedantu","WhiteHat Jr.","Eruditus","SimpliLearn","Toppr","Lido Learning","Classplus","Testbook","Doubtnut","Embibe","Khatabook","OkCredit","BharatPe","CRED","Groww","Zerodha","Smallcase","INDmoney","CoinSwitch Kuber","WazirX","Instamojo","Mswipe","Pine Labs","Chargebee","Capillary Technologies","WebEngage","MoEngage","Netcore Solutions","BrowserStack","Postman","Wingify","FusionCharts","HackerRank","HackerEarth","InterviewBit","Scaler","Coding Ninjas","GeeksforGeeks","Tata Elxsi","Cyient","Persistent Systems","Zensar Technologies","Sonata Software","Mastek","Sasken Technologies","Mindtree","L&T Technology Services","Birlasoft","Hexaware Technologies","NIIT Technologies","Mphasis","QuEST Global","KPIT Technologies","Nucleus Software Exports","Ramco Systems","CMC Limited","iGate","Patni Computer Systems","Mahindra Satyam","3i Infotech","Coforge"]}
-                        isMultiSuggestion={false}
-                      />
+                      <div className="peer w-full">
+                        <Suggestions
+                          label="Provider Name"
+                          placeholder='Microsoft'
+                          value={cert.providerName}
+                          onChange={(val) => {
+                            handleInputChange('certificates', 'providerName', val, index)
+                            if(i===17 && index===0) setI(18);
+                            else if(i===18 && index===4) setI(19)
+                          }}
+                          suggestions={["OnleiTech","Coursera","AppWars","CadPlanet","Rubico IT","Tata Consultancy Services","Infosys","NIIT Technologies","IIT Bombay","IIT Madras", "IIT Kharagpur","IIT Bombay","IIT Madras","IIT Kanpur","IIT Delhi","IIT Guwahati","IIT Roorkee","IIT Ropar","IIT Bhubaneswar","IIT Gandhinagar","IIT Hyderabad","IIT Jodhpur","IIT Patna","IIT Indore","IIT Mandi","IIT (BHU) Varanasi","IIT Palakkad","IIT Tirupati","IIT Dhanbad","IIT Bhilai","IIT Goa","IIT Jammu","IIT Dharwad","NIT Warangal","NIT Tiruchirappalli","NIT Surathkal","NIT Calicut","NIT Rourkela","NIT Kurukshetra","NIT Durgapur","NIT Silchar","NIT Jaipur","NIT Allahabad","NIT Jalandhar","NIT Bhopal","NIT Nagpur","NIT Patna","NIT Raipur","NIT Agartala","NIT Srinagar","NIT Meghalaya","NIT Goa","NIT Delhi","NIT Puducherry","NIT Manipur","NIT Mizoram","NIT Nagaland","NIT Arunachal Pradesh","NIT Sikkim","NIT Uttarakhand","NIT Hamirpur","NIT Jamshedpur","NIT Andhra Pradesh","HCL Technologies","Wipro","Tech Mahindra","Cognizant Technology Solutions","IBM India","Larsen & Toubro Infotech","Mindtree","Mphasis","Oracle Financial Services Software","Redington India","Ingram Micro India","Dell India","SAP India","Capgemini India","Accenture India","Cisco Systems India","Amazon Development Centre India","Google India","Microsoft India","Adobe Systems India","Intel Technology India","HP India","Siemens India","Samsung R&D Institute India","Infosys BPM","Wipro Technologies","HCL Infosystems","Tech Mahindra Business Services","L&T Technology Services","Persistent Systems","Hexaware Technologies","Zensar Technologies","Birlasoft","NIIT Technologies","Cyient","Sonata Software","Mindtree Consulting","Mastek","Sasken Technologies","Polaris Consulting & Services","Ramco Systems","CMC Limited","iGate","Patni Computer Systems","Mahindra Satyam","3i Infotech","Coforge","eClerx Services","Firstsource Solutions","L&T Infotech","Syntel","QuEST Global","KPIT Technologies","Nucleus Software Exports","Oracle India","IBM Daksh","Dell International Services","Concentrix India","Genpact","EXL Service","WNS Global Services","Hinduja Global Solutions","Teleperformance India","Sutherland Global Services","Aegis Limited","Infosys McCamish Systems","TCS e-Serve","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Infosys BPO","TCS BPO","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Infosys BPO","TCS BPO","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Zoho Corporation","Freshworks","Paytm","Ola Cabs","Zomato","Swiggy","Byju's","Flipkart","Snapdeal","MakeMyTrip","PolicyBazaar","Delhivery","InMobi","Quikr","Hike","Naukri.com","BookMyShow","BigBasket","Lenskart","OYO Rooms","CureFit","Razorpay","PhonePe","Myntra","ShopClues","UrbanClap","Practo","1mg","CarDekho","Housing.com","Pepperfry","Nykaa","Dream11","Udaan","Meesho","ShareChat","Dunzo","BlackBuck","Rivigo","Infra.Market","Moglix","OfBusiness","UpGrad","Unacademy","Vedantu","WhiteHat Jr.","Eruditus","SimpliLearn","Toppr","Lido Learning","Classplus","Testbook","Doubtnut","Embibe","Khatabook","OkCredit","BharatPe","CRED","Groww","Zerodha","Smallcase","INDmoney","CoinSwitch Kuber","WazirX","Instamojo","Mswipe","Pine Labs","Chargebee","Capillary Technologies","WebEngage","MoEngage","Netcore Solutions","BrowserStack","Postman","Wingify","FusionCharts","HackerRank","HackerEarth","InterviewBit","Scaler","Coding Ninjas","GeeksforGeeks","Tata Elxsi","Cyient","Persistent Systems","Zensar Technologies","Sonata Software","Mastek","Sasken Technologies","Mindtree","L&T Technology Services","Birlasoft","Hexaware Technologies","NIIT Technologies","Mphasis","QuEST Global","KPIT Technologies","Nucleus Software Exports","Ramco Systems","CMC Limited","iGate","Patni Computer Systems","Mahindra Satyam","3i Infotech","Coforge"]}
+                          isMultiSuggestion={false}
+                        />
+                      </div>
                       <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
                   </div>
                 </div>
               ))}
               <button
-                onClick={() => addNewItem('certificates')}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded hover:bg-blue-200/95 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-              >
-                <Plus size={16} /> Add Certificate
+                onClick={() => {
+                  if (ExampleJsonData['certificates'].length < 7) {
+                    addNewItem('certificates');
+                  }
+                }}
+                className={`flex items-center gap-2 px-4 py-2 text-white rounded transition-all duration-200 
+                  ${ExampleJsonData['certificates'].length > 6 
+                    ? "bg-red-500 hover:bg-red-600 scale-105 cursor-not-allowed" 
+                    : "bg-blue-600 hover:bg-blue-700"}`}                >
+                <Plus size={16} /> Add Certifications
               </button>
             </div>
           );
