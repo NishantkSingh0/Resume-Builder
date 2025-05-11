@@ -5,6 +5,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import toast from "react-hot-toast";
 import { useLocation } from 'react-router-dom';
 import { html as html_beautify } from 'js-beautify';
 import {T1,T1Css} from './T1.jsx';
@@ -76,6 +77,9 @@ const Result = () => {
       `;
   
       const htmlContent = html_beautify(generatedCode);
+
+      toast.success("Generating your PDF... \nThis may take a few seconds if the server was asleep.", { duration: 6000, position: "top-right" });
+      
   
       console.log("Sending request to generate PDF...");
       setStatus('processing');
@@ -101,7 +105,6 @@ const Result = () => {
         pdfLink.download = 'Resume.pdf';
         pdfLink.click();
         window.URL.revokeObjectURL(pdfUrl);
-    
         console.log("PDF Downloaded Successfully",status);
         setDownloadStatus(prev => ({ ...prev, pdf: true }));
     
@@ -119,6 +122,7 @@ const Result = () => {
         setDownloadStatus(prev => ({ ...prev, html: true }));
 
         // Generate JSON Blob for download
+        // Generate JSON Blob for download
         const JsonBlob = new Blob([JSON.stringify(jsonData, null, 2)], { type: 'application/json' });
         const JsonUrl = window.URL.createObjectURL(JsonBlob);
         const JsonLink = document.createElement('a');
@@ -127,9 +131,12 @@ const Result = () => {
         JsonLink.click();
         window.URL.revokeObjectURL(JsonUrl);
         setStatus('completed');
-    
-        console.log("HTML Downloaded Successfully",status);
-        setDownloadStatus(prev => ({ ...prev, html: true }));
+              
+        console.log("JSON Downloaded Successfully", status);
+        setDownloadStatus(prev => ({ ...prev, json: true }));
+              
+
+        toast.success("PDF, HTML/CSS template and Our JSON formate downloaded successfully", { duration: 3000, position: "top-left" });
     
       } catch (error) {
         console.error('API Error:', error);
@@ -222,16 +229,17 @@ const Result = () => {
       {/* Always render the template but keep it hidden during loading */}
       <div 
         id="capture-content" 
-        className="scale-[0.4] text-left w-full mb-6"
-        style={{ visibility: status === 'completed' ? 'visible' : 'hidden', position: status === 'completed' ? 'relative' : 'absolute' }}
+        className={`text-left transition-all duration-300 ${status === 'completed' ? 'relative visible scale-[0.6]' : 'absolute invisible scale-[0.6]'}`}
+        style={{ transformOrigin: 'center' }}
       >
         {jsonData && renderSelectedTemplate()}
       </div>
 
+
       {/* Messages container - always positioned below */}
-      <div className="w-full max-w-md mt-0">
+      <div className="w-full max-w-[80%] mt-0">
         {status !== 'completed' && status !== 'error' ? (
-          <div className="w-full flex flex-row items-center mb-6">
+          <div className="w-full flex flex-row justify-center mb-6">
             <div className="relative w-[220px] h-[320px] rounded-[14px] overflow-hidden flex flex-col items-center justify-center shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] dark:shadow-[20px_20px_60px_#1a1a1a,-20px_-20px_60px_#2a2a2a] transition-all duration-300">
               <div className="absolute top-1/2 left-1/2 w-[200px] h-[200px] rounded-full bg-[#3449ff] dark:bg-gray-200 opacity-100 filter blur-[8px] animate-blob-bounce transition-colors duration-300"></div>
               <div className="absolute top-[5px] left-[5px] w-[210px] h-[310px] bg-white dark:bg-slate-950 backdrop-blur-[24px] rounded-[10px] outline outline-2 outline-white dark:outline-gray-600 flex flex-col items-center justify-center text-center text-[14px] text-[#3449ff] dark:text-blue-300 font-bold p-[10px] transition-colors duration-300">
