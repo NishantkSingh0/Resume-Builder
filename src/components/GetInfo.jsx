@@ -556,7 +556,7 @@ const GetInfo=() => {
                         {(i===5 && !isExampleProcessing) && setI(6)}
                         handleInputChange("skills", "softSkills", val);
                     }}
-                    suggestions={['Accountability', 'Active Listening', 'Adaptability', 'Attention to Detail', 'Change Management', 'Coaching', 'Collaboration', 'Communication', 'Confidence', 'Conflict Management', 'Conflict Resolution', 'Constructive Feedback', 'Creativity', 'Cross-Functional Collaboration', 'Cultural Awareness', 'Curiosity', 'Customer Service', 'Decision Making', 'Decision Ownership', 'Delegation', 'Diplomacy', 'Emotional Intelligence', 'Emotional Stability', 'Empathy', 'Ethical Judgment', 'Flexibility', 'Goal Setting', 'Growth Mindset', 'Initiative', 'Innovation', 'Interpersonal Skills', 'Leadership Development', 'Learning Agility', 'Mentoring', 'Motivational Skills', 'Negotiation', 'Networking', 'Open-Mindedness', 'Patience', 'Persistence', 'Personal Branding', 'Persuasion', 'Positive Attitude', 'Problem Sensitivity', 'Professionalism', 'Public Speaking', 'Relationship Building', 'Resilience', 'Respectfulness', 'Responsibility', 'Result Orientation', 'Self-Awareness', 'Self-Discipline', 'Self-Improvement', 'Self-Motivation', 'Strategic Thinking', 'Stress Management', 'Thinking', 'Time Management', 'Tolerance', 'Vision Setting', 'Work Ethic']}
+                    suggestions={['Adaptability', 'Attention to Detail', 'Collaboration', 'Communication', 'Critical Thinking', 'Decision Making', 'Emotional Intelligence', 'Problem Solving', 'Resilience', 'Self-Motivation', 'Teamwork', 'Time Management']}
                   />
                 </div>
                 <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
@@ -682,7 +682,7 @@ const GetInfo=() => {
               ))}
               <button
                 onClick={() => {
-                  if (formData['workExperience'].length < 3 || formData['workExperience'].length + formData['projects'].length < 5) {
+                  if (formData['workExperience'].length < 3 && formData['workExperience'].length + formData['projects'].length < 5) {
                     addNewItem('workExperience');
                   }
                 }}
@@ -776,7 +776,7 @@ const GetInfo=() => {
               ))}
               <button
                 onClick={() => {
-                  if (ExampleJsonData['workExperience'].length < 3 || ExampleJsonData['workExperience'].length + ExampleJsonData['projects'].length < 5) {
+                  if (ExampleJsonData['workExperience'].length < 3 && ExampleJsonData['workExperience'].length + ExampleJsonData['projects'].length < 5) {
                     addNewItem('workExperience');
                   }
                 }}
@@ -835,7 +835,7 @@ const GetInfo=() => {
               ))}
               <button
                 onClick={() => {
-                  if (formData['projects'].length + formData['workExperience'].length < 5 || formData['projects'].length < 3) {
+                  if (formData['projects'].length + formData['workExperience'].length < 5 && formData['projects'].length < 3) {
                     addNewItem('projects');
                   }
                 }}
@@ -890,7 +890,7 @@ const GetInfo=() => {
               ))}
               <button
                 onClick={() => {
-                  if (ExampleJsonData['projects'].length + ExampleJsonData['workExperience'].length < 5 || ExampleJsonData['projects'].length < 3) {
+                  if (ExampleJsonData['projects'].length + ExampleJsonData['workExperience'].length < 5 && ExampleJsonData['projects'].length < 3) {
                     addNewItem('projects');
                   }
                 }}
