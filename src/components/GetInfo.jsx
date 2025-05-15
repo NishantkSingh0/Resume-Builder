@@ -464,7 +464,7 @@ const GetInfo=() => {
                   onChange={(e) => {handleInputChange("contactInfo", "emailAddress", e.target.value)}}
                   onBlur={(e) => {
                     const value=e.target.value;
-                    if (!/^\S+@\S+\.\S+\s*$/.test(value)) {
+                    if (!/^\S+@\S+\.\S+$/.test(value) || value !== value.toLowerCase()) {
                       toast.error("Invalid email format!", { duration: 3000, position: "top-right" });
                       setIsInvalidMail(true);
                       e.target.focus(); 
