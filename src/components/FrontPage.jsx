@@ -114,6 +114,8 @@ const FrontPage=({views})=>{
       <div className="hidden md:flex flex-col items-center justify-center flex-1 mt-3 mb-3">
         <Examplepages />    
         <span id="desktop-typing-text" className="hidden md:inline-block text-xl md:text-2xl text-gray-800 h-6 dark:text-white"></span>
+        <br />
+        {/* <p className="text-slate-700 dark:text-gray-300"> <a href="https://www.gnu.org/licenses/#GPL" target="_blank">© GNU</a> <a href="https://NishantkSingh0.github.io" target="_blank"> NishantkSingh0.github.io</a></p> */}
       </div>
 
 
@@ -163,6 +165,7 @@ const FrontPage=({views})=>{
           className="cursor-pointer dark:text-gray-300"
         >
           About Us
+        {/* <p className="text-slate-700 dark:text-gray-300"> <a href="https://www.gnu.org/licenses/#GPL" target="_blank">© GNU</a> <a href="https://NishantkSingh0.github.io" target="_blank"> NishantkSingh0.github.io</a></p> */}
         </a>
       </div>
 
