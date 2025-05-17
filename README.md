@@ -17,26 +17,26 @@ I’m excited to showcase our Resume Builder Application, designed to solve real
 
 
 # Well there are existing resume builders that claim to build ATS friendly resumes but..
-- **Very less customization option:** Most resume builders use rigid LaTeX-based templates that only provide static PDFs. While LaTeX offers clean formatting, over 95% of users find it hard to understand or customize—forcing them to repeatedly repurchase resumes for minor changes, making the process both frustrating and costly.
-- **Low quality and unprofessional template in free tier:** Most popular resume builders offer only basic, low-quality templates in their free tier — often outdated, unprofessional, or lacking modern design elements. Users are then prompted to pay $1–$2 per resume download, even after spending time building it.
-- **Frustrating Form Flow:** Most resume builders use a rigid, step-by-step form that hides the full scope of required info. Fields appear one by one, forcing users to keep clicking “Next” without a clear overview—wasting time and causing confusion for those who want to prepare content in advance.
-- **Laggy and complex interface:** Many resume builders are slow and laggy, with unresponsive previews—creating friction for users who just want to build or update resumes quickly
+- **Limited Customization Options:** Most resume builders rely on rigid, LaTeX-based templates that generate static PDFs with minimal flexibility. While LaTeX ensures clean formatting, it’s notoriously difficult for over 95% of users to understand or modify. As a result, even minor edits require repurchasing or rebuilding resumes from zero. making the process unnecessarily frustrating, time-consuming, and much expensive.
+- **Low quality and unprofessional template in free tier:** Most popular resume builders offer only basic, low-quality templates in their free tier. **often outdated, unprofessional, or lacking modern design elements.** Users are then prompted to pay $1–$2 per resume download, even after spending time building it.
+- **Frustrating Form Flow:** Most resume builders use a rigid, step-by-step form that hides the full scope of required information. Fields appear one by one, forcing users to keep clicking “Next” without a clear overview of what they are doing. wasting time and causing confusion for those who want to prepare content in advance.
+- **Laggy and complex interface:** Many resume builders are slow and laggy, with unresponsive previews. creating friction for users who just want to build or update resumes quickly
 - **Data Privacy Concerns:** Most resume builders compromise user privacy by using sensitive data without consent. They often collect personal information and use it for purposes beyond just resume building, including selling it to third parties for targeted ads and other uses.
-- **Login and Cookie Hassles:** Many resume builders require users to sign in and manage cookies, leading to unnecessary frustration and security concerns. This not only disrupts the user experience but also exposes personal data to potential risks.
+- **Login and Cookie Hassles:** Many resume builders require users to sign in and manage unwanted cookies, leading to unnecessary frustration and security concerns. This not only disrupts the user experience but also exposes personal data to potential risks.
 
 # What we provide with this resume builder application :-
-- **Multi-format Export:** Instantly download resumes in .pdf or editable (.html, .json) formats — flexible for any need.
+- **Multi-format Export:** Instantly download resumes in .pdf or editable (.html, .json) formats. flexible for any need.
 - **Intuitive UI:** Clean and user-friendly interface with smooth navigation across all resume sections.
 - **Smart Assistant Bot:** A personal assistant guides users through the form-filling process, ensuring user don't feel alone.
 - **Live, Lag-Free Preview:** Instantly see changes with a real-time preview system, without any delays.
-- **Premium Templates for Free:** Access high-quality, modern templates — no any charges in any feature.
+- **Premium Templates for Free:** Access high-quality, modern templates. without any charges in any feature.
 - **No Login or cookies:** Build your resume without the hassle of account creation or cookies.
 - **ATS-Friendly by Design:** Every template is built with at least an 85+ ATS score, increasing your chances of selection.
 - **Efficient Editing:** Initial resume setup takes just 8–10 minutes. Re-edit later in seconds using your saved .json file and customize further. 
-- **Live Suggestions Engine:** Smart tips and error checks reduce formatting issues and save valuable time.
+- **Live Suggestions Engine:** Smart suggestion tips and error checks reduce formatting issues and save valuable time.
 - **Lightweight & Fast:** Consumes ~1.8MB of RAM and virtually no CPU, ensuring seamless performance on any device.
 - **Light & Dark Mode:** Choose the theme that suits your comfort for distraction-free editing. by default it choosed randomly to explore both modes.
-- **No Data Storage:** We prioritize user privacy and do not store any personal data — 'not even names'. Resume details are sensitive and can be misused by third-party apps for misleading ads or cyber fraud. Our builder ensures complete confidentiality and peace of mind.
+- **No Data Storage:** We prioritize user privacy and do not store any personal data, 'not even names'. Resume details are sensitive and can be misused by third-party apps for misleading ads or cyber fraud. Our builder ensures complete confidentiality and peace of mind.
 
 
 # 🎨 User Interface Overview
@@ -85,11 +85,11 @@ Watch demmo on <a href="https://www.linkedin.com/posts/nishantksingh1_resumebuil
 
 
 # 📥 Installation & Setup
-We’ve made this project open-source with the hope of fostering learning, growth, and collaboration within the developer community. Our goal is to create a space where developers of all levels can explore, experiment, and improve — and we’d love for you to be a part of it. Feel free to fork, download, and use the code, knowing that this is a shared space for education and creativity. We believe in the power of open collaboration, and we hope this project helps you learn something new and encourages you to build with kindness and curiosity!
+We’ve made this project open-source with the hope of fostering learning, growth, and collaboration within the developer community. Our goal is to create a space where developers of all levels can explore, experiment, and improve. and we’d love for you to be a part of it. Feel free to fork, download, and use the code, knowing that this is a shared space for education and creativity. We believe in the power of open collaboration, and we hope this project helps you learn something new and encourages you to build with kindness and curiosity!
 
 # 🔒 License Reminder
 This project is licensed under the GNU General Public License v3.0.
-You are free to use, modify, and distribute the code under the terms of this license — just make sure to include the original license and give proper credit. Let’s build open, and build fair. ❤️
+You are free to use, modify, and distribute the code under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">terms</a> of this license. just make sure to include the original license and give proper credit. Let’s build open, and build fair. ❤️
 
 ## 1. Clone the Repository:  
 
@@ -135,7 +135,7 @@ The app will now be available at `http://localhost:5173/Resume-Builder` 🚀
 
 # 📢 Have Questions?
 
-Feel free to ask any question about project and suggest improvements. reach us out at:
+Feel free to ask any question about this project and suggest improvements. reach us out at:
 
 🔹 Email: <a href="mailto:nishantsingh.talk@gmail.com" target="_blank">nishantsingh.talk@gmail.com</a> 
 
