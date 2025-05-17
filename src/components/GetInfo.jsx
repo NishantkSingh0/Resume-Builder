@@ -1145,7 +1145,7 @@ const GetInfo=() => {
                           placeholder="2 Month"
                           value={cert.courseDuration}
                           onChange={(val) => handleInputChange('certificates', 'courseDuration', val, index)}
-                          suggestions={['1 Month', '2 Month', '3 Month', '4 Month', '5 Month', '6 Month', '7 Month', '8 Month', '9 Month', '10 Month', '11 Month', '12 Month', '1 Year', '2 Year', '3 Year', '4 Year', '5 Year']}
+                          suggestions={["10 Day's","15 Day's","20 Day's","1 Month","1.5 Month","2 Month's","2.5 Month's","3 Month's","4 Month's","5 Month's","6 Month's","7 Month's","8 Month's","9 Month's","10 Month's","11 Month's","12 Month's","1 Year","2 Year's","3 Year's","4 Year's","5 Year's"]}
                           isMultiSuggestion={false}
                         />
                       </div>
@@ -1156,7 +1156,7 @@ const GetInfo=() => {
                       <div className="peer">
                         <Suggestions
                           label="Provider Name"
-                          placeholder='Microsoft'
+                          placeholder='Microsoft India'
                           value={cert.providerName}
                           onChange={(val) => {
                             handleInputChange('certificates', 'providerName', val, index)

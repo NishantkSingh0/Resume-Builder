@@ -98,7 +98,12 @@ const FrontPage=({views})=>{
         <h1 className="text-xl ml-10 font-bold text-gray-800 dark:text-white no-underline">
           <a href="https://github.com/NishantkSingh0/Resume-Builder" title="Address to GitHub repository of this project" target="_blank">
             <span className="lg:hidden">Resume Builder</span>
-            <span className="hidden lg:block">Level Up Your First Impression</span>
+            <span className="hidden lg:block group">
+              <span className="text-black dark:text-slate-300 transition-all duration-500 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-pink-500 group-hover:to-red-500">
+                Level Up Your First Impression
+              </span>
+            </span>
+
           </a>
         </h1>
         <div className="flex space-x-4">
@@ -114,8 +119,6 @@ const FrontPage=({views})=>{
       <div className="hidden md:flex flex-col items-center justify-center flex-1 mt-3 mb-3">
         <Examplepages />    
         <span id="desktop-typing-text" className="hidden md:inline-block text-xl md:text-2xl text-gray-800 h-6 dark:text-white"></span>
-        <br />
-        {/* <p className="text-slate-700 dark:text-gray-300"> <a href="https://www.gnu.org/licenses/#GPL" target="_blank">© GNU</a> <a href="https://NishantkSingh0.github.io" target="_blank"> NishantkSingh0.github.io</a></p> */}
       </div>
 
 
@@ -165,7 +168,6 @@ const FrontPage=({views})=>{
           className="cursor-pointer dark:text-gray-300"
         >
           About Us
-        {/* <p className="text-slate-700 dark:text-gray-300"> <a href="https://www.gnu.org/licenses/#GPL" target="_blank">© GNU</a> <a href="https://NishantkSingh0.github.io" target="_blank"> NishantkSingh0.github.io</a></p> */}
         </a>
       </div>
 
