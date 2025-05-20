@@ -95,10 +95,10 @@ function AboutUs() {
                   "Developed and integrated frontend and backend systems.",
                   "Proposed innovative project ideas with structured workflows.",
                   "Researched high-rated resumes for optimization.",
-                  "Analyzed ATS algorithms for effective resume selection.",
-                  "Handled suggestion items and integrate with UI",
-                  "Integrated Assistant bot to get info module",
-                  "Managed live rendering of templates on data entry"
+                  "Analyzed ATS algorithms for high quality resume output",
+                  "Handled suggestion items and integrated with UI",
+                  "Integrated Assistant bot to Form page",
+                  "Managed smooth live rendering of templates on evry character input"
                 ]}
               />}
             {dev.name === "Amisha Pal" && <ExpandButton
@@ -107,7 +107,7 @@ function AboutUs() {
                   "Designed all templates in HTML/CSS",
                   "Researched designs and innovation ideas",
                   "Gived optimization idea for various modules",
-                  "Researched other Resume builder websites and suggested improvemnets"
+                  "Researched other Resume builder websites and suggested improvements"
                 ]}
               />}
             {dev.name === "Ankush Kumar" && <ExpandButton

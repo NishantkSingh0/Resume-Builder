@@ -231,6 +231,21 @@ const GetInfo=() => {
   if (UserjsonData && !isExampleProcessing){
     HandleExampleProcessing();
   }
+
+  useEffect(() => { // || !formData.contactInfo.fullName
+    if (!formData.selectedTemplate) return;
+    const handleBeforeUnload = (e) => {
+      alert('Do you really want to refresh or was it just a mistake?');
+      e.preventDefault();
+      e.returnValue = '';
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [formData.selectedTemplate]);
   
   const handleInputChange=(section, field, value, index=null) => {
     if (!isExampleProcessing){
@@ -796,7 +811,7 @@ const GetInfo=() => {
           return (
             <div className="space-y-4">
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Projects</h2>
-              <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 3 projects which you did in your academics</p>
+              <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add {formData.workExperience.length>2?'at-last':'atleast'} {5-formData.workExperience.length} projects which you did in your Academics / WorkLife</p>
               {formData.projects.map((project, index) => (
                 <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                   <h3 className="font-medium text-lg dark:text-slate-200">Project {index + 1}</h3>
@@ -851,7 +866,7 @@ const GetInfo=() => {
           return (
             <div className="space-y-4">
               <h2 className="text-xl sm:text-2xl font-bold border-b-4  pb-1 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Projects</h2>
-              <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 3 projects which you did in your academics</p>
+              <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add {ExampleJsonData.workExperience.length>2?'at-last':'atleast'} {5-ExampleJsonData.workExperience.length} projects which you did in your Academics / WorkLife</p>
               {ExampleJsonData.projects.map((project, index) => (
                 <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
                   <h3 className="font-medium text-lg dark:text-slate-200">Project {index + 1}</h3>
