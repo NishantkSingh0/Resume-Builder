@@ -14,6 +14,7 @@ import { Toaster } from "react-hot-toast";
 import { ThemeContext } from './components/ThemeContext.jsx';
 import GoogleVarification from './components/GoogleVarification.jsx';
 import ViewTemplates from './components/ViewTemplates.jsx';
+import HtmlToPdfConverter from './components/HmlToPdf.jsx'
 import FileUploadPage from './components/FileUploadPage.jsx';
 import Loader from './components/Loader.jsx'
 // import T5 from './components/T5.jsx'
@@ -71,6 +72,7 @@ const App = () => {
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/VarifyMail" element={<GoogleVarification />} />
         <Route path="/FileUploadPage" element={<FileUploadPage />} />
+        <Route path="/HTML-PDF" element={<HtmlToPdfConverter />} />
         <Route path="/GetInfo" element={<GetInfo />} />
         <Route path="/Result" element={<Result />} /> 
         <Route path="/ViewTemplates" element={<ViewTemplates/>} /> 

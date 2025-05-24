@@ -151,11 +151,11 @@ const FileUploadPage = () => {
     <div className="w-[90%] lg:w-4/5 mx-4 bg-gray-200 dark:bg-slate-800 rounded-xl shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between px-6 py-4 space-y-4 sm:space-y-0 hover:shadow-lg transition-shadow duration-300">
       <div className="w-full sm:w-auto lg:ml-14">
         <p className="text-lg font-semibold text-gray-800 dark:text-gray-200">
-          {docUploaded ? "Document uploaded" : "Upload your existing resume to make parse most data from them"}
+          {docUploaded ? "Document uploaded but!" : "Upload your existing resume to make parse most data from them"}
         </p>
         <p className="text-md mt-1 font-semibold text-gray-500 dark:text-gray-400">
           {docUploaded
-            ? "You can't proceed with this feature now.."
+            ? "You can't proceed with this feature now..."
             : "This feature is based on an API by Affinda Resume Parser. We can't able to make this feature possible due to Security issue with API key and handling costs..."}
         </p>
       </div>
@@ -174,6 +174,21 @@ const FileUploadPage = () => {
           />
         </label>
       )}
+    </div>
+    <div className="w-[90%] lg:w-4/5 mx-4 bg-gray-200 dark:bg-slate-800 rounded-xl shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between px-6 py-4 space-y-4 sm:space-y-0 hover:shadow-lg transition-shadow duration-300">
+      <div className="w-full sm:w-auto lg:ml-14">
+        <p className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+          Make more minor adjustments to your resume
+        </p>
+        <p className="text-md mt-1 font-semibold text-gray-500 dark:text-gray-400">
+          Use the provided HTML/CSS format to make any minor changes. You can then convert it to PDF using our optimized HTML-to-PDF tool.</p>
+      </div>
+      <button
+        className="w-full sm:w-auto px-5 py-2 lg:mr-14 bg-blue-600 text-white rounded-xl hover:bg-blue-700"
+        onClick={() => navigate("/HTML-PDF")}
+      >
+        Continue&nbsp;&gt;
+      </button>
     </div>
   </div>
   

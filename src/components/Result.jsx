@@ -296,6 +296,9 @@ const Result = () => {
                 Back to Editor
               </button>
             </div>
+            <div className="dark:text-gray-200 font-bold">
+             <br />🔧 Suggest Improvements: <a href="mailto:nishantsingh.talk@gmail.com" target='_blank' className='text-green-600 hover:underline dark:text-green-400'>NishantSingh.talk</a>
+            </div>
           </div>
         )}
       </div>
