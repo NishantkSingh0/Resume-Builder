@@ -53,7 +53,7 @@ function AboutUs() {
       <div>
         <h1 className="text-2xl font-extrabold text-center mb-2 text-gray-500 md:text-3xl dark:text-amber-300"><i className="fas fa-user-alt"/> About Us</h1>
 
-        <div className="w-[80%] h-1 bg-gray-600 mx-auto mt-1 rounded dark:bg-amber-400"></div>
+        <div className="w-[60%] h-1 bg-gray-600 mx-auto mt-1 rounded dark:bg-amber-400"></div>
         <p className="text-slate-700 dark:text-gray-300 mt-2 mb-10 font-medium"> <a href="https://github.com/NishantkSingh0/Resume-Builder/blob/main/LICENSE" target="_blank">© GNU</a> <a href="https://NishantkSingh0.github.io" target="_blank"> NishantkSingh0.github.io</a></p>
       </div>
       <div className="w-full max-w-4xl flex flex-col space-y-6">

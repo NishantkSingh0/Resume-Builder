@@ -38,21 +38,21 @@ const JsonFiles=[
        projects: [
          {
            projectTitle: "Transformer based translation model",
-           toolsTechUsed: "Tensorflow, Trasformer architecture, NumPy, WMT Translation dataset"
+           toolsTechUsed: "Tensorflow, Transformer architecture, NumPy, WMT Translation dataset"
          },
          {
            projectTitle: "Exam Proctoring system",
            toolsTechUsed: "React, Flask, OpenCV, NumPy, Mediapipe, Pillow, WebSocket, ThreadPool"
          },
          {
-           projectTitle: "Persion bounding box detection",
+           projectTitle: "Person bounding box detection",
            toolsTechUsed: "OpenCV, Json, Tensorflow, Pandas, Matplotlib, NumPy"
          }
        ],
        education: [
          {
            institutionName: "Haridwar University",
-           degreeName: "Batchelor in Computer application",
+           degreeName: "Bafchelor in Computer application",
            graduationYear: "2023 - 2026",
            currentSGPA: "8"
          },
@@ -128,21 +128,21 @@ const JsonFiles=[
        projects: [
          {
            projectTitle: "Transformer based translation model",
-           toolsTechUsed: "Tensorflow, Trasformer architecture, NumPy, WMT Translation dataset"
+           toolsTechUsed: "Tensorflow, Transformer architecture, NumPy, WMT Translation dataset"
          },
          {
            projectTitle: "Exam Proctoring system",
            toolsTechUsed: "React, Flask, OpenCV, NumPy, Mediapipe, Pillow, WebSocket, ThreadPool"
          },
          {
-           projectTitle: "Persion bounding box detection",
+           projectTitle: "Person bounding box detection",
            toolsTechUsed: "OpenCV, Json, Tensorflow, Pandas, Matplotlib, NumPy"
          }
        ],
        education: [
          {
            institutionName: "Haridwar University",
-           degreeName: "Batchelor in Computer application",
+           degreeName: "Bachelor in Computer application",
            graduationYear: "2023 - 2026",
            currentSGPA: "8"
          },
@@ -232,7 +232,7 @@ const JsonFiles=[
        education: [
          {
            institutionName: "Haridwar University",
-           degreeName: "Batchelor in Computer application",
+           degreeName: "Bachelor in Computer application",
            graduationYear: "2023 - 2026",
            currentSGPA: "8"
          },

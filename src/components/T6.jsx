@@ -160,7 +160,7 @@ export const T6 = ({ jsonData }) => {
       </div>
 
       <div className="Conts">
-        <div className="title">Academic Projects:</div>
+        <div className="title">Key Projects:</div>
         <ul>
           {jsonData.projects.map((proj, index) => (
             <div key={index} className="Ritem">

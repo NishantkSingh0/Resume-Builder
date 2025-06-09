@@ -217,7 +217,7 @@ export const T5 = ({ jsonData, desc }) => {
       </div>
 
       <div className="projects">
-        <h3><b>Projects</b></h3>
+        <h3><b>Key Projects</b></h3>
         {jsonData.projects.map((proj, index) => (
           <div key={index} className="project-item">
 

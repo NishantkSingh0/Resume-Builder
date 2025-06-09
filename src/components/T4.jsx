@@ -319,7 +319,7 @@ export const T4 = ({ jsonData, desc }) => {
           </div>
           
           <div className="SUsection">
-            <div className="section-title"><b>Projects</b></div>
+            <div className="section-title"><b>Key Projects</b></div>
             <ul>
               {jsonData.projects.map((proj, index) => (
                 <div key={index} className="Ritem" style={{ marginBottom: index < jsonData.projects.length - 1 ? "15px" : "0px" }}>

@@ -367,7 +367,7 @@ export const T1 = ({ jsonData }) => {
 
         <div className="right">
           <div className="SUsection">
-            <div className="section-title"><b>Projects</b></div>
+            <div className="section-title"><b>Key Projects</b></div>
             <ul>
               {projectsList}
             </ul>
