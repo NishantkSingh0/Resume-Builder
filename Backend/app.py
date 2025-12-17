@@ -4,7 +4,7 @@
 
 from flask import Flask, request, send_file, jsonify
 from flask_cors import CORS
-# from weasyprint import HTML
+from weasyprint import HTML
 from utils import parse_pdf, parse_docx
 import os
 from io import BytesIO
