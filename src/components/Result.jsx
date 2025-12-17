@@ -8,12 +8,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import toast from "react-hot-toast";
 import { useLocation } from 'react-router-dom';
 import { html as html_beautify } from 'js-beautify';
-import {T1,T1Css} from './T1.jsx';
-import {T2,T2Css} from './T2.jsx';
-import {T3,T3Css} from './T3.jsx';
-import {T4,T4Css} from './T4.jsx';
-import {T5,T5Css} from './T5.jsx';
-import {T6,T6Css} from './T6.jsx';
+import {T1,T1Css} from './Templates/T1.jsx';
+import {T2,T2Css} from './Templates/T2.jsx';
+import {T3,T3Css} from './Templates/T3.jsx';
+import {T4,T4Css} from './Templates/T4.jsx';
+import {T5,T5Css} from './Templates/T5.jsx';
+import {T6,T6Css} from './Templates/T6.jsx';
 
 const Result = () => {
   const [status, setStatus] = useState('preparing'); // 'preparing', 'waking', 'processing', 'completed', 'error'

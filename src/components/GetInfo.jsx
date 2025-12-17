@@ -12,12 +12,12 @@ import toast from "react-hot-toast";
 import Suggestions from "./Suggestions";
 import { useLocation } from 'react-router-dom';
 import JsonFiles from "./JsonFiles.jsx"
-import {T1} from './T1.jsx';
-import {T2} from './T2.jsx';
-import {T3} from './T3.jsx';
-import {T4} from './T4.jsx';
-import {T5} from './T5.jsx';
-import {T6} from './T6.jsx';
+import {T1} from './Templates/T1.jsx';
+import {T2} from './Templates/T2.jsx';
+import {T3} from './Templates/T3.jsx';
+import {T4} from './Templates/T4.jsx';
+import {T5} from './Templates/T5.jsx';
+import {T6} from './Templates/T6.jsx';
 
 const GetInfo=() => {
   const [currentStep, setCurrentStep]=useState(0);
