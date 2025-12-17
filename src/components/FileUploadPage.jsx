@@ -48,7 +48,7 @@ const FileUploadPage = () => {
     const expectedKeys = ["contactInfo", "skills", "workExperience", "projects", "education", "certificates", "Description"]; 
 
     try {
-      const res = await fetch("http://127.0.0.1:5000/parse-resume", {
+      const res = await fetch("https://html2pdfviabravers.onrender.com/parse-resume", {     // http://127.0.0.1:5000/parse-resume
         method: "POST",
         body: formData,
       });

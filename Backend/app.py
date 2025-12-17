@@ -15,25 +15,25 @@ CORS(app, resources={r"/*": {"origins": [
     "https://nishantksingh0.github.io"
 ]}})
 
-# @app.route('/generate-pdf', methods=['POST'])
-# def generate_pdf():
-#     data = request.get_json()
+@app.route('/generate-pdf', methods=['POST'])
+def generate_pdf():
+    data = request.get_json()
     
-#     html_content = data.get('html')
-#     if not html_content:
-#         return jsonify({'error': 'No HTML content provided'}), 400
+    html_content = data.get('html')
+    if not html_content:
+        return jsonify({'error': 'No HTML content provided'}), 400
 
-#     # Generate PDF in memory
-#     pdf_file = BytesIO()
-#     HTML(string=html_content).write_pdf(pdf_file)
-#     pdf_file.seek(0)
+    # Generate PDF in memory
+    pdf_file = BytesIO()
+    HTML(string=html_content).write_pdf(pdf_file)
+    pdf_file.seek(0)
 
-#     return send_file(
-#         pdf_file,
-#         mimetype='application/pdf',
-#         as_attachment=True,
-#         download_name='resume.pdf'
-#     )
+    return send_file(
+        pdf_file,
+        mimetype='application/pdf',
+        as_attachment=True,
+        download_name='resume.pdf'
+    )
 
 
 @app.route("/parse-resume", methods=["POST"])
