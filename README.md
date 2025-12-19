@@ -139,6 +139,6 @@ Feel free to ask any question about this project and suggest improvements. reach
 
 🔹 Email: <a href="mailto:nishantsingh.talk@gmail.com" target="_blank">nishantsingh.talk@gmail.com</a> 
 
-🔹 LinkedIn: <a href="https://www.linkedin.com/posts/nishantksingh1_hi-im-nishant-team-leader-of-bravers-activity-7318679470763061250--7lp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEXIrSMB1Q-v6W50Fho8DNLDqC0GfNeMxQQ" target="_blank">NishantkSingh1</a>    
+🔹 LinkedIn: <a href="https://www.linkedin.com/in/nishantksingh1" target="_blank">NishantkSingh1</a>    
 
 
