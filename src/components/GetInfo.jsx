@@ -140,11 +140,19 @@ const GetInfo=() => {
       } else {
         value = formData?.[type]?.[index];
       }
+      if (!value?.jobTitle?.trim() || !value?.companyName?.trim() || !value?.WorkDuration?.trim()){
+        toast.error("Each LLM Call Cost Us..\nEnsure to Fill Your Details First!!", { duration: 3000, position: "top-right", });
+        return;
+      }
     }else{
       if (isExampleProcessing) {
         value = ExampleJsonData;
       } else {
         value = formData;
+      }
+      if (!value?.skills?.hardSkills?.trim() || !value?.skills?.softSkills?.trim() || !value?.contactInfo?.emailAddress?.trim() || !value?.workExperience?.[0]?.jobTitle?.trim() || !value?.projects?.[0]?.projectTitle?.trim() || !value?.education?.[0]?.graduationYear?.trim() || !value?.certificates?.[0]?.providerName?.trim()){
+        toast.error("Each LLM Call Cost Us..\nEnsure to Fill Your Details First!!", { duration: 3000, position: "top-right", });
+        return;
       }
     }
     if (!value) {
@@ -778,7 +786,7 @@ const GetInfo=() => {
                             type="button"
                             disabled={isInvalidWDuration}
                             onClick={() => handleEnhancement(index, 'workExperience','exp')}
-                            className="absolute top-7 -right-[11%] h-[42px] w-[42px] rounded-md border border-blue-500 bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center z-50"
+                            className="absolute top-7 -right-[11%] h-[42px] w-[42px]  rounded-full md:rounded-md md:border md:border-blue-500 bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center z-50"
                           >
                           <img
                             src="/Resume-Builder/AI.png"
@@ -884,7 +892,7 @@ const GetInfo=() => {
                             type="button"
                             disabled={isInvalidWDuration}
                             onClick={() => handleEnhancement(index, 'workExperience','exp')}
-                            className="absolute top-7 -right-[11%] h-[42px] w-[42px] rounded-md border border-blue-500 bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center z-50"
+                            className="absolute top-7 -right-[11%] h-[42px] w-[42px] rounded-full md:rounded-md md:border md:border-blue-500 bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center z-50"
                           >
                           <img
                             src="/Resume-Builder/AI.png"
