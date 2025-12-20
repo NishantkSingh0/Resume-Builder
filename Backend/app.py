@@ -5,6 +5,7 @@
 from flask import Flask, request, send_file, jsonify
 from flask_cors import CORS
 from weasyprint import HTML
+from llm import llama_4
 from utils import parse_pdf, parse_docx
 import os
 from io import BytesIO
@@ -63,7 +64,41 @@ def parse_resume():
             "error": "Failed to parse resume",
             "details": str(e)
         }), 500
+    
 
+@app.route("/EnhanceText", methods=["POST"])
+def enhance_text():
+    try:
+        data = request.get_json(silent=True)
+
+        if not data:
+            return jsonify({"error": "No JSON received"}), 400
+        if "contactInfo" in data:
+            prompt=f"""Write a Short Resume Summary based on This User Info's (Ensure to Include Only important details and keep it proffessional and SHORT)
+                User Info: {data}
+                RETURN ONLY SHORT Summary no any OTHER TEXT.. (Exact 3-4 line summary) and With Respect to 'I'
+            """
+        else:
+            prompt = f"""Enhance the Key Achievements using the context below.
+                Job Title: {data.get('jobTitle')}
+                Company Name: {data.get('companyName')}
+                Work Duration: {data.get('WorkDuration')}
+                Key Achievements: {data.get('keyAchievements') if data.get('keyAchievements') else "None"}
+
+                RETURN ONLY KeyAchievement string without any markdown like formatting and Should be small (2 lines or 30 words)
+            """
+
+        print("PROMPT:\n", prompt, flush=True)
+
+        response = llama_4(prompt)
+        print("Enhancement Successfull: ", response)
+        return jsonify({"result": response}), 200
+
+    except Exception as e:
+        import traceback
+        print(traceback.format_exc(), flush=True)
+        return jsonify({"error": str(e)}), 500
+        
 
 if __name__ == '__main__':
     app.run(debug=True)

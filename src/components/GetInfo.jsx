@@ -9,9 +9,9 @@ import { Check, Plus, ChevronRight, Menu, X ,Eye, FileText } from 'lucide-react'
 import { useNavigate } from 'react-router-dom';
 import Typed from "typed.js"; 
 import toast from "react-hot-toast";
-import Suggestions from "./Suggestions";
+import Suggestions from "./Other/Suggestions";
 import { useLocation } from 'react-router-dom';
-import JsonFiles from "./JsonFiles.jsx"
+import JsonFiles from "./Other/JsonFiles.jsx"
 import {T1} from './Templates/T1.jsx';
 import {T2} from './Templates/T2.jsx';
 import {T3} from './Templates/T3.jsx';
@@ -131,6 +131,90 @@ const GetInfo=() => {
     "Now process Next..."
   ];
   const [i, setI] = useState(0);
+
+  const handleEnhancement = async (index, type, partof) => {
+    let value = null;
+    if (partof=='exp'){
+      if (isExampleProcessing) {
+        value = ExampleJsonData?.[type]?.[index];
+      } else {
+        value = formData?.[type]?.[index];
+      }
+    }else{
+      if (isExampleProcessing) {
+        value = ExampleJsonData;
+      } else {
+        value = formData;
+      }
+    }
+    if (!value) {
+      toast.error("Retry..", { duration: 3000, position: "top-right", });
+      return;
+    }
+    toast.success("Enhancing Text..",{ duration: 3000, position: "top-right", })
+    console.log("Value: ",value)
+    try {
+      const res = await fetch("http://127.0.0.1:5000/EnhanceText", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(value),
+      });
+
+      if (!res.ok) {
+        toast.error("Backend Error!", { duration: 3000, position: "top-right", });
+      }
+      const data = await res.json();
+      console.log("Enhanced response:", data);
+      if (partof=='exp'){
+        if (isExampleProcessing){
+          setExampleJsonData(prev => ({
+            ...prev,
+            [type]: prev[type].map((item, i) =>
+              i === index
+                ? { ...item, keyAchievements: data.result }
+                : item
+            )
+          }));
+        }else{
+          setFormData(prev => ({
+            ...prev,
+            [type]: prev[type].map((item, i) =>
+              i === index
+                ? { ...item, keyAchievements: data.result }
+                : item
+            )
+          }));
+        }
+      }else{
+        if (isExampleProcessing){
+          setExampleJsonData(prev => ({
+            ...prev,
+            Description: {
+              ...prev.Description,
+              UserDescription: data.result
+            }
+          }));
+        }else{
+          setFormData(prev => ({
+            ...prev,
+            Description: {
+              ...prev.Description,
+              UserDescription: data.result
+            }
+          }));
+        }
+      }
+    } catch (error) {
+      toast.error("Enhancement failed", {
+        duration: 3000,
+        position: "top-right",
+      });
+      console.error(error);
+    }
+  };
+  
 
   useEffect(() => {
     const Suggest = new Typed("#Suggestion-typing-text", {
@@ -443,7 +527,7 @@ const GetInfo=() => {
                     isPara={true}
                   />
                 </div>
-                <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
 
               <div className="space-y-2">
@@ -534,7 +618,7 @@ const GetInfo=() => {
                     isMultiSuggestion={false}
                   />
                 </div>
-                <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
           </div>
         );
@@ -558,7 +642,7 @@ const GetInfo=() => {
                   suggestions={['.NET Core', 'A3C', "API's Integration", 'ASP.NET MVC', 'AWS', 'AWS CDK', 'AWS Lambda', 'Actix', 'Adobe XD', 'AdonisJS', 'Agile', 'Airflow', 'Alpine.js', 'Angular', 'Ansible', 'Ant Design', 'Apache', 'Apache Airflow', 'Apollo Server', 'Appgyver', 'Arduino', 'Astro', 'Aurora', 'AutoML', 'Autoencoders', 'Azure', 'BLAST', 'Babylon.js', 'Beego', 'BioPerl', 'Bioconductor', 'Biopython', 'Bitbucket', 'Blockchain', 'Bootstrap', 'Brownie', 'Bubble', 'Bulma', 'Burp Suite', 'C', 'C++', "CNN's", 'CSS', 'Capsule Networks', 'Cassandra', 'CatBoost', 'CentOS', 'Chakra UI', 'ChromaDB', 'CircleCI', 'Cirq', 'Cocos2d', 'CodeIgniter', 'Computer Vision', 'Contentful', 'Cosmos DB', 'Cybersecurity', 'Cypress', 'DDPG', 'DQN', 'Dagster', 'Dask', 'Data Engineering', 'Design Patterns', 'DevSecOps', 'Django', 'Docker', 'Docker Compose', 'Dropwizard', 'ELK Stack', 'ETL Pipelines', 'Echo', 'Edge Computing', 'EfficientNet', 'Electron.js', 'Embedded Systems', 'Ethers.js', 'Express', 'Express.js', 'FAISS', 'FastAPI', 'Faster R-CNN', 'Fedora', 'Fiber', 'Figma', 'Firebase', 'Firebase Functions', 'Flask', 'Flutter', 'Flutter (Web)', 'Foundation', 'Foundry', 'Framer Motion', 'GANs', 'GCP', 'GNNs', 'GRUs', 'GSAP', 'Galaxy', 'Gatsby', 'Gin', 'Git', 'GitHub', 'GitHub Actions', 'GitLab', 'Go', 'Godot', 'Grafana', 'GraphQL', 'HTML', 'Hadoop', 'Hapi', 'Hardhat', 'Helm', 'Hive', 'HubSpot', 'Hugging Face', 'IAM', 'IPFS', 'IoT Systems', 'Ionic', 'JAX', 'JUnit', 'JWT', 'Java', 'JavaScript', 'Jenkins', 'Jest', 'Jetpack Compose', 'Kafka', 'Kanban', 'Kedro', 'Keras', 'Kivy', 'Koa', 'Kotlin', 'Kotlin (Android)', 'Kubernetes', "LLM's", 'LSTMs', 'LangChain', 'LangSmith', 'Laravel', 'LightGBM', 'Linux', 'LoopBack', 'LottieFiles', 'Luigi', 'MATLAB', 'MLPs', 'MQTT', 'Mailchimp', 'Mantine', 'Mask R-CNN', 'Material UI', 'Matplotlib', 'Mbed OS', 'Metasploit', 'Micronaut', 'Microservices', 'Mocha', 'Modin', 'MongoDB', 'MySQL', 'NLP', 'NativeScript', 'NestJS', 'New Relic', 'Next.js', 'Nginx', 'Nmap', 'NoSQL', 'Node.js', 'NumPy', 'Nuxt', 'Nuxt.js', 'OAuth 2.0', 'OCR', 'OOP', 'OWASP', 'OpenCV', 'OpenVAS', 'OutSystems', 'PHP', 'PPO', 'Pandas', 'PayPal APIs', 'Penetration Testing', 'Phoenix (Elixir)', 'Pinecone', 'PixiJS', 'PlatformIO', 'Playwright', 'Plotly', 'Polars', 'PostgreSQL', 'Postman', 'Power BI', 'Preact', 'Prefect', 'PrimeReact', 'Prometheus', 'Prompt Engineering', 'Pulumi', 'PyQt', 'PyTest', 'PyTorch', 'Pygame', 'Pyramid', 'Pytest', 'Python', 'Qiskit', 'Qt', 'Quarkus', 'Qwik', 'RAG', 'REST API', 'RLlib', "RNN's", 'ROS (Robot Operating System)', 'Radix UI', 'React', 'React Native', 'React.js', 'Redis', 'Remix', 'ResNet', 'Retool', 'Rocket', 'Ruby', 'Ruby on Rails', 'Rust', 'SAC', 'SOLID Principles', 'SQL', 'SQLite', 'SageMaker', 'Sails.js', 'Scikit-learn', 'Scrum', 'Seaborn', 'Selenium', 'Semantic Search', 'Seqtk', 'Serverless', 'Serverless Framework', 'ShadCN/UI', 'Shell Scripting', 'Shopify APIs', 'Sinatra', 'Smart Contracts', 'Snort', 'Socket.IO', 'SolidJS', 'Solidity', 'Spark', 'Speech Recognition', 'Spring Boot', 'Stable Diffusion', 'Stripe APIs', 'Supabase', 'Svelte', 'SvelteKit', 'Swagger', 'Swift', 'Swift (iOS)', 'SwiftUI', 'Swin Transformer', 'Symfony', 'System Design', 'Tableau', 'Tailwind CSS', 'TailwindCSS', 'Tauri', 'TensorFlow', 'Terraform', 'Three.js', 'Tkinter', 'Tornado', 'Truffle', 'TypeScript', 'UNet', 'Ubuntu', 'Unity', 'Unity 3D', 'Unreal 5', 'Unreal Engine', 'VAEs', 'Vaex', 'Vector Databases', 'Vertex AI', 'Vision Transformer (ViT)', 'Vue', 'Vue.js', 'WPF', 'Warp', 'Web3.js', 'WebGL', 'WebSocket', 'WebXR', 'Webflow', 'Wireshark', 'WooCommerce APIs', 'WordPress', 'XGBoost', 'Xamarin', 'YOLO', 'Zapier', 'Zend Framework', 'dbt', 'gRPC', 'i18n']}
                 />
               </div>
-              <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+              <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
             </div>
 
               <div className="space-y-2">
@@ -574,7 +658,7 @@ const GetInfo=() => {
                     suggestions={['Adaptability', 'Attention to Detail', 'Collaboration', 'Communication', 'Critical Thinking', 'Decision Making', 'Emotional Intelligence', 'Problem Solving', 'Resilience', 'Self-Motivation', 'Teamwork', 'Time Management']}
                   />
                 </div>
-                <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
 
               <div className="space-y-2">
@@ -590,7 +674,7 @@ const GetInfo=() => {
                     suggestions={["Hindi","English","Spanish","Bengali","Portuguese","Russian","Japanese","Punjabi","Marathi","Telugu","French","German","Tamil","Urdu"]}
                   />
                 </div>
-                <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
               
               <div className="space-y-2">
@@ -607,7 +691,7 @@ const GetInfo=() => {
                     isMultiSuggestion={false}
                   />
                 </div>
-                <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
               </div>
           </div>
         );
@@ -634,7 +718,7 @@ const GetInfo=() => {
                           isMultiSuggestion={false} 
                         />
                       </div>
-                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
 
                     <div className="space-y-2">
@@ -648,7 +732,7 @@ const GetInfo=() => {
                           isMultiSuggestion={false}
                         />
                       </div>
-                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
 
                     <div className="space-y-2">
@@ -674,7 +758,7 @@ const GetInfo=() => {
                     </div>
 
                     <div className="space-y-2">
-                      <div className="peer w-full">
+                      <div className="peer w-[90%] relative">
                         <Suggestions
                           label="Key Achievements"
                           placeholder="Learn to visualize patterns from data using matplotlib and Built several DL models"
@@ -687,11 +771,23 @@ const GetInfo=() => {
                               setI(11);
                             }
                           }}
-                          suggestions={["Education", "Learning", "Knowledge", "Skills", "Development", "Growth", "Discipline", "Creativity","Curiosity", "Critical", "Thinking", "Problem-Solving", "Innovation", "Empowerment", "Potential","Opportunities", "Success", "Wisdom", "Literacy", "Training", "Understanding", "Mindset","Character", "Focus", "Dedication", "Motivation", "Scholarship", "Study", "Research", "Exploration","Experience", "Guidance", "Curriculum", "Subjects", "Syllabus", "Mentorship", "Coaching","Academics", "Assessment", "Examination", "Evaluation", "Concepts", "Projects", "Presentation","Seminars", "Workshops", "Internship", "Collaboration", "Communication", "Teamwork", "Leadership","Career", "Responsibility", "Self-Study", "Observation", "Practical-Learning", "Theoretical-Knowledge","Hardwork", "Persistence", "Vision", "Goal-Setting", "Time-Management", "Experimentation","Exposure", "System", "Competence", "Research-Skills", "Interactive-Learning", "Future-Ready","Holistic-Education","is", "and", "or", "for", "with", "to", "in", "on", "by", "of", "at", "from", "this", "that", "these", "those", "are", "was", "were", "as", "an", "a", "be", "has", "have", "will", "can","which", "who", "whose", "where", "when", "how", "it", "its", "also", "but", "if", "so", "then"]}
+                          suggestions={["Education", "Learning", "Knowledge", "Skills", "Development", "Growth", "Discipline", "Creativity", "Curiosity", "Critical", "Thinking", "Problem-Solving", "Innovation", "Empowerment", "Potential","Opportunities", "Success", "Wisdom", "Literacy", "Training", "Understanding", "Mindset","Character", "Focus", "Dedication", "Motivation", "Scholarship", "Study", "Research", "Exploration","Experience", "Guidance", "Curriculum", "Subjects", "Syllabus", "Mentorship", "Coaching","Academics", "Assessment", "Examination", "Evaluation", "Concepts", "Projects", "Presentation","Seminars", "Workshops", "Internship", "Collaboration", "Communication", "Teamwork", "Leadership","Career", "Responsibility", "Self-Study", "Observation", "Practical-Learning", "Theoretical-Knowledge","Hardwork", "Persistence", "Vision", "Goal-Setting", "Time-Management", "Experimentation","Exposure", "System", "Competence", "Research-Skills", "Interactive-Learning", "Future-Ready","Holistic-Education","is", "and", "or", "for", "with", "to", "in", "on", "by", "of", "at", "from", "this", "that", "these", "those", "are", "was", "were", "as", "an", "a", "be", "has", "have", "will", "can","which", "who", "whose", "where", "when", "how", "it", "its", "also", "but", "if", "so", "then"]}
                           isPara={true}
                         />
+                        <button
+                            type="button"
+                            disabled={isInvalidWDuration}
+                            onClick={() => handleEnhancement(index, 'workExperience','exp')}
+                            className="absolute top-7 -right-[11%] h-[42px] w-[42px] rounded-md border border-blue-500 bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center z-50"
+                          >
+                          <img
+                            src="/Resume-Builder/AI.png"
+                            alt="achievement"
+                            className="h-7 w-7"
+                          />
+                        </button>
                       </div>
-                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[83%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
                 </div>
               ))}
@@ -728,7 +824,7 @@ const GetInfo=() => {
                           isMultiSuggestion={false} 
                         />
                       </div>
-                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
 
                     <div className="space-y-2">
@@ -742,7 +838,7 @@ const GetInfo=() => {
                           isMultiSuggestion={false}
                         />
                       </div>
-                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
 
                     <div className="space-y-2">
@@ -768,7 +864,7 @@ const GetInfo=() => {
                     </div>
 
                     <div className="space-y-2">
-                      <div className="peer w-full">
+                      <div className="peer w-[90%] relative">
                         <Suggestions
                           label="Key Achievements"
                           placeholder="Learn to visualize patterns from data using matplotlib and Built several DL models"
@@ -784,8 +880,20 @@ const GetInfo=() => {
                           suggestions={["Education", "Learning", "Knowledge", "Skills", "Development", "Growth", "Discipline", "Creativity","Curiosity", "Critical", "Thinking", "Problem-Solving", "Innovation", "Empowerment", "Potential","Opportunities", "Success", "Wisdom", "Literacy", "Training", "Understanding", "Mindset","Character", "Focus", "Dedication", "Motivation", "Scholarship", "Study", "Research", "Exploration","Experience", "Guidance", "Curriculum", "Subjects", "Syllabus", "Mentorship", "Coaching","Academics", "Assessment", "Examination", "Evaluation", "Concepts", "Projects", "Presentation","Seminars", "Workshops", "Internship", "Collaboration", "Communication", "Teamwork", "Leadership","Career", "Responsibility", "Self-Study", "Observation", "Practical-Learning", "Theoretical-Knowledge","Hardwork", "Persistence", "Vision", "Goal-Setting", "Time-Management", "Experimentation","Exposure", "System", "Competence", "Research-Skills", "Interactive-Learning", "Future-Ready","Holistic-Education","is", "and", "or", "for", "with", "to", "in", "on", "by", "of", "at", "from", "this", "that", "these", "those", "are", "was", "were", "as", "an", "a", "be", "has", "have", "will", "can","which", "who", "whose", "where", "when", "how", "it", "its", "also", "but", "if", "so", "then"]}
                           isPara={true}
                         />
+                        <button
+                            type="button"
+                            disabled={isInvalidWDuration}
+                            onClick={() => handleEnhancement(index, 'workExperience','exp')}
+                            className="absolute top-7 -right-[11%] h-[42px] w-[42px] rounded-md border border-blue-500 bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center z-50"
+                          >
+                          <img
+                            src="/Resume-Builder/AI.png"
+                            alt="achievement"
+                            className="h-7 w-7"
+                          />
+                        </button>
                       </div>
-                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[83%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
                 </div>
               ))}
@@ -844,7 +952,7 @@ const GetInfo=() => {
                           suggestions={['.NET Core', 'A3C', "API's Integration", 'ASP.NET MVC', 'AWS', 'AWS CDK', 'AWS Lambda', 'Actix', 'Adobe XD', 'AdonisJS', 'Agile', 'Airflow', 'Alpine.js', 'Angular', 'Ansible', 'Ant Design', 'Apache', 'Apache Airflow', 'Apollo Server', 'Appgyver', 'Arduino', 'Astro', 'Aurora', 'AutoML', 'Autoencoders', 'Azure', 'BLAST', 'Babylon.js', 'Beego', 'BioPerl', 'Bioconductor', 'Biopython', 'Bitbucket', 'Blockchain', 'Bootstrap', 'Brownie', 'Bubble', 'Bulma', 'Burp Suite', 'C', 'C++', "CNN's", 'CSS', 'Capsule Networks', 'Cassandra', 'CatBoost', 'CentOS', 'Chakra UI', 'ChromaDB', 'CircleCI', 'Cirq', 'Cocos2d', 'CodeIgniter', 'Computer Vision', 'Contentful', 'Cosmos DB', 'Cybersecurity', 'Cypress', 'DDPG', 'DQN', 'Dagster', 'Dask', 'Data Engineering', 'Design Patterns', 'DevSecOps', 'Django', 'Docker', 'Docker Compose', 'Dropwizard', 'ELK Stack', 'ETL Pipelines', 'Echo', 'Edge Computing', 'EfficientNet', 'Electron.js', 'Embedded Systems', 'Ethers.js', 'Express', 'Express.js', 'FAISS', 'FastAPI', 'Faster R-CNN', 'Fedora', 'Fiber', 'Figma', 'Firebase', 'Firebase Functions', 'Flask', 'Flutter', 'Flutter (Web)', 'Foundation', 'Foundry', 'Framer Motion', 'GANs', 'GCP', 'GNNs', 'GRUs', 'GSAP', 'Galaxy', 'Gatsby', 'Gin', 'Git', 'GitHub', 'GitHub Actions', 'GitLab', 'Go', 'Godot', 'Grafana', 'GraphQL', 'HTML', 'Hadoop', 'Hapi', 'Hardhat', 'Helm', 'Hive', 'HubSpot', 'Hugging Face', 'IAM', 'IPFS', 'IoT Systems', 'Ionic', 'JAX', 'JUnit', 'JWT', 'Java', 'JavaScript', 'Jenkins', 'Jest', 'Jetpack Compose', 'Kafka', 'Kanban', 'Kedro', 'Keras', 'Kivy', 'Koa', 'Kotlin', 'Kotlin (Android)', 'Kubernetes', "LLM's", 'LSTMs', 'LangChain', 'LangSmith', 'Laravel', 'LightGBM', 'Linux', 'LoopBack', 'LottieFiles', 'Luigi', 'MATLAB', 'MLPs', 'MQTT', 'Mailchimp', 'Mantine', 'Mask R-CNN', 'Material UI', 'Matplotlib', 'Mbed OS', 'Metasploit', 'Micronaut', 'Microservices', 'Mocha', 'Modin', 'MongoDB', 'MySQL', 'NLP', 'NativeScript', 'NestJS', 'New Relic', 'Next.js', 'Nginx', 'Nmap', 'NoSQL', 'Node.js', 'NumPy', 'Nuxt', 'Nuxt.js', 'OAuth 2.0', 'OCR', 'OOP', 'OWASP', 'OpenCV', 'OpenVAS', 'OutSystems', 'PHP', 'PPO', 'Pandas', 'PayPal APIs', 'Penetration Testing', 'Phoenix (Elixir)', 'Pinecone', 'PixiJS', 'PlatformIO', 'Playwright', 'Plotly', 'Polars', 'PostgreSQL', 'Postman', 'Power BI', 'Preact', 'Prefect', 'PrimeReact', 'Prometheus', 'Prompt Engineering', 'Pulumi', 'PyQt', 'PyTest', 'PyTorch', 'Pygame', 'Pyramid', 'Pytest', 'Python', 'Qiskit', 'Qt', 'Quarkus', 'Qwik', 'RAG', 'REST API', 'RLlib', "RNN's", 'ROS (Robot Operating System)', 'Radix UI', 'React', 'React Native', 'React.js', 'Redis', 'Remix', 'ResNet', 'Retool', 'Rocket', 'Ruby', 'Ruby on Rails', 'Rust', 'SAC', 'SOLID Principles', 'SQL', 'SQLite', 'SageMaker', 'Sails.js', 'Scikit-learn', 'Scrum', 'Seaborn', 'Selenium', 'Semantic Search', 'Seqtk', 'Serverless', 'Serverless Framework', 'ShadCN/UI', 'Shell Scripting', 'Shopify APIs', 'Sinatra', 'Smart Contracts', 'Snort', 'Socket.IO', 'SolidJS', 'Solidity', 'Spark', 'Speech Recognition', 'Spring Boot', 'Stable Diffusion', 'Stripe APIs', 'Supabase', 'Svelte', 'SvelteKit', 'Swagger', 'Swift', 'Swift (iOS)', 'SwiftUI', 'Swin Transformer', 'Symfony', 'System Design', 'Tableau', 'Tailwind CSS', 'TailwindCSS', 'Tauri', 'TensorFlow', 'Terraform', 'Three.js', 'Tkinter', 'Tornado', 'Truffle', 'TypeScript', 'UNet', 'Ubuntu', 'Unity', 'Unity 3D', 'Unreal 5', 'Unreal Engine', 'VAEs', 'Vaex', 'Vector Databases', 'Vertex AI', 'Vision Transformer (ViT)', 'Vue', 'Vue.js', 'WPF', 'Warp', 'Web3.js', 'WebGL', 'WebSocket', 'WebXR', 'Webflow', 'Wireshark', 'WooCommerce APIs', 'WordPress', 'XGBoost', 'Xamarin', 'YOLO', 'Zapier', 'Zend Framework', 'dbt', 'gRPC', 'i18n']}
                         />
                       </div>
-                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
                 </div>
               ))}
@@ -899,7 +1007,7 @@ const GetInfo=() => {
                           suggestions={["TensorFlow","WeasyPrint" ,"WebSocket (Live Rendering Protocol)", "LLM's","HTML/CSS", "Keras", "PyTorch", "Scikit-learn", "XGBoost", "LightGBM", "CatBoost", "FastAI","NumPy", "Pandas", "Matplotlib", "Seaborn", "Plotly", "Altair", "Statsmodels", "SciPy","NLTK", "SpaCy", "Transformers", "Gensim", "BERT", "GPT", "Word2Vec", "TF-IDF", "Llama","OpenCV", "Pillow", "Albumentations", "MMDetection", "Detectron2", "YOLO", "MediaPipe","MNIST Dataset", "CIFAR-10", "CIFAR-100", "ImageNet", "COCO Dataset", "Multi30k Dataset","Human Parsing Dataset", "HuggingFace Datasets", "UCI Repository","Transfer Learning", "Model Subclassing", "Data Augmentation", "Feature Engineering", "Ensemble Learning", "Hyperparameter Tuning", "Cross Validation", "Grid Search", "Early Stopping","Apache Spark", "Hadoop", "Airflow", "Kafka", "Snowflake", "BigQuery", "ETL Pipelines","AWS", "Azure", "Google Cloud Platform", "IBM Cloud", "Oracle Cloud", "Firebase","Docker", "Kubernetes", "Terraform", "Jenkins", "GitHub Actions", "Prometheus", "Grafana","MySQL", "PostgreSQL", "MongoDB", "Redis", "SQLite", "Elasticsearch", "Cassandra","Django", "Flask", "FastAPI", "Express.js", "Spring Boot", "Node.js","React", "Vue.js", "Angular", "Next.js", "Tailwind CSS", "Bootstrap", "SASS", "Material UI","Python", "Java", "Advanced C++","C++","C", "JavaScript", "TypeScript", "Go", "Rust", "R", "Julia", "SQL","Git", "GitHub", "GitLab", "Bitbucket","Tableau", "Power BI", "Looker", "Google Data Studio","Jupyter Notebook", "Google Colab", "VS Code", "Anaconda", "PyCharm", "Postman","REST API", "GraphQL", "gRPC", "NGINX", "Apache","PyTest", "Selenium", "Cypress", "JUnit", "Postman","BeautifulSoup", "Scrapy", "LangChain", "Streamlit", "Gradio", "Dash", "MLflow","Weights & Biases", "HuggingFace Hub", "OpenAI API", "Google API", "Cloud Functions"]}
                         />
                       </div>
-                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
                 </div>
               ))}
@@ -941,7 +1049,7 @@ const GetInfo=() => {
                           isMultiSuggestion={false}
                         />
                       </div>
-                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
                 
                     <div className="space-y-2">
@@ -955,7 +1063,7 @@ const GetInfo=() => {
                           isMultiSuggestion={false}
                         />
                       </div>
-                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
                 
                     <div className="space-y-2">
@@ -1044,7 +1152,7 @@ const GetInfo=() => {
                           isMultiSuggestion={false}
                         />
                       </div>
-                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
                 
                     <div className="space-y-2">
@@ -1058,7 +1166,7 @@ const GetInfo=() => {
                           isMultiSuggestion={false}
                         />
                       </div>
-                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
                 
                     <div className="space-y-2">
@@ -1164,7 +1272,7 @@ const GetInfo=() => {
                           isMultiSuggestion={false}
                         />
                       </div>
-                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
 
                     <div className="space-y-2">
@@ -1182,7 +1290,7 @@ const GetInfo=() => {
                           isMultiSuggestion={false}
                         />
                       </div>
-                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
                   </div>
                 </div>
@@ -1234,7 +1342,7 @@ const GetInfo=() => {
                           isMultiSuggestion={false}
                         />
                         </div>
-                        <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                        <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
 
                     <div className="space-y-2">
@@ -1252,7 +1360,7 @@ const GetInfo=() => {
                           isMultiSuggestion={false}
                         />
                       </div>
-                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
                   </div>
                 </div>
@@ -1295,23 +1403,43 @@ const GetInfo=() => {
                     <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">
                       Description
                     </h2>
+
                     <p className="font-semibold mb-6 text-gray-600 dark:text-gray-200">
                       Hint: Consider to edit them more and make professional
                     </p>
-        
-                    <div className="space-y-2 pt-8 pb-16">
-                      <div className="peer">
+
+                    <div className="space-y-2 pt-8 pb-16 relative">
+                      {/* INPUT + BUTTON WRAPPER */}
+                      <div className="relative peer">
                         <Suggestions
                           label="Resume Description"
-                          placeholder="Passionate AI Developer & Backend Specialist with expertise in Deep Learning, Computer Vision, NLP, and Transformers. Skilled at building models from scratch and integrating them into real-world applications using React, Flask, and Django. Developed and deployed 22+ projects available on GitHub & Kaggle."
+                          placeholder="Passionate AI Developer & Backend Specialist with expertise in Deep Learning..."
                           value={formData.Description.UserDescription}
-                          onChange={(val) => handleInputChange('Description', 'UserDescription', val)}
+                          onChange={(val) =>
+                            handleInputChange("Description", "UserDescription", val)
+                          }
                           suggestions={ResumeDescriptions}
                           isTextArea={true}
                           isMultiSuggestion={false}
                         />
+
+                        {/* AI BUTTON */}
+                        <button
+                          type="button"
+                          disabled={isInvalidWDuration}
+                          onClick={() => handleEnhancement(0, "Description", "UsrDsc")}
+                          className="absolute bottom-[10px] right-1 h-[42px] w-[42px] rounded-full bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center z-50"
+                        >
+                          <img
+                            src="/Resume-Builder/AI.png"
+                            alt="achievement"
+                            className="h-7 w-7"
+                          />
+                        </button>
                       </div>
-                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                        
+                      {/* UNDERLINE EFFECT */}
+                      <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                     </div>
                   </div>
                 )
@@ -1321,22 +1449,43 @@ const GetInfo=() => {
                 <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 mb-4 text-blue-800 dark:border-blue-500 dark:text-blue-400">
                   Description
                 </h2>
-                <p className="text-xl font-semibold mb-6 text-gray-600 dark:text-gray-200">
+
+                <p className="font-semibold mb-6 text-gray-600 dark:text-gray-200">
                   Hint: Consider to edit them more and make professional
                 </p>
-                <div className="space-y-2 pt-8 pb-16">
-                  <div className="peer">
+
+                <div className="space-y-2 pt-8 pb-16 relative">
+                  {/* INPUT + BUTTON WRAPPER */}
+                  <div className="relative peer">
                     <Suggestions
                       label="Resume Description"
-                      placeholder="Passionate AI Developer & Backend Specialist with expertise in Deep Learning, Computer Vision, NLP, and Transformers. Skilled at building models from scratch and integrating them into real-world applications using React, Flask, and Django. Developed and deployed 22+ projects available on GitHub & Kaggle."
+                      placeholder="Passionate AI Developer & Backend Specialist with expertise in Deep Learning..."
                       value={ExampleJsonData.Description.UserDescription}
-                      onChange={(val) => handleInputChange('Description', 'UserDescription', val)}
+                      onChange={(val) =>
+                        handleInputChange("Description", "UserDescription", val)
+                      }
                       suggestions={ResumeDescriptions}
                       isTextArea={true}
                       isMultiSuggestion={false}
                     />
+
+                    {/* AI BUTTON */}
+                    <button
+                      type="button"
+                      disabled={isInvalidWDuration}
+                      onClick={() => handleEnhancement(0, "Description", "UsrDsc")}
+                      className="absolute bottom-[10px] right-1 h-[42px] w-[42px] rounded-full bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center z-50"
+                    >
+                      <img
+                        src="/Resume-Builder/AI.png"
+                        alt="achievement"
+                        className="h-7 w-7"
+                      />
+                    </button>
                   </div>
-                  <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[60%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
+                    
+                  {/* UNDERLINE EFFECT */}
+                  <div className="ml-4 w-0 h-1 rounded-full bg-blue-500 transition-all duration-300 peer-hover:w-[92%] peer-focus:w-[88%] sm:peer-focus:w-[94%]"></div>
                 </div>
               </div>
             );
@@ -1555,10 +1704,10 @@ const GetInfo=() => {
           <div className={`whitespace-pre-line dark:text-slate-300 p-3 md:p-1 ${isExampleProcessing?"hidden":"block"}`}>
             <div className="flex items-center mb-3">
               <img 
-                src="https://github.com/NishantkSingh0/NishantkSingh0/blob/main/Images/N.png?raw=true" 
-                alt="N" 
-                width="40" 
-                height="40" 
+                src="/Resume-Builder/AI.png" 
+                alt="AI" 
+                width="35" 
+                height="35" 
               />
               <div className="ml-2">
                 <span className="font-semibold pb-[2px]">Assistant Bot</span>

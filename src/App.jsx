@@ -11,12 +11,12 @@ import GetInfo from './components/GetInfo.jsx';
 import Result from './components/Result.jsx';
 import AboutUs from './components/AboutUs.jsx';
 import { Toaster } from "react-hot-toast";
-import { ThemeContext } from './components/ThemeContext.jsx';
-import GoogleVarification from './components/GoogleVarification.jsx';
+import { ThemeContext } from './components/Other/ThemeContext.jsx';
+import GoogleVarification from './components/Other/GoogleVarification.jsx';
 import ViewTemplates from './components/ViewTemplates.jsx';
-import HtmlToPdfConverter from './components/HmlToPdf.jsx'
-import FileUploadPage from './components/FileUploadPage.jsx';
-import Loader from './components/Loader.jsx'
+import HtmlToPdfConverter from './components/Other/HmlToPdf.jsx'
+import FileUploadPage from './components/Other/FileUploadPage.jsx';
+import Loader from './components/Other/Loader.jsx'
 // import T5 from './components/T5.jsx'
 
 const FIREBASE_URL = "https://resume-builder-suggestions-default-rtdb.firebaseio.com/Views.json";

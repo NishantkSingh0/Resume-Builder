@@ -39,8 +39,8 @@ JSON STRUCTURE (DO NOT MODIFY):
     "Languages": "",
     "Location": ""
   },
-  "skills": {
-    "hardSkills": "",
+  "skills": {             # Only Top 8 hardskills or Soft skills
+    "hardSkills": "",       
     "softSkills": ""
   },
   "workExperience": [

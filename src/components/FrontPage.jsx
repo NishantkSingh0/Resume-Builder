@@ -9,9 +9,9 @@ import Typed from "typed.js";
 import {Eye} from 'lucide-react';
 import Examplepages from './Examplepage.jsx'
 import { useNavigate } from 'react-router-dom';
-import { ThemeContext } from "./ThemeContext.jsx";
+import { ThemeContext } from "./Other/ThemeContext.jsx";
 // import { MdDarkMode } from "react-icons/md";
-import Switch from "./Switch.jsx";
+import Switch from "./Other/Switch.jsx";
 
 const features=[
   "Craft a stunning resume in just 8 to 10 minutes — no stress, no confusion.",
