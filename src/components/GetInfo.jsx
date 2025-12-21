@@ -24,6 +24,7 @@ const GetInfo=() => {
   const [isExampleProcessing, setIsExampleProcessing] = useState(false);
   const [ResumesBuilt, setResumesBuilt] = useState(0);
   const location = useLocation();
+  const [IsEnhancementProcessing, setIsEnhancementProcessing] = useState(false);
   const UserjsonData = location.state?.jsonData || null;
   // const isTech = location.state?.isTech || false; 
   const [NextError, setNextError]=useState(false);
@@ -160,9 +161,10 @@ const GetInfo=() => {
       return;
     }
     toast.success("Enhancing Text..",{ duration: 3000, position: "top-right", })
+    setIsEnhancementProcessing(true)
     console.log("Value: ",value)
     try {
-      const res = await fetch("http://127.0.0.1:5000/EnhanceText", {
+      const res = await fetch("https://html2pdfviabravers.onrender.com/EnhanceText", {           // http://127.0.0.1:5000/EnhanceText
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -214,6 +216,7 @@ const GetInfo=() => {
           }));
         }
       }
+      setIsEnhancementProcessing(false);
     } catch (error) {
       toast.error("Enhancement failed", {
         duration: 3000,
@@ -484,35 +487,6 @@ const GetInfo=() => {
           jsonData: isExampleProcessing ? ExampleJsonData : formData
         }
       });
-      // if (!isExampleProcessing){
-      //   navigate('/Result');
-      //   console.log("Form submitted:", formData);
-    
-      //   const jsonData=JSON.stringify(formData, null, 2);
-      //   const blob=new Blob([jsonData], { type: "application/json" });
-      //   const url=URL.createObjectURL(blob);
-    
-      //   const a=document.createElement("a");
-      //   a.href=url;
-      //   a.download="resume_data.json";
-      //   document.body.appendChild(a);
-      //   a.click();
-    
-      //   document.body.removeChild(a);
-      //   URL.revokeObjectURL(url);
-      // }else{
-      //   const jsonData=JSON.stringify(ExampleJsonData, null, 2);
-      //   fetch("http://127.0.0.1:5000/upload", {
-      //     method: "POST",
-      //     headers: {
-      //         "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify(ExampleJsonData),
-      // })
-      // .then(response => response.json())
-      // .then(data => console.log("Success:", data))
-      // .catch(error => console.error("Error:", error));
-      // }
     }
   };
   
@@ -712,7 +686,7 @@ const GetInfo=() => {
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Work Experience</h2>
               <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
               {formData.workExperience.map((exp, index) => (
-                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
+                <div key={index} className={`p-4 border-2 rounded space-y-4 ${IsEnhancementProcessing ? 'border-blue-500' : 'border-slate-700'}`}>
                   <h3 className="font-medium text-lg dark:text-slate-200">Experience {index + 1}</h3>
 
                     <div className="space-y-2">
@@ -786,12 +760,12 @@ const GetInfo=() => {
                             type="button"
                             disabled={isInvalidWDuration}
                             onClick={() => handleEnhancement(index, 'workExperience','exp')}
-                            className="absolute top-7 -right-[11%] h-[42px] w-[42px]  rounded-full md:rounded-md md:border md:border-blue-500 bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center z-50"
+                            className={`absolute top-7 -right-[11%] h-[42px] w-[42px] rounded-full md:rounded-md md:border ${IsEnhancementProcessing ? 'md:border-gray-700' : 'md:border-blue-500'} bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center`}
                           >
                           <img
                             src="/Resume-Builder/AI.png"
                             alt="achievement"
-                            className="h-7 w-7"
+                            className={`h-7 w-7 ${IsEnhancementProcessing ? 'animate-step-rotate' : ''}`}
                           />
                         </button>
                       </div>
@@ -819,7 +793,7 @@ const GetInfo=() => {
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Work Experience</h2>
               <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
               {ExampleJsonData.workExperience.map((exp, index) => (
-                <div key={index} className="p-4 border-2 rounded space-y-4 dark:border-slate-700">
+                <div key={index} className={`p-4 border-2 rounded space-y-4 ${IsEnhancementProcessing ? 'border-blue-500' : 'border-slate-700'}`}>
                   <h3 className="font-medium text-lg dark:text-slate-200">Experience {index + 1}</h3>
                     <div className="space-y-2">
                       <div className="peer w-full">
@@ -892,12 +866,12 @@ const GetInfo=() => {
                             type="button"
                             disabled={isInvalidWDuration}
                             onClick={() => handleEnhancement(index, 'workExperience','exp')}
-                            className="absolute top-7 -right-[11%] h-[42px] w-[42px] rounded-full md:rounded-md md:border md:border-blue-500 bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center z-50"
+                            className={`absolute top-7 -right-[11%] h-[42px] w-[42px] rounded-full md:rounded-md md:border ${IsEnhancementProcessing ? 'md:border-gray-700' : 'md:border-blue-500'} bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center`}
                           >
                           <img
                             src="/Resume-Builder/AI.png"
                             alt="achievement"
-                            className="h-7 w-7"
+                            className={`h-7 w-7 ${IsEnhancementProcessing ? 'animate-step-rotate' : ''}`}
                           />
                         </button>
                       </div>
@@ -1436,12 +1410,12 @@ const GetInfo=() => {
                           type="button"
                           disabled={isInvalidWDuration}
                           onClick={() => handleEnhancement(0, "Description", "UsrDsc")}
-                          className="absolute bottom-[10px] right-1 h-[42px] w-[42px] rounded-full bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center z-50"
+                          className={`absolute bottom-[10px] right-1 h-[42px] w-[42px] rounded-full bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center`}
                         >
                           <img
                             src="/Resume-Builder/AI.png"
                             alt="achievement"
-                            className="h-7 w-7"
+                            className={`h-7 w-7 ${IsEnhancementProcessing ? 'animate-step-rotate' : ''}`}
                           />
                         </button>
                       </div>
@@ -1482,12 +1456,12 @@ const GetInfo=() => {
                       type="button"
                       disabled={isInvalidWDuration}
                       onClick={() => handleEnhancement(0, "Description", "UsrDsc")}
-                      className="absolute bottom-[10px] right-1 h-[42px] w-[42px] rounded-full bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center z-50"
+                      className="absolute bottom-[10px] right-1 h-[42px] w-[42px] rounded-full bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center"
                     >
                       <img
                         src="/Resume-Builder/AI.png"
                         alt="achievement"
-                        className="h-7 w-7"
+                        className={`h-7 w-7 ${IsEnhancementProcessing ? 'animate-step-rotate' : ''}`}
                       />
                     </button>
                   </div>
