@@ -16,6 +16,14 @@ CORS(app, resources={r"/*": {"origins": [
     "https://nishantksingh0.github.io"
 ]}})
 
+
+@app.route("/wake", methods=["POST"])
+def wake_backend():
+    data = request.json
+    print("Received: ", data.get("message"))
+    return "", 204   # return nothing
+
+
 @app.route('/generate-pdf', methods=['POST'])
 def generate_pdf():
     data = request.get_json()
@@ -76,7 +84,7 @@ def enhance_text():
         if "contactInfo" in data:
             prompt=f"""Write a Short Resume Summary based on This User Info's (Ensure to Include Only important details and keep it proffessional and SHORT)
                 User Info: {data}
-                RETURN ONLY SHORT Summary no any OTHER TEXT.. (Exact 3-4 line summary) and With Respect to 'I'
+                RETURN ONLY SHORT Summary no any OTHER TEXT.. (Exact 3-4 line or SHORTER summary) and With Respect to 'I'
             """
         else:
             prompt = f"""Enhance the Key Achievements using the context below.
@@ -85,7 +93,7 @@ def enhance_text():
                 Work Duration: {data.get('WorkDuration')}
                 Key Achievements: {data.get('keyAchievements') if data.get('keyAchievements') else "None"}
 
-                RETURN ONLY KeyAchievement string without any markdown like formatting and Should be small (2 lines or 30 words)
+                RETURN ONLY KeyAchievement string without any markdown like formatting and Should be small (2 lines or 30 words SHORTER)
             """
 
         print("PROMPT:\n", prompt, flush=True)

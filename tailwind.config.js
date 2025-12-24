@@ -12,6 +12,10 @@ export default {
   theme: {
     extend: {
       keyframes: {
+        'continuous-rotate': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
         'blob-bounce': {
           '0%': { transform: 'translate(-100%, -100%) translate3d(0, 0, 0)' },
           '25%': { transform: 'translate(-100%, -100%) translate3d(100%, 0, 0)' },
@@ -32,8 +36,9 @@ export default {
         },
       },
       animation: {
+        'continuous-rotate': 'continuous-rotate 4s linear infinite',
         'blob-bounce': 'blob-bounce 5s infinite ease',
-        'step-rotate': 'step-rotate 4s infinite cubic-bezier(0.4, 0.0, 0.2, 1)',
+        'step-rotate': 'step-rotate 4s infinite cubic-bezier(0.4, 0.0, 0.2, 1)'
       },
     },
   },

@@ -25,6 +25,7 @@ const GetInfo=() => {
   const [ResumesBuilt, setResumesBuilt] = useState(0);
   const location = useLocation();
   const [IsEnhancementProcessing, setIsEnhancementProcessing] = useState(false);
+  const [ProcessingIndex, setProcessingIndex] = useState(0);
   const UserjsonData = location.state?.jsonData || null;
   // const isTech = location.state?.isTech || false; 
   const [NextError, setNextError]=useState(false);
@@ -135,6 +136,10 @@ const GetInfo=() => {
 
   const handleEnhancement = async (index, type, partof) => {
     let value = null;
+
+    // Update Working index
+    setProcessingIndex(index)
+    
     if (partof=='exp'){
       if (isExampleProcessing) {
         value = ExampleJsonData?.[type]?.[index];
@@ -160,7 +165,7 @@ const GetInfo=() => {
       toast.error("Retry..", { duration: 3000, position: "top-right", });
       return;
     }
-    toast.success("Enhancing Text..",{ duration: 3000, position: "top-right", })
+    // toast.success("Enhancing Text..",{ duration: 3000, position: "top-right", })
     setIsEnhancementProcessing(true)
     console.log("Value: ",value)
     try {
@@ -686,7 +691,7 @@ const GetInfo=() => {
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Work Experience</h2>
               <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
               {formData.workExperience.map((exp, index) => (
-                <div key={index} className={`p-4 border-2 rounded space-y-4 ${IsEnhancementProcessing ? 'border-blue-500' : 'border-slate-700'}`}>
+                <div key={index} className={`p-4 border-2 rounded space-y-4 ${(IsEnhancementProcessing && ProcessingIndex===index) ? 'border-blue-500 animate-pulse' : 'border-slate-200 dark:border-slate-700'}`}>
                   <h3 className="font-medium text-lg dark:text-slate-200">Experience {index + 1}</h3>
 
                     <div className="space-y-2">
@@ -760,12 +765,12 @@ const GetInfo=() => {
                             type="button"
                             disabled={isInvalidWDuration}
                             onClick={() => handleEnhancement(index, 'workExperience','exp')}
-                            className={`absolute top-7 -right-[11%] h-[42px] w-[42px] rounded-full md:rounded-md md:border ${IsEnhancementProcessing ? 'md:border-gray-700' : 'md:border-blue-500'} bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center`}
+                            className={`absolute top-7 -right-[11%] h-[42px] w-[42px] rounded-full md:rounded-md md:border ${(IsEnhancementProcessing && ProcessingIndex===index) ? 'md:border-gray-200' : 'md:border-blue-500'} bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center`}
                           >
                           <img
                             src="/Resume-Builder/AI.png"
                             alt="achievement"
-                            className={`h-7 w-7 ${IsEnhancementProcessing ? 'animate-step-rotate' : ''}`}
+                            className={`h-7 w-7 ${(IsEnhancementProcessing && ProcessingIndex===index) ? 'animate-continuous-rotate' : ''}`}
                           />
                         </button>
                       </div>
@@ -793,7 +798,7 @@ const GetInfo=() => {
               <h2 className="text-xl sm:text-2xl font-bold border-b-4 pb-1 border-blue-900 text-blue-800 dark:border-blue-500 dark:text-blue-400">Work Experience</h2>
               <p className='font-semibold mb-6 text-gray-600 dark:text-gray-200'>Hint: Add atleast 2 work Experiences from previous companies. as internship or full time job</p>
               {ExampleJsonData.workExperience.map((exp, index) => (
-                <div key={index} className={`p-4 border-2 rounded space-y-4 ${IsEnhancementProcessing ? 'border-blue-500' : 'border-slate-700'}`}>
+                <div key={index} className={`p-4 border-2 rounded space-y-4 ${(IsEnhancementProcessing && ProcessingIndex===index) ? 'border-blue-500 animate-pulse' : 'border-slate-200 dark:border-slate-700'}`}>
                   <h3 className="font-medium text-lg dark:text-slate-200">Experience {index + 1}</h3>
                     <div className="space-y-2">
                       <div className="peer w-full">
@@ -802,7 +807,7 @@ const GetInfo=() => {
                           placeholder='Data Scientist'
                           value={exp.jobTitle}
 		                      onChange={(val) => handleInputChange('workExperience', 'jobTitle', val, index)}
-                          suggestions={["Python engineer","Data Scientist","Machine Learning Engineer","AI Researcher","Data Analyst","Software Engineer","Full Stack Developer","Backend Developer","Frontend Developer","DevOps Engineer","Cloud Architect","Cybersecurity Analyst","Database Administrator","Blockchain Developer","Computer Vision Engineer","NLP Engineer","Data Engineer","Big Data Engineer","Research Scientist","Product Manager","Project Manager","Scrum Master","Program Manager","Technical Program Manager","Operations Manager","IT Manager","Marketing Manager","Digital Marketing Specialist","SEO Specialist","Content Manager","Brand Manager","Sales Executive","Business Development Manager","Social Media Manager","Growth Hacker","UI/UX Designer","Graphic Designer","Product Designer","Visual Designer","Creative Director","Motion Graphics Designer","Financial Analyst","Accountant","Investment Banker","Business Analyst","Management Consultant","HR Manager","Recruiter","Legal Advisor","AI Ethics Researcher","Prompt Engineer","Data Privacy Consultant","Automation Engineer","Robotics Engineer","Sustainability Consultant","Technical Writer","Software Intern","Data Science Intern","Marketing Intern","HR Intern","Operations Intern","Sales Intern","Content Writing Intern","UI/UX Design Intern","Graphic Design Intern","Customer Support Executive","Technical Support Executive","Office Assistant","Data Entry Operator","Junior Software Developer","Trainee Engineer","Research Intern","Quality Assurance Intern","Product Intern","Junior Data Analyst","Telecaller","Field Sales Executive","Backend Support Staff","Campus Ambassador","Freelance Content Writer","Part-time Graphic Designer","Online Tutor","Lab Assistant","Clerical Staff","Receptionist","Front Desk Executive"]}
+                          suggestions={["Python engineer", "AI Engineere", "Data Scientist","Machine Learning Engineer","AI Researcher","Data Analyst","Software Engineer","Full Stack Developer","Backend Developer","Frontend Developer","DevOps Engineer","Cloud Architect","Cybersecurity Analyst","Database Administrator","Blockchain Developer","Computer Vision Engineer","NLP Engineer","Data Engineer","Big Data Engineer","Research Scientist","Product Manager","Project Manager","Scrum Master","Program Manager","Technical Program Manager","Operations Manager","IT Manager","Marketing Manager","Digital Marketing Specialist","SEO Specialist","Content Manager","Brand Manager","Sales Executive","Business Development Manager","Social Media Manager","Growth Hacker","UI/UX Designer","Graphic Designer","Product Designer","Visual Designer","Creative Director","Motion Graphics Designer","Financial Analyst","Accountant","Investment Banker","Business Analyst","Management Consultant","HR Manager","Recruiter","Legal Advisor","AI Ethics Researcher","Prompt Engineer","Data Privacy Consultant","Automation Engineer","Robotics Engineer","Sustainability Consultant","Technical Writer","Software Intern","Data Science Intern","Marketing Intern","HR Intern","Operations Intern","Sales Intern","Content Writing Intern","UI/UX Design Intern","Graphic Design Intern","Customer Support Executive","Technical Support Executive","Office Assistant","Data Entry Operator","Junior Software Developer","Trainee Engineer","Research Intern","Quality Assurance Intern","Product Intern","Junior Data Analyst","Telecaller","Field Sales Executive","Backend Support Staff","Campus Ambassador","Freelance Content Writer","Part-time Graphic Designer","Online Tutor","Lab Assistant","Clerical Staff","Receptionist","Front Desk Executive"]}
                           isMultiSuggestion={false} 
                         />
                       </div>
@@ -816,7 +821,7 @@ const GetInfo=() => {
                           placeholder='Onlei Teach'
                           value={exp.companyName}
                           onChange={(val) => handleInputChange('workExperience', 'companyName', val, index)}
-                          suggestions={["OnleiTech","Rubico IT","Tata Consultancy Services","Infosys","HCL Technologies","Wipro","Tech Mahindra","Cognizant Technology Solutions","IBM India","Larsen & Toubro Infotech","Mindtree","Mphasis","Oracle Financial Services Software","Redington India","Ingram Micro India","Dell India","SAP India","Capgemini India","Accenture India","Cisco Systems India","Amazon Development Centre India","Google India","Microsoft India","Adobe Systems India","Intel Technology India","HP India","Siemens India","Samsung R&D Institute India","Infosys BPM","Wipro Technologies","HCL Infosystems","Tech Mahindra Business Services","L&T Technology Services","Persistent Systems","Hexaware Technologies","Zensar Technologies","Birlasoft","Cyient","Sonata Software","Mindtree Consulting","Mastek","Sasken Technologies","Polaris Consulting & Services","Ramco Systems","CMC Limited","iGate","Patni Computer Systems","Mahindra Satyam","3i Infotech","Coforge","eClerx Services","Firstsource Solutions","L&T Infotech","Syntel","QuEST Global","KPIT Technologies","Nucleus Software Exports","Oracle India","IBM Daksh","Dell International Services","Concentrix India","Genpact","EXL Service","WNS Global Services","Hinduja Global Solutions","Teleperformance India","Sutherland Global Services","Aegis Limited","Infosys McCamish Systems","TCS e-Serve","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Infosys BPO","TCS BPO","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Infosys BPO","TCS BPO","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Zoho Corporation","Freshworks","Paytm","Ola Cabs","Zomato","Swiggy","Byju's","Flipkart","Snapdeal","MakeMyTrip","PolicyBazaar","Delhivery","InMobi","Quikr","Hike","Naukri.com","BookMyShow","BigBasket","Lenskart","OYO Rooms","CureFit","Razorpay","PhonePe","Myntra","ShopClues","UrbanClap","Practo","1mg","CarDekho","Housing.com","Pepperfry","Nykaa","Dream11","Udaan","Meesho","ShareChat","Dunzo","BlackBuck","Rivigo","Infra.Market","Moglix","OfBusiness","UpGrad","Unacademy","Vedantu","WhiteHat Jr.","Eruditus","Simplilearn","Toppr","Lido Learning","Classplus","Testbook","Doubtnut","Embibe","Khatabook","OkCredit","BharatPe","CRED","Groww","Zerodha","Smallcase","INDmoney","CoinSwitch Kuber","WazirX","Instamojo","Mswipe","Pine Labs","Chargebee","Capillary Technologies","WebEngage","MoEngage","Netcore Solutions","BrowserStack","Postman","Wingify","FusionCharts","HackerRank","HackerEarth","InterviewBit","Scaler","Coding Ninjas","GeeksforGeeks","Tata Elxsi","Cyient","Persistent Systems","Zensar Technologies","Sonata Software","Mastek","Sasken Technologies","Mindtree","L&T Technology Services","Birlasoft","Hexaware Technologies","NIIT Technologies","Mphasis","QuEST Global","KPIT Technologies","Nucleus Software Exports","Ramco Systems","CMC Limited","iGate","Patni Computer Systems","Mahindra Satyam","3i Infotech","Coforge"]}
+                          suggestions={["OnleiTech", "ATG Technologies","Rubico IT","Tata Consultancy Services","Infosys","HCL Technologies","Wipro","Tech Mahindra","Cognizant Technology Solutions","IBM India","Larsen & Toubro Infotech","Mindtree","Mphasis","Oracle Financial Services Software","Redington India","Ingram Micro India","Dell India","SAP India","Capgemini India","Accenture India","Cisco Systems India","Amazon Development Centre India","Google India","Microsoft India","Adobe Systems India","Intel Technology India","HP India","Siemens India","Samsung R&D Institute India","Infosys BPM","Wipro Technologies","HCL Infosystems","Tech Mahindra Business Services","L&T Technology Services","Persistent Systems","Hexaware Technologies","Zensar Technologies","Birlasoft","Cyient","Sonata Software","Mindtree Consulting","Mastek","Sasken Technologies","Polaris Consulting & Services","Ramco Systems","CMC Limited","iGate","Patni Computer Systems","Mahindra Satyam","3i Infotech","Coforge","eClerx Services","Firstsource Solutions","L&T Infotech","Syntel","QuEST Global","KPIT Technologies","Nucleus Software Exports","Oracle India","IBM Daksh","Dell International Services","Concentrix India","Genpact","EXL Service","WNS Global Services","Hinduja Global Solutions","Teleperformance India","Sutherland Global Services","Aegis Limited","Infosys McCamish Systems","TCS e-Serve","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Infosys BPO","TCS BPO","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Infosys BPO","TCS BPO","Mphasis BPO","HCL BPO","Wipro BPO","Tech Mahindra BPO","Cognizant BPO","Capgemini BPO","Accenture BPO","Genpact BPO","EXL Service BPO","WNS BPO","HGS BPO","Teleperformance BPO","Sutherland BPO","Aegis BPO","Zoho Corporation","Freshworks","Paytm","Ola Cabs","Zomato","Swiggy","Byju's","Flipkart","Snapdeal","MakeMyTrip","PolicyBazaar","Delhivery","InMobi","Quikr","Hike","Naukri.com","BookMyShow","BigBasket","Lenskart","OYO Rooms","CureFit","Razorpay","PhonePe","Myntra","ShopClues","UrbanClap","Practo","1mg","CarDekho","Housing.com","Pepperfry","Nykaa","Dream11","Udaan","Meesho","ShareChat","Dunzo","BlackBuck","Rivigo","Infra.Market","Moglix","OfBusiness","UpGrad","Unacademy","Vedantu","WhiteHat Jr.","Eruditus","Simplilearn","Toppr","Lido Learning","Classplus","Testbook","Doubtnut","Embibe","Khatabook","OkCredit","BharatPe","CRED","Groww","Zerodha","Smallcase","INDmoney","CoinSwitch Kuber","WazirX","Instamojo","Mswipe","Pine Labs","Chargebee","Capillary Technologies","WebEngage","MoEngage","Netcore Solutions","BrowserStack","Postman","Wingify","FusionCharts","HackerRank","HackerEarth","InterviewBit","Scaler","Coding Ninjas","GeeksforGeeks","Tata Elxsi","Cyient","Persistent Systems","Zensar Technologies","Sonata Software","Mastek","Sasken Technologies","Mindtree","L&T Technology Services","Birlasoft","Hexaware Technologies","NIIT Technologies","Mphasis","QuEST Global","KPIT Technologies","Nucleus Software Exports","Ramco Systems","CMC Limited","iGate","Patni Computer Systems","Mahindra Satyam","3i Infotech","Coforge"]}
                           isMultiSuggestion={false}
                         />
                       </div>
@@ -866,12 +871,12 @@ const GetInfo=() => {
                             type="button"
                             disabled={isInvalidWDuration}
                             onClick={() => handleEnhancement(index, 'workExperience','exp')}
-                            className={`absolute top-7 -right-[11%] h-[42px] w-[42px] rounded-full md:rounded-md md:border ${IsEnhancementProcessing ? 'md:border-gray-700' : 'md:border-blue-500'} bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center`}
+                            className={`absolute top-7 -right-[11%] h-[42px] w-[42px] rounded-full md:rounded-md md:border ${(IsEnhancementProcessing && ProcessingIndex===index) ? 'md:border-gray-200' : 'md:border-blue-500'} bg-white hover:bg-blue-50 dark:bg-gray-800 flex items-center justify-center`}
                           >
                           <img
                             src="/Resume-Builder/AI.png"
                             alt="achievement"
-                            className={`h-7 w-7 ${IsEnhancementProcessing ? 'animate-step-rotate' : ''}`}
+                            className={`h-7 w-7 ${(IsEnhancementProcessing && ProcessingIndex===index) ? 'animate-continuous-rotate' : ''}`}
                           />
                         </button>
                       </div>
@@ -1390,7 +1395,7 @@ const GetInfo=() => {
                       Hint: Consider to edit them more and make professional
                     </p>
 
-                    <div className="space-y-2 pt-8 pb-16 relative">
+                    <div className={`pace-y-2 pt-8 pb-16 relative ${IsEnhancementProcessing ? 'animate-pulse':''}`}>
                       {/* INPUT + BUTTON WRAPPER */}
                       <div className="relative peer">
                         <Suggestions
@@ -1405,7 +1410,6 @@ const GetInfo=() => {
                           isMultiSuggestion={false}
                         />
 
-                        {/* AI BUTTON */}
                         <button
                           type="button"
                           disabled={isInvalidWDuration}
@@ -1415,7 +1419,7 @@ const GetInfo=() => {
                           <img
                             src="/Resume-Builder/AI.png"
                             alt="achievement"
-                            className={`h-7 w-7 ${IsEnhancementProcessing ? 'animate-step-rotate' : ''}`}
+                            className={`h-7 w-7 ${IsEnhancementProcessing ? 'animate-continuous-rotate' : ''}`}
                           />
                         </button>
                       </div>
@@ -1438,7 +1442,7 @@ const GetInfo=() => {
 
                 <div className="space-y-2 pt-8 pb-16 relative">
                   {/* INPUT + BUTTON WRAPPER */}
-                  <div className="relative peer">
+                  <div className={`relative peer ${IsEnhancementProcessing ? 'animate-pulse':''}`}>
                     <Suggestions
                       label="Resume Description"
                       placeholder="Passionate AI Developer & Backend Specialist with expertise in Deep Learning..."
@@ -1451,7 +1455,6 @@ const GetInfo=() => {
                       isMultiSuggestion={false}
                     />
 
-                    {/* AI BUTTON */}
                     <button
                       type="button"
                       disabled={isInvalidWDuration}
@@ -1461,7 +1464,7 @@ const GetInfo=() => {
                       <img
                         src="/Resume-Builder/AI.png"
                         alt="achievement"
-                        className={`h-7 w-7 ${IsEnhancementProcessing ? 'animate-step-rotate' : ''}`}
+                        className={`h-7 w-7 ${IsEnhancementProcessing ? 'animate-continuous-rotate' : ''}`}
                       />
                     </button>
                   </div>

@@ -28,6 +28,14 @@ const App = () => {
   const [views, setViews] = useState(0);
 
   useEffect(() => {
+    // Wake backend (fire-and-forget)
+    fetch("https://html2pdfviabravers.onrender.com/wake", {           // http://127.0.0.1:5000/wake
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: "Wakeup Backend.. it's time to work" }),
+    }).catch(() => {});
+
+    // View count logic
     fetch(FIREBASE_URL)
       .then(res => res.json())
       .then(current => {
@@ -37,7 +45,6 @@ const App = () => {
           method: "PUT",
           body: JSON.stringify(updated),
         });
-
         setViews(updated);
       });
   }, []);

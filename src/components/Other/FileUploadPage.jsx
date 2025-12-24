@@ -169,13 +169,13 @@ const FileUploadPage = () => {
       </div>
       {docUploaded ? (
         <button 
-          className="w-full lg:mr-14 sm:w-auto px-5 py-2 bg-blue-600 text-white rounded-2xl hover:bg-blue-700"
+          className="w-full lg:mr-14 sm:w-auto px-5 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700"
           onClick={() => navigate("/GetInfo", { state: { jsonData } })}
         >
          Continue &gt;
         </button>
       ) : (
-        <label className="w-full lg:mr-12 sm:w-auto inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md cursor-pointer hover:bg-blue-700 transition duration-300">
+        <label className={`w-full lg:mr-12 sm:w-auto inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md cursor-pointer hover:bg-blue-700 transition duration-300 ${loading?'animate-pulse':''}`}>
         <UploadCloud className="w-5 h-5 mr-2" /> {loading ? "Processing..." : "PDF/Docx"}
           <input
             type="file"
