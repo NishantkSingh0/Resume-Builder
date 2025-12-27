@@ -165,7 +165,6 @@ const GetInfo=() => {
       toast.error("Retry..", { duration: 3000, position: "top-right", });
       return;
     }
-    // toast.success("Enhancing Text..",{ duration: 3000, position: "top-right", })
     setIsEnhancementProcessing(true)
     console.log("Value: ",value)
     try {

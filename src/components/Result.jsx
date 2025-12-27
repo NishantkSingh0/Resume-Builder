@@ -81,7 +81,7 @@ const Result = () => {
   
       const htmlContent = html_beautify(generatedCode);
 
-      toast.success("Generating your PDF... \nThis will take a few seconds if the server was not at sleep.", { duration: 10000, position: "top-right" });
+      toast.success("Generating your PDF...", { duration: 10000, position: "top-right" });
       
   
       console.log("Sending request to generate PDF...");
